@@ -1,3 +1,5 @@
+var isYouYura = confirm('Are you Yura?');
+
 function random(min, max) 
 {
   return Math.floor(Math.random() * (max - min + 1)) + min; 
@@ -22,6 +24,12 @@ $(function()
 
   $('body').mousemove(function(event)
   {
+    if (isYouYura)
+    {
+      changeColors();
+      $('body, h1').css({'-webkit-transition': 'none', 'transition': 'none', '-ms-transition': 'none', '-o-transition': 'none', '-moz-transition': 'none'});
+    };
+
     $('#flashlight').css(
     {
       top: event.pageY - 100,
