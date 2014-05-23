@@ -12,7 +12,7 @@ var change =
 
   text: function()
   {
-    var phrases = ['upisfree', '༼ ༎ຶ ෴ ༎ຶ༽', 'ヽ(◉◡◔)ﾉ', '┬━┬ノ( º _ ºノ)', '(•_•)'
+    var phrases = ['upisfree', '༼ ༎ຶ ෴ ༎ຶ༽', 'ヽ(◉◡◔)ﾉ', '┬━┬ノ( º _ ºノ)', '(•_•)',
                    '(⌐■_■)', '༼ つ ◕_◕ ༽つ', '༼ つ ◕◡◕ ༽つ', '¯\\_(ツ)_/¯'];
 
     $('h1').text(phrases[random(0, phrases.lenght - 1)]);
