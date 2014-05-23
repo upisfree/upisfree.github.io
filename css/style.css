@@ -53,21 +53,3 @@ body, h1
   -o-transition: all 1s ease;
   transition: all 1s ease;
 }
-
-/* Flashlight */
-
-#flashlight
-{
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  border-radius: 100%;
-
-  background: rgba(255, 255, 255, 1);
-  background: -moz-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 1) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.49) 51%, rgba(255,255,255,0) 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, , color-stop(0%, rgba(255, 255, 255, 1)), color-stop(50%, rgba(255,255,255,0.5)), color-stop(51%, rgba(255,255,255,0.49)), color-stop(100%, rgba(255,255,255,0)));
-  background: -webkit-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 1) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.49) 51%, rgba(255,255,255,0) 100%);
-  background: -o-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 1) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.49) 51%, rgba(255,255,255,0) 100%);
-  background: -ms-radial-gradient(center, ellipse cover, rgba(255, 255, 255, 1) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.49) 51%, rgba(255,255,255,0) 100%);
-  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 1) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.49) 51%, rgba(255,255,255,0) 100%);
-}

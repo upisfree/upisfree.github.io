@@ -1,39 +1,29 @@
-var isYouYura = confirm('Are you Yura?');
-
-function random(min, max) 
+var change =
 {
-  return Math.floor(Math.random() * (max - min + 1)) + min; 
-};
+  colors: function()
+  {
+    var a = random(0, 255),
+        b = random(0, 255),
+        c = random(0, 255);
 
-function changeColors()
-{
-  var a = random(0, 255),
-      b = random(0, 255),
-      c = random(0, 255);
+    $('body').css('background-color', 'rgb(' + a + ', ' + b + ', ' + c + ')');
+    $('h1').css('color', 'rgb(' + (255 - a) + ', ' + (255 - b) + ', ' + (255 - c) + ')');
+  },
 
-  $('body').css('background-color', 'rgb(' + a + ', ' + b + ', ' + c + ')');
-  $('h1').css('color', 'rgb(' + (255 - a) + ', ' + (255 - b) + ', ' + (255 - c) + ')');
+  text: function()
+  {
+    var phrases = ['upisfree', '༼ ༎ຶ ෴ ༎ຶ༽', 'ヽ(◉◡◔)ﾉ', '┬━┬ノ( º _ ºノ)', '(•_•)'
+                   '(⌐■_■)', '༼ つ ◕_◕ ༽つ', '༼ つ ◕◡◕ ༽つ', '¯\\_(ツ)_/¯'];
+
+    $('h1').text(phrases[random(0, phrases.lenght - 1)]);
+  }
 };
 
 $(function()
 {
   setInterval(function()
   {
-    changeColors();
+    change.text();
+    change.colors();
   }, 2500);
-
-  $('body').mousemove(function(event)
-  {
-    if (isYouYura)
-    {
-      changeColors();
-      $('body, h1').css({'-webkit-transition': 'none', 'transition': 'none', '-ms-transition': 'none', '-o-transition': 'none', '-moz-transition': 'none'});
-    };
-
-    $('#flashlight').css(
-    {
-      top: event.pageY - 100,
-      left: event.pageX - 100
-    });
-  });
 });
