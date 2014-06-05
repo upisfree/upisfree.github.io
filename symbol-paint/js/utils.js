@@ -8,7 +8,7 @@ function getRandomColor()
   return 'rgb(' + random(0, 255) + ', ' + random(0, 255) + ', ' + random(0, 255) + ')';
 };
 
-function getRandomSymbol()
+function generateRandomSymbols()
 {
   if (!window.symbols) // эффективное управление памятью, чо
   {
@@ -18,7 +18,29 @@ function getRandomSymbol()
     {
       symbols.push(String.fromCharCode(i));
     }    
-  };
+  }
+  else
+    return;
+};
+
+function getRandomSymbol()
+{
+  generateRandomSymbols();
 
   return symbols[random(0, symbols.length - 1)];
+};
+
+Array.prototype.shuffle = function(b)
+{
+  var i = this.length, j, t;
+
+  while (i) 
+  {
+    j = Math.floor((i--) * Math.random());
+    t = (b && typeof this[i].shuffle !== 'undefined') ? this[i].shuffle() : this[i];
+    this[i] = this[j];
+    this[j] = t;
+  }
+
+  return this;
 };

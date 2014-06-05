@@ -1,13 +1,20 @@
-function appendSymbol(x, y)
+function appendSymbol(x, y, ctx, s)
 {
-  var symbol = '<div class="symbol">' + getRandomSymbol() + '</div>';
+  if (!s)
+    s = getRandomSymbol();
 
-  $(symbol).css(
+  ctx.fillStyle = getRandomColor();
+  ctx.font = '24px Times';
+  ctx.fillText(s, x, y);
+};
+
+function setCanvasSize()
+{
+  $('canvas').attr(
   {
-    left: x,
-    top: y,
-    color: getRandomColor()
-  }).appendTo('body');
+    width: window.innerWidth,
+    height: window.innerHeight
+  });
 };
 
 $(function()
@@ -15,10 +22,87 @@ $(function()
   var left,
       right;
 
+  var timer,
+      timerFlag;
+
+  var helpFlag;
+
+  setCanvasSize();
+  generateRandomSymbols();
+
+  $(window).resize(setCanvasSize());
+
+  var canvas = $('canvas')[0];
+  var ctx = canvas.getContext('2d');
+
   // Блокируем контекстное меню
-  $('body').on('contextmenu', function(event)
+  $(document).on('contextmenu', function(event)
   {
     event.preventDefault();
+  });
+
+  // Вставка случайных символов в бегущую строку
+  (function()
+  {
+    var a,
+        b = symbols.shuffle();
+
+    b.length = 1000;
+
+    for (var i = 0; i <= b.length - 1; i++)
+    {
+      a = '<span>' + b[i] + '</span>';
+      $(a).css('background', getRandomColor()).appendTo('marquee');
+    };
+  })();
+
+  // Тряска
+  $(document).keypress(function(event)
+  {
+    if (event.which != 104 && event.which != 1088)
+    {
+      if (timerFlag)
+        timerFlag = false;
+      else
+        timerFlag = true;
+
+      if (timerFlag)
+      {
+        timer = setInterval(function()
+        {
+          var x = random(-10, 10),
+              y = random(-10, 10);
+
+          $('canvas').css(
+          {
+            left: x,
+            top: y
+          });
+        }, 1);
+      }
+      else
+      {
+        clearInterval(timer);
+      };
+    }
+    else
+    {
+      var speed = 'fast';
+
+      if (helpFlag)
+        helpFlag = false;
+      else
+        helpFlag = true;
+
+      if (helpFlag)
+      {
+        $('body > div').slideUp(speed);
+      }
+      else
+      {
+        $('body > div').slideDown(speed);
+      }
+    };
   });
 
   // Изменяем флаг, когда клавиша нажата
@@ -50,19 +134,13 @@ $(function()
   });
 
   // Ну, тут мышку типа двигаем
-  $('body').mousemove(function(event)
+  $(document).mousemove(function(event)
   {
     if (left)
-      appendSymbol(event.pageX - 8, event.pageY - 20);
-
-    $('.symbol').mouseenter(function()
-    {
-      if (right)
-        $(this).remove();
-    });
+      appendSymbol(event.pageX - 8, event.pageY, ctx);
   }).click(function(event)
   {
     if (event.which == 2)
-      $('.symbol').remove();
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
   });
 });
