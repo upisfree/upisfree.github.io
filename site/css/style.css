@@ -1,0 +1,65 @@
+@import url('http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic&subset=latin,cyrillic');
+
+/* Разметка, собственно */
+
+body
+{
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+#root
+{
+  position: relative;
+  top: 5%;
+  left: 5%;
+  width: 50%;
+  *margin-bottom: 10%;
+  padding: 1%;
+}
+
+#root h1
+{
+  margin: 0;
+  font-size: 400%;
+  font-weight: bold;
+}
+
+#root h1 span
+{
+  font-size: 60%;
+  color: rgb(180, 180, 180);
+}
+
+
+
+.social
+{
+  display: inline-block;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 2px;
+}
+
+.social:hover
+{
+  background: rgb(235, 235, 235);
+}
+
+.social > .icon
+{
+  margin-left: 0;
+  color: #000;
+  text-decoration: none;
+}
+
+/* Элементы */
+
+a:visited { color: #00f; }
+a:hover { color: #f00; }
+
+#two-smiles, #symbol-paint { display: inline-block; }
+
+#two-smiles   { width: 100px; }
+#symbol-paint { width: 18px; }

@@ -1,0 +1,84 @@
+@font-face {
+  font-family: 'symbols';
+  src: url('../font/symbols.eot?9927142');
+  src: url('../font/symbols.eot?9927142#iefix') format('embedded-opentype'),
+       url('../font/symbols.woff?9927142') format('woff'),
+       url('../font/symbols.ttf?9927142') format('truetype'),
+       url('../font/symbols.svg?9927142#symbols') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'symbols';
+    src: url('../font/symbols.svg?9927142#symbols') format('svg');
+  }
+}
+
+ 
+.icon:before {
+  font-family: "symbols";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+     
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  font-size: 120%;
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.icon.wikipedia:before { content: '\e800'; } /* '' */
+.icon.vk:before { content: '\e801'; } /* '' */
+.icon.skype:before { content: '\e802'; } /* '' */
+.icon.twitter:before { content: '\e803'; } /* '' */
+.icon.email:before { content: '\e804'; } /* '' */
+.icon.steam:before { content: '\e805'; } /* '' */
+.icon.github-circled:before { content: '\e806'; } /* '' */
+.icon.aperture:before { content: '\e807'; } /* '' */
+.icon.aperture-alt:before { content: '\e808'; } /* '' */
+.icon.pencil:before { content: '\e809'; } /* '' */
+.icon.star:before { content: '\e80a'; } /* '' */
+.icon.heart-broken:before { content: '\e80b'; } /* '' */
+.icon.heart:before { content: '\e80c'; } /* '' */
+.icon.search:before { content: '\e80d'; } /* '' */
+.icon.ok:before { content: '\e80e'; } /* '' */
+.icon.cancel:before { content: '\e80f'; } /* '' */
+.icon.star-empty:before { content: '\e810'; } /* '' */
+.icon.star-half:before { content: '\e811'; } /* '' */
+.icon.star-half_empty:before { content: '\e812'; } /* '' */
+.icon.attach:before { content: '\e813'; } /* '' */
+.icon.flash:before { content: '\e814'; } /* '' */
+.icon.cloud:before { content: '\e815'; } /* '' */
+.icon.anchor:before { content: '\e816'; } /* '' */
+.icon.down:before { content: '\e817'; } /* '' */
+.icon.left:before { content: '\e818'; } /* '' */
+.icon.right:before { content: '\e819'; } /* '' */
+.icon.up:before { content: '\e81a'; } /* '' */
+.icon.location:before { content: '\e81b'; } /* '' */
+.icon.youtube:before { content: '\e81c'; } /* '' */
+.icon.facebook:before { content: '\e81d'; } /* '' */
+.icon.instagram:before { content: '\e81e'; } /* '' */
+.icon.vine:before { content: '\e00A0'; background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACiklEQVRYR+2WbWiOURjHNxmN5CVN1GomiZBSK1sRM1lalNdSFB+mNuWLD9tMjfggX/DBF+WDiLKFpBCL5GVLIVJCKStpXvJuhN+/rruu7u5ne+7zrFZ6rvp1rnOe+7rO/znnus+5CwuG2AqHeP6CvID/bgVGUVPF8Bn6sqmvwVqBGUy2CxbCaOiFi7APPvQnZDAEzGKCTihJmOgWY8vgeyYRAwkYR+BwC/5B+yWWSPFXYKkb/4k/0vW34B8PFXCSwOUWfJV2QyzRdPrP3Fg9/nU4D1oZWTusCRVwhMBGC9ZEM+GPS1aHf8H6PbRl8BvaYLeN36GtDBWwlcBjFvyVthzeumTr8M9Y/6n71834KkDZTVgUKqCCwHsuuAr/tusvwb9m/Xe0U0GvoERJnOwEbAoVMJbAlzDBEuygPeSSTbHfo6JTvVwGrZpWT5ZTESqBqrzGkqm4VsX+zSX6tTb2gFbL/QmqYRKcg2+hK6C4nXDAErynnQYfXUJti973yLpwWuAG/AIdTKqfRBvoHFDQHHjkovVK6dXy1kRnf2zsjU2s4tTbEixgGJH6V/Mtg5Z8RUI27flB0OHl7Qmd2bkIUKzOAp0Jsr8wD/yqaFwX0XOYbM+pdh7CXejIVcBEEuggGm+JztKujSU9TH+7jb2m1QWVsfii2GxqIHp2D06rm1SXjI5n2WLQERzZRpxTmf61H08jQGfBY4iW+AX+XBgD3VBqifs9++Oi0ghQ7Ho47ZJob7U9+g6QqQYWgL4HsrK0ApT0KGxLyK4PD22FCi9rCxEwguza39VuFh1MK0EXTyoLEaAJimAvbIZX0AD3U81sD4cKiObSZaXbz38jpNKRq4BUkyU9nBeQX4F/acJsIXKE4d0AAAAASUVORK5CYII=');}
