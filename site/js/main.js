@@ -1,3 +1,11 @@
+function setGradients(target)
+{
+  $(target).each(function()
+  {
+    $(this).css('background', getGradient(random(0, 360) + 'deg', getRandomColorAlpha(), getRandomColorAlpha()));
+  });
+};
+
 var twoSmiles = ['༼ つ ◕_◕ ༽つ', '༼ つ ◕◡◕ ༽つ'];
 
 var forDevelopers_a = ['хуёвая', 'пиздатая', 'ебанная', 'ёбанная', 'блядивая']; // русский язык настолько могуч, что 
@@ -5,7 +13,21 @@ var forDevelopers_b = ['пизда', 'манда', 'курва', 'хуйня', '
 
 $(function()
 {
-  $('a').each(function() // Парсер внешних ссылок
+  // Градиенты
+  setGradients('.gradient, #gradientCircle');
+
+  setInterval(function()
+  {
+    $('.gradient').each(function()
+    {
+      $(this).animate({opacity: Math.random()}, 2500);
+    });
+
+    setGradients('#gradientCircle');
+  }, 5000);
+
+  // Парсер внешних ссылок
+  $('a').each(function()
   {
     var link = $(this).attr('href');
 
