@@ -22,8 +22,6 @@ $(function()
     {
       $(this).animate({opacity: Math.random()}, 2500);
     });
-
-    setGradients('#gradientCircle');
   }, 5000);
 
   // Парсер внешних ссылок
@@ -35,10 +33,42 @@ $(function()
       $(this).attr('target', '_blank');;
   });
 
+  // Наведение на «двоичный» абзац
+  var binaryText    = "";
+  var binaryOldText = "";
+
+  $('#binary').mouseenter(function()
+  {
+    binaryOldText = $('#binary').text();
+
+    for (var i in binaryOldText)
+    {
+      binaryText += (Math.random() > 0.5) ? 0 : 1;
+    };
+
+    $('#binary').text(binaryText);
+  });
+
+  $('#binary').mouseleave(function()
+  {
+    $('#binary').text(binaryOldText);
+    binaryText = "";
+  });
+
   setInterval(function()
   {
     $('#two-smiles').text(twoSmiles[random(0, twoSmiles.length - 1)]);
     $('#symbol-paint').text(String.fromCharCode(random(0, 10000))).css('color', getRandomColor());
+    setGradients('#gradientCircle');
+    
+    var binary = "";
+
+    for (var i = 0; i <= 1; i++)
+    {
+      binary += (Math.random() > 0.5) ? 0 : 1;
+    };
+
+    $('#binary-bot').text(binary);
 
     console.log(forDevelopers_a[random(0, forDevelopers_a.length - 1)] + ' ' + forDevelopers_b[random(0, forDevelopers_b.length - 1)]);
   }, 100);

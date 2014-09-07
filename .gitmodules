@@ -10,3 +10,6 @@
 [submodule "two-smiles"]
 	path = two-smiles
 	url = https://github.com/upisfree/two-smiles.git
+[submodule "binary-bot"]
+	path = binary-bot
+	url = https://github.com/upisfree/binary-bot.git
