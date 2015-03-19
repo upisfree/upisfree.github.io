@@ -51,6 +51,21 @@ function generateCircles(i)
   container.addChild(g);
 };
 
+// Sound
+function soundOn()
+{
+  document.getElementsByTagName('audio')[0].play();
+  document.getElementById('soundOffControl').style.display = 'block';
+  document.getElementById('soundOnControl').style.display = 'none';
+};
+
+function soundOff()
+{
+  document.getElementsByTagName('audio')[0].pause();
+  document.getElementById('soundOffControl').style.display = 'none';
+  document.getElementById('soundOnControl').style.display = 'block';
+};
+
 // Start
 resize();
 window.onresize = resize;
@@ -78,7 +93,6 @@ container.filters = [pixelFilter, grayFilter];
 stage.addChild(container);
 
 // Animation
-
 requestAnimFrame(animate);
 
 function animate()
