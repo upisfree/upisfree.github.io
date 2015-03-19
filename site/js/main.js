@@ -104,6 +104,9 @@ function animate()
 {
   renderer.render(stage);
 
+  if (circles <= 0 || circles >= 75)
+    circles = 35;
+
   if (Math.random() > 0.5)
     circles += Math.randomInt(-1, 1);
 
