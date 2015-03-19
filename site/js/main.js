@@ -9,6 +9,11 @@ function resize()
 {
   window.w = window.innerWidth;
   window.h = window.innerHeight;
+
+  var about = document.getElementById('about').style;
+  console.log(about);
+  about.left = (window.w - 250) / 2; // 250? Move it.
+  about.top = (window.h - 150) / 2; // 150? Move it.
 };
 
 function getRandomColor(min, max)

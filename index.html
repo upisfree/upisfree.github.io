@@ -25,12 +25,40 @@ canvas
   z-index: 1;
 }
 
+#about
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250px;
+  color: #fff;
+  text-align: center;
+  z-index: 10;
+}
+
+#about h3
+{
+  margin-top: -10px;
+}
+
+#about a
+{
+  margin: 10px;
+  color: grey;
+}
+
+#about a:hover
+{
+  margin: 9px;
+  color: lightgrey;
+}
+
 #controlls
 {
   position: absolute;
   bottom: 1%;
   right: 1%;
-  z-index: 10;
+  z-index: 5;
 }
 
 .soundControl:active
@@ -45,6 +73,15 @@ canvas
   </head>
 
   <body>
+    <div id="about">
+      <h1>upisfree</h1>
+      <h3>Senya Pugach</h3>
+
+      <a href="https://twitter.com/upisfree" target="_blank">TWITTER</a>
+      <a href="https://vk.com/upisfree" target="_blank">VK</a>
+      <a href="mailto:upisfree@outlook.com" target="_blank">EMAIL</a>
+    </div>
+
     <audio src="./site/assets/heart.mp3" autoplay loop preload></audio>
     
     <div id="controlls">
