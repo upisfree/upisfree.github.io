@@ -6,6 +6,8 @@
     <meta http-equiv="Pragma" content="cache">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
+    
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
     <title>upisfree</title>
 
@@ -14,7 +16,7 @@ body
 {
   margin: 0;
   padding: 0;
-  *font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   overflow: hidden;
 }
 
@@ -71,7 +73,6 @@ canvas
   </head>
 
   <body>
-  <!--
     <div id="about">
       <h1>upisfree</h1>
       <h3>Senya Pugach</h3>
@@ -80,7 +81,14 @@ canvas
       <a href="https://vk.com/upisfree" target="_blank">VK</a>
       <a href="mailto:upisfree@outlook.com" target="_blank">EMAIL</a>
     </div>
-  -->
+
+    <audio src="./site/assets/heart.mp3" autoplay loop preload></audio>
+    
+    <div id="controlls">
+      <img class="soundControl" id="soundOffControl" src="./site/assets/sound-on.png" onclick="soundOff()">
+      <img class="soundControl" id="soundOnControl" src="./site/assets/sound-off.png" onclick="soundOn()" style="display: none;">
+    </div>
+
     <script src="./site/js/lib/pixi.min.js"></script>
     <script src="./site/js/main.js"></script>
   </body>
