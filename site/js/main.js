@@ -24,6 +24,30 @@ function rgbToHex(c)
   return '0x' + c.r.toString(16) + c.g.toString(16) + c.b.toString(16);
 };
 
+function generateNoise()
+{
+  if (container.children.length != 0)
+    container.removeChildAt(0);
+
+  var gl = new PIXI.Graphics();
+
+  var s = 10;
+
+  for (var x = 0; x <= window.w / s; x++)
+  {
+    for (var y = 0; y <= window.h / s; y++)
+    {
+      if (Math.random() > 0.5)
+      {
+        gl.beginFill(0x000000, 1);
+        gl.drawRect(x * s, y * s, s, s);
+      }
+    };
+  };
+
+  container.addChild(gl);
+};
+
 // Start
 resize();
 window.onresize = resize;
@@ -31,13 +55,12 @@ window.onresize = resize;
 document.body.addEventListener('touchmove', function(e) { e.preventDefault(); }, false);
 
 // Stage
-var stage = new PIXI.Stage(0x191919, true);
-var renderer = PIXI.autoDetectRenderer(window.w, window.h);
+var stage = new PIXI.Stage(0x383838, true);
+var renderer = new PIXI.WebGLRenderer(window.w, window.h);
 document.body.appendChild(renderer.view);
 
 // Container
 var container = new PIXI.DisplayObjectContainer();
-container.filters = [pixelFilter, grayFilter];
 stage.addChild(container);
 
 // Animation
@@ -46,6 +69,8 @@ requestAnimFrame(animate);
 function animate()
 {
   renderer.render(stage);
+  
+  generateNoise();
 
   requestAnimFrame(animate);
 };
