@@ -18,26 +18,41 @@ function rgbToHex(r, g, b)
 
 function generateNoise()
 {
-  if (container.children.length != 0)
-    container.removeChildAt(0);
+  if (noiseContainer.children.length != 0)
+    noiseContainer.removeChildAt(0);
 
   var gl = new PIXI.Graphics();
 
-  var s = 10;
+  var s = 12.5;
 
-  for (var x = 0; x <= window.w / s; x++)
+  for (var x = 0, w = window.w / s; x < w; x++)
   {
-    for (var y = 0; y <= window.h / s; y++)
+    for (var y = 0, h = window.h / s; y < h; y++)
     {
-      if (Math.random() > 0.5)
+      var r = Math.random();
+
+      if (r < 0.25)
       {
         gl.beginFill(0x000000, 1);
-        gl.drawRect(x * s, y * s, s, s);
       }
-    };
-  };
+      else if (r > 0.25 && r < 0.5)
+      {
+        gl.beginFill(0x696969, 1);
+      }
+      else if (r > 0.5 && r < 0.75)
+      {
+        gl.beginFill(0xd3d3d3, 1);
+      }
+      else if (r > 0.75)
+      {
+        gl.beginFill(0xffffff, 1);
+      }
 
-  container.addChild(gl);
+      gl.drawRect(x * s, y * s, s, s);
+    }
+  }
+
+  noiseContainer.addChild(gl);
 };
 
 var coordinates = 
@@ -60,60 +75,47 @@ function getMapURL()
   return 'http://api.tiles.mapbox.com/v4/upisfree.lnoaln7j/' + c[0] + ',' + c[1] + ',' + c[2] + '/640x480@2x.png?access_token=pk.eyJ1IjoidXBpc2ZyZWUiLCJhIjoiendQb1RXOCJ9.kWzWlTV5W5XyfNwCRktbbA&nocash=' + Math.random();
 }
 
-var color = [random(0, 255), random(0, 255), random(0, 255)];
-
 function animate()
 {
   renderer.render(stage);
 
-  time += 0.01;
+  count += 0.01;
 
-  stage.setBackgroundColor(rgbToHex(color[0], color[1], color[2]));
+  stage.setBackgroundColor(rgbToHex(bgColor[0], bgColor[1], bgColor[2]));
 
-  map.rotation = time * 0.25;
-  map.scale.x = Math.sin(time) + 4;
-  map.scale.y = Math.sin(time) + 4;
+  map.rotation = count * 0.25;
+  map.scale.x = Math.sin(count) + 4;
+  map.scale.y = Math.sin(count) + 4;
 
-  colorMatrix[1] = Math.sin(time) * 3;
-  colorMatrix[2] = Math.cos(time);
-  colorMatrix[3] = Math.cos(time) * 1.5;
-  colorMatrix[4] = Math.sin(time / 3) * 2;
-  colorMatrix[5] = Math.sin(time / 2);
-  colorMatrix[6] = Math.sin(time / 4);
+  colorMatrix[1] = Math.sin(count) * 3;
+  colorMatrix[2] = Math.cos(count);
+  colorMatrix[3] = Math.cos(count) * 1.5;
+  colorMatrix[4] = Math.sin(count / 3) * 2;
+  colorMatrix[5] = Math.sin(count / 2);
+  colorMatrix[6] = Math.sin(count / 4);
   cmFilter.matrix = colorMatrix;
 
-  grayFilter.gray = Math.sin(time);
+  grayFilter.gray = Math.sin(count);
 
-  twistFilter.angle = Math.sin(time);
-  twistFilter.radius = Math.sin(time);
-  twistFilter.offset.x = Math.cos(time);
-  twistFilter.offset.y = Math.sin(time);
+  twistFilter.angle = Math.sin(count);
+  twistFilter.radius = Math.sin(count);
+  twistFilter.offset.x = Math.cos(count);
+  twistFilter.offset.y = Math.sin(count);
 
-  /*
-  if (Date.now() - time > 10000)
+  if (noiseContainer.visible)
   {
-    document.getElementById('noise').style.display = 'block';
-    document.getElementById('map').style.display   = 'none';
-
     generateNoise();
-    setRandomCenter();
+/*
+    noiseContainer.getChildAt(0).rotation = count * 0.5;
+    noiseContainer.getChildAt(0).scale.x = Math.sin(count) + 2;
+    noiseContainer.getChildAt(0).scale.y = Math.sin(count) + 2;
+*/  }
 
-    setTimeout(function()
-    {
-      document.getElementById('noise').style.display = 'none';
-      document.getElementById('map').style.display   = 'block';
-
-      time = Date.now();
-    }, 2500);
-  }
-  else
-    mapMoving();
-*/
   requestAnimFrame(animate);
 };
 
 // Start
-var time = 0;
+var count = 0;
 
 resize();
 window.onresize = resize;
@@ -124,6 +126,8 @@ document.body.addEventListener('touchmove', function(e) { e.preventDefault(); },
 var stage = new PIXI.Stage(0x383838, true);
 var renderer = new PIXI.WebGLRenderer(window.w, window.h);
 document.body.appendChild(renderer.view);
+
+var bgColor = [random(0, 255), random(0, 255), random(0, 255)];
 
 // Filters
 // Pixel
@@ -149,28 +153,44 @@ var twistFilter = new PIXI.TwistFilter();
 
 // Container
 var container = new PIXI.DisplayObjectContainer();
+var noiseContainer = new PIXI.DisplayObjectContainer();
 
+noiseContainer.filters = [pixelFilter, rgbFilter, cmFilter, grayFilter, twistFilter];
 container.filters = [pixelFilter, rgbFilter, cmFilter, grayFilter, twistFilter];
 
-stage.addChild(container);
-
 //// Map
-var url = getMapURL();
-var map = null;
+var map = new PIXI.Sprite(PIXI.Texture.fromImage(getMapURL()));
+map.anchor.x = 0.5;
+map.anchor.y = 0.5;
+map.position.x = window.w / 2;
+map.position.y = window.h / 2;
 
-var loader = new PIXI.AssetLoader([url]);
+container.addChild(map);
 
+var loader = new PIXI.AssetLoader();
 loader.onComplete = function()
 {
-  map = new PIXI.Sprite.fromImage(url);
-  map.anchor.x = 0.5;
-  map.anchor.y = 0.5;
-  map.position.x = window.w / 2;
-  map.position.y = window.h / 2;
-
-  container.addChild(map);
-
-  requestAnimFrame(animate);
+  map.setTexture(PIXI.Texture.fromImage(loader.assetURLs[0]));
 };
 
-loader.load();
+stage.addChild(container);
+stage.addChild(noiseContainer);
+
+// Start
+var time = Date.now();
+
+setInterval(function()
+{
+  if (noiseContainer.visible)
+  {
+    noiseContainer.visible = false;
+  }
+  else
+  {
+    noiseContainer.visible = true;
+    loader.assetURLs = [getMapURL()];
+    loader.load();
+  }
+}, 5000);
+
+requestAnimFrame(animate);
