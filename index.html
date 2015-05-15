@@ -13,61 +13,55 @@ body
 {
   margin: 0;
   padding: 0;
-  *font-family: 'Montserrat', sans-serif;
+  font-family: 'Terminal', sans-serif;
   overflow: hidden;
 }
 
-#map
+#links
 {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 7;
-}
-
-#about
-{
-  position: absolute;
-  top: 0;
+  top: 70%;
   left: 0;
-  width: 250px;
-  color: #fff;
+  width: 100%;
+  font-size: 75px;
   text-align: center;
   z-index: 10;
 }
 
-#about h3
-{
-  margin-top: -10px;
-}
-
-#about a
+#links a
 {
   margin: 10px;
-  color: grey;
+  padding: 25px;
+  color: #fff;
+  background: #000;
 }
 
-#about a:hover
+#links a:hover
 {
-  margin: 9px;
-  color: lightgrey;
+  color: #000;
+  background: #fff;
+}
+
+#links a:active /* wtf? */
+{
+  -webkit-transform: translateY(50px);
+  -moz-transform: translateY(50px);
+  -ms-transform: translateY(50px);
+  -o-transform: translateY(50px);
+  transform: translateY(50px);
 }
     </style>
   </head>
 
   <body>
-  <!--
-    <div id="about">
-      <h1>upisfree</h1>
-      <h3>Senya Pugach</h3>
-
-      <a href="https://twitter.com/upisfree" target="_blank">TWITTER</a>
+    <div id="links">
+      <a href="https://github.com/upisfree" target="_blank">GITHUB</a>
       <a href="https://vk.com/upisfree" target="_blank">VK</a>
       <a href="mailto:upisfree@outlook.com" target="_blank">EMAIL</a>
     </div>
-  -->
 
     <!-- pixi.js -->
+    <script src="./site/js/lib/Font.js"></script>
     <script src="./site/js/lib/pixi.min.js"></script>
     
     <script src="./site/js/main.js"></script>
