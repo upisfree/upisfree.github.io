@@ -22,7 +22,7 @@ var phrases =
   'IS THIS TRUE?', 'YOR\'RE ALONE', 'WHY ARE YOU DRUNK?',
   'I SEE YOU', 'YOU CAN\'T', 'DON\'T TRY',
   'WHERE\'S THE END?', 'OWLS NOT WHAT THEY SEEM', 'LAURA',
-  'I\'LL SEE YOU IN 25 YEARS', 'ALL HAIL THE KING', 'I WAS BORN TO PLAY',
+  'I\'LL SEE YOU IN 25 YEARS', 'ALL HAIL THE KING',
   'ME OR YOU?', 'MAYBE LATER', 'YOU HEAR IT?',
   'WHY ARE YOU MUST DOING THIS?', 'YOU\'RE VERY FUNNY', 'BETTER TOMORROW',
   'NIGHT', 'DAY', 'SUN', 'MOON', 'STAR', 'SPACE',
@@ -215,6 +215,8 @@ setInterval(function()
 
   if (ticks % 2)
     title.setText(phrases[random(0, phrases.length - 1)]);
+  else if (ticks % 4)
+    title.setText(phrases[1]);
   else
     title.setText(phrases[0]);
 
