@@ -11,13 +11,29 @@ function resize()
   window.h = window.innerHeight;
 };
 
-function rgbToHex(r, g, b, isSharp)
+function rgbToHex(r, g, b)
 {
-  if (isSharp)
-    return '#' + r.toString(16) + g.toString(16) + b.toString(16);
-
   return '0x' + r.toString(16) + g.toString(16) + b.toString(16);
 };
+
+var phrases =
+[
+  'UPISFREE', 'SENYA PUGACH', 'ARE YOU ALIVE?',
+  'IS THIS TRUE?', 'YOR\'RE ALONE', 'WHY ARE YOU DRUNK?',
+  'I SEE YOU', 'YOU CAN\'T', 'DON\'T TRY',
+  'WHERE\'S THE END?', 'OWLS NOT WHAT THEY SEEM', 'LAURA',
+  'I\'LL SEE YOU IN 25 YEARS', 'ALL HAIL THE KING', 'I WAS BORN TO PLAY',
+  'ME OR YOU?', 'MAYBE LATER', 'YOU HEAR IT?',
+  'WHY ARE YOU MUST DOING THIS?', 'YOU\'RE VERY FUNNY', 'BETTER TOMORROW',
+  'NIGHT', 'DAY', 'SUN', 'MOON', 'STAR', 'SPACE',
+  'WE TRY TO POISON YOU', 'WHAT HAPPENS AFTER DEATH?', 'WHY ARE YOU HERE?',
+  'THE END', 'NOW', 'WOW', 'YES', 'NO', 'LAURA LAURA LAURA',
+  'I\'LL SEE YOU UNDER THE WATER', 'SHINE ON YOUR CRAZY DIAMOND',
+  'CHILD IN TIME', 'STAIRWAY TO HEAVEN', 'POOR TOM', 'UNIVERSE',
+  'TIME IS OVER', 'DO IT NOW', 'DON\'T', 'SERIOUSLY?',
+  'MAYBE YES', 'MAYBE NOT', 'IT\'S LOCKED',
+  'TIME TO DIE', 'FAR FAR AWAY', 'LUCKY BOY', 'THERE\'S NO SOUL'
+];
 
 var coordinates = 
 [
@@ -139,7 +155,7 @@ var title;
 var font = new Font(); 
 font.onload = function() // да, надпись сделана на pixi, а ссылки на html. так проще, потому что зачем мне париться с ссылками, если эффекты нужны только для заголовка?
 {
-  title = new PIXI.Text('UPISFREE', { font: 'bold 175px Terminal', fill: '#fff', stroke: '#000', strokeThickness: 20});
+  title = new PIXI.Text(phrases[0], { font: 'bold 175px Terminal', fill: '#fff', stroke: '#000', strokeThickness: 20});
   title.position.x = (window.w - title.width) / 2;
   title.position.y = (window.h - title.height) / 2;
   
@@ -166,16 +182,18 @@ loader.onComplete = function()
 stage.addChild(container);
 
 // Start
-var time = Date.now();
+var ticks = 0;
 
 setInterval(function()
 {
   stage.setBackgroundColor(rgbToHex(random(0, 255), random(0, 255), random(0, 255)));
 
-  if (title.text == 'UPISFREE')
-    title.setText('SENYA PUGACH');
+  ticks += 1;
+
+  if (ticks % 2)
+    title.setText(phrases[random(0, phrases.length - 1)]);
   else
-    title.setText('UPISFREE');
+    title.setText(phrases[0]);
 
   title.position.x = (window.w - title.width) / 2;
 
