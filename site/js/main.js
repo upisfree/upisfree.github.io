@@ -66,12 +66,12 @@ function animate()
   map.scale.y = Math.sin(count) + 4;
 
   // Map filters
-  colorMatrix[1] = Math.sin(count) * 3;
-  colorMatrix[2] = Math.cos(count);
-  colorMatrix[3] = Math.cos(count) * 1.5;
-  colorMatrix[4] = Math.sin(count / 3) * 2;
-  colorMatrix[5] = Math.sin(count / 2);
-  colorMatrix[6] = Math.sin(count / 4);
+  colorMatrix[1] = Math.sin(count) * 3 / 2;
+  colorMatrix[2] = Math.cos(count) / 2;
+  colorMatrix[3] = Math.cos(count) * 1.5 / 2;
+  colorMatrix[4] = Math.sin(count / 3) * 2 / 2;
+  colorMatrix[5] = Math.sin(count / 2) / 2;
+  colorMatrix[6] = Math.sin(count / 4) / 2;
   cmFilter.matrix = colorMatrix;
 
   grayFilter.gray = Math.sin(count);
@@ -180,6 +180,29 @@ loader.onComplete = function()
 };
 
 stage.addChild(container);
+
+// Sound
+var audio = document.getElementsByTagName('audio')[0];
+audio.volume = 0.5;
+
+window.onclick = function(e)
+{
+  if (audio.paused)
+    audio.play();
+  else
+    audio.pause();
+};
+
+window.onmousewheel = function(e)
+{
+  console.log(audio.volume);
+
+  if (audio.volume >= 0 && audio.volume <= 1) // wtf?
+    if (e.wheelDelta > 0) 
+      audio.volume = (audio.volume * 10 + 0.1 * 10) / 10; // https://learn.javascript.ru/number#неточные-вычисления
+    else
+      audio.volume = (audio.volume * 10 - 0.1 * 10) / 10;
+};
 
 // Start
 var ticks = 0;
