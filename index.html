@@ -1,8 +1,18 @@
-<html>
+<html prefix="og: http://ogp.me/ns#">
   <head>
     <meta charset="UTF-8">
+    
+    <meta name="title" content="upisfree | Senya Pugach">
+    <meta name="description" content="upisfree's site">
     <meta name="author" content="upisfree">
     <meta name="copyright" content="upisfree">
+
+    <!-- OpenGraph -->
+    <meta name="og:title" content="upisfree">
+    <meta name="og:type" content="website">
+    <meta name="og:image" content="http://upisfree.github.io/site/assets/og.png">
+    <meta name="og:url" content="http://upisfree.github.io">
+
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
 
@@ -30,6 +40,8 @@ body
 
 #links a
 {
+  display: inline-block;
+  position: relative;
   margin: 10px;
   padding: 25px;
   color: #fff;
@@ -42,13 +54,10 @@ body
   background: #fff;
 }
 
-#links a:active /* wtf? */
+#links a:active
 {
-  -webkit-transform: translateY(50px);
-  -moz-transform: translateY(50px);
-  -ms-transform: translateY(50px);
-  -o-transform: translateY(50px);
-  transform: translateY(50px);
+  left: 5px;
+  top: 15px;
 }
     </style>
   </head>
@@ -60,7 +69,7 @@ body
       <a href="mailto:upisfree@outlook.com" target="_blank">EMAIL</a>
     </div>
 
-    <audio autoplay loop src="./site/assets/love.mp3"></audio>
+    <audio autoplay loop src="./site/assets/music.mp3"></audio>
 
     <!-- Js -->
     <script src="./site/js/lib/Font.js"></script>
