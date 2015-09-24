@@ -2,16 +2,16 @@
   <head>
     <meta charset="UTF-8">
     
-    <meta name="title" content="upisfree's thrill tv">
-    <meta name="description" content="upisfree's thrill tv">
+    <meta name="title" content="UP T V">
+    <meta name="description" content="UP T V">
     <meta name="author" content="upisfree">
     <meta name="copyright" content="upisfree">
 
     <!-- OpenGraph -->
-    <meta property="og:title" content="upisfree's thrill tv">
+    <meta property="og:title" content="UP T V">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="upisfree's thrill tv">
-    <meta property="og:image" content="http://upisfree.github.io/site/assets/og.png">
+    <meta property="og:site_name" content="UP T V">
+    <meta property="og:image" content="http://upisfree.github.io/site/assets/noise/1.gif">
     <meta property="og:image:width" content="1920">
     <meta property="og:image:height" content="1080">
     <meta property="og:url" content="http://upisfree.github.io">
@@ -25,16 +25,27 @@
     
     <meta name="viewport" content="width=device-width, user-scalable=no">
 
-    <title>upisfree's thrill tv</title>
-
-    <link href="<link href='https://fonts.googleapis.com/css?family=Arimo:400,700,400italic,700italic' rel='stylesheet' type='text/css'>" rel="stylesheet" type="text/css">
+    <title>UP T V</title>
 
     <style>
+/* fonts */
+@font-face
+{
+  font-family: 'GothamProBlack';
+  src: url('./site/assets/fonts/GothamProBlack.eot');
+  src: url('./site/assets/fonts/GothamProBlack.eot?#iefix')format('embedded-opentype'),
+  url('./site/assets/fonts/GothamProBlack.woff') format('woff'),
+  url('./site/assets/fonts/GothamProBlack.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* start */
 body
 {
   margin: 0;
   padding: 0;
-  font-family: 'Arimo', Helvetica, Arial, sans-serif;
+  font-family: 'GothamProBlack', Helvetica, Arial, sans-serif;
   overflow: hidden;
 }
 
@@ -72,9 +83,31 @@ body
 {
   position: absolute;
   display: block;
-  left: 20px;
-  bottom: 0;
+  left: 40px;
+  bottom: -20px;
+  padding: 14px;
+  font-size: 72px;
+  line-height: 0.9;
+  color: #fff;
+  border: 14px solid #fff;
   z-index: 20;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#logo:hover
+{
+  cursor: pointer;
+  -webkit-transform: skewX(-5deg);
+  -moz-transform: skewX(-5deg);
+  -ms-transform: skewX(-5deg);
+  -o-transform: skewX(-5deg);
+  transform: skewX(-5deg);
 }
     </style>
   </head>
@@ -87,7 +120,7 @@ body
 
     <div id="cover"></div> <!-- no hover and clicks on video -->
 
-    <img id="logo" src="./site/assets/logo.png">
+    <h1 id="logo" onclick="showNextVideo();">UP<br>T V</h1>
 
     <script src="./site/js/main.js"></script>
   </body>

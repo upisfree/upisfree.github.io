@@ -141,21 +141,7 @@ function onPlayerStateChange(event)
 {
   if (event.data == 0) // is video end?
   {
-    viewed += 1;
-
-    if (viewed >= videos.length - 1) // real infinity, yes?
-    {
-      videos = shuffle(videos);
-      viewed = 0;
-    };
-
-    noiseOn();
-
-    setTimeout(function()
-    {
-      noiseOff();
-      event.target.loadVideoById(videos[viewed].snippet.resourceId.videoId);
-    }, 1000);
+    showNextVideo();
   }
 };
 
@@ -167,6 +153,27 @@ function onPlayerError(event)
 function onPlayerPlaybackQualityChange(event)
 {
   // animation
+};
+
+// not events
+function showNextVideo()
+{
+  viewed += 1;
+
+  if (viewed >= videos.length - 1) // real infinity, yes?
+  {
+    videos = shuffle(videos);
+    viewed = 0;
+  };
+
+  player.stopVideo();
+  noiseOn();
+
+  setTimeout(function()
+  {
+    noiseOff();
+    player.loadVideoById(videos[viewed].snippet.resourceId.videoId);
+  }, 1000);
 };
 
 // start
