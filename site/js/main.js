@@ -40,6 +40,12 @@ function noiseOn()
   img.src = './site/assets/noise/' + random(1, 9) + '.gif'; // lazy
   
   var audio = document.getElementById('audio');
+
+  if (audio.volume == 1) // first play
+  {
+    audio.volume = 0.5;
+  };
+
   audio.play();
 };
 
