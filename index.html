@@ -90,6 +90,7 @@ body
   line-height: 0.9;
   color: #fff;
   border: 14px solid #fff;
+  cursor: pointer;
   z-index: 20;
 
   -webkit-touch-callout: none;
@@ -100,9 +101,8 @@ body
   user-select: none;
 }
 
-#logo:hover
+#logo:active
 {
-  cursor: pointer;
   -webkit-transform: skewX(-5deg);
   -moz-transform: skewX(-5deg);
   -ms-transform: skewX(-5deg);
@@ -120,7 +120,7 @@ body
 
     <div id="cover"></div> <!-- no hover and clicks on video -->
 
-    <h1 id="logo" onclick="showNextVideo();">UP<br>T V</h1>
+    <h1 id="logo">UP<br>T V</h1>
 
     <script src="./site/js/main.js"></script>
   </body>
