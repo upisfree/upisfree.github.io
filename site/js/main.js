@@ -33,10 +33,9 @@ function rgbToHex(r, g, b)
   return '#' + r.toString(16) + g.toString(16) + b.toString(16);
 };
 
-// https://github.com/liabru/matter-js/blob/master/src/core/Common.js#L118
+// http://stackoverflow.com/questions/5560248/programmatically-lighten-or-darken-a-hex-color
 function shadeColor(color, percent)
 {   
-  // http://stackoverflow.com/questions/5560248/programmatically-lighten-or-darken-a-hex-color
   var colorInteger = parseInt(color.slice(1),16), 
       amount = Math.round(2.55 * percent), 
       R = (colorInteger >> 16) + amount, 
@@ -204,6 +203,11 @@ var logo = document.getElementById('logo');
 
 logo.onclick = function()
 {
+  // TODO: function
+  var color = shadeColor(rgbToHex(random(0, 255), random(0, 255), random(0, 255)), -20);
+
+  logo.style.color = logo.style.borderColor = color;
+  
   showNextVideo();
 };
 
