@@ -11,117 +11,24 @@
     <meta property="og:title" content="UP T V">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="UP T V">
-    <meta property="og:image" content="http://upisfree.github.io/site/assets/noise/1.gif">
+<!--     <meta property="og:image" content="http://upisfree.github.io/site/assets/noise/1.gif">
     <meta property="og:image:width" content="1920">
-    <meta property="og:image:height" content="1080">
-    <meta property="og:url" content="http://upisfree.github.io">
+    <meta property="og:image:height" content="1080"> -->
+    <meta property="og:url" content="http://upisfree.github.io/tv">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@upisfree">
     
-    <meta property="vk:app_id" content="4952310">
+    <!-- <meta property="vk:app_id" content="4952310"> -->
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     
     <meta name="viewport" content="width=device-width, user-scalable=no">
 
     <title>UP T V</title>
-
-    <style>
-/* fonts */
-@font-face
-{
-  font-family: 'GothamProBlack';
-  src: url('./site/assets/fonts/GothamProBlack.eot');
-  src: url('./site/assets/fonts/GothamProBlack.eot?#iefix')format('embedded-opentype'),
-  url('./site/assets/fonts/GothamProBlack.woff') format('woff'),
-  url('./site/assets/fonts/GothamProBlack.ttf') format('truetype');
-  font-style: normal;
-  font-weight: normal;
-}
-
-/* start */
-body
-{
-  margin: 0;
-  padding: 0;
-  font-family: 'GothamProBlack', Helvetica, Arial, sans-serif;
-  overflow: hidden;
-}
-
-#video, #cover
-{
-  width: 100%;
-  height: 100%;
-}
-
-#video
-{
-  z-index: 1;
-}
-
-#noise
-{
-  position: absolute;
-  display: none;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 5;
-}
-
-#cover
-{
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 10;
-}
-
-#logo
-{
-  position: absolute;
-  display: block;
-  left: 40px;
-  bottom: -20px;
-  padding: 14px;
-  font-size: 72px;
-  line-height: 0.9;
-  color: #fff;
-  border: 14px solid #fff;
-  cursor: pointer;
-  z-index: 20;
-
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-#logo:active
-{
-  -webkit-transform: skewX(-5deg);
-  -moz-transform: skewX(-5deg);
-  -ms-transform: skewX(-5deg);
-  -o-transform: skewX(-5deg);
-  transform: skewX(-5deg);
-}
-    </style>
   </head>
 
   <body>
-    <div id="video"></div>
-
-    <img id="noise">
-    <audio id="audio" src="./site/assets/noise.mp3" loop></audio>
-
-    <div id="cover"></div> <!-- no hover and clicks on video -->
-
-    <h1 id="logo">UP<br>T V</h1>
-
-    <script src="./site/js/main.js"></script>
+    <script src="./bin/tv.js"></script>
   </body>
 </html>
