@@ -11,15 +11,69 @@ module.exports = config;
 
 
 },{}],2:[function(require,module,exports){
+var utils;
+
+utils = require('./utils.coffee');
+
 window.onYouTubeIframeAPIReady = function() {
-  var player, playlist;
-  playlist = require('./playlist.coffee');
+  var loadList, player;
+  loadList = require('./loadList.coffee');
   player = require('./player.coffee');
-  return playlist.load();
+  loadList();
+  return utils.byId('cover').onclick = function() {
+    return player.playNext();
+  };
 };
 
 
-},{"./player.coffee":3,"./playlist.coffee":4}],3:[function(require,module,exports){
+},{"./loadList.coffee":3,"./player.coffee":4,"./utils.coffee":5}],3:[function(require,module,exports){
+var config, loadList, player, utils;
+
+config = require('./config.coffee');
+
+player = require('./player.coffee');
+
+utils = require('./utils.coffee');
+
+window.videos = [];
+
+window.viewed = 0;
+
+loadList = function(token) {
+  var url, xhr;
+  url = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet' + '&maxResults=50' + '&playlistId=' + config.playlistId + '&key=' + config.key;
+  if (token != null) {
+    url += '&pageToken=' + token;
+  }
+  xhr = new XMLHttpRequest();
+  xhr.open('GET', url, true);
+  xhr.onload = function() {
+    var i, item, len, ref, res;
+    res = JSON.parse(this.responseText);
+    ref = res.items;
+    for (i = 0, len = ref.length; i < len; i++) {
+      item = ref[i];
+      window.videos.push(item.snippet.resourceId.videoId);
+    }
+    if (res.nextPageToken) {
+      if (window.videos.length >= config.fastPlay && window.viewed === 0 && player._loaded) {
+        window.videos = utils.shuffleArray(window.videos);
+        player.playNext();
+      }
+      return loadList(res.nextPageToken);
+    } else {
+      return window.videos = utils.shuffleArray(window.videos);
+    }
+  };
+  return xhr.send();
+};
+
+loadList;
+
+module.exports = loadList;
+
+
+},{"./config.coffee":1,"./player.coffee":4,"./utils.coffee":5}],4:[function(require,module,exports){
 var player;
 
 player = {
@@ -78,59 +132,21 @@ player.playNext = function() {
 module.exports = player;
 
 
-},{}],4:[function(require,module,exports){
-var config, load, player, utils;
-
-config = require('./config.coffee');
-
-player = require('./player.coffee');
-
-utils = require('./utils.coffee');
-
-window.videos = [];
-
-window.viewed = 0;
-
-load = function(token) {
-  var url, xhr;
-  url = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet' + '&maxResults=50' + '&playlistId=' + config.playlistId + '&key=' + config.key;
-  if (token != null) {
-    url += '&pageToken=' + token;
-  }
-  xhr = new XMLHttpRequest();
-  xhr.open('GET', url, true);
-  xhr.onload = function() {
-    var i, item, len, ref, res;
-    res = JSON.parse(this.responseText);
-    ref = res.items;
-    for (i = 0, len = ref.length; i < len; i++) {
-      item = ref[i];
-      window.videos.push(item.snippet.resourceId.videoId);
-    }
-    if (res.nextPageToken) {
-      if (window.videos.length >= config.fastPlay && window.viewed === 0 && player._loaded) {
-        window.videos = utils.shuffleArray(window.videos);
-        player.playNext();
-      }
-      return load(res.nextPageToken);
-    } else {
-      return window.videos = utils.shuffleArray(window.videos);
-    }
-  };
-  return xhr.send();
-};
-
-loadList;
-
-module.exports = loadList;
-
-
-},{"./config.coffee":1,"./player.coffee":3,"./utils.coffee":5}],5:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 var utils;
 
 utils = {
   random: function(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+  },
+  byId: function(a) {
+    return document.getElementById(a);
+  },
+  byClass: function(a) {
+    return document.getElementsByClassName(a);
+  },
+  byTag: function(a) {
+    return document.getElementsByTagName(a);
   },
   shuffleArray: function(array) {
     var currentIndex, randomIndex, temporaryValue;

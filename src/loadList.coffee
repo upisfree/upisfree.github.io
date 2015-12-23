@@ -9,7 +9,7 @@ utils = require './utils.coffee'
 window.videos = []
 window.viewed = 0
 
-load = (token) ->
+loadList = (token) ->
   url = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet' +
                                                             '&maxResults=50' +
                                                             '&playlistId=' + config.playlistId +
@@ -30,7 +30,7 @@ load = (token) ->
 
         player.playNext()
 
-      load res.nextPageToken
+      loadList res.nextPageToken
     else
       window.videos = utils.shuffleArray window.videos
 

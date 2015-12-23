@@ -3,6 +3,14 @@
 utils =
   random: (min, max) ->
     return Math.floor(Math.random() * (max - min + 1)) + min 
+  byId: (a) ->
+    document.getElementById a
+
+  byClass: (a) ->
+    document.getElementsByClassName a
+
+  byTag: (a) ->
+    document.getElementsByTagName a
   shuffleArray: (array) -> # http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
     currentIndex = array.length
 

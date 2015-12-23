@@ -33,16 +33,30 @@ body
   margin: 0;
 }
 
-#video
+#video, #cover
 {
   width: 100%;
   height: 100%;
+}
+
+#video
+{
+  z-index: 1;
+}
+
+#cover
+{
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
 }
     </style>
   </head>
 
   <body>
     <div id="video"></div>
+    <div id="cover"></div> <!-- no hover and clicks on video -->
 
     <script src="http://youtube.com/iframe_api"></script>
     <script src="./bin/tv.js"></script>
