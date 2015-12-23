@@ -3,13 +3,15 @@
 
 player =
   onReady: ->
-    player._loaded = false
-  onStateChange: ->
-    alert 'onStateChange'
+    player._loaded = true
+  onStateChange: (e) ->
+    if e.data is 0
+      player.playNext()
   onError: ->
-    alert 'onError'
+    console.log 'onError'
+    player.playNext()
   onPlaybackQualityChange: ->
-    alert 'onPlaybackQualityChange'
+    console.log 'onPlaybackQualityChange'
   _loaded: false
 
 # time to load YT player
@@ -36,6 +38,10 @@ player.stop = ->
 
 player.loadById = (id) ->
   player.yt.loadVideoById id
+
+player.playNext = ->
+  viewed++
+  player.loadById videos[viewed]
 
 # export
 module.exports = player

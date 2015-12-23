@@ -1,6 +1,8 @@
 window.onYouTubeIframeAPIReady = ->
+  loadList = require './loadList.coffee'
   player = require './player.coffee'
   
-  setTimeout ->
-    player.loadById 'mHUIoikgKT0'
-  , 2500
+  loadList()
+
+  # window.onclick = ->
+  #   player.playNext()
