@@ -1,6 +1,5 @@
 # player.coffee
 # Player init and aliases
-
 player =
   onReady: ->
     player._loaded = true
@@ -33,8 +32,12 @@ player.yt = new YT.Player 'video',
 player.loadById = (id) ->
   player.yt.loadVideoById id
 
-player.stop = ->
-  player.yt.stopVideo()
+# I think, I'll never use it :)
+player.play = ->
+  player.yt.playVideo()
+
+player.pause = ->
+  player.yt.pauseVideo()
 
 player.loadById = (id) ->
   player.yt.loadVideoById id
@@ -42,6 +45,12 @@ player.loadById = (id) ->
 player.playNext = ->
   viewed++
   player.loadById videos[viewed]
+
+player.getVolume = ->
+  player.yt.getVolume()
+
+player.setVolume = (a) ->
+  player.yt.setVolume a
 
 # export
 module.exports = player

@@ -1,6 +1,5 @@
 # loadList.coffee
 # All about loading playlist with videos
-
 config = require './config.coffee'
 player = require './player.coffee'
 utils = require './utils.coffee'
@@ -36,8 +35,6 @@ loadList = (token) ->
       window.videos = utils.shuffleArray window.videos
 
   xhr.send()
-
-loadList
 
 # export
 module.exports = loadList

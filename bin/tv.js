@@ -4,29 +4,63 @@ var config;
 config = {
   playlistId: 'PLy_pe5XDDZ1IyDxrlXRuz-Qz4gBft5cmt',
   key: 'AIzaSyA8Wb8ZkXnc9XfcRDLON3gF0Vn7NkiQEWw',
-  fastPlay: 250
+  fastPlay: 250,
+  volumeStep: 10
 };
 
 module.exports = config;
 
 
 },{}],2:[function(require,module,exports){
-var utils;
+var config, controls, player, utils;
+
+config = require('./config.coffee');
 
 utils = require('./utils.coffee');
 
-window.onYouTubeIframeAPIReady = function() {
-  var loadList, player;
-  loadList = require('./loadList.coffee');
-  player = require('./player.coffee');
-  loadList();
+player = require('./player.coffee');
+
+controls = function() {
+  console.log('controls init');
+  window.onmousewheel = function(e) {
+    var current;
+    current = player.getVolume();
+    if (e.wheelDelta > 0) {
+      return player.setVolume(current + config.volumeStep);
+    } else {
+      return player.setVolume(current - config.volumeStep);
+    }
+  };
+  window.onkeyup = function(e) {
+    console.log('switched');
+    switch (e.keyCode) {
+      case 32:
+      case 13:
+      case 39:
+      case 38:
+        return player.playNext();
+    }
+  };
   return utils.byId('cover').onclick = function() {
     return player.playNext();
   };
 };
 
+module.exports = controls;
 
-},{"./loadList.coffee":3,"./player.coffee":4,"./utils.coffee":5}],3:[function(require,module,exports){
+
+},{"./config.coffee":1,"./player.coffee":5,"./utils.coffee":6}],3:[function(require,module,exports){
+window.onYouTubeIframeAPIReady = function() {
+  var controls, loadList, player;
+  loadList = require('./loadList.coffee');
+  controls = require('./controls.coffee');
+  player = require('./player.coffee');
+  controls();
+  return loadList();
+};
+
+
+},{"./controls.coffee":2,"./loadList.coffee":4,"./player.coffee":5}],4:[function(require,module,exports){
 var config, loadList, player, utils;
 
 config = require('./config.coffee');
@@ -69,12 +103,10 @@ loadList = function(token) {
   return xhr.send();
 };
 
-loadList;
-
 module.exports = loadList;
 
 
-},{"./config.coffee":1,"./player.coffee":4,"./utils.coffee":5}],4:[function(require,module,exports){
+},{"./config.coffee":1,"./player.coffee":5,"./utils.coffee":6}],5:[function(require,module,exports){
 var player;
 
 player = {
@@ -117,8 +149,12 @@ player.loadById = function(id) {
   return player.yt.loadVideoById(id);
 };
 
-player.stop = function() {
-  return player.yt.stopVideo();
+player.play = function() {
+  return player.yt.playVideo();
+};
+
+player.pause = function() {
+  return player.yt.pauseVideo();
 };
 
 player.loadById = function(id) {
@@ -130,10 +166,18 @@ player.playNext = function() {
   return player.loadById(videos[viewed]);
 };
 
+player.getVolume = function() {
+  return player.yt.getVolume();
+};
+
+player.setVolume = function(a) {
+  return player.yt.setVolume(a);
+};
+
 module.exports = player;
 
 
-},{}],5:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 var utils;
 
 utils = {
@@ -166,4 +210,4 @@ utils = {
 module.exports = utils;
 
 
-},{}]},{},[2]);
+},{}]},{},[3]);

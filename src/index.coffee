@@ -1,10 +1,8 @@
-utils = require './utils.coffee'
-
 window.onYouTubeIframeAPIReady = ->
   loadList = require './loadList.coffee'
+  controls = require './controls.coffee'
   player = require './player.coffee'
   
-  loadList()
+  controls()
 
-  utils.byId('cover').onclick = ->
-    player.playNext()
+  loadList()
