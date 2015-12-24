@@ -4,6 +4,7 @@ utils = require './utils.coffee'
 
 player =
   onReady: ->
+    player.yt.setSize window.innerWidth, window.innerHeight
     player._loaded = true
   onStateChange: (e) ->
     if e.data is YT.PlayerState.ENDED
@@ -27,6 +28,10 @@ player.yt = new YT.Player 'video',
     'onStateChange': player.onStateChange,
     'onError': player.onError,
     'onPlaybackQualityChange': player.onPlaybackQualityChange
+
+# resize on resize (sic!)
+window.onresize = ->
+  player.yt.setSize window.innerWidth, window.innerHeight
 
 # aliases
 player.loadById = (id) ->

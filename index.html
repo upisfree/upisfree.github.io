@@ -40,12 +40,6 @@ body
   user-select: none;
 }
 
-#video, #cover
-{
-  width: 100%;
-  height: 100%;
-}
-
 #video
 {
   z-index: 1;
@@ -54,14 +48,32 @@ body
 #cover
 {
   position: absolute;
+  width: 100%;
+  height: 100%;
   left: 0;
   top: 0;
   z-index: 10;
+}
+
+/********************/
+#beta
+{
+  position: absolute;
+  top: 1%;
+  left: 1%;
+  z-index: 5;
+
+  font-size: 14pt;
+  font-weight: 900;
+  font-family: sans-serif;
+  color: #fff;
 }
     </style>
   </head>
 
   <body>
+    <h1 id="beta">BETA</h1>
+
     <div id="video"></div>
     <div id="cover"></div> <!-- no hover and clicks on video -->
 
