@@ -5,7 +5,7 @@ config = require './config.coffee'
 player = require './player.coffee'
 utils = require './utils.coffee'
 
-# store it as global
+# store it as a global
 window.videos = []
 window.viewed = 0
 
@@ -32,6 +32,7 @@ loadList = (token) ->
 
       loadList res.nextPageToken
     else
+      window.videos.splice 0, window.viewed # remove videos that user already saw
       window.videos = utils.shuffleArray window.videos
 
   xhr.send()

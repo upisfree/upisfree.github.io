@@ -62,6 +62,7 @@ loadList = function(token) {
       }
       return loadList(res.nextPageToken);
     } else {
+      window.videos.splice(0, window.viewed);
       return window.videos = utils.shuffleArray(window.videos);
     }
   };
