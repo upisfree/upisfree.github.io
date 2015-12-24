@@ -21,7 +21,6 @@ utils = require('./utils.coffee');
 player = require('./player.coffee');
 
 controls = function() {
-  console.log('controls init');
   window.onmousewheel = function(e) {
     var current;
     current = player.getVolume();
@@ -32,7 +31,6 @@ controls = function() {
     }
   };
   window.onkeyup = function(e) {
-    console.log('switched');
     switch (e.keyCode) {
       case 32:
       case 13:
@@ -74,7 +72,9 @@ window.videos = [];
 window.viewed = 0;
 
 loadList = function(token) {
-  var url, xhr;
+  var url, videos, viewed, xhr;
+  videos = window.videos;
+  viewed = window.viewed;
   url = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet' + '&maxResults=50' + '&playlistId=' + config.playlistId + '&key=' + config.key;
   if (token != null) {
     url += '&pageToken=' + token;
@@ -87,17 +87,17 @@ loadList = function(token) {
     ref = res.items;
     for (i = 0, len = ref.length; i < len; i++) {
       item = ref[i];
-      window.videos.push(item.snippet.resourceId.videoId);
+      videos.push(item.snippet.resourceId.videoId);
     }
     if (res.nextPageToken) {
-      if (window.videos.length >= config.fastPlay && window.viewed === 0 && player._loaded) {
-        window.videos = utils.shuffleArray(window.videos);
+      if (videos.length >= config.fastPlay && viewed === 0 && player._loaded) {
+        videos = utils.shuffleArray(videos);
         player.playNext();
       }
       return loadList(res.nextPageToken);
     } else {
-      window.videos.splice(0, window.viewed);
-      return window.videos = utils.shuffleArray(window.videos);
+      videos.splice(0, viewed);
+      return videos = utils.shuffleArray(videos);
     }
   };
   return xhr.send();
@@ -107,24 +107,23 @@ module.exports = loadList;
 
 
 },{"./config.coffee":1,"./player.coffee":5,"./utils.coffee":6}],5:[function(require,module,exports){
-var player;
+var player, utils;
+
+utils = require('./utils.coffee');
 
 player = {
   onReady: function() {
     return player._loaded = true;
   },
   onStateChange: function(e) {
-    if (e.data === 0) {
+    if (e.data === YT.PlayerState.ENDED) {
       return player.playNext();
     }
   },
   onError: function() {
-    console.log('onError');
     return player.playNext();
   },
-  onPlaybackQualityChange: function() {
-    return console.log('onPlaybackQualityChange');
-  },
+  onPlaybackQualityChange: function() {},
   _loaded: false
 };
 
@@ -162,8 +161,17 @@ player.loadById = function(id) {
 };
 
 player.playNext = function() {
-  viewed++;
-  return player.loadById(videos[viewed]);
+  var videos, viewed;
+  window.viewed++;
+  videos = window.videos;
+  viewed = window.viewed;
+  if (videos[viewed] != null) {
+    return player.loadById(videos[viewed]);
+  } else {
+    videos = utils.shuffleArray(videos);
+    viewed = 0;
+    return player.loadById(videos[viewed]);
+  }
 };
 
 player.getVolume = function() {
@@ -177,7 +185,7 @@ player.setVolume = function(a) {
 module.exports = player;
 
 
-},{}],6:[function(require,module,exports){
+},{"./utils.coffee":6}],6:[function(require,module,exports){
 var utils;
 
 utils = {

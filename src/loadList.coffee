@@ -9,6 +9,9 @@ window.videos = []
 window.viewed = 0
 
 loadList = (token) ->
+  videos = window.videos
+  viewed = window.viewed
+
   url = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet' +
                                                             '&maxResults=50' +
                                                             '&playlistId=' + config.playlistId +
@@ -21,18 +24,18 @@ loadList = (token) ->
   xhr.onload = ->
     res = JSON.parse this.responseText
 
-    window.videos.push item.snippet.resourceId.videoId for item in res.items
+    videos.push item.snippet.resourceId.videoId for item in res.items
 
     if res.nextPageToken # recursively load all videos usin nextPageToken
-      if window.videos.length >= config.fastPlay and window.viewed is 0 and player._loaded # fast play
-        window.videos = utils.shuffleArray window.videos
+      if videos.length >= config.fastPlay and viewed is 0 and player._loaded # fast play
+        videos = utils.shuffleArray videos
 
         player.playNext()
 
       loadList res.nextPageToken
     else
-      window.videos.splice 0, window.viewed # remove videos that user already saw
-      window.videos = utils.shuffleArray window.videos
+      videos.splice 0, viewed # remove videos that user already saw
+      videos = utils.shuffleArray videos
 
   xhr.send()
 

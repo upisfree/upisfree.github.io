@@ -1,16 +1,16 @@
 # player.coffee
 # Player init and aliases
+utils = require './utils.coffee'
+
 player =
   onReady: ->
     player._loaded = true
   onStateChange: (e) ->
-    if e.data is 0
+    if e.data is YT.PlayerState.ENDED
       player.playNext()
   onError: ->
-    console.log 'onError'
     player.playNext()
   onPlaybackQualityChange: ->
-    console.log 'onPlaybackQualityChange'
   _loaded: false
 
 # time to load YT player
@@ -43,8 +43,18 @@ player.loadById = (id) ->
   player.yt.loadVideoById id
 
 player.playNext = ->
-  viewed++
-  player.loadById videos[viewed]
+  window.viewed++
+
+  videos = window.videos
+  viewed = window.viewed
+
+  if videos[viewed]? # end?
+    player.loadById videos[viewed]
+  else
+    videos = utils.shuffleArray videos
+    viewed = 0
+
+    player.loadById videos[viewed]
 
 player.getVolume = ->
   player.yt.getVolume()

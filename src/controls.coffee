@@ -5,8 +5,6 @@ utils = require './utils.coffee'
 player = require './player.coffee'
 
 controls = ->
-  console.log 'controls init'
-
   # mouse wheel
   window.onmousewheel = (e) ->
     current = player.getVolume()
@@ -18,7 +16,6 @@ controls = ->
 
   # keyboard
   window.onkeyup = (e) ->
-    console.log 'switched'
     switch e.keyCode
       when 32, 13, 39, 38 then player.playNext()
 
