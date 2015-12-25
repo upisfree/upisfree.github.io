@@ -14,6 +14,11 @@ controls = ->
     else
       player.setVolume current - config.volumeStep
 
+  window.addEventListener 'touchmove', (e) ->
+    e.preventDefault()
+
+    player.setVolume 100 - (Math.round e.touches[0].clientY * 100 / window.innerHeight)
+
   # keyboard
   window.onkeyup = (e) ->
     switch e.keyCode
