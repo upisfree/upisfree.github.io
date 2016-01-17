@@ -7,8 +7,12 @@ player = require './player.coffee'
 controls = ->
   # desktop
   # click
-  utils.byId('cover').onclick = ->
+  window.onclick = (e) ->
     player.playNext()
+
+  # double click
+  window.ondblclick = (e) ->
+    utils.fullscreenSwitch()
 
   # keyboard
   window.onkeyup = (e) ->
@@ -20,6 +24,11 @@ controls = ->
         player.setVolume current + config.volumeStep
       when 40 # down arrow
         player.setVolume current - config.volumeStep
+      when 27 # escape
+        if utils.fullscreenEnabled()
+          utils.exitFullscreen()
+      when 70
+        utils.fullscreenSwitch()
 
   # mouse wheel
   window.onmousewheel = (e) ->

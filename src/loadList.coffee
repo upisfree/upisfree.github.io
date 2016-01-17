@@ -28,7 +28,8 @@ loadList = (token) ->
     videos.push item.snippet.resourceId.videoId for item in res.items
 
     if res.nextPageToken # recursively load all videos usin nextPageToken
-      if videos.length >= config.fastPlay and viewed is 0 and player._loaded # fast play
+      # fast play
+      if videos.length >= config.fastPlay and viewed is 0 and player._loaded
         videos = utils.shuffleArray videos
 
         controls()
