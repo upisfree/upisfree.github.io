@@ -1,12 +1,10 @@
-var browserify, buffer, gulp, source, uglify;
-
 var gulp = require('gulp'),
     browserify = require('browserify'),
     source = require('vinyl-source-stream'),
     buffer = require('vinyl-buffer'),
     uglify = require('gulp-uglify');
 
-gulp.task('dev', function()
+gulp.task('develop', function()
 {
   return browserify(
   {
@@ -20,7 +18,7 @@ gulp.task('dev', function()
   .pipe(gulp.dest('./bin'));
 });
 
-gulp.task('rel', function() // release
+gulp.task('min', function() // release
 {
   return browserify(
   {
@@ -35,8 +33,8 @@ gulp.task('rel', function() // release
   .pipe(gulp.dest('./bin'));
 });
 
-gulp.task('watch', function() {
-  gulp.watch('./src/**', ['dev']);
+gulp.task('dev', function() {
+  gulp.watch('./src/**', ['develop']);
 });
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['dev']);
