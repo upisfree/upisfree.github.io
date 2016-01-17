@@ -1,6 +1,7 @@
 # loadList.coffee
 # All about loading playlist with videos
 config = require './config.coffee'
+controls = require './controls.coffee'
 player = require './player.coffee'
 utils = require './utils.coffee'
 
@@ -29,6 +30,8 @@ loadList = (token) ->
     if res.nextPageToken # recursively load all videos usin nextPageToken
       if videos.length >= config.fastPlay and viewed is 0 and player._loaded # fast play
         videos = utils.shuffleArray videos
+
+        controls()
 
         player.playNext()
 

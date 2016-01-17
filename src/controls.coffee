@@ -15,7 +15,7 @@ controls = ->
     current = player.getVolume()
 
     switch e.keyCode
-      when 32, 13, 39 then player.playNext() # space, enter, left arrow
+      when 32, 13, 39 then player.playNext() # space, enter, right arrow
       when 38 # up arrow
         player.setVolume current + config.volumeStep
       when 40 # down arrow
@@ -30,7 +30,7 @@ controls = ->
     else
       player.setVolume current - config.volumeStep
 
-  # gamepad
+  # gamepad!
   # window.addEventListener 'gamepadconnected', (e) ->
   #   setInterval ->
   #     gamepad = navigator.getGamepads()[1]
