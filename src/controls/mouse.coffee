@@ -5,13 +5,24 @@ player = require '../player.coffee'
 fullscreen = require './fullscreen.coffee'
 
 mouse = ->
-  # click
+  # single / double click detecting
+  window._clicks = 0
   window.onclick = (e) ->
-    player.playNext()
+    window._clicks++
 
-  # double click
-  window.ondblclick = (e) ->
-    fullscreen.switch()
+    console.log window._clicks
+
+    if window._clicks is 1
+      setTimeout ->
+        if window._clicks is 1
+          player.playNext() # single click
+        else if 2
+          fullscreen.switch() # double click
+        else
+          return
+
+        window._clicks = 0
+      , config.doubleClickInterval
 
   # mouse wheel
   window.onmousewheel = (e) ->
