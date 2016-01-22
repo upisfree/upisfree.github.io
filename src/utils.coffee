@@ -20,34 +20,6 @@ utils =
       array[randomIndex] = temporaryValue
 
     return array
-  fullscreenEnabled: ->
-    return document.fullscreenElement or
-           document.webkitFullscreenElement or
-           document.mozFullScreenElement or
-           document.msFullscreenElement
-  requestFullscreen: ->
-    if document.body.requestFullscreen
-      document.body.requestFullscreen()
-    else if document.body.msRequestFullscreen
-      document.body.msRequestFullscreen()
-    else if document.body.mozRequestFullScreen
-      document.body.mozRequestFullScreen()
-    else if document.body.webkitRequestFullscreen
-      document.body.webkitRequestFullscreen Element.ALLOW_KEYBOARD_INPUT
-  exitFullscreen: ->
-    if document.exitFullscreen
-      document.exitFullscreen()
-    else if document.msExitFullscreen
-      document.msExitFullscreen()
-    else if document.mozCancelFullScreen
-      document.mozCancelFullScreen()
-    else if document.webkitExitFullscreen
-      document.webkitExitFullscreen()
-  fullscreenSwitch: ->
-    if not utils.fullscreenEnabled()
-      utils.requestFullscreen()
-    else
-      utils.exitFullscreen()
 
 # export
 module.exports = utils
