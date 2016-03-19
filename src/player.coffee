@@ -1,6 +1,6 @@
 # player.coffee
 # Player init and aliases
-utils = require './utils.coffee'
+require './utils/array.coffee'
 
 player =
   onReady: ->
@@ -56,7 +56,7 @@ player.playNext = ->
   if videos[viewed]? # end?
     player.loadById videos[viewed]
   else
-    videos = utils.shuffleArray videos
+    videos.shuffle()
     viewed = 0
 
     player.loadById videos[viewed]

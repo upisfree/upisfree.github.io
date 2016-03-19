@@ -2,15 +2,13 @@
 # Mouse things
 config = require '../config.coffee'
 player = require '../player.coffee'
-fullscreen = require './fullscreen.coffee'
+fullscreen = require '../utils/fullscreen.coffee'
 
 mouse = ->
   # single / double click detecting
   window._clicks = 0
   window.onclick = (e) ->
     window._clicks++
-
-    console.log window._clicks
 
     if window._clicks is 1
       setTimeout ->

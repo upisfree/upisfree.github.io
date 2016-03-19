@@ -1,4 +1,4 @@
-# controls/fullscreen.coffee
+# utils/fullscreen.coffee
 # Fullscreen things
 fullscreen =
   isEnabled: ->

@@ -2,7 +2,7 @@
 # Keyboard things
 config = require '../config.coffee'
 player = require '../player.coffee'
-fullscreen = require './fullscreen.coffee'
+fullscreen = require '../utils/fullscreen.coffee'
 
 keyboard = ->
   # need repeats? yes, please

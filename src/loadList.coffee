@@ -1,9 +1,9 @@
 # loadList.coffee
 # All about loading playlist with videos
+require './utils/array.coffee'
 config = require './config.coffee'
 initControls = require './controls/init.coffee'
 player = require './player.coffee'
-utils = require './utils.coffee'
 
 # store it as a global
 window.videos = []
@@ -30,7 +30,7 @@ loadList = (token) ->
     if res.nextPageToken # recursively load all videos usin nextPageToken
       # fast play
       if videos.length >= config.fastPlay and viewed is 0 and player._loaded
-        videos = utils.shuffleArray videos
+        videos.shuffle()
 
         initControls()
 
@@ -39,7 +39,7 @@ loadList = (token) ->
       loadList res.nextPageToken
     else
       videos.splice 0, viewed # remove videos that user already saw
-      videos = utils.shuffleArray videos
+      videos.shuffle()
 
   xhr.send()
 
