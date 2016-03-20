@@ -2,17 +2,21 @@
 # Player init and aliases
 require './utils/array.coffee'
 
-player =
-  onReady: ->
-    player.yt.setSize window.innerWidth, window.innerHeight
-    player._loaded = true
-  onStateChange: (e) ->
-    if e.data is YT.PlayerState.ENDED
-      player.playNext()
-  onError: ->
+player = {}
+player._loaded = false
+
+player.onReady = ->
+  player.yt.setSize window.innerWidth, window.innerHeight
+  player._loaded = true
+
+player.onStateChange = (e) ->
+  if e.data is YT.PlayerState.ENDED
     player.playNext()
-  onPlaybackQualityChange: ->
-  _loaded: false
+
+player.onError = (e) ->
+  player.playNext()
+
+player.onPlaybackQualityChange = ->
 
 # time to load YT player
 player.yt = new YT.Player 'video',
@@ -68,4 +72,14 @@ player.setVolume = (a) ->
   player.yt.setVolume a
 
 # export
-module.exports = player
+module.exports = (callback) ->
+  if callback
+    player.yt.addEventListener 'onReady', ->
+      player.yt.setSize window.innerWidth, window.innerHeight
+      player._loaded = true
+
+      callback()
+
+    return player
+  else
+    return player

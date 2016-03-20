@@ -1,3 +1,4 @@
 # index.coffee
 window.onYouTubeIframeAPIReady = ->
-  require('./loadList.coffee')()
+  require('./player.coffee') ->
+    require('./loadList.coffee')()

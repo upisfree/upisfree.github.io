@@ -2,18 +2,13 @@
 # localStorage aliases
 storage =
   get: (k) ->
-    return localStorage.getItem k
+    return JSON.parse localStorage.getItem k
   set: (k, v) ->
-    localStorage.setItem k, v
+    localStorage.setItem k, JSON.stringify v
   remove: (k) ->
     localStorage.removeItem k
   clear: ->
     localStorage.clear()
-  isEmpty: (k) ->
-    if storage.get k
-      return true
-    else
-      return false
 
 # export
 module.exports = storage

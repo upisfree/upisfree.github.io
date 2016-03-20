@@ -1,7 +1,7 @@
 # controls/gamepad.coffee
 # Gamepad things
 config = require '../config.coffee'
-player = require '../player.coffee'
+player = require('../player.coffee')()
 
 gamepad = ->
   # window.addEventListener 'gamepadconnected', (e) ->

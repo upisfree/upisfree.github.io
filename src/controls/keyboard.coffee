@@ -1,7 +1,7 @@
 # controls/keyboard.coffee
 # Keyboard things
 config = require '../config.coffee'
-player = require '../player.coffee'
+player = require('../player.coffee')()
 fullscreen = require '../utils/fullscreen.coffee'
 
 keyboard = ->

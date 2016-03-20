@@ -1,6 +1,6 @@
 # controls/touch.coffee
 # Touch things
-player = require '../player.coffee'
+player = require('../player.coffee')()
 
 touch = ->
   # touchmove — invisible volume slider!

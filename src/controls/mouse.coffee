@@ -1,7 +1,7 @@
 # controls/mouse.coffee
 # Mouse things
 config = require '../config.coffee'
-player = require '../player.coffee'
+player = require('../player.coffee')()
 fullscreen = require '../utils/fullscreen.coffee'
 
 mouse = ->
