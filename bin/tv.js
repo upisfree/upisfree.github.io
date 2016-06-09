@@ -1,1 +1,388 @@
-!function e(o,n,t){function r(u,c){if(!n[u]){if(!o[u]){var l="function"==typeof require&&require;if(!c&&l)return l(u,!0);if(i)return i(u,!0);var f=new Error("Cannot find module '"+u+"'");throw f.code="MODULE_NOT_FOUND",f}var s=n[u]={exports:{}};o[u][0].call(s.exports,function(e){var n=o[u][1][e];return r(n?n:e)},s,s.exports,e,o,n,t)}return n[u].exports}for(var i="function"==typeof require&&require,u=0;u<t.length;u++)r(t[u]);return r}({1:[function(e,o,n){var t;t={playlistId:"PLy_pe5XDDZ1IyDxrlXRuz-Qz4gBft5cmt",key:"AIzaSyA8Wb8ZkXnc9XfcRDLON3gF0Vn7NkiQEWw",revision:3,fastPlay:250,volumeStep:10,doubleClickInterval:175},o.exports=t},{}],2:[function(e,o,n){var t,r,i;t=e("../config.coffee"),i=e("../player.coffee")(),r=function(){},o.exports=r},{"../config.coffee":1,"../player.coffee":9}],3:[function(e,o,n){var t,r,i,u,c;u=e("./mouse.coffee"),i=e("./keyboard.coffee"),c=e("./touch.coffee"),t=e("./gamepad.coffee"),r=function(){return u(),i(),c(),t()},o.exports=r},{"./gamepad.coffee":2,"./keyboard.coffee":4,"./mouse.coffee":5,"./touch.coffee":6}],4:[function(e,o,n){var t,r,i,u;t=e("../config.coffee"),u=e("../player.coffee")(),r=e("../utils/fullscreen.coffee"),i=function(){return window.onkeydown=function(e){var o;switch(o=u.getVolume(),e.keyCode){case 38:return u.setVolume(o+t.volumeStep);case 40:return u.setVolume(o-t.volumeStep)}},window.onkeyup=function(e){switch(e.keyCode){case 32:case 13:case 39:return u.playNext();case 70:return r["switch"]();case 27:if(r.isEnabled())return r.exit()}}},o.exports=i},{"../config.coffee":1,"../player.coffee":9,"../utils/fullscreen.coffee":11}],5:[function(e,o,n){var t,r,i,u;t=e("../config.coffee"),u=e("../player.coffee")(),r=e("../utils/fullscreen.coffee"),i=function(){return window._clicks=0,window.onclick=function(e){return window._clicks++,1===window._clicks?setTimeout(function(){return 1===window._clicks?u.playNext():r["switch"](),window._clicks=0},t.doubleClickInterval):void 0},window.onmousewheel=function(e){var o;return o=u.getVolume(),e.wheelDelta>0?u.setVolume(o+t.volumeStep):u.setVolume(o-t.volumeStep)}},o.exports=i},{"../config.coffee":1,"../player.coffee":9,"../utils/fullscreen.coffee":11}],6:[function(e,o,n){var t,r;t=e("../player.coffee")(),r=function(){return window.addEventListener("touchmove",function(e){return e.preventDefault(),t.setVolume(100-Math.round(100*e.touches[0].clientY/window.innerHeight))})},o.exports=r},{"../player.coffee":9}],7:[function(e,o,n){window.onYouTubeIframeAPIReady=function(){return e("./player.coffee")(function(){return e("./loadList.coffee")()})}},{"./loadList.coffee":8,"./player.coffee":9}],8:[function(e,o,n){var t,r,i,u,c;e("./utils/array.coffee"),t=e("./config.coffee"),r=e("./controls/init.coffee"),u=e("./player.coffee")(),c=e("./utils/storage.coffee"),window.videos=[],window.viewed=0,i=function(e){var o,n;return o="https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId="+t.playlistId+"&key="+t.key,null!=e&&(o+="&pageToken="+e),c.get("videos")&&c.get("revision")===t.revision?(console.log("load videos from cache"),window.videos=c.get("videos"),window.videos.shuffle(),r(),u.playNext()):(console.log("load videos from youtube"),n=new XMLHttpRequest,n.open("GET",o,!0),n.onload=function(){var e,o,n,l,f;for(f=JSON.parse(this.responseText),l=f.items,e=0,n=l.length;n>e;e++)o=l[e],window.videos.push(o.snippet.resourceId.videoId);return f.nextPageToken?(window.videos.length>=t.fastPlay&&0===window.viewed&&u._loaded&&(window.videos.shuffle(),r(),u.playNext()),i(f.nextPageToken)):(c.set("videos",window.videos),c.set("revision",t.revision),window.videos.splice(0,window.viewed),window.videos.shuffle())},n.send())},o.exports=i},{"./config.coffee":1,"./controls/init.coffee":3,"./player.coffee":9,"./utils/array.coffee":10,"./utils/storage.coffee":12}],9:[function(e,o,n){var t;e("./utils/array.coffee"),t={},t._loaded=!1,t.onReady=function(){return t.yt.setSize(window.innerWidth,window.innerHeight),t._loaded=!0},t.onStateChange=function(e){return e.data===YT.PlayerState.ENDED?t.playNext():void 0},t.onError=function(e){return t.playNext()},t.onPlaybackQualityChange=function(){},t.yt=new YT.Player("video",{playerVars:{rel:0,controls:0,showinfo:0,autoplay:1,disablekb:1,iv_load_policy:3},events:{onReady:t.onReady,onStateChange:t.onStateChange,onError:t.onError,onPlaybackQualityChange:t.onPlaybackQualityChange}}),window.onresize=function(){return t.yt.setSize(window.innerWidth,window.innerHeight)},t.loadById=function(e){return t.yt.loadVideoById(e)},t.play=function(){return t.yt.playVideo()},t.pause=function(){return t.yt.pauseVideo()},t.loadById=function(e){return t.yt.loadVideoById(e)},t.playNext=function(){var e,o;return window.viewed++,e=window.videos,o=window.viewed,null!=e[o]?t.loadById(e[o]):(e.shuffle(),o=0,t.loadById(e[o]))},t.getVolume=function(){return t.yt.getVolume()},t.setVolume=function(e){return t.yt.setVolume(e)},o.exports=function(e){return e?(t.yt.addEventListener("onReady",function(){return t.yt.setSize(window.innerWidth,window.innerHeight),t._loaded=!0,e()}),t):t}},{"./utils/array.coffee":10}],10:[function(e,o,n){Array.prototype.shuffle=function(){var e,o,n,t;for(e=this.length,n=[];e;)o=Math.floor(Math.random()*e),e-=1,t=this[e],this[e]=this[o],n.push(this[o]=t);return n}},{}],11:[function(e,o,n){var t;t={isEnabled:function(){return document.fullscreenElement||document.webkitFullscreenElement||document.mozFullScreenElement||document.msFullscreenElement},enter:function(){return document.body.requestFullscreen?document.body.requestFullscreen():document.body.msRequestFullscreen?document.body.msRequestFullscreen():document.body.mozRequestFullScreen?document.body.mozRequestFullScreen():document.body.webkitRequestFullscreen?document.body.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT):void 0},exit:function(){return document.exitFullscreen?document.exitFullscreen():document.msExitFullscreen?document.msExitFullscreen():document.mozCancelFullScreen?document.mozCancelFullScreen():document.webkitExitFullscreen?document.webkitExitFullscreen():void 0},"switch":function(){return t.isEnabled()?t.exit():t.enter()}},o.exports=t},{}],12:[function(e,o,n){var t;t={get:function(e){return JSON.parse(localStorage.getItem(e))},set:function(e,o){return localStorage.setItem(e,JSON.stringify(o))},remove:function(e){return localStorage.removeItem(e)},clear:function(){return localStorage.clear()}},o.exports=t},{}]},{},[7]);
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+var config;
+
+config = {
+  playlistId: 'PLy_pe5XDDZ1IyDxrlXRuz-Qz4gBft5cmt',
+  key: 'AIzaSyA8Wb8ZkXnc9XfcRDLON3gF0Vn7NkiQEWw',
+  revision: 3,
+  fastPlay: 250,
+  volumeStep: 10,
+  doubleClickInterval: 175
+};
+
+module.exports = config;
+
+
+},{}],2:[function(require,module,exports){
+var config, gamepad, player;
+
+config = require('../config.coffee');
+
+player = require('../player.coffee')();
+
+gamepad = function() {};
+
+module.exports = gamepad;
+
+
+},{"../config.coffee":1,"../player.coffee":9}],3:[function(require,module,exports){
+var gamepad, initControls, keyboard, mouse, touch;
+
+mouse = require('./mouse.coffee');
+
+keyboard = require('./keyboard.coffee');
+
+touch = require('./touch.coffee');
+
+gamepad = require('./gamepad.coffee');
+
+initControls = function() {
+  mouse();
+  keyboard();
+  touch();
+  return gamepad();
+};
+
+module.exports = initControls;
+
+
+},{"./gamepad.coffee":2,"./keyboard.coffee":4,"./mouse.coffee":5,"./touch.coffee":6}],4:[function(require,module,exports){
+var config, fullscreen, keyboard, player;
+
+config = require('../config.coffee');
+
+player = require('../player.coffee')();
+
+fullscreen = require('../utils/fullscreen.coffee');
+
+keyboard = function() {
+  window.onkeydown = function(e) {
+    var current;
+    current = player.getVolume();
+    switch (e.keyCode) {
+      case 38:
+        return player.setVolume(current + config.volumeStep);
+      case 40:
+        return player.setVolume(current - config.volumeStep);
+    }
+  };
+  return window.onkeyup = function(e) {
+    switch (e.keyCode) {
+      case 32:
+      case 13:
+      case 39:
+        return player.playNext();
+      case 70:
+        return fullscreen["switch"]();
+      case 27:
+        if (fullscreen.isEnabled()) {
+          return fullscreen.exit();
+        }
+    }
+  };
+};
+
+module.exports = keyboard;
+
+
+},{"../config.coffee":1,"../player.coffee":9,"../utils/fullscreen.coffee":11}],5:[function(require,module,exports){
+var config, fullscreen, mouse, player;
+
+config = require('../config.coffee');
+
+player = require('../player.coffee')();
+
+fullscreen = require('../utils/fullscreen.coffee');
+
+mouse = function() {
+  window._clicks = 0;
+  window.onclick = function(e) {
+    window._clicks++;
+    if (window._clicks === 1) {
+      return setTimeout(function() {
+        if (window._clicks === 1) {
+          player.playNext();
+        } else if (2) {
+          fullscreen["switch"]();
+        } else {
+          return;
+        }
+        return window._clicks = 0;
+      }, config.doubleClickInterval);
+    }
+  };
+  return window.onmousewheel = function(e) {
+    var current;
+    current = player.getVolume();
+    if (e.wheelDelta > 0) {
+      return player.setVolume(current + config.volumeStep);
+    } else {
+      return player.setVolume(current - config.volumeStep);
+    }
+  };
+};
+
+module.exports = mouse;
+
+
+},{"../config.coffee":1,"../player.coffee":9,"../utils/fullscreen.coffee":11}],6:[function(require,module,exports){
+var player, touch;
+
+player = require('../player.coffee')();
+
+touch = function() {
+  return window.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+    return player.setVolume(100 - (Math.round(e.touches[0].clientY * 100 / window.innerHeight)));
+  });
+};
+
+module.exports = touch;
+
+
+},{"../player.coffee":9}],7:[function(require,module,exports){
+window.onYouTubeIframeAPIReady = function() {
+  return require('./player.coffee')(function() {
+    return require('./loadList.coffee')();
+  });
+};
+
+
+},{"./loadList.coffee":8,"./player.coffee":9}],8:[function(require,module,exports){
+var config, initControls, loadList, player, storage;
+
+require('./utils/array.coffee');
+
+config = require('./config.coffee');
+
+initControls = require('./controls/init.coffee');
+
+player = require('./player.coffee')();
+
+storage = require('./utils/storage.coffee');
+
+window.videos = [];
+
+window.viewed = 0;
+
+loadList = function(token) {
+  var url, xhr;
+  url = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet' + '&maxResults=50' + '&playlistId=' + config.playlistId + '&key=' + config.key;
+  if (token != null) {
+    url += '&pageToken=' + token;
+  }
+  if (storage.get('videos') && storage.get('revision') === config.revision) {
+    window.videos = storage.get('videos');
+    window.videos.shuffle();
+    initControls();
+    return player.playNext();
+  } else {
+    xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.onload = function() {
+      var i, item, len, ref, res;
+      res = JSON.parse(this.responseText);
+      ref = res.items;
+      for (i = 0, len = ref.length; i < len; i++) {
+        item = ref[i];
+        window.videos.push(item.snippet.resourceId.videoId);
+      }
+      if (res.nextPageToken) {
+        if (window.videos.length >= config.fastPlay && window.viewed === 0 && player._loaded) {
+          window.videos.shuffle();
+          initControls();
+          player.playNext();
+        }
+        return loadList(res.nextPageToken);
+      } else {
+        storage.set('videos', window.videos);
+        storage.set('revision', config.revision);
+        window.videos.splice(0, window.viewed);
+        return window.videos.shuffle();
+      }
+    };
+    return xhr.send();
+  }
+};
+
+module.exports = loadList;
+
+
+},{"./config.coffee":1,"./controls/init.coffee":3,"./player.coffee":9,"./utils/array.coffee":10,"./utils/storage.coffee":12}],9:[function(require,module,exports){
+var player;
+
+require('./utils/array.coffee');
+
+player = {};
+
+player._loaded = false;
+
+player.onReady = function() {
+  player.yt.setSize(window.innerWidth, window.innerHeight);
+  return player._loaded = true;
+};
+
+player.onStateChange = function(e) {
+  if (e.data === YT.PlayerState.ENDED) {
+    return player.playNext();
+  }
+};
+
+player.onError = function(e) {
+  return player.playNext();
+};
+
+player.onPlaybackQualityChange = function() {};
+
+player.yt = new YT.Player('video', {
+  playerVars: {
+    'rel': 0,
+    'controls': 0,
+    'showinfo': 0,
+    'autoplay': 1,
+    'disablekb': 1,
+    'iv_load_policy': 3
+  },
+  events: {
+    'onReady': player.onReady,
+    'onStateChange': player.onStateChange,
+    'onError': player.onError,
+    'onPlaybackQualityChange': player.onPlaybackQualityChange
+  }
+});
+
+window.onresize = function() {
+  return player.yt.setSize(window.innerWidth, window.innerHeight);
+};
+
+player.loadById = function(id) {
+  return player.yt.loadVideoById(id);
+};
+
+player.play = function() {
+  return player.yt.playVideo();
+};
+
+player.pause = function() {
+  return player.yt.pauseVideo();
+};
+
+player.loadById = function(id) {
+  return player.yt.loadVideoById(id);
+};
+
+player.playNext = function() {
+  var videos, viewed;
+  window.viewed++;
+  videos = window.videos;
+  viewed = window.viewed;
+  if (videos[viewed] != null) {
+    return player.loadById(videos[viewed]);
+  } else {
+    videos.shuffle();
+    viewed = 0;
+    return player.loadById(videos[viewed]);
+  }
+};
+
+player.getVolume = function() {
+  return player.yt.getVolume();
+};
+
+player.setVolume = function(a) {
+  return player.yt.setVolume(a);
+};
+
+module.exports = function(callback) {
+  if (callback) {
+    player.yt.addEventListener('onReady', function() {
+      player.yt.setSize(window.innerWidth, window.innerHeight);
+      player._loaded = true;
+      return callback();
+    });
+    return player;
+  } else {
+    return player;
+  }
+};
+
+
+},{"./utils/array.coffee":10}],10:[function(require,module,exports){
+Array.prototype.shuffle = function() {
+  var currentIndex, randomIndex, results, temporaryValue;
+  currentIndex = this.length;
+  results = [];
+  while (currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    temporaryValue = this[currentIndex];
+    this[currentIndex] = this[randomIndex];
+    results.push(this[randomIndex] = temporaryValue);
+  }
+  return results;
+};
+
+
+},{}],11:[function(require,module,exports){
+var fullscreen;
+
+fullscreen = {
+  isEnabled: function() {
+    return document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
+  },
+  enter: function() {
+    if (document.body.requestFullscreen) {
+      return document.body.requestFullscreen();
+    } else if (document.body.msRequestFullscreen) {
+      return document.body.msRequestFullscreen();
+    } else if (document.body.mozRequestFullScreen) {
+      return document.body.mozRequestFullScreen();
+    } else if (document.body.webkitRequestFullscreen) {
+      return document.body.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+    }
+  },
+  exit: function() {
+    if (document.exitFullscreen) {
+      return document.exitFullscreen();
+    } else if (document.msExitFullscreen) {
+      return document.msExitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+      return document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+      return document.webkitExitFullscreen();
+    }
+  },
+  "switch": function() {
+    if (!fullscreen.isEnabled()) {
+      return fullscreen.enter();
+    } else {
+      return fullscreen.exit();
+    }
+  }
+};
+
+module.exports = fullscreen;
+
+
+},{}],12:[function(require,module,exports){
+var storage;
+
+storage = {
+  get: function(k) {
+    return JSON.parse(localStorage.getItem(k));
+  },
+  set: function(k, v) {
+    return localStorage.setItem(k, JSON.stringify(v));
+  },
+  remove: function(k) {
+    return localStorage.removeItem(k);
+  },
+  clear: function() {
+    return localStorage.clear();
+  }
+};
+
+module.exports = storage;
+
+
+},{}]},{},[7]);

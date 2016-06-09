@@ -19,8 +19,6 @@ loadList = (token) ->
   url += '&pageToken=' + token if token?
 
   if storage.get('videos') and storage.get('revision') is config.revision
-    console.log 'load videos from cache'
-
     window.videos = storage.get 'videos'
     window.videos.shuffle()
 
@@ -28,8 +26,6 @@ loadList = (token) ->
 
     player.playNext()
   else
-    console.log 'load videos from youtube'
-
     xhr = new XMLHttpRequest()
     xhr.open 'GET', url, true
     xhr.onload = ->

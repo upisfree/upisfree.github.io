@@ -57,7 +57,7 @@ player.playNext = ->
   videos = window.videos
   viewed = window.viewed
 
-  if videos[viewed]? # end?
+  if videos[viewed]? # not end?
     player.loadById videos[viewed]
   else
     videos.shuffle()
