@@ -4,7 +4,6 @@ var config;
 config = {
   playlistId: 'PLy_pe5XDDZ1IyDxrlXRuz-Qz4gBft5cmt',
   key: 'AIzaSyA8Wb8ZkXnc9XfcRDLON3gF0Vn7NkiQEWw',
-  revision: 3,
   fastPlay: 250,
   volumeStep: 10,
   doubleClickInterval: 175
@@ -166,43 +165,36 @@ window.videos = [];
 window.viewed = 0;
 
 loadList = function(token) {
-  var url, xhr;
+  var url, videos, viewed, xhr;
+  videos = window.videos;
+  viewed = window.viewed;
   url = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet' + '&maxResults=50' + '&playlistId=' + config.playlistId + '&key=' + config.key;
   if (token != null) {
     url += '&pageToken=' + token;
   }
-  if (storage.get('videos') && storage.get('revision') === config.revision) {
-    window.videos = storage.get('videos');
-    window.videos.shuffle();
-    initControls();
-    return player.playNext();
-  } else {
-    xhr = new XMLHttpRequest();
-    xhr.open('GET', url, true);
-    xhr.onload = function() {
-      var i, item, len, ref, res;
-      res = JSON.parse(this.responseText);
-      ref = res.items;
-      for (i = 0, len = ref.length; i < len; i++) {
-        item = ref[i];
-        window.videos.push(item.snippet.resourceId.videoId);
+  xhr = new XMLHttpRequest();
+  xhr.open('GET', url, true);
+  xhr.onload = function() {
+    var i, item, len, ref, res;
+    res = JSON.parse(this.responseText);
+    ref = res.items;
+    for (i = 0, len = ref.length; i < len; i++) {
+      item = ref[i];
+      videos.push(item.snippet.resourceId.videoId);
+    }
+    if (res.nextPageToken) {
+      if (videos.length >= config.fastPlay && viewed === 0 && player._loaded) {
+        videos.shuffle();
+        initControls();
+        player.playNext();
       }
-      if (res.nextPageToken) {
-        if (window.videos.length >= config.fastPlay && window.viewed === 0 && player._loaded) {
-          window.videos.shuffle();
-          initControls();
-          player.playNext();
-        }
-        return loadList(res.nextPageToken);
-      } else {
-        storage.set('videos', window.videos);
-        storage.set('revision', config.revision);
-        window.videos.splice(0, window.viewed);
-        return window.videos.shuffle();
-      }
-    };
-    return xhr.send();
-  }
+      return loadList(res.nextPageToken);
+    } else {
+      videos.splice(0, viewed);
+      return videos.shuffle();
+    }
+  };
+  return xhr.send();
 };
 
 module.exports = loadList;
