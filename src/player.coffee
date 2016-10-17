@@ -28,9 +28,9 @@ player.yt = new YT.Player 'video',
     'disablekb': 1 # remove keyboard controls
     'iv_load_policy': 3 # remove annotations
   events:
-    'onReady': player.onReady,
-    'onStateChange': player.onStateChange,
-    'onError': player.onError,
+    'onReady': player.onReady
+    'onStateChange': player.onStateChange
+    'onError': player.onError
     'onPlaybackQualityChange': player.onPlaybackQualityChange
 
 # resize on resize (sic!)

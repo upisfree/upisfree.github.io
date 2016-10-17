@@ -1,7 +1,7 @@
 # config.coffee
 # I can't understand, what's here
 config =
-  playlistId: 'PLy_pe5XDDZ1IyDxrlXRuz-Qz4gBft5cmt'
+  playlists: ['PLy_pe5XDDZ1IyDxrlXRuz-Qz4gBft5cmt', 'PLy_pe5XDDZ1LrigQrKoQMKAKqtcxlnjEr']
   key: 'AIzaSyA8Wb8ZkXnc9XfcRDLON3gF0Vn7NkiQEWw'
   fastPlay: 250 # the number of video downloads after which playback starts (I can't think normal name :)
   volumeStep: 10
