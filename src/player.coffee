@@ -1,6 +1,7 @@
 # player.coffee
 # Player init and aliases
 require './utils/array.coffee'
+storage = require './utils/storage.coffee'
 
 player = {}
 player._loaded = false
@@ -52,18 +53,32 @@ player.loadById = (id) ->
   player.yt.loadVideoById id
 
 player.playNext = ->
-  window.viewed++
-
   videos = window.videos
   viewed = window.viewed
+  viewedVideos = window.viewedVideos
 
-  if videos[viewed]? # not end?
-    player.loadById videos[viewed]
+  if window.videos[window.viewed]? # not end?
+    if window.viewedVideos.indexOf(window.videos[window.viewed]) is -1
+      console.log 'not bayan', window.videos[window.viewed]
+
+      player.loadById window.videos[window.viewed]
+
+      window.viewedVideos.push window.videos[window.viewed]
+      storage.set 'viewedVideos', window.viewedVideos
+      window.viewed++
+    else
+      console.log 'bayan', window.videos[window.viewed]
+
+      window.viewed++
+
+      player.playNext()
   else
-    videos.shuffle()
-    viewed = 0
+    window.videos.shuffle()
+    window.viewed = 0
+    window.viewedVideos = []
+    storage.set 'viewedVideos', window.viewedVideos
 
-    player.loadById videos[viewed]
+    player.playNext()
 
 player.getVolume = ->
   player.yt.getVolume()

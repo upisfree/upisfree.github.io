@@ -9,14 +9,15 @@ storage = require './utils/storage.coffee'
 # store it as a global
 window.videos = []
 window.viewed = 0
+window.viewedVideos = if storage.get('viewedVideos')? then storage.get('viewedVideos') else []
+
+# for more randomness
+# config.playlists.shuffle()
 
 # value for load all playlists
 _currentPlaylist = 0
 
 loadList = (token) ->
-  videos = window.videos  
-  viewed = window.viewed
-
   url = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet' +
                                                             '&maxResults=50' +
                                                             '&playlistId=' + config.playlists[_currentPlaylist] +
@@ -33,7 +34,7 @@ loadList = (token) ->
 
     if res.nextPageToken or _currentPlaylist isnt config.playlists.length - 1 # recursively load all videos using nextPageToken
       # fast play
-      if videos.length >= config.fastPlay and viewed is 0 and player._loaded
+      if videos.length >= config.fastPlay and window.viewed is 0 and player._loaded
         videos.shuffle()
 
         initControls()
@@ -47,7 +48,7 @@ loadList = (token) ->
 
       loadList token
     else
-      videos.splice 0, viewed # remove videos that user already saw
+      videos.splice 0, window.viewed # remove videos that user already saw
       videos.shuffle()
 
   xhr.send()
