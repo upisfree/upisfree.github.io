@@ -1,8 +1,8 @@
 # controls/keyboard.coffee
 # Keyboard things
-config = require '../config.coffee'
+config = require '../../config.coffee'
 player = require('../player.coffee')()
-fullscreen = require '../utils/fullscreen.coffee'
+fullscreen = require '../../utils/fullscreen.coffee'
 
 keyboard = ->
   # need repeats? yes, please

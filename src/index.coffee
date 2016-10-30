@@ -1,4 +1,7 @@
 # index.coffee
+ui = require './ui/ui.coffee'
+ui()
+
 window.onYouTubeIframeAPIReady = ->
-  require('./player.coffee') ->
-    require('./loadList.coffee')()
+  require('./player/player.coffee') ->
+    require('./player/loadList.coffee')()

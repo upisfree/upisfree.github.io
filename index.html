@@ -51,7 +51,7 @@
 
     <title>UP TV</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:800,700,600,400" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:500,500i,900,900i" rel="stylesheet">
 
     <style>
 body
@@ -82,20 +82,45 @@ body
   z-index: 10;
 }
 
-/********************/
-
-#beta
+#titles
 {
   position: absolute;
-  top: 1%;
-  left: 1%;
+  top: 2%;
+  left: 2%;
   margin: 0;
-
-  color: #fff;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 15pt;
-  font-weight: 900;
   z-index: 5;
+}
+
+#titles h1
+{
+  position: absolute;
+  width: 80px;
+  /*color: #fff;*/
+  font-family: 'Libre Franklin', sans-serif;
+  font-style: italic;
+  font-size: 19pt;
+  font-weight: 900;
+}
+
+#title-1
+{
+  margin-left: 10px;
+  margin-top: -10px;
+  color: #002664;
+}
+
+#title-2
+{
+  margin-left: 4px;
+  margin-top: -6px;
+  color: #bb1333;
+}
+
+#title-3
+{
+  margin-left: 0;
+  margin-top: 0;
+  color: #fff;
 }
     </style>
 
@@ -105,7 +130,11 @@ body
   </head>
 
   <body>
-    <h1 id="beta">UP TV</h1>
+    <div id="titles">
+      <h1 id="title-1">UP TV</h1>
+      <h1 id="title-2">UP TV</h1>
+      <h1 id="title-3">UP TV</h1>
+    </div>
 
     <div id="video"></div>
     <div id="cover"></div> <!-- no hover and clicks on video -->

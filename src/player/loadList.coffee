@@ -1,10 +1,10 @@
 # loadList.coffee
 # All about loading playlist with videos
-require './utils/array.coffee'
-config = require './config.coffee'
-initControls = require './controls/init.coffee'
+require '../utils/array.coffee'
+config = require '../config.coffee'
+initControls = require './controls/controls.coffee'
 player = require('./player.coffee')()
-storage = require './utils/storage.coffee'
+storage = require '../utils/storage.coffee'
 
 # store it as a global
 window.videos = []

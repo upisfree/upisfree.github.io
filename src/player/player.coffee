@@ -1,7 +1,7 @@
 # player.coffee
 # Player init and aliases
-require './utils/array.coffee'
-storage = require './utils/storage.coffee'
+require '../utils/array.coffee'
+storage = require '../utils/storage.coffee'
 
 player = {}
 player._loaded = false
@@ -58,17 +58,14 @@ player.playNext = ->
   viewedVideos = window.viewedVideos
 
   if window.videos[window.viewed]? # not end?
-    if window.viewedVideos.indexOf(window.videos[window.viewed]) is -1
-      console.log 'not bayan', window.videos[window.viewed]
-
+    if window.viewedVideos.indexOf(window.videos[window.viewed]) is -1 # anti-bayan system
       player.loadById window.videos[window.viewed]
 
       window.viewedVideos.push window.videos[window.viewed]
       storage.set 'viewedVideos', window.viewedVideos
+
       window.viewed++
     else
-      console.log 'bayan', window.videos[window.viewed]
-
       window.viewed++
 
       player.playNext()

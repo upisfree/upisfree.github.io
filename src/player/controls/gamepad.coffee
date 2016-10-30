@@ -1,6 +1,6 @@
 # controls/gamepad.coffee
 # Gamepad things
-config = require '../config.coffee'
+config = require '../../config.coffee'
 player = require('../player.coffee')()
 
 gamepad = ->

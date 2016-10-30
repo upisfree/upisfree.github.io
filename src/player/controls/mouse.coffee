@@ -1,8 +1,8 @@
 # controls/mouse.coffee
 # Mouse things
-config = require '../config.coffee'
+config = require '../../config.coffee'
 player = require('../player.coffee')()
-fullscreen = require '../utils/fullscreen.coffee'
+fullscreen = require '../../utils/fullscreen.coffee'
 
 mouse = ->
   # single / double click detecting

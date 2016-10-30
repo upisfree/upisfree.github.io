@@ -1,4 +1,4 @@
-# controls/init.coffee
+# controls/controls.coffee
 # Init all controls
 mouse = require './mouse.coffee'
 keyboard = require './keyboard.coffee'
