@@ -28,6 +28,7 @@ player.yt = new YT.Player 'video',
     'autoplay': 1 # ???
     'disablekb': 1 # remove keyboard controls
     'iv_load_policy': 3 # remove annotations
+    'playsinline': 1 # iOS fix (enable autoplay)
   events:
     'onReady': player.onReady
     'onStateChange': player.onStateChange
@@ -50,7 +51,7 @@ player.pause = ->
   player.yt.pauseVideo()
 
 player.loadById = (id) ->
-  player.yt.loadVideoById id
+  player.yt.loadVideoById id, 0, 'tiny' 
 
 player.playNext = ->
   videos = window.videos

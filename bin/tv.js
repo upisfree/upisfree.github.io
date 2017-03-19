@@ -66,19 +66,29 @@ gamepadsCache = [];
 _lastTimeVolumeChanged = Date.now();
 
 update = function() {
-  var gamepads, volume;
+  var gamepad, gamepads, i, len, results, volume;
   gamepads = navigator.getGamepads();
-  volume = Math.round((gamepads[1].axes[3] * -100 + 100) / 2);
-  if ((volume !== 50) && (Date.now() - _lastTimeVolumeChanged > config.gamepadVolumeMaxTime)) {
-    player.setVolume(volume);
-    console.log(player.getVolume(), volume);
-    _lastTimeVolumeChanged = Date.now();
+  results = [];
+  for (i = 0, len = gamepads.length; i < len; i++) {
+    gamepad = gamepads[i];
+    if (gamepad !== null) {
+      if (gamepad.axes.length === 2) {
+        volume = Math.round((gamepad.axes[1] * -100 + 100) / 2);
+      } else {
+        volume = Math.round((gamepad.axes[3] * -100 + 100) / 2);
+      }
+      if ((volume !== 50) && (Date.now() - _lastTimeVolumeChanged > config.gamepadVolumeMaxTime)) {
+        player.setVolume(volume);
+        console.log(volume);
+        results.push(_lastTimeVolumeChanged = Date.now());
+      } else {
+        results.push(void 0);
+      }
+    } else {
+      results.push(void 0);
+    }
   }
-  if (navigator.getGamepads().length) {
-    return loopId = requestAnimationFrame(update);
-  } else {
-    return cancelAnimationFrame(loopId);
-  }
+  return results;
 };
 
 gamepad = function() {
@@ -276,7 +286,8 @@ player.yt = new YT.Player('video', {
     'showinfo': 0,
     'autoplay': 1,
     'disablekb': 1,
-    'iv_load_policy': 3
+    'iv_load_policy': 3,
+    'playsinline': 1
   },
   events: {
     'onReady': player.onReady,
@@ -303,7 +314,7 @@ player.pause = function() {
 };
 
 player.loadById = function(id) {
-  return player.yt.loadVideoById(id);
+  return player.yt.loadVideoById(id, 0, 'tiny');
 };
 
 player.playNext = function() {
