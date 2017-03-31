@@ -22,7 +22,7 @@ mouse = ->
         window._clicks = 0
       , config.doubleClickInterval
 
-  # mouse wheel
+  # volume
   window.onmousewheel = (e) ->
     current = player.getVolume()
 
