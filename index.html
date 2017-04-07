@@ -47,7 +47,7 @@
     <meta name="theme-color" content="#ffffff">
 
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     
@@ -63,6 +63,8 @@ body
   margin: 0;
   background: #000;
 
+  overflow-y: hidden; /* disable pull-down-to-refresh on chrome for android  */
+  
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
