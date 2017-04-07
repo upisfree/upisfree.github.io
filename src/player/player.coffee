@@ -84,6 +84,12 @@ player.getVolume = ->
 player.setVolume = (a) ->
   player.yt.setVolume a
 
+player.mute = ->
+  if player.yt.isMuted()
+    player.yt.unMute()
+  else
+    player.yt.mute()
+
 # export
 module.exports = (callback) ->
   if callback
