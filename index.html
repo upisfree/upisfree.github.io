@@ -31,6 +31,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="assets/favicon/apple-touch-icon-144x144.png?v=1">
     <link rel="apple-touch-icon" sizes="152x152" href="assets/favicon/apple-touch-icon-152x152.png?v=1">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon-180x180.png?v=1">
+    <link rel="apple-touch-startup-image" href="assets/logo.jpg">
     <link rel="icon" type="image/png" href="assets/favicon/favicon-32x32.png?v=1" sizes="32x32">
     <link rel="icon" type="image/png" href="assets/favicon/android-chrome-192x192.png?v=1" sizes="192x192">
     <link rel="icon" type="image/png" href="assets/favicon/favicon-96x96.png?v=1" sizes="96x96">
@@ -45,6 +46,9 @@
     <meta name="msapplication-config" content="assets/favicon/browserconfig.xml?v=1">
     <meta name="theme-color" content="#ffffff">
 
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     
     <meta name="viewport" content="width=device-width, user-scalable=no">
@@ -59,6 +63,8 @@ body
   margin: 0;
   background: #000;
 
+  overflow-y: hidden; /* disable pull-down-to-refresh on chrome for android  */
+  
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
