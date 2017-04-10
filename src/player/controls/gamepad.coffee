@@ -9,7 +9,7 @@ loopId = 0
 GAMEPAD =
   A: 0 # 🞪
   B: 1 # ⭘
-  Y: 2 # 🛆 ⃤
+  Y: 2 # 🛆
   X: 3 # 🞎
   L1: 4
   R1: 5
@@ -25,12 +25,8 @@ GAMEPAD =
   RIGHT: 15
   LOGO: 16
 
-<<<<<<< HEAD
 _lastTimeVolumeChanged = 0 # variable is shared between all gamepads
 _cache = [] # gamepads cache
-=======
-_lastTimeVolumeChanged = Date.now() # variable is shared between all gamepads
->>>>>>> 75872a59b58baf11b855da560814098197c821bd
 
 trigger = (i) ->
   switch i
