@@ -10,11 +10,11 @@
     <!-- OpenGraph -->
     <meta property="og:title" content="UP TV">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="UP T V">
+    <meta property="og:site_name" content="UP TV">
     <meta property="og:image" content="assets/logo.jpg">
     <meta property="og:image:width" content="1758">
     <meta property="og:image:height" content="1758">
-    <meta property="og:url" content="http://upisfree.github.io/tv">
+    <meta property="og:url" content="//upisfree.github.io">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@upisfree">
@@ -38,8 +38,8 @@
     <link rel="manifest" href="assets/favicon/manifest.json?v=1">
     <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg?v=1" color="#030a02">
     <link rel="shortcut icon" href="assets/favicon/favicon.ico?v=1">
-    <meta name="apple-mobile-web-app-title" content="UP T V">
-    <meta name="application-name" content="UP T V">
+    <meta name="apple-mobile-web-app-title" content="UP TV">
+    <meta name="application-name" content="UP TV">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-TileImage" content="assets/favicon/mstile-144x144.png?v=1">
     <meta name="msapplication-config" content="assets/favicon/browserconfig.xml?v=1">
@@ -82,46 +82,59 @@ body
   z-index: 10;
 }
 
-#titles
+#title
 {
   position: absolute;
   top: 2%;
   left: 2%;
   margin: 0;
   z-index: 5;
-}
-
-#titles h1
-{
-  position: absolute;
-  width: 80px;
-  /*color: #fff;*/
+  color: #fff;
   font-family: 'Libre Franklin', sans-serif;
   font-style: italic;
   font-size: 19pt;
   font-weight: 900;
 }
 
-#title-1
-{
-  margin-left: 10px;
-  margin-top: -10px;
-  color: #002664;
-}
-
-#title-2
-{
-  margin-left: 4px;
-  margin-top: -6px;
-  color: #bb1333;
-}
-
-#title-3
-{
-  margin-left: 0;
-  margin-top: 0;
+/*#ads {
+    width: 100%;
+    white-space: nowrap;
   color: #fff;
+  max-height: 10px;
+display: inline-block; 
+transform: translatex(0); 
+animation: marquesina 10s infinite normal linear 1s; 
 }
+
+@keyframes marquesina {
+  0% {transform: translatex(0); }
+  100% {transform: translatex(-50%); }
+}*/
+
+/*
+.ePKyFE {
+    background: #FF0000;
+    box-shadow: 0 0 7px 0 #FF0101;
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 100px;
+    animation: dWygkE 2s linear infinite;
+    -webkit-animation: dWygkE 2s linear infinite;
+}
+
+@keyframes dWygkE {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.5;
+  }
+
+}
+*/
     </style>
 
     <!-- Yandex.Metrika counter -->
@@ -130,11 +143,9 @@ body
   </head>
 
   <body>
-    <div id="titles">
-      <h1 id="title-1">UP TV</h1>
-      <h1 id="title-2">UP TV</h1>
-      <h1 id="title-3">UP TV</h1>
-    </div>
+    <h1 id="title">UP TV</h1>
+
+    <span id="ads"></span>
 
     <div id="video"></div>
     <div id="cover"></div> <!-- no hover and clicks on video -->

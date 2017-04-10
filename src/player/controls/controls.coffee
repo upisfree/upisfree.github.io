@@ -5,11 +5,11 @@ keyboard = require './keyboard.coffee'
 touch = require './touch.coffee'
 gamepad = require './gamepad.coffee'
 
-initControls = ->
+controls = ->
   mouse()
   keyboard()
   touch()
   gamepad()
 
 # export
-module.exports = initControls
+module.exports = controls

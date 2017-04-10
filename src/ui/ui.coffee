@@ -1,7 +1,9 @@
 # ui/ui.coffee
 # UI init
+ads = require './ads.coffee'
+
 ui = ->
-  console.log 'ui init'
+  # ads()
 
 # export
 module.exports = ui

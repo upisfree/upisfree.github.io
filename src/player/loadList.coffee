@@ -2,7 +2,7 @@
 # All about loading playlist with videos
 require '../utils/array.coffee'
 config = require '../config.coffee'
-initControls = require './controls/controls.coffee'
+controls = require './controls/controls.coffee'
 player = require('./player.coffee')()
 storage = require '../utils/storage.coffee'
 
@@ -12,7 +12,7 @@ window.viewed = 0
 window.viewedVideos = if storage.get('viewedVideos')? then storage.get('viewedVideos') else []
 
 # for more randomness
-# config.playlists.shuffle()
+# config.playlists.shuffle() # second playlist has just funny videos in the beginning, it's bad
 
 # value for load all playlists
 _currentPlaylist = 0
@@ -37,7 +37,7 @@ loadList = (token) ->
       if videos.length >= config.fastPlay and window.viewed is 0 and player._loaded
         videos.shuffle()
 
-        initControls()
+        controls()
 
         player.playNext()
 

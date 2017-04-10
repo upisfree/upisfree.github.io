@@ -25,10 +25,10 @@ fullscreen =
     else if document.webkitExitFullscreen
       document.webkitExitFullscreen()
   switch: ->
-    if not fullscreen.isEnabled()
-      fullscreen.enter()
-    else
+    if fullscreen.isEnabled()
       fullscreen.exit()
+    else
+      fullscreen.enter()
 
 # export
 module.exports = fullscreen
