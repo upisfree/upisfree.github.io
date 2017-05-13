@@ -3,7 +3,7 @@
 ads = require './ads.coffee'
 
 ui = ->
-  # ads()
+  ads()
 
 # export
 module.exports = ui
