@@ -3,7 +3,6 @@
 config = require '../../config.coffee'
 player = require('../player.coffee')()
 fullscreen = require '../../utils/fullscreen.coffee'
-loopId = 0
 
 # Xbox mapping
 GAMEPAD =
@@ -65,8 +64,6 @@ updateCache = (gamepad, i) ->
   if not _cache[i]
     _cache.push buttons
 
-
-
 update = ->
   gamepads = navigator.getGamepads()
   gamepadIndex = 0 # don't want to use indexOf here
@@ -95,12 +92,5 @@ update = ->
       updateCache gamepad, gamepadIndex
       gamepadIndex++
 
-  loopId = requestAnimationFrame update
-  
-  # cancelAnimationFrame loopId
-
-gamepad = ->
-  loopId = requestAnimationFrame update
-
 # export
-module.exports = gamepad
+module.exports = update

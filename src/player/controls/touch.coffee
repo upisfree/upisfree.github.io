@@ -3,7 +3,7 @@
 player = require('../player.coffee')()
 
 touch = ->
-  # touchmove — invisible volume slider!
+  # invisible volume slider!
   window.addEventListener 'touchmove', (e) ->
     e.preventDefault()
 

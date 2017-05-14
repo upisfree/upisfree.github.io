@@ -4,4 +4,5 @@ ui()
 
 window.onYouTubeIframeAPIReady = ->
   require('./player/player.coffee') ->
+    requestAnimationFrame require './tick.coffee'
     require('./player/loadList.coffee')()

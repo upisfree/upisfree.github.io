@@ -3,13 +3,12 @@
 mouse = require './mouse.coffee'
 keyboard = require './keyboard.coffee'
 touch = require './touch.coffee'
-gamepad = require './gamepad.coffee'
 
 controls = ->
   mouse()
   keyboard()
   touch()
-  gamepad()
+  # gamepad doesn't need to init, it updates in tick.coffee
 
 # export
 module.exports = controls

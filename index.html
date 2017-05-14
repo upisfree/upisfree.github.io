@@ -56,6 +56,7 @@
     <title>UP TV</title>
 
     <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:500,500i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
 
     <style>
 body
@@ -63,7 +64,7 @@ body
   margin: 0;
   background: #000;
 
-  overflow-y: hidden; /* disable pull-down-to-refresh on chrome for android  */
+  overflow: hidden; /* disable pull-down-to-refresh on chrome for android  */
   
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -102,20 +103,25 @@ body
   font-weight: 900;
 }
 
-/*#ads {
-    width: 100%;
-    white-space: nowrap;
-  color: #fff;
-  max-height: 10px;
-display: inline-block; 
-transform: translatex(0); 
-animation: marquesina 10s infinite normal linear 1s; 
+#ads
+{
+  position: absolute;
+  display: block;
+  left: 0px; 
+  bottom: 10px;
+  font-size: 32pt;
+  font-family: 'Playfair Display', serif;
+  color: rgba(255, 255, 255, 0.75);
+  white-space: nowrap;
 }
 
-@keyframes marquesina {
-  0% {transform: translatex(0); }
-  100% {transform: translatex(-50%); }
-}*/
+@media only screen and (max-device-width: 480px)
+{
+  #ads
+  {
+    font-size: 16pt;
+  }
+}
 
 /*
 .ePKyFE {
