@@ -3,6 +3,8 @@
 require '../utils/array.coffee'
 element = require '../utils/element.coffee'
 config = require '../config.coffee'
+isMobile = require 'ismobilejs'
+
 animationSpeed = 1
 e = null
 
@@ -20,6 +22,9 @@ ads =
       e = element.byId('ads')
 
       e.textContent = res.join ' '
+
+      if isMobile.any
+        animationSpeed = 3
 
     xhr.send()
   update: ->
