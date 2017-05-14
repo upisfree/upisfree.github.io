@@ -1,5 +1,5 @@
 {
-	"name": "UP T V",
+	"name": "UP TV",
 	"icons": [
 		{
 			"src": "assets\/android-chrome-36x36.png?v=1",
@@ -38,6 +38,6 @@
 			"density": 4
 		}
 	],
-	"start_url": "http:\/\/upisfree.github.io",
+	"start_url": "https:\/\/upisfree.github.io",
 	"display": "standalone"
 }
