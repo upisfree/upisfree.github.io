@@ -51,7 +51,7 @@ player.pause = ->
   player.yt.pauseVideo()
 
 player.loadById = (id) ->
-  player.yt.loadVideoById id, 0, 'tiny' 
+  player.yt.loadVideoById id
 
 player.playNext = ->
   videos = window.videos
