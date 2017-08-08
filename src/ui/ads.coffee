@@ -1,4 +1,4 @@
-# ui/ui.coffee
+# ui/ads.coffee
 # Ads init
 require '../utils/array.coffee'
 element = require '../utils/element.coffee'
@@ -6,7 +6,10 @@ config = require '../config.coffee'
 isMobile = require 'ismobilejs'
 
 animationSpeed = 1
+left = 0
 e = null
+
+iOStext = 'НАЖМИ НА КРАСНУЮ КНОПКУ'
 
 ads =
   init: ->
@@ -23,17 +26,17 @@ ads =
 
       e.textContent = res.join ' '
 
-      if isMobile.any
-        animationSpeed = 3
+      if isMobile.apple.device
+        animationSpeed = 0.25
 
     xhr.send()
   update: ->
-    left = e.style.left.slice(0, -2) # remove 'px'
-
     if Math.abs(left) >= e.offsetWidth
       left = window.innerWidth
 
-    e.style.left = (left - animationSpeed) + 'px'
+    left -= animationSpeed
+
+    e.style.transform = "translateX(#{left - animationSpeed}px)"
 
 # export
 module.exports = ads

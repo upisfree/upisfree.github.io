@@ -65,6 +65,8 @@ body
   margin: 0;
   background: #000;
 
+  /*transform: rotate(90deg);*/
+
   overflow: hidden; /* disable pull-down-to-refresh on chrome for android  */
   
   -webkit-touch-callout: none;
@@ -93,7 +95,7 @@ body
   z-index: 10;
 }
 
-#title
+#logo
 {
   position: absolute;
   top: 2%;
@@ -110,7 +112,7 @@ body
 #ads
 {
   position: absolute;
-  left: 0px; 
+  transform: translate(10px, 0); 
   bottom: 10px;
   font-size: 32pt;
   font-family: 'Playfair Display', serif;
@@ -158,7 +160,7 @@ body
   </head>
 
   <body>
-    <h1 id="title">UP TV</h1>
+    <h1 id="logo">UP TV</h1>
 
     <div id="ads"></div>
 

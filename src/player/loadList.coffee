@@ -5,6 +5,7 @@ config = require '../config.coffee'
 controls = require './controls/controls.coffee'
 player = require('./player.coffee')()
 storage = require '../utils/storage.coffee'
+isMobile = require 'ismobilejs'
 
 # store it as a global
 window.videos = []
@@ -39,7 +40,10 @@ loadList = (token) ->
 
         controls()
 
-        player.playNext()
+        if not isMobile.apple.device
+          player.playNext()
+        else
+          player.playNext true
 
       token = if res.nextPageToken? then res.nextPageToken else null
 

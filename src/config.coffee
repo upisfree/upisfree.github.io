@@ -7,7 +7,9 @@ config =
   volumeStep: 5 # mouse volume step
   volumeGamepadStep: 2.5 # because here I use requestAnimationFrame for loop and it's much faster than mouse wheel or keyboard events 
   doubleClickInterval: 175 # time between clicks for detecting double click
-  gamepadVolumeInterval: 125 # time between volume change for detecting is gamepad stick's position is null (vertical) 
+  gamepadVolumeInterval: 125 # time between volume change for detecting is gamepad stick's position is null (vertical)
+  logoText: 'UP TV'
+  iOSLogoText: 'НАЖМИ НА ЭКРАН'
 
 # export
 module.exports = config
