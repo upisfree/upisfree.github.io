@@ -19,8 +19,6 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@upisfree">
     
-    <!-- <meta property="vk:app_id" content="4952310"> -->
-
     <!-- favicons (это пиздец) -->
     <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-touch-icon-60x60.png">
@@ -60,11 +58,19 @@
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
 
     <style>
+html, body
+{
+  overflow: hidden;
+  position: relative;
+    height: 100%;
+}
+
 body
 {
   margin: 0;
   background: #000;
 
+  position: relative;
   /*transform: rotate(90deg);*/
 
   overflow: hidden; /* disable pull-down-to-refresh on chrome for android  */
