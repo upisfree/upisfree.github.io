@@ -5,7 +5,7 @@ element = require '../utils/element.coffee'
 config = require '../config.coffee'
 isMobile = require 'ismobilejs'
 
-animationSpeed = 1
+animationSpeed = 2
 left = 0
 e = null
 
