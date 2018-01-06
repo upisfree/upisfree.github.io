@@ -22,8 +22,8 @@ player.onStateChange = (e) ->
       element.show element.byId('cover')
       logo.iOSReturnText()
 
-    if e.data is YT.PlayerState.PAUSED # :-)
-      player.play()
+    # if e.data is YT.PlayerState.PAUSED # :-)
+    #   player.play()
 
 player.onError = (e) ->
   player.playNext()

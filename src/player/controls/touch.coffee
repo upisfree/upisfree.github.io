@@ -7,8 +7,8 @@ fullscreen = require '../../utils/fullscreen.coffee'
 
 video = element.byId 'video'
 
-window.swipeStartPoint = null
-window.swipeCurrentPoint = null
+# window.swipeStartPoint = null
+# window.swipeCurrentPoint = null
 
 touch = ->
   window.addEventListener 'touchstart', (e) ->
@@ -30,7 +30,7 @@ touch = ->
       setTimeout ->
         video.style.transform = 'translateX(0px)'
 
-        player.playNext(true)
+        player.playNext()
       , 350
     else
       video.style.transform = 'translateX(0px)'

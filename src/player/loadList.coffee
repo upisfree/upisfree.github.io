@@ -19,10 +19,11 @@ window.viewedVideos = if storage.get('viewedVideos')? then storage.get('viewedVi
 _currentPlaylist = 0
 
 loadList = (token) ->
-  url = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet' +
-                                                            '&maxResults=50' +
-                                                            '&playlistId=' + config.playlists[_currentPlaylist] +
-                                                            '&key=' + config.key
+  url = 'https://www.googleapis.com/youtube/v3/playlistItems' +
+    '?part=snippet' +
+    '&maxResults=50' +
+    '&playlistId=' + config.playlists[_currentPlaylist] +
+    '&key=' + config.key
 
   url += '&pageToken=' + token if token?
 

@@ -5,6 +5,8 @@ element = require '../utils/element.coffee'
 
 video = element.byId 'video'
 
+window.swipeStartPoint = null
+window.swipeCurrentPoint = null
 mult = null
 
 swipeUpdate = ->

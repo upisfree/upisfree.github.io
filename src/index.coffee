@@ -12,3 +12,5 @@ window.onYouTubeIframeAPIReady = ->
 
     if isMobile.apple.device
       element.hide element.byId('cover')
+
+      require('./player/controls/controls.coffee')()
