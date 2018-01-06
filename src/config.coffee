@@ -10,6 +10,9 @@ config =
   gamepadVolumeInterval: 125 # time between volume change for detecting is gamepad stick's position is null (vertical)
   logoText: 'UP TV'
   iOSLogoText: 'НАЖМИ НА ЭКРАН'
+  mobileSwipeNextLimit: -200
+  mobileSwipeLeftMult: 0.65
+  mobileSwipeRightMult: 0.25
 
 # export
 module.exports = config

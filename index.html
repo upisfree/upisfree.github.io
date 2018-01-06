@@ -91,6 +91,11 @@ body
   z-index: 1;
 }
 
+.transition
+{
+  transition: transform 300ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
 #cover
 {
   position: absolute;
@@ -117,6 +122,8 @@ body
 
 #ads
 {
+  display: none;
+
   position: absolute;
   transform: translate(10px, 0);
   bottom: 30px;

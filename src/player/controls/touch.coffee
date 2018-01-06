@@ -1,18 +1,42 @@
 # controls/touch.coffee
-# Touch things
+# Touch listeners
 config = require '../../config.coffee'
+element = require '../../utils/element.coffee'
 player = require('../player.coffee')()
 fullscreen = require '../../utils/fullscreen.coffee'
 
+video = element.byId 'video'
+
+window.swipeStartPoint = null
+window.swipeCurrentPoint = null
+
 touch = ->
-  window.addEventListener 'touchend', (e) -> # iOS
-    player.playNext()
+  window.addEventListener 'touchstart', (e) ->
+    window.swipeStartPoint = e.touches[0]
 
-  # invisible volume slider!
-  # window.addEventListener 'touchmove', (e) ->
-  #   e.preventDefault()
+    video.classList.remove 'transition'
 
-  #   player.setVolume 100 - (Math.round e.touches[0].clientY * 100 / window.innerHeight) # get % by the touch Y coordinate
+  window.addEventListener 'touchmove', (e) ->
+    e.preventDefault()
+
+    window.swipeCurrentPoint = e.touches[0]
+
+  window.addEventListener 'touchend', (e) ->
+    video.classList.add 'transition'
+
+    if window.swipeCurrentPoint.clientX - window.swipeStartPoint.clientX < config.mobileSwipeNextLimit
+      video.style.transform = 'translateX(-100%)'
+
+      setTimeout ->
+        video.style.transform = 'translateX(0px)'
+
+        player.playNext(true)
+      , 350
+    else
+      video.style.transform = 'translateX(0px)'
+
+    window.swipeStartPoint = null
+    window.swipeCurrentPoint = null
 
 # export
 module.exports = touch

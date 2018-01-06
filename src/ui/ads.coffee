@@ -7,7 +7,7 @@ isMobile = require 'ismobilejs'
 
 animationSpeed = 2
 left = 0
-e = null
+el = null
 
 iOStext = 'НАЖМИ НА КРАСНУЮ КНОПКУ'
 
@@ -22,21 +22,21 @@ ads =
 
       res.shuffle()
 
-      e = element.byId('ads')
+      el = element.byId 'ads'
 
-      e.textContent = res.join ' '
+      el.textContent = res.join ' '
 
       if isMobile.apple.device
         animationSpeed = 0.25
 
     xhr.send()
   update: ->
-    if Math.abs(left) >= e.offsetWidth
+    if Math.abs(left) >= el.offsetWidth
       left = window.innerWidth
 
     left -= animationSpeed
 
-    e.style.transform = "translateX(#{left - animationSpeed}px)"
+    el.style.transform = "translateX(#{ left - animationSpeed }px)"
 
 # export
 module.exports = ads
