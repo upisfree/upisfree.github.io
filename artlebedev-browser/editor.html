@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="./als_artemius_sans/als_artemius_sans.css">
+
+    <script src="jscolor.js"></script>
+ 
+    <title>Редактор браузеров</title>
+
+    <style>
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+
+.hidden {
+  display: none !important;
+}
+
+
+
+
+
+
+body {
+  background: #fff;
+  font-family: 'als_artemius_sans';
+}
+
+.als-browser,
+.als-browser-mobile {
+  position: relative;
+  top: 25%;
+  margin: auto;
+  display: block;
+}
+
+.als-browser-mobile {
+  width: 407px;
+}
+
+label {
+  /*float: right;*/
+}
+
+.options {
+  margin-bottom: 50px;
+}
+
+.options div {
+  margin: 10px;
+}
+
+.options.desktop,
+.options.mobile {
+  margin: 0;
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="options">
+<h1>Редактор браузера</h1>
+
+<div><label>Фон страницы: </label><input class="jscolor {onFineChange:'onPageBackgroundInput(this)'}" value="ffffff" name="page-background"></div>
+
+<div>Мобила?: <label class="switch"><input type="checkbox" name="show-mobile"><span class="slider round"></span></label></div>
+<div><label>Урл: </label><input type="text" value="sitename.ru" name="url"></div>
+<div><label>Цвет текста в урле: </label><input class="jscolor {onFineChange:'onUrlColorInput(this)'}" value="000000" name="url-color"></div>
+<div><label>Цвет адресной строки: </label><input class="jscolor {onFineChange:'onUrlBackgroundInput(this)'}" value="ffffff" name="url-background"></div>
+
+<div class="options desktop">
+  <div><label>Цвет топбара: </label><input class="jscolor {onFineChange:'onTopbarBackgroundInput(this)'}" value="ECF0F4" name="topbar-background"></div>
+  <div>Не показывать рамку?: <label class="switch"><input type="checkbox" name="show-border"><span class="slider round"></span></label></div>
+  <div id="border-color-div"><label>Цвет рамки: </label><input class="jscolor {onFineChange:'onBorderColorInput(this)'}" value="ECF0F4" name="border-color"></div>  
+</div>
+
+<div class="options mobile hidden">
+  <div><label>Цвет телефона: </label><input class="jscolor {onFineChange:'onMobileColorInput(this)'}" value="ecf0f4" name="mobile-border-color"></div>
+  <div><label>Цвет динамика: </label><input class="jscolor {onFineChange:'onMobileSpeakerColorInput(this)'}" value="ffffff" name="mobile-speaker-color"></div>
+  <div><label>Цвет датчика: </label><input class="jscolor {onFineChange:'onMobileInputColorInput(this)'}" value="ffffff" name="mobile-input-color"></div>
+  <div><label>Цвет кнопки: </label><input class="jscolor {onFineChange:'onMobileButtonColorInput(this)'}" value="ecf0f4" name="mobile-button-color"></div>
+</div>
+    </div>
+
+    <a class="als-browser" href="http://design.ru" target="_blank">
+      <div class="als-browser__topbar">
+        <span class="als-browser__address">
+          <span class="als-browser__address_text">sitename.ru</span>
+        </span>
+      </div>
+
+      <img class="als-browser__content" src="desktop.jpg">
+    </a>
+
+
+    <a class="als-browser-mobile hidden" href="http://design.ru" target="_blank">
+      <svg viewBox="0 0 407 811" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <defs>
+              <path d="M2.5638852,-1.03584031e-16 L372.436115,1.03584031e-16 C373.327634,-6.01853049e-17 373.65092,0.0928256111 373.976846,0.267132704 C374.302772,0.441439796 374.55856,0.697228371 374.732867,1.0231543 C374.907174,1.34908022 375,1.67236646 375,2.5638852 L375,621.466755 C375,642.863205 372.772185,650.622075 368.588815,658.444297 C364.405445,666.266519 358.266519,672.405445 350.444297,676.588815 C342.622075,680.772185 334.863205,683 313.466755,683 L61.5332448,683 C40.136795,683 32.3779253,680.772185 24.5557031,676.588815 C16.7334809,672.405445 10.5945551,666.266519 6.41118489,658.444297 C2.22781467,650.622075 9.62964878e-16,642.863205 -1.65734449e-15,621.466755 L6.90560205e-17,2.5638852 C-4.01235366e-17,1.67236646 0.0928256111,1.34908022 0.267132704,1.0231543 C0.441439796,0.697228371 0.697228371,0.441439796 1.0231543,0.267132704 C1.34908022,0.0928256111 1.67236646,6.01853049e-17 2.5638852,-1.03584031e-16 Z" id="path-1"></path>
+          </defs>
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+              <g id="mobile-browser">
+                  <rect id="background" fill="#ECF0F4" x="0" y="0" width="407" height="811" rx="64"></rect>
+                  <rect id="input" fill="#FFFFFF" x="24" y="72" width="359" height="32" rx="6"></rect>
+                  <circle id="camera" fill="#FFFFFF" cx="144" cy="35" r="4"></circle>
+                  <rect id="speaker" fill="#FFFFFF" x="168" y="32" width="72" height="6" rx="3"></rect>
+                  <g id="Group-2" transform="translate(16.000000, 112.000000)">
+                      <mask id="mask-2" fill="white">
+                          <use xlink:href="#path-1"></use>
+                      </mask>
+                      <use id="viewport" fill="#D8D5FF" xlink:href="#path-1"></use>
+
+                          <foreignObject x="0" y="0" width="375" height="683">
+                              <div class="als-browser-mobile__content">
+                                <span class="als-browser-mobile__address">sitename.ru</span>
+                                <!-- <video src="video.mp4" controls></video> -->
+                                <div class="als-browser-mobile__content-image" style="background-image: url('mobile.jpg')"></div>
+                              </div>
+                          </foreignObject>
+                  </g>
+
+                  <circle id="home" fill="#ECF0F4" cx="203.5" cy="756.5" r="22.5"></circle>
+              </g>
+          </g>
+      </svg>
+    </a>
+
+    <script>
+document.querySelector('body').ondragenter = function(e) {
+  e.preventDefault();
+  
+  document.querySelector('h1').textContent = 'Кидай картинку!';
+}
+
+document.querySelector('body').ondragleave = function(e) {
+  e.preventDefault();
+  
+  // document.querySelector('h1').textContent = 'Редактор браузера';
+}
+
+document.querySelector('body').ondragover = function(e) {
+  e.preventDefault();
+}
+
+document.querySelector('body').ondrop = function(e) {
+  e.preventDefault();
+
+  document.querySelector('h1').textContent = 'Редактор браузера';
+
+  var dt = e.dataTransfer;
+  var files = dt.files;
+
+  for (var i = 0; i < files.length; i++) {
+    var file = files[i];
+    var reader = new FileReader();
+
+    reader.readAsDataURL(file);
+
+    reader.addEventListener('loadend', function(e, file) {
+      var bin = this.result;
+
+      // img.file = file;
+
+      if (document.querySelector('input[name="show-mobile"]').checked) {
+        document.querySelector('.als-browser-mobile__content-image').src = bin;
+      } else {
+        document.querySelector('.als-browser__content').src = bin;
+      }
+    });
+  }
+}
+
+function onPageBackgroundInput(color) {
+  document.querySelector('body').style.background = '#' + color;
+}
+
+function onUrlColorInput(color) {
+  document.querySelector('.als-browser__address').style.color = '#' + color;
+  document.querySelector('.als-browser-mobile__address').style.color = '#' + color;
+}
+
+function onUrlBackgroundInput(color) {
+  document.querySelector('.als-browser__address').style.background = '#' + color;
+  document.querySelector('#input').style.fill = '#' + color;
+}
+
+function onTopbarBackgroundInput(color) {
+  document.querySelector('.als-browser__topbar').style.background = '#' + color;
+}
+
+function onBorderColorInput(color) {
+  document.querySelector('.als-browser__content').style.borderColor = '#' + color;
+}
+
+function onMobileColorInput(color) {
+  document.querySelector('#background').style.fill = '#' + color;
+}
+
+function onMobileSpeakerColorInput(color) {
+  document.querySelector('#speaker').style.fill = '#' + color;
+}
+
+function onMobileInputColorInput(color) {
+  document.querySelector('#camera').style.fill = '#' + color;
+}
+
+function onMobileButtonColorInput(color) {
+  document.querySelector('#home').style.fill = '#' + color;
+}
+
+document.querySelector('input[name="url"]').addEventListener('input', function() {
+  document.querySelector('.als-browser__address_text').textContent = this.value;
+  document.querySelector('.als-browser-mobile__address').textContent = this.value;
+  document.querySelector('.als-browser').href = this.value;
+  document.querySelector('.als-browser-mobile').href = this.value;
+});
+
+document.querySelector('input[name="show-mobile"]').onchange = function() {
+  if (this.checked) {
+    document.querySelector('.options.desktop').classList.add('hidden');
+    document.querySelector('.als-browser').classList.add('hidden');
+    document.querySelector('.options.mobile').classList.remove('hidden');
+    document.querySelector('.als-browser-mobile').classList.remove('hidden');
+  } else {
+    document.querySelector('.options.desktop').classList.remove('hidden');
+    document.querySelector('.als-browser').classList.remove('hidden');
+    document.querySelector('.options.mobile').classList.add('hidden');
+    document.querySelector('.als-browser-mobile').classList.add('hidden');  
+  }
+}
+
+document.querySelector('input[name="show-border"]').onchange = function() {
+  if (this.checked) {
+    document.querySelector('#border-color-div').classList.add('hidden');
+    document.querySelector('.als-browser__content').style.borderWidth = '0px';
+    document.querySelector('.als-browser__content').style.width = '100%';
+  } else {
+    document.querySelector('#border-color-div').classList.remove('hidden');
+    document.querySelector('.als-browser__content').style.borderWidth = '2px';
+    document.querySelector('.als-browser__content').style.width = 'calc(100% - 4px)';
+  }
+}
+    </script>
+  </body>
+</html>
