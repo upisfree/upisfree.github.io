@@ -1,3 +1,6 @@
 [submodule "no-ogomk-movie"]
 	path = no-ogomk-movie
 	url = https://github.com/upisfree/no-ogomk-movie
+[submodule "game/ld45"]
+	path = game/ld45
+	url = https://github.com/upisfree/ld45.git
