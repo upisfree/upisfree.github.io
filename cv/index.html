@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    
+    <meta name="title" content="Senya Pugach">
+    <meta name="description" content="Senya Pugach's CV">
+
+    <title>Senya Pugach</title>
+
+    <style>
+body {
+  margin: 32px;
+}
+
+a:visited {
+  color: blue;
+}
+
+abbr[title] {
+  text-decoration: none;
+  border-bottom: 1px dashed #000;
+  cursor: help;
+}
+
+p {
+  font-size: 95%;
+}
+
+h4,
+.name,
+.summary {
+  margin: 0;
+}
+
+.summary {
+  margin-top: 4px;
+}
+
+.projects {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: left;
+  margin-left: -12px;
+  margin-bottom: 16px;
+}
+
+.project {
+  width: 320px;
+  height: auto;
+  /*height: 220px;*/
+  margin: 4px;
+  padding: 10px;
+}
+
+.project h4 {
+  font-size: 105%;
+}
+
+.project p {
+  margin: 4px 0;
+}
+
+.project h4 time {
+  float: right;
+  margin-top: 2px;
+  font-style: italic;
+  font-size: 80%;
+  font-weight: normal;
+}
+
+.project > time {
+  display: block;
+  margin-top: 12px;
+  font-style: italic;
+  font-size: 80%;
+}
+
+.projects-category {
+  margin: 0;
+  margin-bottom: -12px;
+  font-style: italic;
+}
+    </style>
+  </head>
+  <body>
+    <h2 class="name">Senya Pugach</h2>
+
+    <p class="summary">
+<i>Moscow, Russia</i>
+    </p>
+
+    <p>
+<a href="mailto:upisfree@outlook.com" target="_blank">mail</a>
+<a href="https://t.me/upisfree" target="_blank">telegram</a>
+<a href="https://github.com/upisfree" target="_blank">github</a>
+<a href="https://instagram.com/upisfree" target="_blank">instagram</a>
+<a href="https://artlebedev.ru/upisfree" target="_blank">artlebedev (ru)</a>
+    </p>
+
+    <h3>Employments</h3>
+    <ul>
+      <li>
+        <p>
+<a href="https://artlebedev.com/">Art. Lebedev Studio</a> <i>Moscow, Russia</i><br>
+<b>R&D software engineer</b> <i>november 2017 – present</i>
+        </p>
+      </li>
+
+      <li>
+        <p>
+<a href="https://loyaltyplant.com/" target="_blank">LoyaltyPlant</a> <i>Saint Petersburg, Russia</i><br>
+<b>software engineer intern</b> <i>june – august 2016</i>
+        </p>
+      </li>
+    </ul>
+
+    <h3>Education</h3>
+    <ul>
+      <li>
+Omsk State University
+        <ul>
+          <li>Faculty of Chemistry, <b>Chemical Technology</b> <i>september 2017</i></li>
+          <li>Faculty of Computer Sciences, <b>Informatics and computer engineering</b> <i>october – november 2017</i></li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>Awards</h3>
+    <p>
+<a href="https://thefwa.com/cases/website-of-the-legendary-russian-rock-band-aquarium" target="_blank">FWA</a><br>
+<a href="https://www.cssdesignawards.com/sites/aquarium-rockband/37302/" target="_blank">CSSDA</a>
+    </p>
+
+    <h3>Featured projects</h3>
+
+    <p class="projects-category">in Art. Lebedev Studio</p>
+    <div class="projects">
+      <div class="project">
+        <youtube-with-gif-preview video="jI8LuHr4FfA" gif="./assets/gif/aquarium.gif" width="320" height="180"></youtube-with-gif-preview>
+        <!-- <iframe src="https://player.vimeo.com/video/418412430?autoplay=1&background=1&loop=1&color=ff4a2b&title=0&byline=0&portrait=0" width="320" height="180" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe> -->
+        <h4>
+          <a href="https://aquarium.ru/en" target="_blank">Aquarium</a>
+          <time>15 may 2020</time>
+        </h4>
+        
+        <p>
+<i>is endlessly generated monumental psychedelic web experience for the founders of the Russian rock scene</i><br><br>
+The number of versions of the site is unlimited, scroll to the end to see the new version which no one except you see it again because all of there are unique.
+        </p>
+      </div>
+
+
+
+<!-- студийных надо ещё как-то понавыхватывать и рассказать -->
+
+
+
+
+<!--       <div class="project">
+        <h4>Krono webgl engine</h4>
+        <p>
+Krono is webgl engine and editor for creating beatiful and memorable 3d web expierences.
+Движок оживляет трёхмерный мир, созданный 3д-моделлером, и добавляет туда магию эффектов, настроенных дизайнером (разнообразие которых вы можете увидеть на Аквариуме). <i>Редактор? custom engine for the scrolling experiences and the editor for the effects creating and generation.</i> 
+Фичи:
+          <ul>
+<li>дизайнер/программист-не-3д указывает путь до модели и всё работает из коробки (!!!!)</li>
+<li>загрузка моделей, звуков (это базовые функции, которые входят в коробку, по-умолчанию их пишешь сама, мб не вставлять)</li>
+<li>аудио</li>
+<li>редактор эффектов</li>
+<li>случайная управляемая генерация эффектов</li>
+<li>
+эффекты
+  <ul>
+    <li>аудио</li>
+    <li>параметры камеры</li>
+    <li>свет</li>
+    <li>туман</li>
+    <li>wireframe</li>
+    <li>meshes clipping</li>
+    <li>morph targets</li>
+    <li>post bloom</li>
+    <li>post chromatic aberration</li>
+    <li>post glitch</li>
+    <li>post hue</li>
+    <li>post noise</li>
+    <li>post pixelation</li>
+    <li>post saturation</li>
+    <li>post tone mapping</li>
+  </ul>
+</li>
+<li>import/export editor keyframes</li>
+<li>Basis textures directly in GLTF</li>
+<li>model chunks</li>
+<li>встроенные классы для возможности навешивать обновления эффектов не только по скроллу, но и по любой хуйне (гироском, время, координаты, см. гифку с цветом и гироскопом или wiggle effect) (только кодом)</li>
+<li>roly-poly неваляшка, которая сейчас навешана на скролл и звук, а можно на цвет, свет и что угодно</li>
+<li>автоопределение лагов и регрессия качества картинки</li>
+          </ul>
+        </p>
+
+        <p>
+          <ul>
+<li>всё работает из коробки (10 строк вместа 100)</li>
+<li>ауидо</li>
+<li>автоопределение лагов и регрессия качества картинки</li>
+<li>статистика?</li>
+<li>показать работу на телефоне</li>
+<li>гироскоп, который можно навесить на эффект (цвет, громкость, что угодно) — и не только гироскоп</li>
+<li>оптимизация: автоопределение лагов и регрессия качества картинки</li>
+<li>чанки. можно грузить модели отдельно друг от друга: ускоряет загрузку и проще обновлять</li>
+<li>хитрый супер оптимизированный формат текстур, который я занёс в three.js (Basis textures directly in GLTF)</li>
+<li>редактор</li>
+<li>РАНДОМНЫЕ ЭФФЕКТЫ</li>
+<li>
+эффекты
+  <ul>
+<li>охуевший постпроцессинг</li>
+<li>охуевший звук</li>
+<li>охуевший звук</li>
+  </ul>
+</li>
+          </ul>
+        </p>
+      </div> -->
+
+      <div class="project">
+        <h4>2 unrealeased project using Krono engine</h4>
+        <p>*1 gif with 2 images here*</p>
+      </div>
+    </div>
+
+
+
+    <p class="projects-category">Ludum Dare games</p>
+    <div class="projects">
+      <div class="project">
+        <youtube-with-gif-preview video="leGG8FK4rec" gif="./assets/gif/ld39.gif" width="320" height="180"></youtube-with-gif-preview>
+        <h4>
+          <a href="https://upisfree.itch.io/mother" target="_blank">Mother</a>
+          <time>29–30 july 2017</time>
+        </h4>
+        
+        <p>
+<i>a game about draftee who coming back to mother in a zinc lined coffin</i><br><br>
+This is my most heartbreaking game <abbr title="in the Russian army mandatory 1 year long conscription for all men">that saved me from the army.</abbr>
+        </p>
+      </div>
+
+      <div class="project">
+        <youtube-with-gif-preview video="dNtrsi6e4YA" gif="./assets/gif/ld45.gif" width="320" height="180"></youtube-with-gif-preview>
+        <h4>
+          <a href="https://upisfr.ee/game/ld45" target="_blank">Crybaby</a>
+          <time>6–8 october 2019</time>
+        </h4>
+        
+        <p>
+<i>use your knife to kill those who never cry</i><br><br>
+I made a raycasting engine from scratch during summer 2019 and wrote this game using it during one of the Ludum Dare weekends.
+        </p>
+      </div>
+
+      <div class="project">
+        <youtube-with-gif-preview video="W4i9O5KYExo" gif="./assets/gif/ld46.gif" width="320" height="180"></youtube-with-gif-preview>
+        <h4>
+          <a href="https://upisfree.itch.io/wish-you-were-here" target="_blank">wish you were here</a>
+          <time>21 april 2020</time>
+        </h4>
+        
+        <p>
+<i>about a man who gave everything to God to have his love with him</i><br><br>
+My girlfriend got stuck in another country during the COVID-19 pandemic and I really missed her.
+        </p>
+      </div>
+
+      <div class="project">
+        <youtube-with-gif-preview video="bcma5q7-PiU" gif="./assets/gif/ld42.gif" width="320" height="180"></youtube-with-gif-preview>
+        <h4>
+          <a href="https://github.com/upisfree/ld42/releases/tag/1.0" target="_blank">Memories</a>
+          <time>11–12 august 2018</time>
+        </h4>
+
+        <p>
+<i>childhood memories from 1937</i><br><br>
+The Great Terror has affected every family in Soviet Union: my great-grandfather was shot, great-great-grandmother was imprisoned and others were dispossessed.
+        </p>
+      </div>
+
+      <div class="project">
+        <youtube-with-gif-preview video="K7av4gNsnXc" gif="./assets/gif/ld37.gif" width="320" height="180"></youtube-with-gif-preview>
+        <h4>
+          <a href="https://github.com/upisfree/ld37/releases/tag/1.0" target="_blank">...</a>
+          <time>20 december 2016</time>
+        </h4>
+        
+        <p>
+<i>a game about Kazakhstan's attack on Omsk</i><br><br>
+First Unity experience.
+        </p>
+      </div>
+    </div>
+
+
+<br><br><br><br><br><br>
+
+
+
+    <p class="projects-category">commercial games</p>
+    <div class="projects">
+      <div class="project">
+        <youtube-with-gif-preview video="j6BBO2k1lK0" gif="./assets/gif/angry-recruits.gif" width="320" height="180"></youtube-with-gif-preview>
+        <h4>
+          <a href="https://upisfr.ee/game/angry-recruits" target="_blank">Game for Priziva.net cloned by Rovio</a>
+        </h4>
+        
+        <p>
+<i>in 2019, Angry Birds no longer existed in the browser; they now exist, though with Russian army colour</i><br><br>
+Destructible environment, level editor, mobile support, different shell types, incredible sounds, rating server. 
+<a href="https://github.com/upisfree/angry-recruits" target="_blank">Sources</a>
+        </p>
+
+        <time>february – march 2019</time>
+      </div>
+
+      <div class="project">
+        <youtube-with-gif-preview video="vou9AGDyMCw" gif="./assets/gif/mario.gif" width="320" height="180"></youtube-with-gif-preview>
+        <h4>
+          <a href="https://upisfr.ee/game/mario" target="_blank">Mario clone for Priziva.net</a>
+        </h4>
+        
+        <p>
+Based on Full Screen Mario. I made it work on mobiles, add touch controls, rewrite audio engine from <code>&lt;audio&gt;</code> to <code>Web Audio API</code>, made a rating server and add new textures (it was a problem because of the custom strange texture format), all in one week.
+        </p>
+
+        <time>22–30 september 2017</time>
+      </div>
+    </div>
+
+    <i>open source contributions</i>
+    <div class="projects">
+      <div class="project">
+        <h4><a href="https://github.com/mrdoob/three.js/pull/19541" target="_blank">BasisTextureLoader: support repeated loading of same texture</a></h4>
+        <p>
+<!-- В пятницу, в первый день после релиза Аквариума я столкнулся с тем, что на множестве устройств не хватает видеопамяти и страница падает. Пришлось за одни выходные узнать о существовании компрессированных текстур, узнать о .basis текстурах и написать патч для загрузчика этих текстур в three.js, а также дописать загрузчик GLTF моделей так, чтобы он научился понимать .basis текстуры. -->
+
+On Friday, the first day after the release of the Aquarium, I encountered a lack of video memory on many devices and the page crashes. I had three days before site will be promoted to the large audience to somehow solve this problem. It took me one weekend to learn about the existence of GPU compressed textures, learn about Basis Universal textures and <abbr title="I deliberately didn't mention that there were problems with textures transparency on iOS, it's just another story :)">write a patch</abbr> for the <code>BasisTextureLoader</code> in <code>three.js</code>, as well as to finish the <code>GLTF</code> model loader so that he could understand <code>.basis</code> textures.
+        </p>
+      </div>
+    </div>
+
+    <!-- стащи с гитхаба, кстатикстатикстатикстатикстатикстатикстатикстатикстатикстатикстатикстатикстатикстати -->
+
+<!-- давай обновим i2 сразу, а потом это перенесем сюда -->
+
+    <p class="projects-category">personal projects</p>
+    <div class="projects">
+      <div class="project">
+        <h4></h4>
+        <p></p>
+      </div>
+
+      <div class="project">
+        <h4></h4>
+        <p></p>
+      </div>
+    </div>
+
+
+
+    <p class="projects-category">in school times</p>
+    <div class="projects">
+      <div class="project">
+        <youtube-with-gif-preview video="uHFuDbXJfs0" gif="./assets/gif/bci.gif" width="320" height="180"></youtube-with-gif-preview>
+        <h4>$500 brain-computer interface: brain typing</h4>
+        <p>
+
+        </p>
+      </div>
+
+      <div class="project">
+        <h4>My Way Windows Phone app</h4>
+        <p></p>
+      </div>
+    </div>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script type="module" src="./js/youtube-with-gif-preview.js"></script>
+  </body>
+</html>
