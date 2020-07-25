@@ -55,6 +55,12 @@ h4,
   padding: 10px;
 }
 
+.project .preview {
+  width: 320px;
+  height: 180px;
+  object-fit: cover;
+}
+
 .project h4 {
   font-size: 105%;
 }
@@ -131,33 +137,29 @@ Omsk State University
     <h3>Awards</h3>
     <p>
 <a href="https://thefwa.com/cases/website-of-the-legendary-russian-rock-band-aquarium" target="_blank">FWA</a><br>
-<a href="https://www.cssdesignawards.com/sites/aquarium-rockband/37302/" target="_blank">CSSDA</a>
+<a href="https://www.cssdesignawards.com/sites/aquarium-rockband/37302/" target="_blank">CSSDA</a><br>
+<!-- <a href="" target="_blank">Русский Медвежонок</a> -->
     </p>
 
     <h3>Featured projects</h3>
 
     <p class="projects-category">in Art. Lebedev Studio</p>
+    
+<!-- переписать текст, сказав что я тут всё запрограммировал? -->
+
     <div class="projects">
       <div class="project">
         <youtube-with-gif-preview video="jI8LuHr4FfA" gif="./assets/gif/aquarium.gif" width="320" height="180"></youtube-with-gif-preview>
-        <!-- <iframe src="https://player.vimeo.com/video/418412430?autoplay=1&background=1&loop=1&color=ff4a2b&title=0&byline=0&portrait=0" width="320" height="180" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe> -->
         <h4>
           <a href="https://aquarium.ru/en" target="_blank">Aquarium</a>
-          <time>15 may 2020</time>
+          <time>during 2019–2020</time>
         </h4>
         
         <p>
 <i>is endlessly generated monumental psychedelic web experience for the founders of the Russian rock scene</i><br><br>
-The number of versions of the site is unlimited, scroll to the end to see the new version which no one except you see it again because all of there are unique.
+The number of versions of the site is unlimited, scroll to the end to see the new version which no one except you see it again because all of there are unique. My magnum opus in Art. Lebedev.
         </p>
       </div>
-
-
-
-<!-- студийных надо ещё как-то понавыхватывать и рассказать -->
-
-
-
 
 <!--       <div class="project">
         <h4>Krono webgl engine</h4>
@@ -228,6 +230,25 @@ Krono is webgl engine and editor for creating beatiful and memorable 3d web expi
       <div class="project">
         <h4>2 unrealeased project using Krono engine</h4>
         <p>*1 gif with 2 images here*</p>
+      </div>
+
+      <div class="project">
+        <img src="./assets/gif/sotbi.gif" class="preview">
+        <h4><a href="https://www.artlebedev.com/sotbi/app/" target="_blank">Sotbi AR iOS app</a></h4>
+        <p>
+<i>the augmented reality app demonstrates the oddity of corporate workdays</i><br><br>
+Sotbi's are guys who, forcing debtors to pay back multibillion-rubles debts. So, in this game your goal is find the five hiding debtors.
+        </p>
+
+        <time>during 2018 <!-- <a href="https://itunes.apple.com/us/app/%D1%81%D0%BE%D1%82%D0%B1%D0%B8/id1393024303?ls=1&mt=8" target="_blank">download</a> --></time>
+      </div>
+
+      <div class="project">
+        <img src="./assets/gif/metro.gif" class="preview">
+        <h4><a href="https://www.artlebedev.com/metro/map4/" target="_blank">Moscow Metro Map 4.0</a><time>winter – spring 2019</time></h4>
+        <p>
+For the Moscow metro map I created various tools to facilitate the designer's work on the map, and also developed scripts to automate the creation of the map in different formats and its translation into different languages. By the way, it is terrible to script Adobe Illustrator.
+        </p>
       </div>
     </div>
 
@@ -316,11 +337,10 @@ First Unity experience.
         
         <p>
 <i>in 2019, Angry Birds no longer existed in the browser; they now exist, though with Russian army colour</i><br><br>
-Destructible environment, level editor, mobile support, different shell types, incredible sounds, rating server. 
-<a href="https://github.com/upisfree/angry-recruits" target="_blank">Sources</a>
+Destructible environment, level editor, mobile support, different shell types, incredible sounds, rating server.
         </p>
 
-        <time>february – march 2019</time>
+        <time>february – march 2019 <a href="https://github.com/upisfree/angry-recruits" target="_blank">sources</a></time>
       </div>
 
       <div class="project">
@@ -335,12 +355,27 @@ Based on Full Screen Mario. I made it work on mobiles, add touch controls, rewri
 
         <time>22–30 september 2017</time>
       </div>
+
+
+      <div class="project">
+        <!-- <youtube-with-gif-preview video="vou9AGDyMCw" gif="./assets/gif/mario.gif" width="320" height="180"></youtube-with-gif-preview> -->
+        <h4>
+          Игра про сёрфера, управляемого голосом (на битбакете)?
+          <!-- <a href="https://upisfr.ee/game/mario" target="_blank">Mario clone for Priziva.net</a> -->
+        </h4>
+        
+        <p>
+Based on Full Screen Mario. I made it work on mobiles, add touch controls, rewrite audio engine from <code>&lt;audio&gt;</code> to <code>Web Audio API</code>, made a rating server and add new textures (it was a problem because of the custom strange texture format), all in one week.
+        </p>
+
+        <time>22–30 september 2017</time>
+      </div>
     </div>
 
     <i>open source contributions</i>
     <div class="projects">
       <div class="project">
-        <h4><a href="https://github.com/mrdoob/three.js/pull/19541" target="_blank">BasisTextureLoader: support repeated loading of same texture</a></h4>
+        <h4><a href="https://github.com/mrdoob/three.js/pull/19541" target="_blank">BasisTextureLoader in three.js: support repeated loading of same texture</a></h4>
         <p>
 <!-- В пятницу, в первый день после релиза Аквариума я столкнулся с тем, что на множестве устройств не хватает видеопамяти и страница падает. Пришлось за одни выходные узнать о существовании компрессированных текстур, узнать о .basis текстурах и написать патч для загрузчика этих текстур в three.js, а также дописать загрузчик GLTF моделей так, чтобы он научился понимать .basis текстуры. -->
 
@@ -374,13 +409,51 @@ On Friday, the first day after the release of the Aquarium, I encountered a lack
         <youtube-with-gif-preview video="uHFuDbXJfs0" gif="./assets/gif/bci.gif" width="320" height="180"></youtube-with-gif-preview>
         <h4>$500 brain-computer interface: brain typing</h4>
         <p>
+<i>brain-computer interface for symbols typing using brain neural activity (in simple terms, with thoughts)</i><br><br>
 
+That's what I was doing at 17 instead of getting ready for university.
         </p>
+
+        <time>two weeks in january 2017</time>
       </div>
 
       <div class="project">
-        <h4>My Way Windows Phone app</h4>
-        <p></p>
+        <youtube-with-gif-preview video="dR8lhKYzXhE" gif="./assets/gif/bci-vr.gif" width="320" height="180"></youtube-with-gif-preview>
+        <h4>World's first VR brain-computer interface (still for ~$500)</h4>
+        <p>
+When I went to Moscow to the main Russian scientific conference for schoolers, juri told me that they would not give me an award unless I showed a demo directly at the conference. But my brain was distracted by various noises and BCI gave wrong results: for a good result, you need a quiet room with no noises. Then I bought a cardboard, put my phone in there, and using my friend's phone as a Wi-Fi router (there was no internet in the conference room), I created the world's first VR brain-computer interface for typing symbols with the power of thought overnight on my knee.<br><br>
+
+So, they didn't give me a single award.
+
+<!--
+там бля охуенная история
+я говорю главному жюри
+типа, мой интерфейс стоит 30к ₽, а обычно такое от пары мультов начинается
+а он такой
+ебать)
+а у тебя что-ли есть экономическое образование, чтобы оценивать стоимость своего продукта?
+ведь стоимость процессора для интела и для тебя разная, откуда ты знаешь, что себестоимость 30к?
+я стою, молчу несколько секунд просто, пытаясь понять, он шутит или нет
+я просто не мог поверить, что он мог сморозить такую хуйню
+типа, дед, ты ебанулся?
+беру себя в руки и такой
+нет, образования нет, но я заплатил за все детали 30к и вот и есть себестоимость для меня лол
+а ещё эти долбоёбы перепутали нейросети и нейроинтерфейс
+сказали, ой нейросетей щас много, у вас работа на популярную тему
+алло, ебанаты, это нейроинтерфейс, которых в россии в пределах 20 штук всего, один из которых собрал за 30к школьник из омска блядь еблан -->
+        </p>
+
+        <time>one night in january 2017</time>
+      </div>
+
+      <div class="project">
+        <youtube-with-gif-preview video="PHdHyfE7aJU" gif="./assets/gif/myway.gif" width="320" height="180"></youtube-with-gif-preview>
+        <h4>“My Way” Windows Phone app</h4>
+        <p>
+An Windows Phone application that allows residents of Omsk (this is in Siberia) to find out when a bus will arrive at their stop. It is especially useful in winter to avoid freezing to death at the bus stop.
+        </p>
+
+        <time>during 2014 <a href="https://microsoft.com/ru-ru/p/Мой-маршрут/9nblggh0fd6t" target="_blank">download</a> <a href="https://github.com/upisfree/myway" target="_blank">sources</a></time>
       </div>
     </div>
 
