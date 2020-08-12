@@ -13,15 +13,15 @@ function htmlToElement(html) {
   return template.content.firstChild;
 }
 
-class YouTubeWithGifPreview extends HTMLElement {
+class YouTubeWithAnimatedPreview extends HTMLElement {
   constructor() {
     super();
 
     this.width = (this.getAttribute('width') !== undefined) ? this.getAttribute('width') : 480;
     this.height = (this.getAttribute('height') !== undefined) ? this.getAttribute('height') : 270;
 
-    if (!this.getAttribute('video') || !this.getAttribute('gif')) {
-      console.error('YouTubeWithGifPreview: you need to specify video id and path to gif file');
+    if (!this.getAttribute('video') || !this.getAttribute('preview')) {
+      console.error('YouTubeWithAnimatedPreview: you need to specify video id and path to preview file');
     }
 
     this.divId = `youtube-${ this.getAttribute('video') }`;
@@ -31,8 +31,8 @@ class YouTubeWithGifPreview extends HTMLElement {
     this.render();
   }
 
-  onGifClick() {
-    this.gif.classList.add('hidden');
+  onPreviewClick() {
+    this.preview.classList.add('hidden');
 
     this.player.playVideo();
   }
@@ -54,13 +54,22 @@ class YouTubeWithGifPreview extends HTMLElement {
       videoId: this.getAttribute('video')
     });
 
-    this.gif = document.createElement('div');
-    this.gif.className = 'gif';
-    this.gif.addEventListener('click', this.onGifClick.bind(this));
-    this.root.appendChild(this.gif);
+    this.preview = document.createElement('div');
+    this.preview.className = 'preview';
+    this.preview.addEventListener('click', this.onPreviewClick.bind(this));
+    this.root.appendChild(this.preview);
 
     this.playButton = htmlToElement(YOUTUBE_BUTTON_SVG);
-    this.gif.appendChild(this.playButton);
+    this.preview.appendChild(this.playButton);
+
+    this.previewVideo = document.createElement('video');
+    this.previewVideo.autoplay = true;
+    this.previewVideo.muted = true;
+    this.previewVideo.loop = true;
+    this.previewVideo.preload = true;
+    this.previewVideo.controls = false;
+    this.previewVideo.src = this.getAttribute('preview');
+    this.preview.appendChild(this.previewVideo);
   }
 
   getStyleTag() {
@@ -74,24 +83,26 @@ class YouTubeWithGifPreview extends HTMLElement {
   margin: 8px 0;
 }
 
-.${ this.divId } .gif {
+.${ this.divId } .preview {
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  background-image: url(${ this.getAttribute('gif') });
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 50%;
   cursor: pointer;
 }
 
-.${ this.divId } .gif.hidden {
+.${ this.divId } .preview video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.${ this.divId } .preview.hidden {
   display: none;
 }
 
-.${ this.divId } .gif svg {
+.${ this.divId } .preview svg {
   position: absolute;
   width: 68px;
   height: 48px;
@@ -119,7 +130,7 @@ class YouTubeWithGifPreview extends HTMLElement {
 }
 
 window.onYouTubeIframeAPIReady = function() {
-  customElements.define('youtube-with-gif-preview', YouTubeWithGifPreview);
+  customElements.define('youtube-with-animated-preview', YouTubeWithAnimatedPreview);
 };
 
-export default YouTubeWithGifPreview;
+export default YouTubeWithAnimatedPreview;
