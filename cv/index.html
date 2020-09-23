@@ -5,14 +5,24 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no">
     
-    <meta name="title" content="Senya Pugach">
+    <meta name="title" content="Senya Pugach's CV">
     <meta name="description" content="Senya Pugach's CV">
 
+    <link rel="shortcut icon" href="../assets/favicon/favicon.ico">
+
     <title>Senya Pugach</title>
+
+    <script type="module" src="./js/youtube-with-animated-preview.js"></script>
 
     <style>
 body {
   margin: 32px;
+}
+
+youtube-with-animated-preview {
+  display: block;
+  height: 180px;
+  margin: 8px 0;
 }
 
 a:visited {
@@ -227,44 +237,37 @@ Krono is webgl engine and editor for creating beatiful and memorable 3d web expi
         </p>
       </div> -->
 
+<!--      <div class="project">-->
+<!--        <h4>2 unrealeased project using Krono engine</h4>-->
+<!--        <p>*1 gif with 2 images here*</p>-->
+<!--      </div>-->
+
+
       <div class="project">
-        <h4>2 unrealeased project using Krono engine</h4>
-        <p>*1 gif with 2 images here*</p>
+        <h4><a href="https://www.artlebedev.ru/dj/detail/upisfree2/" _target="blank">artlebedev.ru/dj</a></h4>
+        <p>Art. Lebedev's own mini Soundcloud. I patched hls.js, setup nginx, wrote audio converting scripts.</p>
+      </div>
+
+<!--      <div class="project">-->
+<!--        <h4>unreleased generative design tool</h4>-->
+<!--        <p>*life game gif*</p>-->
+<!--      </div>-->
+
+<!--      &lt;!&ndash; это можно показывать? спросить у паши или тимура? &ndash;&gt;-->
+<!--      <div class="project">-->
+<!--        <h4>soli demo?</h4>-->
+<!--        <p></p>-->
+<!--      </div>-->
+
+      <div class="project">
+        <h4><a href="https://www.artlebedev.com/fpisg/" target="_blank">2D editor for creating fast web animations</a></h4>
+        <p>Scroll down and type <b>“upisfree”</b> for the editor. Entities dragging, cloning and scaling.</p>
+
+        <time>16–18 december 2017 <a href="https://github.com/upisfree/blue-year" target="_blank">sources</a></time>
       </div>
 
       <div class="project">
-        <h4>unrealeased 3d web editor</h4>
-        <p>*1 image here*</p>
-      </div>
-
-      <div class="project">
-        <h4>artlebedev.ru/dj</h4>
-        <p>Art. Lebedev's own mini Soundcloud. patch hls.js, nginx setup, audio converting</p>
-      </div>
-
-      <div class="project">
-        <h4>unreleased generative design tool</h4>
-        <p>*life game gif*</p>
-      </div>
-
-      <!-- это можно показывать? спросить у паши или тимура? -->
-      <div class="project">
-        <h4>soli demo?</h4>
-        <p></p>
-      </div>
-
-      <div class="project">
-        <h4>web editor for creating fast animation on the web</h4>
-        <p>https://www.artlebedev.com/fpisg/</p>
-      </div>
-
-      <div class="project">
-        <h4>веб-телеграм для конкурса, написанный за два дня</h4>
-        <p>https://www.artlebedev.com/fpisg/</p>
-      </div>
-
-      <div class="project">
-        <video src="./assets/preview/sotbi.mp4" class="preview" autoplay muted loop preload></video>
+        <youtube-with-animated-preview video="fhOz5pCwav0" preview="./assets/preview/sotbi.mp4" width="320" height="180"></youtube-with-animated-preview>
         <h4>
           <a href="https://www.artlebedev.com/sotbi/app/" target="_blank">Sotbi AR iOS app</a>
           <time>during 2018 <!-- <a href="https://itunes.apple.com/us/app/%D1%81%D0%BE%D1%82%D0%B1%D0%B8/id1393024303?ls=1&mt=8" target="_blank">download</a> --></time>
@@ -277,15 +280,14 @@ Sotbi's are guys who, forcing debtors to pay back multibillion-rubles debts. So,
       </div>
 
       <div class="project">
-        <video src="./assets/preview/sotbi.mp4" class="preview" autoplay muted loop preload></video>
+<!--        <video src="./assets/preview/sotbi.mp4" class="preview" autoplay muted loop preload></video>-->
         <h4>
-          <a href="https://www.artlebedev.com/sotbi/app/" target="_blank">Sotbi AR iOS app announcement</a>
+          <a href="https://www.artlebedev.com/sotbi/app/" target="_blank">Sotbi app announcement</a>
           <time>january 2019</time>
         </h4>
         
         <p>
-<!-- <i>the augmented reality app demonstrates the oddity of corporate workdays</i><br><br> -->
-анонс сотби gzip fbx wasm android faster
+Для анонса Сотби я вытащил модель из Юнити, написал в вебе редактор для рисования полёта пути камеры (на следующем проекте я узнал, что, оказывается, это проще сделать в 3д-редакторе) и пропатчил FBXLoader из three.js для использования pako.js вместо zlib.js, потому что на бюджетных Андройдах модель слишком медленно распаковывалась.
         </p>
       </div>
 
@@ -406,10 +408,10 @@ Based on Full Screen Mario. I made it work on mobiles, add touch controls, rewri
         </h4>
         
         <p>
-Based on Full Screen Mario. I made it work on mobiles, add touch controls, rewrite audio engine from <code>&lt;audio&gt;</code> to <code>Web Audio API</code>, made a rating server and add new textures (it was a problem because of the custom strange texture format), all in one week.
+
         </p>
 
-        <time>22–30 september 2017</time>
+        <time>2015</time>
       </div>
     </div>
 
@@ -423,6 +425,13 @@ Based on Full Screen Mario. I made it work on mobiles, add touch controls, rewri
 On Friday, the first day after the release of the Aquarium, I encountered a lack of video memory on many devices and the page crashes. I had three days before site will be promoted to the large audience to somehow solve this problem. It took me one weekend to learn about the existence of GPU compressed textures, learn about Basis Universal textures and <abbr title="I deliberately didn't mention that there were problems with textures transparency on iOS, it's just another story :)">write a patch</abbr> for the <code>BasisTextureLoader</code> in <code>three.js</code>, as well as to finish the <code>GLTF</code> model loader so that he could understand <code>.basis</code> textures.
         </p>
       </div>
+
+      <div class="project">
+        <h4><a href="https://github.com/NC22/webMCR" target="_blank">webMCR: Minecraft CMS</a></h4>
+        <p>
+контрибьютил в нее, когда делал свой сервер и изучал пхп
+        </p>
+      </div>
     </div>
 
     <!-- стащи с гитхаба, кстатикстатикстатикстатикстатикстатикстатикстатикстатикстатикстатикстатикстатикстати -->
@@ -432,19 +441,28 @@ On Friday, the first day after the release of the Aquarium, I encountered a lack
     <p class="projects-category">personal projects</p>
     <div class="projects">
       <div class="project">
-        <video src="./assets/preview/sotbi.mp4" class="preview" autoplay muted loop preload></video>
-        <h4>
-          <a href="https://www.artlebedev.com/sotbi/app/" target="_blank">Emoji translator</a>
-          <time>two weeks in november 2017</time>
-        </h4>
-        
+        <h4>Telegram web client created in two days</h4> <!-- TODO: тут ссылка на работающий билд, который будет в upisfr.ee/telegram -->
         <p>
-тестовое в студию, веб-воркеры, склонения в русском и английском, восемь языков, только клиент, очень быстрый
+          Конкурс на разработку веб-клиента для Телеграма длился 2 недели, но у меня было всего два дня. За это время я сделал полностью работающий телеграм с двухфакторной аутентификацией, чатами, отправкой и просмотром сообщений.
         </p>
+
+        <time>16–17 november 2019 <a href="https://github.com/upisfree/telegram" target="_blank">sources</a></time>
       </div>
 
       <div class="project">
-        <video src="./assets/preview/sotbi.mp4" class="preview" autoplay muted loop preload></video>
+        <h4>
+          <a href="https://cdn.rawgit.com/upisfree/als-emoji/master/index.html" _target="blank">Emoji translator</a>
+          <time>two weeks in november 2017</time>
+        </h4>
+        <p>
+Test task to Art. Lebedev. Translate from 8 languages to emojies. Very fast, multithreading, English & Russian stemming, emoji variants for the word, working in non-supporting emoji environments (like Windows XP), custom speedy data format.
+        </p>
+
+        <time><a href="https://github.com/upisfree/als-emoji" target="_blank">sources</a></time>
+      </div>
+
+      <div class="project">
+<!--        <video src="./assets/preview/sotbi.mp4" class="preview" autoplay muted loop preload></video>-->
         <h4>
           <a href="https://www.artlebedev.com/sotbi/app/" target="_blank">Raycasting engine from the scratch</a>
           <time>august – september 2019</time>
@@ -456,7 +474,7 @@ On Friday, the first day after the release of the Aquarium, I encountered a lack
       </div>
 
       <div class="project">
-        <video src="./assets/preview/sotbi.mp4" class="preview" autoplay muted loop preload></video>
+<!--        <video src="./assets/preview/sotbi.mp4" class="preview" autoplay muted loop preload></video>-->
         <h4>
           <a href="https://www.artlebedev.com/sotbi/app/" target="_blank">Education renderer from the scratch</a>
           <time>november 2018</time>
@@ -466,9 +484,38 @@ On Friday, the first day after the release of the Aquarium, I encountered a lack
 чтобы понять как рисуется 3д на самом базовом уровне
         </p>
       </div>
+
+      <div class="project">
+        <!--        <video src="./assets/preview/sotbi.mp4" class="preview" autoplay muted loop preload></video>-->
+        <h4>
+          <a href="https://upisfr.ee/" target="_blank">UP TV</a>
+          <time>november 2018</time>
+        </h4>
+
+        <p>
+My own personal infinite TV network.
+        </p>
+      </div>
+
+      <div class="project">
+        <!--        <youtube-with-animated-preview video="PHdHyfE7aJU" preview="./assets/preview/myway.mp4" width="320" height="180"></youtube-with-animated-preview>-->
+        <h4><a href="https://github.com/upisfree/coub" target="_blank">coub.com terminal player</a></h4>
+        <p>
+
+        </p>
+
+        <time>2015</time>
+      </div>
+
+      <div class="project">
+        <h4><a href="https://github.com/upisfree/medik" target="_blank">medik: Windows Store cli before public API was released</a></h4>
+        <p>
+          Тестовое задание в фабрику лояльности. Из-за этого проекта я поехал на два месяца в Питер на стажировку.
+        </p>
+
+        <time>зима-весна 2016</time>
+      </div>
     </div>
-
-
 
     <p class="projects-category">in school times</p>
     <div class="projects">
@@ -507,7 +554,8 @@ So, they didn't give me a single award.
 нет, образования нет, но я заплатил за все детали 30к и вот и есть себестоимость для меня лол
 а ещё эти долбоёбы перепутали нейросети и нейроинтерфейс
 сказали, ой нейросетей щас много, у вас работа на популярную тему
-алло, ебанаты, это нейроинтерфейс, которых в россии в пределах 20 штук всего, один из которых собрал за 30к школьник из омска блядь еблан -->
+алло, ебанаты, это нейроинтерфейс, которых в россии в пределах 20 штук всего, один из которых собрал за 30к школьник из омска блядь еблан
+-->
         </p>
 
         <time>one night in january 2017</time>
@@ -522,9 +570,61 @@ A Windows Phone application that allows residents of Omsk <a href="https://goo.g
 
         <time>during 2014 <a href="https://microsoft.com/ru-ru/p/Мой-маршрут/9nblggh0fd6t" target="_blank">download</a> <a href="https://github.com/upisfree/myway" target="_blank">sources</a></time>
       </div>
+
+      <div class="project">
+<!--        <youtube-with-animated-preview video="PHdHyfE7aJU" preview="./assets/preview/myway.mp4" width="320" height="180"></youtube-with-animated-preview>-->
+        <h4>3 побега из дома осенью 2015</h4>
+        <p>
+Я был влюблён в девушку из Москвы, умиравшую от рака. Мне было 16, отношения с родителями были крайне напряжены и я три раза сбегал из дома. Меня снимали с поезда, я был в детдоме Тюмени, я улетал на самолёте, я спал в подъездах и теплушках, я был в федеральном розыске, я сдавался полиции, когда они пришли к девушке, я был в тайной тюрьме для беспризорников, меня забирали домой в Омск, а через месяц я ездил на школьную научную конференцию в Москву и брал там место и награды.
+        </p>
+
+        <time>autumn 2015</time>
+      </div>
+
+      <div class="project">
+        <!--        <youtube-with-animated-preview video="PHdHyfE7aJU" preview="./assets/preview/myway.mp4" width="320" height="180"></youtube-with-animated-preview>-->
+        <h4>Minecraft server</h4>
+        <p>
+концепция шутера от первого лица, свой магазин предметов, свой лаунчер и сборка модов, первый мир знак рубля ₽ в майнкрафте до принятия его официальным символом рубля
+        </p>
+
+        <time>2013</time>
+      </div>
+    </div>
+
+    <p class="projects-category">dj sets</p>
+    <div class="projects">
+      <div class="project">
+<!--        <youtube-with-animated-preview video="uHFuDbXJfs0" preview="./assets/preview/bci.mp4" width="320" height="180"></youtube-with-animated-preview>-->
+        <h4>1</h4>
+        <p>
+описание или группы?
+        </p>
+
+        <time>?? май 2018</time>
+      </div>
+
+      <div class="project">
+        <!--        <youtube-with-animated-preview video="uHFuDbXJfs0" preview="./assets/preview/bci.mp4" width="320" height="180"></youtube-with-animated-preview>-->
+        <h4>2</h4>
+        <p>
+          описание или группы?
+        </p>
+
+        <time>?? май 2018</time>
+      </div>
+
+      <div class="project">
+        <!--        <youtube-with-animated-preview video="uHFuDbXJfs0" preview="./assets/preview/bci.mp4" width="320" height="180"></youtube-with-animated-preview>-->
+        <h4>3</h4>
+        <p>
+          описание или группы?
+        </p>
+
+        <time>?? май 2018</time>
+      </div>
     </div>
 
     <script src="https://www.youtube.com/iframe_api"></script>
-    <script type="module" src="./js/youtube-with-animated-preview.js"></script>
   </body>
 </html>

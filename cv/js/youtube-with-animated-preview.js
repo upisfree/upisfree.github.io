@@ -25,16 +25,48 @@ class YouTubeWithAnimatedPreview extends HTMLElement {
     }
 
     this.divId = `youtube-${ this.getAttribute('video') }`;
+
+    if (window.onYouTubeIframeAPIReady === undefined) {
+      window.YouTubeWithAnimatedPreviewList = [];
+
+      window.onYouTubeIframeAPIReady = function() {
+        window.YouTubeWithAnimatedPreviewList.forEach(el => el.onIframeAPIReadyLoaded());
+      }
+    }
+
+    window.YouTubeWithAnimatedPreviewList.push(this);
   }
 
   connectedCallback() {
     this.render();
   }
 
+  onIframeAPIReadyLoaded() {
+    this.player = new YT.Player(this.divId, {
+      width: this.getAttribute('width'),
+      height: this.getAttribute('height'),
+      videoId: this.getAttribute('video'),
+      events: {
+        onReady: this.onPlayerLoaded.bind(this)
+      }
+    });
+  }
+
+  onPlayerLoaded() {
+    this.preview.classList.add('loaded');
+    this.playButton.classList.add('loaded');
+  }
+
+  onPreviewVideoFirstFrameLoaded() {
+    this.previewVideo.classList.add('loaded');
+  }
+
   onPreviewClick() {
     this.preview.classList.add('hidden');
 
-    this.player.playVideo();
+    if (this.player) {
+      this.player.playVideo();      
+    }
   }
 
   render() {
@@ -47,12 +79,6 @@ class YouTubeWithAnimatedPreview extends HTMLElement {
     const iframeDiv = document.createElement('div');
     iframeDiv.id = this.divId;
     this.root.appendChild(iframeDiv);
-
-    this.player = new YT.Player(this.divId, {
-      width: this.getAttribute('width'),
-      height: this.getAttribute('height'),
-      videoId: this.getAttribute('video')
-    });
 
     this.preview = document.createElement('div');
     this.preview.className = 'preview';
@@ -69,6 +95,7 @@ class YouTubeWithAnimatedPreview extends HTMLElement {
     this.previewVideo.preload = true;
     this.previewVideo.controls = false;
     this.previewVideo.src = this.getAttribute('preview');
+    this.previewVideo.addEventListener('loadeddata', this.onPreviewVideoFirstFrameLoaded.bind(this));
     this.preview.appendChild(this.previewVideo);
   }
 
@@ -89,6 +116,10 @@ class YouTubeWithAnimatedPreview extends HTMLElement {
   height: 100%;
   top: 0;
   left: 0;
+  background: #fff;
+}
+
+.${ this.divId } .preview.loaded {
   cursor: pointer;
 }
 
@@ -96,6 +127,12 @@ class YouTubeWithAnimatedPreview extends HTMLElement {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0;
+  transition: opacity .5s ease-out;
+}
+
+.${ this.divId } .preview video.loaded {
+  opacity: 1;
 }
 
 .${ this.divId } .preview.hidden {
@@ -108,20 +145,24 @@ class YouTubeWithAnimatedPreview extends HTMLElement {
   height: 48px;
   left: 50%;
   top: 50%;
+  opacity: 0;
   transform: translate(-50%, -50%);
-  transition: opacity .25s cubic-bezier(0.0,0.0,0.2,1);
+  transition: opacity .25s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+.${ this.divId } .preview svg.loaded {
+  opacity: 1;
 }
 
 .${ this.divId } .ytp-large-play-button-bg {
-  transition: fill .1s cubic-bezier(0.4,0.0,1,1), fill-opacity .1s cubic-bezier(0.4,0.0,1,1);
+  transition: fill .1s cubic-bezier(0.4, 0.0, 1, 1), fill-opacity .1s cubic-bezier(0.4, 0.0, 1, 1);
   fill: #fff;
-  fill-opacity: .8;
+  fill-opacity: 1;
 }
 
 .${ this.divId }.root:hover .ytp-large-play-button-bg {
   transition: fill .1s cubic-bezier(0.0,0.0,0.2,1), fill-opacity .1s cubic-bezier(0.0,0.0,0.2,1);
   fill: #f00;
-  fill-opacity: 1;
 }
     `;
 
@@ -129,8 +170,6 @@ class YouTubeWithAnimatedPreview extends HTMLElement {
   }
 }
 
-window.onYouTubeIframeAPIReady = function() {
-  customElements.define('youtube-with-animated-preview', YouTubeWithAnimatedPreview);
-};
+customElements.define('youtube-with-animated-preview', YouTubeWithAnimatedPreview);
 
 export default YouTubeWithAnimatedPreview;
