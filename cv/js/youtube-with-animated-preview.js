@@ -94,6 +94,7 @@ class YouTubeWithAnimatedPreview extends HTMLElement {
     this.previewVideo.loop = true;
     this.previewVideo.preload = true;
     this.previewVideo.controls = false;
+    this.previewVideo.setAttribute('playsinline', '');
     this.previewVideo.src = this.getAttribute('preview');
     this.previewVideo.addEventListener('loadeddata', this.onPreviewVideoFirstFrameLoaded.bind(this));
     this.preview.appendChild(this.previewVideo);
