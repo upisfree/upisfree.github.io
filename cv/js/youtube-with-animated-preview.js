@@ -65,7 +65,7 @@ class YouTubeWithAnimatedPreview extends HTMLElement {
     this.preview.classList.add('hidden');
 
     if (this.player) {
-      this.player.playVideo();      
+      this.player.playVideo();
     }
   }
 
