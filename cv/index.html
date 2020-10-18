@@ -35,6 +35,7 @@
     <style>
 body {
   margin: 32px;
+  overflow-x: hidden;
 }
 
 youtube-with-animated-preview {
@@ -116,6 +117,51 @@ h4,
   margin: 0;
   margin-bottom: -12px;
   font-style: italic;
+}
+
+/* экраны, где уже не помещаются два ряда превью, делаем по-центру */
+@media (min-width: 330px) and (max-width: 762px) {
+  body {
+    margin: 32px calc((100vw - 320px) / 2);
+  }
+
+  .projects {
+    justify-content: center;
+    margin-left: 0;
+  }
+}
+
+/* экраны, меньше превью — типа айфона 5 */
+/* коэффициент уменьшения всего — 0.8 */
+@media (max-width: 330px) {
+  body {
+    margin: 32px calc((100vw - 256px) / 2);
+  }
+
+  .project {
+    width: 256px;
+  }
+
+  youtube-with-animated-preview {
+    height: 144px;
+    margin: 6.4px 0;
+  }
+
+  youtube-with-animated-preview .root {
+    width: 256px !important;
+    height: 144px !important;
+    margin: 6.4px 0 !important;
+  }
+
+  youtube-with-animated-preview iframe {
+    width: 256px !important;
+    height: 144px !important;
+  }
+
+  .project .preview {
+    width: 256px;
+    height: 144px;
+  }
 }
     </style>
   </head>
@@ -298,7 +344,7 @@ Sotbi's are guys who, forcing debtors to pay back multibillion-rubles debts. So,
       </div>
 
       <div class="project">
-<!--        <video src="./assets/preview/sotbi.mp4" class="preview" autoplay muted loop preload></video>-->
+<!--        <video src="./assets/preview/sotbi.mp4" class="preview" autoplay muted loop preload playsinline></video>-->
         <h4>
           <a href="https://www.artlebedev.com/sotbi/app/" target="_blank">Sotbi app announcement</a>
           <time>january 2019</time>
@@ -310,7 +356,7 @@ Sotbi's are guys who, forcing debtors to pay back multibillion-rubles debts. So,
       </div>
 
       <div class="project">
-        <video src="./assets/preview/metro.mp4" class="preview" autoplay muted loop preload></video>
+        <video src="./assets/preview/metro.mp4" class="preview" autoplay muted loop preload playsinline></video>
         <h4><a href="https://www.artlebedev.com/metro/map4/" target="_blank">Moscow Metro Map 4.0</a><time>winter – spring 2019</time></h4>
         <p>
 For the Moscow metro map I created various tools to facilitate the designer's work on the map, and also developed scripts to automate the creation of the map in different formats and its translation into different languages. By the way, it is terrible to script Adobe Illustrator.
@@ -480,7 +526,7 @@ Test task to Art. Lebedev. Translate from 8 languages to emojies. Very fast, mul
       </div>
 
       <div class="project">
-<!--        <video src="./assets/preview/sotbi.mp4" class="preview" autoplay muted loop preload></video>-->
+<!--        <video src="./assets/preview/sotbi.mp4" class="preview" autoplay muted loop preload playsinline></video>-->
         <h4>
           <a href="https://www.artlebedev.com/sotbi/app/" target="_blank">Raycasting engine from the scratch</a>
           <time>august – september 2019</time>
@@ -492,7 +538,7 @@ Test task to Art. Lebedev. Translate from 8 languages to emojies. Very fast, mul
       </div>
 
       <div class="project">
-<!--        <video src="./assets/preview/sotbi.mp4" class="preview" autoplay muted loop preload></video>-->
+<!--        <video src="./assets/preview/sotbi.mp4" class="preview" autoplay muted loop preload playsinline></video>-->
         <h4>
           <a href="https://www.artlebedev.com/sotbi/app/" target="_blank">Education renderer from the scratch</a>
           <time>november 2018</time>
@@ -504,7 +550,7 @@ Test task to Art. Lebedev. Translate from 8 languages to emojies. Very fast, mul
       </div>
 
       <div class="project">
-        <!--        <video src="./assets/preview/sotbi.mp4" class="preview" autoplay muted loop preload></video>-->
+        <!--        <video src="./assets/preview/sotbi.mp4" class="preview" autoplay muted loop preload playsinline></video>-->
         <h4>
           <a href="https://upisfr.ee/" target="_blank">UP TV</a>
           <time>november 2018</time>
