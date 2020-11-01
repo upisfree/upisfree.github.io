@@ -1,12 +1,14 @@
 <!-- 
   # TODO
-  - [ ] ? что я делал вообще (scripts, streams, console games, bci, windows phone apps...)
+  - [ ] что я делал вообще (scripts, streams, console games, bci, windows phone apps...)
+  - [ ] нужна сортировка по крутости, а не по категориям. категории сделать через ↑
   - [ ] поменять гифку у Аквариума
   - [ ] переписать текст Аквариума, рассказать что в процессе я движок Кроно написал
-  - [ ] описание движка Кроно
+  - [ ] простое описание движка Кроно
   - [x] починить воспроизведение превьюх на маке
   - [x] починить воспроизведение превьюх на айосе
-  - [ ] 
+  - [ ] подвинуть заголовки ближе к тексту
+  - [ ] сделать ютубные превью без ютуба!
   - [ ] 
   - [ ] 
   - [ ] 
@@ -15,6 +17,21 @@
   - [ ] 
   - [ ] 
 -->
+
+
+<!-- 
+нужно написать тексты на русском сначала, потом поправить уже существующие.!!!
+
+1) написать несуществующие тексты на русском
+2) отредактировать существующие
+3) перевести все тексты на английский
+4) сделать гифки всем проектам
+5) сделать видосы всем проектам
+6) сделать ридми и скрины проектам на гитхабе
+7) сделать pdf?
+8) написать текст для neuralink?
+-->
+
 
 <!DOCTYPE html>
 <html>
@@ -235,6 +252,13 @@ The number of versions of the site is unlimited, scroll to the end to see the ne
         </p>
       </div>
 
+      <div class="project">
+        <h4>Krono: engine & editor</h4>
+        <p>
+это инструмент для быстрого создания сложных 3д сайтов. Для бизнеса он удешевляет, для пользователя упрощает, а для посетителя украшает. — что за бред, можно по человечески просто список фич? редактор, 3д, basis, gltf/draco, постэффекты, эффекты, всё из коробки одним мной.
+        </p>
+      </div>
+
 <!--       <div class="project">
         <h4>Krono webgl engine</h4>
         <p>
@@ -351,7 +375,7 @@ Sotbi's are guys who, forcing debtors to pay back multibillion-rubles debts. So,
         </h4>
         
         <p>
-Для анонса Сотби я вытащил модель из Юнити, написал в вебе редактор для рисования полёта пути камеры (на следующем проекте я узнал, что, оказывается, это проще сделать в 3д-редакторе) и пропатчил FBXLoader из three.js для использования pako.js вместо zlib.js, потому что на бюджетных Андройдах модель слишком медленно распаковывалась.
+For Sotbi's AR announcement, I pulled the model out of Unity, wrote a web editor to draw the camera's flight path (on the next project, I learned that it turns out to be easier to do in the 3d editor) and patch FBXLoader from three.js using pako.js instead of zlib.js because the model was too slow to unpack on budget Androids.
         </p>
       </div>
 
@@ -538,15 +562,16 @@ Test task to Art. Lebedev. Translate from 8 languages to emojies. Very fast, mul
       </div>
 
       <div class="project">
-<!--        <video src="./assets/preview/sotbi.mp4" class="preview" autoplay muted loop preload playsinline></video>-->
+        <video src="./assets/preview/education-renderer.mp4" class="preview" autoplay muted loop preload playsinline></video>
         <h4>
-          <a href="https://www.artlebedev.com/sotbi/app/" target="_blank">Education renderer from the scratch</a>
-          <time>november 2018</time>
+          <a href="https://github.com/upisfree/education-renderer" target="_blank">Education renderer from the scratch</a>
         </h4>
         
         <p>
-чтобы понять как рисуется 3д на самом базовом уровне
+Educational renderer from the scratch to understand how renderers actually works.
         </p>
+
+        <time>november 2018</time>
       </div>
 
       <div class="project">
@@ -562,22 +587,23 @@ My own personal infinite TV network.
       </div>
 
       <div class="project">
-        <!--        <youtube-with-animated-preview video="PHdHyfE7aJU" preview="./assets/preview/myway.mp4" width="320" height="180"></youtube-with-animated-preview>-->
+        <youtube-with-animated-preview video="fnYYdxBFJQI" preview="./assets/preview/coub.mp4" width="320" height="180"></youtube-with-animated-preview>
         <h4><a href="https://github.com/upisfree/coub" target="_blank">coub.com terminal player</a></h4>
         <p>
-
+Watch coubs in your terminal.
         </p>
 
-        <time>2015</time>
+        <time>autumn 2015</time>
       </div>
 
       <div class="project">
-        <h4><a href="https://github.com/upisfree/medik" target="_blank">medik: Windows Store cli before public API was released</a></h4>
+        <youtube-with-animated-preview video="wliIR0sH3d4" preview="./assets/preview/medik.mp4" width="320" height="180"></youtube-with-animated-preview>
+        <h4><a href="https://github.com/upisfree/medik" target="_blank">medik: Windows Store CLI</a></h4>
         <p>
-          Тестовое задание в фабрику лояльности. Из-за этого проекта я поехал на два месяца в Питер на стажировку.
+Test task for a internship in <a href="https://loyaltyplant.com/" target="_blank">LoyaltyPlant</a>. I was invited there because of my winning at one of the main school scientific conferences in Russia. At 2016 there were no CLI for Windows Store but “LoyaltyPlant” had thousands of apps which they needed to update.
         </p>
 
-        <time>зима-весна 2016</time>
+        <time>winter – spring 2016</time>
       </div>
     </div>
 
@@ -589,7 +615,7 @@ My own personal infinite TV network.
         <p>
 <i>brain-computer interface for symbols typing using brain neural activity (in simple terms, with thoughts)</i><br><br>
 
-That's what I was doing at 17 instead of getting ready for university.
+OpenBCI + ???. Звонил в аэропорт Баку, звонил в сортировочные центры Почты России, представляясь ФСБшником, чтобы узнать, где моя OpenBCI и успеть сделать устройство к школьной конференции в Москве. That's what I was doing at 17 instead of getting ready for university.
         </p>
 
         <time>two weeks in january 2017</time>
