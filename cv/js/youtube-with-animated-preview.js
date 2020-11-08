@@ -20,11 +20,9 @@ class YouTubeWithAnimatedPreview extends HTMLElement {
     this.width = (this.getAttribute('width') !== undefined) ? this.getAttribute('width') : 480;
     this.height = (this.getAttribute('height') !== undefined) ? this.getAttribute('height') : 270;
 
-    if (!this.getAttribute('video') || !this.getAttribute('preview')) {
-      console.error('YouTubeWithAnimatedPreview: you need to specify video id and path to preview file');
+    if (!this.getAttribute('preview')) {
+      console.error('YouTubeWithAnimatedPreview: you need to specify at least path to preview file.');
     }
-
-    this.divId = `youtube-${ this.getAttribute('video') }`;
 
     if (window.onYouTubeIframeAPIReady === undefined) {
       window.YouTubeWithAnimatedPreviewList = [];
@@ -35,6 +33,12 @@ class YouTubeWithAnimatedPreview extends HTMLElement {
     }
 
     window.YouTubeWithAnimatedPreviewList.push(this);
+
+    if (this.getAttribute('video')) {
+      this.divId = `youtube-${ this.getAttribute('video') }`;      
+    } else {
+      this.divId = `youtube-${ window.YouTubeWithAnimatedPreviewList.length }`;
+    }
   }
 
   connectedCallback() {
@@ -42,6 +46,10 @@ class YouTubeWithAnimatedPreview extends HTMLElement {
   }
 
   onIframeAPIReadyLoaded() {
+    if (!this.getAttribute('video')) {
+      return;
+    }
+
     this.player = new YT.Player(this.divId, {
       width: this.getAttribute('width'),
       height: this.getAttribute('height'),
@@ -62,6 +70,10 @@ class YouTubeWithAnimatedPreview extends HTMLElement {
   }
 
   onPreviewClick() {
+    if (!this.getAttribute('video') || !this.preview.classList.contains('loaded')) {
+      return;
+    }
+
     this.preview.classList.add('hidden');
 
     if (this.player) {
