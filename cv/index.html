@@ -247,10 +247,12 @@ The number of versions of the site is unlimited, scroll to the end to see the ne
       </div>
 
       <div class="project">
-        <h4>Krono: engine & editor</h4>
+        <h4>Krono: 3D engine & editor</h4>
         <p>
-это инструмент для быстрого создания сложных 3д сайтов. Для бизнеса он удешевляет, для пользователя упрощает, а для посетителя украшает. — что за бред, можно по человечески просто список фич? редактор, 3д, basis, gltf/draco, постэффекты, эффекты, всё из коробки одним мной.
+Krono is a 3D web engine. It includes an <abbr title="animation & keyframes editor, import/export in json">effects editor</abbr>, <abbr title="low & hight pass effects, many audios from the same file, many audio formats, positional audio">audio</abbr>, <abbr title="bloom, chromatic aberrations, glitch, hue, noise, pixelation, saturation, tone mapping">postprocessing</abbr>, <abbr title="GLTF for models and Draco or Meshopt for compressing, KTX2/Basis for textures">the most modern models & textures formats and their compression decoders</abbr>, <abbr title="for example, gradual rendering quality auto deterioration at low FPS">various optimizations</abbr>. Programmers, having looked through the documentation and examples, with 10 lines quickly get high-quality and performant 3D in the browser, and designers, without distraction as technical nuances, independently adjust the beauty in the editor. With its help, Art. Lebedev's studio now makes sites that were previously made in a year, in three months. Krono was written by me alone during the development of the Aquarium, when I unified all the experience gained to create other similar sites.
         </p>
+
+        <time>during 2019–2020</time>
       </div>
 
 <!--       <div class="project">
@@ -507,18 +509,9 @@ Based on Full Screen Mario. I made it work on mobiles, add touch controls, rewri
 On Friday, the first day after the release of the Aquarium, I encountered a lack of video memory on many devices and the page crashes. I had three days before site will be promoted to the large audience to somehow solve this problem. It took me one weekend to learn about the existence of GPU compressed textures, learn about Basis Universal textures and <abbr title="I deliberately didn't mention that there were problems with textures transparency on iOS, it's just another story :)">write a patch</abbr> for the <code>BasisTextureLoader</code> in <code>three.js</code>, as well as to finish the <code>GLTF</code> model loader so that he could understand <code>.basis</code> textures.
         </p>
       </div>
-
-      <div class="project">
-        <h4><a href="https://github.com/NC22/webMCR" target="_blank">webMCR: Minecraft CMS</a></h4>
-        <p>
-контрибьютил в нее, когда делал свой сервер и изучал пхп
-        </p>
-      </div>
     </div>
 
     <!-- стащи с гитхаба, кстатикстатикстатикстатикстатикстатикстатикстатикстатикстатикстатикстатикстатикстати -->
-
-<!-- давай обновим i2 сразу, а потом это перенесем сюда -->
 
     <p class="projects-category">personal projects</p>
     <div class="projects">
@@ -533,26 +526,15 @@ On Friday, the first day after the release of the Aquarium, I encountered a lack
 
       <div class="project">
         <h4>
-          <a href="https://cdn.rawgit.com/upisfree/als-emoji/master/index.html" _target="blank">Emoji translator</a>
+          <youtube-with-animated-preview video="WdM2LYloI4A" preview="./assets/preview/emoji-translator.mp4" width="320" height="180"></youtube-with-animated-preview>
+          <a href="https://upisfr.ee/emoji-translator" _target="blank">Emoji translator</a>
           <time>two weeks in november 2017</time>
         </h4>
         <p>
 Test task to Art. Lebedev. Translate from 8 languages to emojies. Very fast, multithreading, English & Russian stemming, emoji variants for the word, working in non-supporting emoji environments (like Windows XP), custom speedy data format.
         </p>
 
-        <time><a href="https://github.com/upisfree/als-emoji" target="_blank">sources</a></time>
-      </div>
-
-      <div class="project">
-<!--        <video src="./assets/preview/sotbi.mp4" class="preview" autoplay muted loop preload playsinline></video>-->
-        <h4>
-          <a href="https://www.artlebedev.com/sotbi/app/" target="_blank">Raycasting engine from the scratch</a>
-          <time>august – september 2019</time>
-        </h4>
-        
-        <p>
-чтобы сделать игру на людум
-        </p>
+        <time><a href="https://github.com/upisfree/emoji-translator" target="_blank">sources</a></time>
       </div>
 
       <div class="project">
@@ -619,7 +601,7 @@ Three Telegram bots for doctors in Moscow Oblast to automate some aspects of the
         <p>
 <i>brain-computer interface for symbols typing using brain neural activity (in simple terms, with thoughts)</i><br><br>
 
-OpenBCI + ???. Звонил в аэропорт Баку, звонил в сортировочные центры Почты России, представляясь ФСБшником, чтобы узнать, где моя OpenBCI и успеть сделать устройство к школьной конференции в Москве. That's what I was doing at 17 instead of getting ready for university.
+Instead of getting ready for university I decided to build BCI with the P300 speller using OpenBCI and OpenViBE. I ordered the board from New York to middle of Siberia but it stucks somewhere in Azerbaijan. So, I called them as a Russain diplomat and pushed to be faster because I needed the board for getting ready for scientific conference. When the OpenBCI board came, I patched OpenViBE drivers, train P300 on my brain, translate speller to Russian, printed a plastic helmet in another city, made the power supply from old Nokia, fused up everything, and in three hours before my flight to Moscow to conference I typed my first words using brain only. In total I spent two weeks to done this without breaking away from school.
         </p>
 
         <time>two weeks in january 2017</time>
@@ -676,13 +658,13 @@ A Windows Phone application that allows residents of Omsk <a href="https://goo.g
       </div>
 
       <div class="project">
-        <!--        <youtube-with-animated-preview video="PHdHyfE7aJU" preview="./assets/preview/myway.mp4" width="320" height="180"></youtube-with-animated-preview>-->
-        <h4>Minecraft server</h4>
+        <youtube-with-animated-preview video="doLrTHVO5qI" preview="./assets/preview/heavycraft.mp4" width="320" height="180"></youtube-with-animated-preview>
+        <h4>HeavyCraft: Minecraft server that I had at 14 y.o.</h4>
         <p>
-концепция шутера от первого лица, свой магазин предметов, свой лаунчер и сборка модов, первый мир знак рубля ₽ в майнкрафте до принятия его официальным символом рубля
+I had a Minecraft server called “HeavyCraft” in 2013 when I was 14 y.o. It had a site with shop where you could buy blocks and items for real money, custom launcher & mods build, guns, cars and even planes. I wanted to create a first person shooter plus Minecraft. And this is was first Minecraft server in the world which had a Russian Ruble sign in game (because I redraw $ to ₽ and Ruble doesn't had official sign in that times).
         </p>
 
-        <time>2013</time>
+        <time>during 2013</time>
       </div>
     </div>
 
@@ -692,27 +674,8 @@ A Windows Phone application that allows residents of Omsk <a href="https://goo.g
 <!--        <youtube-with-animated-preview video="uHFuDbXJfs0" preview="./assets/preview/bci.mp4" width="320" height="180"></youtube-with-animated-preview>-->
         <h4>1</h4>
         <p>
+
 описание или группы?
-        </p>
-
-        <time>?? май 2018</time>
-      </div>
-
-      <div class="project">
-        <!--        <youtube-with-animated-preview video="uHFuDbXJfs0" preview="./assets/preview/bci.mp4" width="320" height="180"></youtube-with-animated-preview>-->
-        <h4>2</h4>
-        <p>
-          описание или группы?
-        </p>
-
-        <time>?? май 2018</time>
-      </div>
-
-      <div class="project">
-        <!--        <youtube-with-animated-preview video="uHFuDbXJfs0" preview="./assets/preview/bci.mp4" width="320" height="180"></youtube-with-animated-preview>-->
-        <h4>3</h4>
-        <p>
-          описание или группы?
         </p>
 
         <time>?? май 2018</time>
