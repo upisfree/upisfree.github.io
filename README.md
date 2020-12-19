@@ -1,2 +1,2 @@
-# UP TV :tv:
-![Logo by one TV fan](assets/readme.jpg?raw=true "Logo by one TV fan")
+# upisfr.ee
+Senya Pugach's portfolio and CV.

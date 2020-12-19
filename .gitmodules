@@ -10,3 +10,6 @@
 [submodule "emoji-translator"]
 	path = emoji-translator
 	url = https://github.com/upisfree/emoji-translator
+[submodule "tv"]
+	path = tv
+	url = https://github.com/upisfree/tv
