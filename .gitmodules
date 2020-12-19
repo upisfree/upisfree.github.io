@@ -3,7 +3,7 @@
 	url = https://github.com/upisfree/no-ogomk-movie
 [submodule "game/ld45"]
 	path = game/ld45
-	url = https://github.com/upisfree/ld45.git
+	url = https://github.com/upisfree/ld45
 [submodule "game/angry-recruits"]
 	path = game/angry-recruits
 	url = https://github.com/upisfree/angry-recruits
