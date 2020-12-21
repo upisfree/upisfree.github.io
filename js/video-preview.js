@@ -13,7 +13,7 @@ function htmlToElement(html) {
   return template.content.firstChild;
 }
 
-class YouTubeWithAnimatedPreview extends HTMLElement {
+class VideoPreview extends HTMLElement {
   constructor() {
     super();
 
@@ -21,23 +21,23 @@ class YouTubeWithAnimatedPreview extends HTMLElement {
     this.height = (this.getAttribute('height') !== undefined) ? this.getAttribute('height') : 270;
 
     if (!this.getAttribute('preview')) {
-      console.error('YouTubeWithAnimatedPreview: you need to specify at least path to preview file.');
+      console.error('VideoPreview: you need to specify at least path to preview file.');
     }
 
     if (window.onYouTubeIframeAPIReady === undefined) {
-      window.YouTubeWithAnimatedPreviewList = [];
+      window.VideoPreviewList = [];
 
       window.onYouTubeIframeAPIReady = function() {
-        window.YouTubeWithAnimatedPreviewList.forEach(el => el.onIframeAPIReadyLoaded());
+        window.VideoPreviewList.forEach(el => el.onIframeAPIReadyLoaded());
       }
     }
 
-    window.YouTubeWithAnimatedPreviewList.push(this);
+    window.VideoPreviewList.push(this);
 
-    if (this.getAttribute('video')) {
-      this.divId = `youtube-${ this.getAttribute('video') }`;      
+    if (this.getAttribute('youtube')) {
+      this.divId = `youtube-${ this.getAttribute('youtube') }`;      
     } else {
-      this.divId = `youtube-${ window.YouTubeWithAnimatedPreviewList.length }`;
+      this.divId = `youtube-${ window.VideoPreviewList.length }`;
     }
   }
 
@@ -46,7 +46,7 @@ class YouTubeWithAnimatedPreview extends HTMLElement {
   }
 
   onIframeAPIReadyLoaded() {
-    if (!this.getAttribute('video')) {
+    if (!this.getAttribute('youtube')) {
       return;
     }
 
@@ -59,7 +59,7 @@ class YouTubeWithAnimatedPreview extends HTMLElement {
   }
 
   onPreviewClick() {
-    if (!this.getAttribute('video') || !this.preview.classList.contains('loaded')) {
+    if (!this.getAttribute('youtube') || !this.preview.classList.contains('loaded')) {
       return;
     }
 
@@ -69,7 +69,7 @@ class YouTubeWithAnimatedPreview extends HTMLElement {
     this.player = new YT.Player(this.divId, {
       width: this.getAttribute('width'),
       height: this.getAttribute('height'),
-      videoId: this.getAttribute('video'),
+      videoId: this.getAttribute('youtube'),
       playerVars: {
         'autoplay': 1,
         'color': 'white',
@@ -198,6 +198,6 @@ class YouTubeWithAnimatedPreview extends HTMLElement {
   }
 }
 
-customElements.define('youtube-with-animated-preview', YouTubeWithAnimatedPreview);
+customElements.define('video-preview', VideoPreview);
 
-export default YouTubeWithAnimatedPreview;
+export default VideoPreview;
