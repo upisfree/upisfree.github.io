@@ -50,17 +50,6 @@ class YouTubeWithAnimatedPreview extends HTMLElement {
       return;
     }
 
-    this.player = new YT.Player(this.divId, {
-      width: this.getAttribute('width'),
-      height: this.getAttribute('height'),
-      videoId: this.getAttribute('video'),
-      events: {
-        onReady: this.onPlayerLoaded.bind(this)
-      }
-    });
-  }
-
-  onPlayerLoaded() {
     this.preview.classList.add('loaded');
     this.playButton.classList.add('loaded');
   }
@@ -74,11 +63,32 @@ class YouTubeWithAnimatedPreview extends HTMLElement {
       return;
     }
 
+    this.root.classList.add('clicked');
     this.preview.classList.add('hidden');
 
-    if (this.player) {
-      this.player.playVideo();
-    }
+    this.player = new YT.Player(this.divId, {
+      width: this.getAttribute('width'),
+      height: this.getAttribute('height'),
+      videoId: this.getAttribute('video'),
+      playerVars: {
+        'autoplay': 1,
+        'color': 'white',
+        'controls': 0,
+        'disablekb': 1,
+        'iv_load_policy': 3,
+        'modestbranding': 1,
+        'playsinline': 1,
+        'rel': 0
+      },
+      events: {
+        onReady: () => {
+          this.player.playVideo();
+        }
+      }
+    });
+
+    // hiding “YouTube video player” title on hover and right after click
+    this.player.getIframe().removeAttribute('title');
   }
 
   render() {
@@ -94,7 +104,7 @@ class YouTubeWithAnimatedPreview extends HTMLElement {
 
     this.preview = document.createElement('div');
     this.preview.className = 'preview';
-    this.preview.addEventListener('click', this.onPreviewClick.bind(this));
+    this.preview.addEventListener('pointerup', this.onPreviewClick.bind(this));
     this.root.appendChild(this.preview);
 
     this.playButton = htmlToElement(YOUTUBE_BUTTON_SVG);
@@ -121,6 +131,11 @@ class YouTubeWithAnimatedPreview extends HTMLElement {
   width: ${ this.getAttribute('width') }px;
   height: ${ this.getAttribute('height') }px;
   margin: 8px 0;
+  background: #fff;
+}
+
+.${ this.divId }.root.clicked {
+  background: #000;
 }
 
 .${ this.divId } .preview {
@@ -160,7 +175,7 @@ class YouTubeWithAnimatedPreview extends HTMLElement {
   top: 50%;
   opacity: 0;
   transform: translate(-50%, -50%);
-  transition: opacity .25s cubic-bezier(0.0, 0.0, 0.2, 1);
+  transition: opacity .75s ease-in-out;
 }
 
 .${ this.divId } .preview svg.loaded {

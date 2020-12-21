@@ -20,6 +20,11 @@
   - [ ] мб гифка из аквариума для BasisTextureLoader?
   - [x] перенести сайт в корень, а телик в /tv
   - [ ] добавить медкластер как пример большого и долгого проекта, где я был лидирующим программистом
+  - [ ] купить домены upisfree.com, upisfree.net, upisfree.org, upisfree.ru
+  - [ ] сгенерить превью для видео / поставить в качестве превью первый кадр
+  - [x] оптимизация: грузить youtube iframe api асинхронно
+  - [x] оптимизация: грузить плеер ютуба только по клику на видео
+  - [ ] как сделать кнопку, чтобы она была видна на белом превью-видео? тень?
 -->
 
 
@@ -38,7 +43,7 @@
 
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -334,7 +339,7 @@ Krono was written by me alone during the development of the Aquarium, when I uni
       </div>
 
       <div class="project">
-        <youtube-with-animated-preview video="_1o_I9Z3Pzo" preview="./assets/preview/generative-design-tool.mp4" width="320" height="180"></youtube-with-animated-preview>
+        <youtube-with-animated-preview preview="./assets/preview/generative-design-tool.mp4" width="320" height="180"></youtube-with-animated-preview>
         <h4>Not released yet WebGL generative design tool</h4>
         <p>It was created for one of the Art. Lebedev studio client to accelerate, simplify and unify the design creation by the client's design department. Also, the tool eliminates bad design creation, improving the overall quality of the client's design system.</p>
       </div>
@@ -367,7 +372,7 @@ Sotbi's are guys who, forcing debtors to pay back multibillion-rubles debts. So,
       </div>
 
       <div class="project">
-        <youtube-with-animated-preview video="jaRyzrOFBF4" preview="./assets/preview/sotbi-announcement.mp4" width="320" height="180"></youtube-with-animated-preview>
+        <youtube-with-animated-preview video="-N-sBoB2dmg" preview="./assets/preview/sotbi-announcement.mp4" width="320" height="180"></youtube-with-animated-preview>
         <h4>
           <a href="https://artlebedev.com/sotbi/app/" target="_blank">Sotbi app announcement</a>
           <time>january 2019</time>
@@ -696,6 +701,6 @@ I had a Minecraft server called “HeavyCraft” in 2013 when I was 14 y.o. It h
       </div>
     </div>
 
-    <script src="https://youtube.com/iframe_api"></script>
+    <script src="https://youtube.com/iframe_api" async></script>
   </body>
 </html>
