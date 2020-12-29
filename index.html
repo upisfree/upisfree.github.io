@@ -171,9 +171,11 @@ h4,
   font-weight: normal;
 }
 
-.project > time {
+.project > time,
+.project > .link {
   display: block;
   margin-top: 12px;
+  margin-bottom: -8px;
   font-style: italic;
   font-size: 80%;
 }
@@ -295,7 +297,7 @@ Omsk State University
         <video-preview youtube="jI8LuHr4FfA" preview="./assets/preview/aquarium.mp4" width="320" height="180"></video-preview>
         <h4>
           <a href="https://aquarium.ru/en" target="_blank" rel="noopener">Aquarium</a>
-          <time>during 2019–2020</time>
+          <time>2019–2020</time>
         </h4>
         
         <p>
@@ -319,7 +321,7 @@ Programmers, having looked through the documentation and examples, with 10 lines
 Krono was written by me alone during the development of the Aquarium, when I unified all the experience gained to create other similar sites.
         </p>
 
-        <time>during 2019–2020</time>
+        <time>2019–2020</time>
       </div>
 
       <div class="project">
@@ -357,20 +359,24 @@ Krono was written by me alone during the development of the Aquarium, when I uni
         <h4><a href="https://artlebedev.com/fpisg/" target="_blank" rel="noopener">2D editor for creating fast web animations</a></h4>
         <p>Scroll down and type <b>“upisfree”</b> for the editor. Entities dragging, cloning and scaling.</p>
 
-        <time>16–18 december 2017 <a href="https://github.com/upisfree/blue-year" target="_blank" rel="noopener">sources</a></time>
+        <a href="https://github.com/upisfree/blue-year" class="link" target="_blank" rel="noopener">sources</a>
+
+        <time>16–18 december 2017</time>
       </div>
 
       <div class="project">
         <video-preview youtube="fhOz5pCwav0" preview="./assets/preview/sotbi.mp4" width="320" height="180"></video-preview>
         <h4>
           <a href="https://artlebedev.com/sotbi/app/" target="_blank" rel="noopener">Sotbi AR iOS app</a>
-          <time>during 2018 <a href="https://apps.apple.com/ru/app/sotbi/id1527314908" target="_blank" rel="noopener">download</a></time>
         </h4>
         
         <p>
 <i>the augmented reality app demonstrates the oddity of corporate workdays</i><br><br>
 Sotbi's are guys who, forcing debtors to pay back multibillion-rubles debts. So, in this AR game your goal is find the five hiding debtors.
         </p>
+
+        <a href="https://apps.apple.com/ru/app/sotbi/id1527314908" class="link" target="_blank" rel="noopener">download</a>
+        <time>2018</time>
       </div>
 
       <div class="project">
@@ -387,10 +393,28 @@ For Sotbi's AR announcement, I pulled the model out of Unity, wrote a web editor
 
       <div class="project">
         <video-preview preview="./assets/preview/metro.mp4" width="320" height="180"></video-preview>
-        <h4><a href="https://artlebedev.com/metro/map4/" target="_blank" rel="noopener">Moscow Metro Map 4.0</a><time>winter – spring 2019</time></h4>
+        <h4><a href="https://artlebedev.com/metro/map4/" target="_blank" rel="noopener">Moscow Metro Map 4.0</a></h4>
         <p>
 For the Moscow metro map I created various tools to facilitate the designer's work on the map, and also developed scripts to automate the creation of the map in different formats and its translation into different languages. By the way, it is terrible to script Adobe Illustrator.
         </p>
+
+        <time>winter – spring 2019</time>
+      </div>
+
+      <div class="project">
+        <video-preview preview="./assets/preview/medcluster.mp4" width="320" height="180"></video-preview>
+        <h4><a href="https://artlebedev.com/mimc/site/" target="_blank" rel="noopener">Moscow International Medical Cluster website</a></h4>
+        <p>
+MIMC is an unprecedented international medical project in Russia. I was the lead developer of their site.
+
+здесь я был как старший ращработчик
+направлял и организовывал других разработчиков как старший разработчик
+написал основной визуальный элемент (акцент) шейдер
+сделал редактор для дизайнеров для настройки шейдеров
+сделал красивую тридешку
+        </p>
+
+        <time>2019–2020</time>
       </div>
     </div>
 
@@ -477,7 +501,8 @@ First Unity experience.
 Destructible environment, level editor, mobile support, different shell types, incredible sounds, rating server.
         </p>
 
-        <time>february – march 2019 <a href="https://github.com/upisfree/angry-recruits" target="_blank" rel="noopener">sources</a></time>
+        <a href="https://github.com/upisfree/angry-recruits" class="link" target="_blank" rel="noopener">sources</a>
+        <time>february – march 2019</time>
       </div>
 
       <div class="project">
@@ -524,7 +549,8 @@ On Friday, the first day after the release of the Aquarium, I encountered a lack
           Конкурс на разработку веб-клиента для Телеграма длился 2 недели, но у меня было всего два дня. За это время я сделал полностью работающий телеграм с двухфакторной аутентификацией, чатами, отправкой и просмотром сообщений.
         </p>
 
-        <time>16–17 november 2019 <a href="https://github.com/upisfree/telegram" target="_blank" rel="noopener">sources</a></time>
+        <a href="https://github.com/upisfree/telegram" class="link" target="_blank" rel="noopener">sources</a>
+        <time>16–17 november 2019</time>
       </div>
 
       <div class="project">
@@ -665,7 +691,12 @@ So, they didn't give me a single award.
 A Windows Phone application that allows residents of Omsk <a href="https://goo.gl/maps/Jd37w11XsKsRUBH66" target="_blank" rel="noopener">(this is in Siberia)</a> to find out when a bus will arrive at their stop. It is especially useful in winter to avoid freezing to death at the bus stop. Also, there is AR in this app, in 2014.
         </p>
 
-        <time>during 2014 <a href="https://microsoft.com/ru-ru/p/Мой-маршрут/9nblggh0fd6t" target="_blank" rel="noopener">download</a> <a href="https://github.com/upisfree/myway" target="_blank" rel="noopener">sources</a></time>
+        <span class="link">
+          <a href="https://microsoft.com/ru-ru/p/Мой-маршрут/9nblggh0fd6t" target="_blank" rel="noopener">download</a>
+          <a href="https://github.com/upisfree/myway" target="_blank" rel="noopener">sources</a>
+        </span>
+
+        <time>2014</time>
       </div>
 
       <div class="project">
@@ -685,7 +716,7 @@ A Windows Phone application that allows residents of Omsk <a href="https://goo.g
 I had a Minecraft server called “HeavyCraft” in 2013 when I was 14 y.o. It had a site with shop where you could buy blocks and items for real money, custom launcher & mods build, guns, cars and even planes. I wanted to create a first person shooter plus Minecraft. And this is was first Minecraft server in the world which had a Russian Ruble sign in game (because I redraw $ to ₽ and Ruble doesn't had official sign in that times).
         </p>
 
-        <time>during 2013</time>
+        <time>2013</time>
       </div>
     </div>
 
