@@ -15,11 +15,11 @@
   - [ ] превью и скрин в гитхабе для телеграмного клиента
   - [ ] terminal-stage видео и превью
   - [ ] проверить и переписать все тексты
-  - [ ] перевести непереведнное
+  - [x] перевести непереведнное
   - [ ] добавить третий диджей сет и ссылки на прошлые
   - [ ] мб гифка из аквариума для BasisTextureLoader?
   - [x] перенести сайт в корень, а телик в /tv
-  - [ ] добавить медкластер как пример большого и долгого проекта, где я был лидирующим программистом
+  - [x] добавить медкластер как пример большого и долгого проекта, где я был лидирующим программистом
   - [ ] купить домены upisfree.com, upisfree.net, upisfree.org, upisfree.ru
   - [ ] сгенерить превью для видео / поставить в качестве превью первый кадр
   - [x] оптимизация: грузить youtube iframe api асинхронно
@@ -167,7 +167,7 @@ h4,
 }
 
 /* экраны, где уже не помещаются два ряда превью, делаем по-центру */
-@media (min-width: 330px) and (max-width: 762px) {
+@media only screen and (min-width: 330px) and (max-width: 762px) {
   body {
     margin: 32px calc((100vw - 320px) / 2);
   }
@@ -180,7 +180,7 @@ h4,
 
 /* экраны, меньше превью — типа айфона 5 */
 /* коэффициент уменьшения всего — 0.8 */
-@media (max-width: 330px) {
+@media only screen and (max-width: 330px) {
   body {
     margin: 32px calc((100vw - 256px) / 2);
   }
@@ -209,6 +209,52 @@ h4,
     width: 256px;
     height: 144px;
   }
+}
+
+/* стили для резюме */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0;
+
+/*    margin-top: 0.4cm;
+    margin-bottom: 0.4cm;*/
+  }
+
+  @page :left {
+    margin-right: 1cm;
+  }
+
+  @page :right {
+    margin-left: 0.75cm;
+  }
+
+  .project:not(.resume),
+  video-preview .preview > svg,
+  video-preview iframe {
+    display: none;
+  }
+
+  video-preview .preview {
+    display: block !important;
+  }
+
+  body {
+    height: auto!important;
+    float: none!important;
+  }
+
+  .projects {
+  }
+
+  .project {
+    float: left;
+    page-break-inside: avoid;
+  }
+
+  /*a[href]:after {
+    content: " (" attr(href) ")";
+  }*/
 }
     </style>
   </head>
@@ -271,7 +317,7 @@ Omsk State University
 
     <div class="projects">
       <!-- TODO: переписать текст, сказав что я тут всё запрограммировал? -->
-      <div class="project">
+      <div class="project resume">
         <video-preview youtube="jI8LuHr4FfA" preview="./assets/preview/aquarium.mp4" width="320" height="180"></video-preview>
         <h4>
           <a href="https://aquarium.ru/en" target="_blank" rel="noopener">Aquarium</a>
@@ -286,7 +332,7 @@ To summarise my experience getting on this project I created Krono.
         </p>
       </div>
 
-      <div class="project">
+      <div class="project resume">
         <video-preview youtube="GAA_BvrqbV4" preview="./assets/preview/krono.mp4" width="320" height="180"></video-preview>
         <h4>Krono: 3D engine & editor</h4>
         <p>
@@ -304,7 +350,7 @@ Krono was written by me alone during the development of the Aquarium, when I uni
         <time>2019–2020</time>
       </div>
 
-      <div class="project">
+      <div class="project resume">
         <video-preview youtube="uHFuDbXJfs0" preview="./assets/preview/bci.mp4" width="320" height="180"></video-preview>
         <h4>$500 brain-computer interface: brain typing</h4>
         <p>
@@ -324,7 +370,7 @@ In total I spent two weeks to done this without breaking away from school.
         <time>two weeks in january 2017</time>
       </div>
 
-      <div class="project">
+      <div class="project resume">
         <video-preview youtube="dR8lhKYzXhE" preview="./assets/preview/bci-vr.mp4" width="320" height="180"></video-preview>
         <h4>World's first VR brain-computer interface (still for ~$500)</h4>
         <p>
@@ -354,7 +400,7 @@ So, they didn't give me a single award.
         <time>one night in january 2017</time>
       </div>
 
-      <div class="project">
+      <div class="project resume">
         <video-preview youtube="sVLbkPasChw" preview="./assets/preview/rukami.mp4" width="320" height="180"></video-preview>
         <h4>
           <a href="https://artlebedev.ru/rukami/immersion/" target="_blank" rel="noopener">Immersion into Rukami</a>
@@ -366,7 +412,7 @@ Very complex 3D, made with astonishing simplicity thanks to Krono.
         </p>
       </div>
 
-      <div class="project">
+      <div class="project resume">
         <video-preview youtube="fhOz5pCwav0" preview="./assets/preview/sotbi.mp4" width="320" height="180"></video-preview>
         <h4>
           <a href="https://artlebedev.com/sotbi/app/" target="_blank" rel="noopener">Sotbi AR iOS app</a>
@@ -382,7 +428,7 @@ Sotbi's are guys who, forcing debtors to pay back multibillion-rubles debts. So,
       </div>
 
 
-      <div class="project">
+      <div class="project resume">
         <video-preview preview="./assets/preview/metro.mp4" width="320" height="180"></video-preview>
         <h4><a href="https://artlebedev.com/metro/map4/" target="_blank" rel="noopener">Moscow Metro Map 4.0</a></h4>
         <p>
@@ -404,7 +450,7 @@ For Sotbi's AR announcement, I pulled the model out of Unity, wrote a web editor
         </p>
       </div>
 
-      <div class="project">
+      <div class="project resume">
         <video-preview youtube="leGG8FK4rec" preview="./assets/preview/ld39.mp4" width="320" height="180"></video-preview>
         <h4>
           <a href="https://upisfree.itch.io/mother" target="_blank" rel="noopener">Mother</a>
@@ -417,7 +463,7 @@ This is my most heartbreaking game <abbr title="in the Russian army mandatory 1 
         </p>
       </div>
 
-      <div class="project">
+      <div class="project resume">
         <video-preview preview="./assets/preview/medcluster.mp4" width="320" height="180"></video-preview>
         <h4><a href="https://artlebedev.com/mimc/site/" target="_blank" rel="noopener">Moscow International Medical Cluster website</a></h4>
         <p>
@@ -497,7 +543,7 @@ The Great Terror has affected every family in Soviet Union: my great-grandfather
         </p>
       </div>
 
-      <div class="project">
+      <div class="project resume">
         <video-preview youtube="PHdHyfE7aJU" preview="./assets/preview/myway.mp4" width="320" height="180"></video-preview>
         <h4>“My Way” Windows Phone app</h4>
         <p>
@@ -520,12 +566,12 @@ A Windows Phone application that allows residents of Omsk <a href="https://goo.g
         </h4>
         
         <p>
-<i>about a man who gave everything to God to have his love with him</i><br><br>
+<i>a game about a man who gave everything to God to have his love with him</i><br><br>
 My girlfriend got stuck in another country during the COVID-19 pandemic and I really missed her.
         </p>
       </div>
 
-      <div class="project">
+      <div class="project resume">
         <video-preview youtube="j6BBO2k1lK0" preview="./assets/preview/angry-recruits.mp4" width="320" height="180"></video-preview>
         <h4>
           <a href="https://upisfr.ee/game/angry-recruits" target="_blank" rel="noopener">Game for Priziva.net cloned by Rovio</a>
@@ -687,5 +733,15 @@ I had a Minecraft server called “HeavyCraft” in 2013 when I was 14 y.o. It h
     </div>
 
     <script src="https://youtube.com/iframe_api" async></script>
+    <script type="module" async>
+// для генерации резюме / печати
+document.addEventListener('beforeprint', () => {
+
+});
+
+document.addEventListener('afterprint', () => {
+  location.reload();
+});
+    </script>
   </body>
 </html>
