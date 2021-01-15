@@ -11,5 +11,14 @@
   "bugs": {
     "url": "https://github.com/upisfree/upisfree.github.io/issues"
   },
-  "homepage": "https://upisfr.ee"
+  "homepage": "https://upisfr.ee",
+  "scripts": {
+    "thumbnails": "npm run jpg && npm run resize && npm run svg",
+    "jpg": "mkdir assets/thumbnail-jpg && for i in assets/preview/*.mp4; do ffmpeg -i \"$i\" -ss 00:00:00.000 -vframes 1 \"${i%.*}.jpg\"; done && mv assets/preview/*.jpg assets/thumbnail-jpg",
+    "resize": "for i in assets/thumbnail-jpg/*.jpg ; do convert -resize 320x180^ -gravity center -extent 320x180 \"$i\" \"${i%.*}.jpg\" ; done",
+    "svg": "mkdir assets/thumbnail-svg && for i in assets/thumbnail-jpg/*.jpg; do blur-up -i \"$i\" -o assets/thumbnail-svg; done"
+  },
+  "devDependencies": {
+    "svg-blur-up": "^1.1.6"
+  }
 }

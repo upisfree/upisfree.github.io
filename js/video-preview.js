@@ -131,7 +131,6 @@ class VideoPreview extends HTMLElement {
   width: ${ this.getAttribute('width') }px;
   height: ${ this.getAttribute('height') }px;
   margin: 8px 0;
-  background: #fff;
 }
 
 .${ this.divId }.root.clicked {
@@ -144,7 +143,6 @@ class VideoPreview extends HTMLElement {
   height: 100%;
   top: 0;
   left: 0;
-  background: #fff;
 }
 
 .${ this.divId } .preview.loaded {
