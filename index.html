@@ -14,7 +14,6 @@
   - [ ] превью для АП ТВ
   - [ ] превью и скрин в гитхабе для телеграмного клиента
   - [ ] terminal-stage видео и превью
-  - [ ] проверить и переписать все тексты
   - [x] перевести непереведнное
   - [ ] добавить третий диджей сет и ссылки на прошлые
   - [ ] мб гифка из аквариума для BasisTextureLoader?
@@ -26,7 +25,13 @@
   - [x] оптимизация: грузить плеер ютуба только по клику на видео
   - [ ] как сделать кнопку, чтобы она была видна на белом превью-видео? тень?
   - [ ] разобраться со стилями
-  - [ ] сделать один вид даты создания проекта
+  - [x] сделать один вид даты создания проекта
+  - [ ] написать summary я джеес девелопер с опытом в 3д вебе, увлекаюсь bci и геймдевом
+  - [ ] простая и сложная версия текстов
+  - [ ] bci: объединить два проекты про VR и BCI
+  - [ ] bci: переписать текст
+  - [ ] для некоторых проектов сделать подробный текст
+  - [ ] добавить превью видео через https://github.com/vanruesc/blur-up
 -->
 
 <!DOCTYPE html>
@@ -72,8 +77,8 @@
     <link rel="manifest" href="assets/favicon/manifest.json">
     <link rel="mask-icon" href="assets/favicon/safari-pinned-tab.svg" color="#030a02">
     <link rel="shortcut icon" href="assets/favicon/favicon.ico">
-    <meta name="apple-mobile-web-app-title" content="UP TV">
-    <meta name="application-name" content="UP TV">
+    <meta name="apple-mobile-web-app-title" content="Senya Pugach">
+    <meta name="application-name" content="Senya Pugach">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-TileImage" content="assets/favicon/mstile-144x144.png">
     <meta name="msapplication-config" content="assets/favicon/browserconfig.xml">
@@ -262,6 +267,8 @@ h4,
     <h2 class="name">Senya Pugach</h2>
 
     <p class="summary">
+<!-- <i>is Javascript developer with great 3D web expierence who likes game development and BCI</i> -->
+<!-- <br><br> -->
 <i>Moscow, Russia</i>
     </p>
 
@@ -321,7 +328,6 @@ Omsk State University
         <video-preview youtube="jI8LuHr4FfA" preview="./assets/preview/aquarium.mp4" width="320" height="180"></video-preview>
         <h4>
           <a href="https://aquarium.ru/en" target="_blank" rel="noopener">Aquarium</a>
-          <time>2019–2020</time>
         </h4>
         
         <p>
@@ -330,6 +336,8 @@ The number of versions of the site is unlimited, scroll to the end to see the ne
 
 To summarise my experience getting on this project I created Krono.
         </p>
+
+        <time>2019–2020</time>
       </div>
 
       <div class="project resume">
@@ -404,12 +412,13 @@ So, they didn't give me a single award.
         <video-preview youtube="sVLbkPasChw" preview="./assets/preview/rukami.mp4" width="320" height="180"></video-preview>
         <h4>
           <a href="https://artlebedev.ru/rukami/immersion/" target="_blank" rel="noopener">Immersion into Rukami</a>
-          <time>september – november 2020</time>
         </h4>
         
         <p>
 Very complex 3D, made with astonishing simplicity thanks to Krono.
         </p>
+
+        <time>september – november 2020</time>
       </div>
 
       <div class="project resume">
@@ -442,25 +451,27 @@ For the Moscow metro map I created various tools to facilitate the designer's wo
         <video-preview youtube="-N-sBoB2dmg" preview="./assets/preview/sotbi-announcement.mp4" width="320" height="180"></video-preview>
         <h4>
           <a href="https://artlebedev.com/sotbi/app/" target="_blank" rel="noopener">Sotbi app announcement</a>
-          <time>january 2019</time>
         </h4>
         
         <p>
 For Sotbi's AR announcement, I pulled the model out of Unity, wrote a web editor to draw the camera's flight path (on the next project, I learned that it turns out to be easier to do in the 3d editor) and patch <code>FBXLoader</code> from <code>three.js</code> using <code>pako.js</code> instead of <code>zlib.js</code> because the model was too slow to unpack on budget Androids.
         </p>
+
+        <time>january 2019</time>
       </div>
 
       <div class="project resume">
         <video-preview youtube="leGG8FK4rec" preview="./assets/preview/ld39.mp4" width="320" height="180"></video-preview>
         <h4>
           <a href="https://upisfree.itch.io/mother" target="_blank" rel="noopener">Mother</a>
-          <time>29–30 july 2017</time>
         </h4>
         
         <p>
 <i>a game about draftee who coming back to mother in a zinc lined coffin</i><br><br>
 This is my most heartbreaking game <abbr title="in the Russian army mandatory 1 year long conscription for all men">that saved me from the army.</abbr>
         </p>
+        
+        <time>29–30 july 2017</time>
       </div>
 
       <div class="project resume">
@@ -477,13 +488,14 @@ MIMC is an unprecedented international medical project in Russia. I was the lead
         <video-preview youtube="dNtrsi6e4YA" preview="./assets/preview/ld45.mp4" width="320" height="180"></video-preview>
         <h4>
           <a href="https://upisfr.ee/game/ld45" target="_blank" rel="noopener">Crybaby</a>
-          <time>6–8 october 2019</time>
         </h4>
         
         <p>
 <i>use your knife to kill those who never cry</i><br><br>
 I made a raycasting engine from scratch during summer 2019 and wrote this game using it during one of the Ludum Dare weekends.
         </p>
+
+        <time>6–8 october 2019</time>
       </div>
 
       <div class="project">
@@ -534,13 +546,14 @@ Educational renderer from the scratch to understand how renderers actually works
         <video-preview youtube="bcma5q7-PiU" preview="./assets/preview/ld42.mp4" width="320" height="180"></video-preview>
         <h4>
           <a href="https://github.com/upisfree/ld42/releases/tag/1.0" target="_blank" rel="noopener">Memories</a>
-          <time>11–12 august 2018</time>
         </h4>
 
         <p>
 <i>childhood memories from 1937</i><br><br>
 The Great Terror has affected every family in Soviet Union: my great-grandfather was shot, great-great-grandmother was imprisoned and others were dispossessed.
         </p>
+
+        <time>11–12 august 2018</time>
       </div>
 
       <div class="project resume">
@@ -562,13 +575,14 @@ A Windows Phone application that allows residents of Omsk <a href="https://goo.g
         <video-preview youtube="W4i9O5KYExo" preview="./assets/preview/ld46.mp4" width="320" height="180"></video-preview>
         <h4>
           <a href="https://upisfree.itch.io/wish-you-were-here" target="_blank" rel="noopener">wish you were here</a>
-          <time>21 april 2020</time>
         </h4>
         
         <p>
 <i>a game about a man who gave everything to God to have his love with him</i><br><br>
 My girlfriend got stuck in another country during the COVID-19 pandemic and I really missed her.
         </p>
+
+        <time>21 april 2020</time>
       </div>
 
       <div class="project resume">
@@ -590,26 +604,28 @@ Destructible environment, level editor, mobile support, different shell types, i
         <h4>
           <video-preview youtube="WdM2LYloI4A" preview="./assets/preview/emoji-translator.mp4" width="320" height="180"></video-preview>
           <a href="https://upisfr.ee/emoji-translator" _target="blank">Emoji translator</a>
-          <time>two weeks in november 2017</time>
         </h4>
         <p>
 Test task to Art. Lebedev. Translate from 8 languages to emojies. Very fast, multithreading, English & Russian stemming, emoji variants for the word, working in non-supporting emoji environments (like Windows XP), custom speedy data format.
         </p>
 
-        <time><a href="https://github.com/upisfree/emoji-translator" target="_blank" rel="noopener">sources</a></time>
+        <a href="https://github.com/upisfree/emoji-translator" class="link" target="_blank" rel="noopener">sources</a>
+
+        <time>two weeks in november 2017</time>
       </div>
 
       <div class="project">
         <video-preview youtube="K7av4gNsnXc" preview="./assets/preview/ld37.mp4" width="320" height="180"></video-preview>
         <h4>
           <a href="https://github.com/upisfree/ld37/releases/tag/1.0" target="_blank" rel="noopener">...</a>
-          <time>20 december 2016</time>
         </h4>
         
         <p>
 <i>a game about Kazakhstan's attack on Omsk</i><br><br>
 First Unity experience.
         </p>
+
+        <time>20 december 2016</time>
       </div>
 
       <div class="project">
@@ -671,7 +687,11 @@ Watch coubs in your terminal.
       <div class="project">
         <video-preview preview="./assets/preview/dj.mp4" width="320" height="180"></video-preview>
         <h4><a href="https://artlebedev.ru/dj/detail/upisfree2/" _target="blank">artlebedev.ru/dj</a></h4>
-        <p>Art. Lebedev's own mini Soundcloud. I patched <code>hls.js</code>, setup <code>nginx</code> and wrote audio converting scripts and instructions how to use it without me.</p>
+        <p>
+Art. Lebedev's own mini Soundcloud. I patched <code>hls.js</code>, setup <code>nginx</code> and wrote audio converting scripts and instructions how to use it without me.
+        </p>
+        
+        <time>2018</time>
       </div>
 
       <div class="project">
@@ -740,7 +760,7 @@ document.addEventListener('beforeprint', () => {
 });
 
 document.addEventListener('afterprint', () => {
-  location.reload();
+  // location.reload();
 });
     </script>
   </body>
