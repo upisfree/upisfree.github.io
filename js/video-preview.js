@@ -24,6 +24,10 @@ class VideoPreview extends HTMLElement {
       console.error('VideoPreview: you need to specify at least path to preview file.');
     }
 
+    if (this.getAttribute('importance') !== undefined) {
+      this.importance = this.getAttribute('importance');
+    }
+
     if (window.onYouTubeIframeAPIReady === undefined) {
       window.VideoPreviewList = [];
 
@@ -119,6 +123,11 @@ class VideoPreview extends HTMLElement {
     this.previewVideo.setAttribute('playsinline', '');
     this.previewVideo.src = this.getAttribute('preview');
     this.previewVideo.addEventListener('loadeddata', this.onPreviewVideoFirstFrameLoaded.bind(this));
+
+    if (this.importance) {
+      this.previewVideo.setAttribute('importance', this.importance);
+    }
+
     this.preview.appendChild(this.previewVideo);
   }
 
