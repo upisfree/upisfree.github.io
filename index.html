@@ -2,12 +2,12 @@
   # TODO
   - [ ] что я делал вообще (scripts, streams, console games, bci, windows phone apps...)
   - [x] нужна сортировка по крутости, а не по категориям. категории сделать через ↑
-  - [ ] поменять гифку у Аквариума
+  - [?] поменять гифку у Аквариума
   - [ ] переписать текст Аквариума, рассказать что в процессе я движок Кроно написал
   - [x] простое описание движка Кроно
   - [x] починить воспроизведение превьюх на маке
   - [x] починить воспроизведение превьюх на айосе
-  - [ ] подвинуть заголовки ближе к тексту
+  - [x] подвинуть заголовки ближе к тексту
   - [x] сделать ютубные превью без ютуба!
   - [ ] добавить еще техскиллов?
   - [x] скринкаст Руками
@@ -16,7 +16,7 @@
   - [ ] terminal-stage видео и превью
   - [x] перевести непереведнное
   - [ ] добавить третий диджей сет и ссылки на прошлые
-  - [ ] мб гифка из аквариума для BasisTextureLoader?
+  - [x] мб гифка из аквариума для BasisTextureLoader?
   - [x] перенести сайт в корень, а телик в /tv
   - [x] добавить медкластер как пример большого и долгого проекта, где я был лидирующим программистом
   - [ ] купить домены upisfree.com, upisfree.net, upisfree.org, upisfree.ru
@@ -28,10 +28,12 @@
   - [x] сделать один вид даты создания проекта
   - [ ] написать summary я джеес девелопер с опытом в 3д вебе, увлекаюсь bci и геймдевом
   - [ ] простая и сложная версия текстов
-  - [ ] bci: объединить два проекты про VR и BCI
+  - [x] bci: объединить два проекты про VR и BCI
   - [ ] bci: переписать текст
   - [ ] для некоторых проектов сделать подробный текст
   - [x] добавить превью видео через https://github.com/vanruesc/blur-up
+  - [ ] убрать ад с фавиконками
+  - [ ] переписать текст у Руками
 -->
 
 <!DOCTYPE html>
@@ -121,8 +123,21 @@ abbr[title] {
   cursor: help;
 }
 
+h3 {
+  margin-bottom: -10px;
+}
+
 p {
   font-size: 95%;
+}
+
+ul {
+  list-style-type: none;
+  padding-inline-start: 26px;
+}
+
+li {
+  margin-top: 2px;
 }
 
 h4,
@@ -139,9 +154,9 @@ h4,
   display: flex;
   flex-flow: row wrap;
   justify-content: left;
-  margin-left: -12px;
+  margin-left: -14px;
   margin-bottom: 16px;
-  margin-top: -16px;
+  /*margin-top: -16px;*/
 }
 
 .project {
@@ -177,7 +192,7 @@ h4,
   font-size: 80%;
 }
 
-/* экраны, где уже не помещаются два ряда превью, делаем по-центру */
+/* screens where there are no longer two rows of previews, make them centered */
 @media only screen and (min-width: 330px) and (max-width: 762px) {
   body {
     margin: 32px calc((100vw - 320px) / 2);
@@ -189,8 +204,8 @@ h4,
   }
 }
 
-/* экраны, меньше превью — типа айфона 5 */
-/* коэффициент уменьшения всего — 0.8 */
+/* screens, smaller previews - like iPhone 5 */
+/* the reduction factor is 0.8 */
 @media only screen and (max-width: 330px) {
   body {
     margin: 32px calc((100vw - 256px) / 2);
@@ -222,22 +237,21 @@ h4,
   }
 }
 
-/* стили для резюме */
+/* CV styles */
 @media print {
   @page {
     size: A4 portrait;
-    margin: 0;
-
-/*    margin-top: 0.4cm;
-    margin-bottom: 0.4cm;*/
+    margin: 12mm 0;
+    margin-bottom: 0; /* TODO: temporary? */
   }
 
-  @page :left {
-    margin-right: 1cm;
-  }
+  body {
+    height: auto !important;
+    float: none !important;
 
-  @page :right {
-    margin-left: 0.75cm;
+    margin: 0mm 18.9mm;
+    margin-top: 2.5mm;
+    /*font-size: 95%;*/
   }
 
   .project:not(.resume),
@@ -251,16 +265,25 @@ h4,
     display: block !important;
   }
 
-  body {
-    height: auto!important;
-    float: none!important;
+  h3 {
+    margin-bottom: -3.25mm;
   }
 
+  /* I'm doing this because display: flex is buggy with printing, so I'm creating a table instead */
   .projects {
+    display: table;
+    page-break-inside: auto;
+    margin-left: -2.7mm;
+    margin-top: 1mm;
+  }
+
+  .projects tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
   }
 
   .project {
-    float: left;
+    display: table-cell;
     page-break-inside: avoid;
   }
 
@@ -284,7 +307,7 @@ h4,
 <a href="https://t.me/upisfree" target="_blank" rel="noopener">telegram</a>
 <a href="https://github.com/upisfree" target="_blank" rel="noopener">github</a>
 <a href="https://instagram.com/upisfree" target="_blank" rel="noopener">instagram</a>
-<a href="https://artlebedev.ru/upisfree" target="_blank" rel="noopener">artlebedev (ru)</a>
+<a href="https://artlebedev.com/upisfree" target="_blank" rel="noopener">artlebedev</a>
     </p>
 
     <h3>Employments</h3>
@@ -306,7 +329,7 @@ h4,
 
     <h3>Tech skills</h3>
     <ul>
-      <li>TypeScript, WebGL, Unity & C#</li>
+      <li>TypeScript, WebGL, node.js, Unity & C#</li>
     </ul>
 
     <h3>Education</h3>
@@ -321,18 +344,18 @@ Omsk State University
     </ul>
 
     <h3>Awards</h3>
-    <p>
-<a href="https://thefwa.com/cases/website-of-the-legendary-russian-rock-band-aquarium" target="_blank" rel="noopener">FWA</a><br>
-<a href="https://cssdesignawards.com/sites/aquarium-rockband/37302/" target="_blank" rel="noopener">CSSDA</a><br>
-<!-- <a href="" target="_blank" rel="noopener">Русский Медвежонок</a> -->
-    </p>
+    <ul>
+      <li><a href="https://thefwa.com/cases/website-of-the-legendary-russian-rock-band-aquarium" target="_blank" rel="noopener">FWA</a></li>
+      <li><a href="https://cssdesignawards.com/sites/aquarium-rockband/37302/" target="_blank" rel="noopener">CSSDA</a></li>
+      <!-- <li><a href="" target="_blank" rel="noopener">Русский Медвежонок</a></li> -->
+    </ul>
 
     <h3>Featured projects</h3>
 
     <div class="projects">
       <!-- TODO: переписать текст, сказав что я тут всё запрограммировал? -->
       <div class="project resume">
-        <video-preview youtube="jI8LuHr4FfA" preview="./assets/preview/aquarium.mp4" width="320" height="180" importance="high">
+        <video-preview youtube="jI8LuHr4FfA" preview="./assets/preview/aquarium.mp4" printing-timecode="0" width="320" height="180" importance="high">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAMFCAIE/8QAJhAAAQMEAQMEAwAAAAAAAAAAAQACAwQFBhESEyExIkFhcTJCUf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDLCIrrE8drcmu8VBQMcS4gPl4FzYgf2drwPlBHUWOeDGqO9GaF0FTPJAIm8uo0sDfUe2tHlod/ZVK1DT2ijbY4cOfRF1JBSnlKZG7lcfyPDfIeeoO29aWa71RC3Xaro2v6ggldGHEaJ0ddx7FB4kREBXmH5RcsSurrhaHQid0ZicJohI1zCQSNH6HhEQcNyW6jJjfzVvddXSGV0zvLiRog/Gu2v4ocgvVVfa81lcIesRomKMM39+5PyURBWIiIP//Z"/></svg>
         </video-preview>
         <h4>
@@ -350,7 +373,7 @@ To summarise my experience getting on this project I created Krono.
       </div>
 
       <div class="project resume">
-        <video-preview youtube="GAA_BvrqbV4" preview="./assets/preview/krono.mp4" width="320" height="180" importance="high">
+        <video-preview youtube="GAA_BvrqbV4" preview="./assets/preview/krono.mp4" printing-timecode="8" width="320" height="180" importance="high">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGQABAAIDAAAAAAAAAAAAAAAAAAEDBQYI/8QAHhAAAgIDAQADAAAAAAAAAAAAAAECAwQRIUESgbH/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AOVAABfViX3VuddU5QXqXCmScZNSTTXGmbDgZKTx7I5Ua8euCUq/lprS7z3b7swmbZC3LtnUkoN8SSXPpL8KqgAEQAAAkACAAB//2Q=="/></svg>
         </video-preview>
         <h4>Krono: 3D engine & editor</h4>
@@ -369,6 +392,7 @@ Krono was written by me alone during the development of the Aquarium, when I uni
         <time>2019–2020</time>
       </div>
 
+      <!-- TODO: a small text about VR here!!! -->
       <div class="project resume">
         <video-preview youtube="uHFuDbXJfs0" preview="./assets/preview/bci.mp4" width="320" height="180" importance="high">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGgABAQACAwAAAAAAAAAAAAAAAAYCBQMEB//EACoQAAICAQMDAgUFAAAAAAAAAAECAwQRAAUhBhIxE1EHFCJBcRUyQpGx/8QAGAEAAwEBAAAAAAAAAAAAAAAAAQIDAAT/xAAfEQACAgIBBQAAAAAAAAAAAAAAAQIRAxJhBCEiMVH/2gAMAwEAAhEDEQA/AODrjbKF/re5HuNNLKptyTLGZGUZCrgkqc++pW7sW2t2pXg3CowjKIIbpdBhSRlWXn+9Xfxao/KXqO9bfc7bthI6cgjkR17RGx8cn8548agbS7nFugMz2O0skjMrdnZkZJAA4GDnTRxuStAbo39Se/tPTki1w4levWEXpoGP1ZLSkAHkFOxc+Mk4zrCtchqyQDfK0FnqWVXsViytE7KF7oxMVIHczKxGRkjGTyNdTfblzZukNsu7Huk1aaSaWV4kICt3YUqR98BFOPGG1BUOpJ692vaSKH1a4IiVV4j8kEZzyCxPJ0vBZdqs9e221N1XUqXYYn+YlkImSEAxNI2DjnlW8kD2B5401T/Dmv8Ao9Y35FHqXo1laBolX0W5IAI88H/dNItaDllcvH0TO6SndumqFqNaaNDKskkQgKBe5So+oEkjLAalrse923mQcekexwjZwcAYyzewA/GmmuzppPVrkhkVNM1m6bksmxJVaWJDVAHy+GJnkyR3E4wOD7/x1IRVIwSzqC5+44x+NNNIoK2wSnKkizm6r3y0vfJuluKwERBLFJ2jCjHKftJx5PB+/Ommms4R+BUmf//Z"/></svg>
@@ -391,17 +415,7 @@ In total I spent two weeks to done this without breaking away from school.
         <time>two weeks in january 2017</time>
       </div>
 
-      <div class="project resume">
-        <video-preview youtube="dR8lhKYzXhE" preview="./assets/preview/bci-vr.mp4" width="320" height="180" importance="high">
-          <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAYHBAMI/8QAKhAAAQMEAQQBAgcAAAAAAAAAAQIDBAAFBhEhBxJBcTEIURMUUmGRobH/xAAXAQADAQAAAAAAAAAAAAAAAAABAgME/8QAGhEAAwEBAQEAAAAAAAAAAAAAAAERAjESQf/aAAwDAQACEQMRAD8AQGupWSzLZEKFxI8aHwhxxBWt0g+Tvn7UxY5l2b3YPN2q0Q56nldy3Go7mgda5OwBUqhoK7NbO4kIU4sf3Vtv+YXXHBCtOMqdhFhthcZhLCS1MQUAqJJBUpZWe0AccHndQlcRpXKZ77g/UXLkoTeWIUdoFJ5UgKGhoeSfissHorOivoXLjsTWz86k71++gADVEzDK05A7d8JgqVBvrkJCkrLnalTpSla2QRyDokb9116H2K+WGwyYt/QtCi93NNKdDhHzsjW9A8ce6SOXgUyJdZMMh4w3b34KVJQ/3pcHgKTojX24Jop/+pxUZjGYza3E/mVSu5tO+e0JIUfXIoquM1C61Gedrfc3BEYjOgFtlZKD5G/FXjGOttstGPRo8q2SZcphPale0pA9HRIooo6wmwLTSI5fc1kTcul31jujy3ZZlIKDyg+APWhW679WcruYUl+6yUoPylpX4af4TqiiqeU5fglYmXK6S7isKlPLcI/Uon/aKKKZAZ//2Q=="/></svg>
-        </video-preview>
-        <h4>World's first VR brain-computer interface (still for ~$500)</h4>
-        <p>
-When I went to Moscow to the main Russian scientific conference for schoolers, juri told me that they would not give me an award unless I showed a demo directly at the conference. But my brain was distracted by various noises and BCI gave wrong results: for a good result, you need a quiet room with no noises. Then I bought a cardboard, put my phone in there, and using my friend's phone as a Wi-Fi router (there was no internet in the conference room), I created the world's first VR brain-computer interface for typing symbols with the power of thought overnight on my knee.<br><br>
-
-So, they didn't give me a single award.
-
-<!--
+      <!--
 там бля охуенная история
 я говорю главному жюри
 типа, мой интерфейс стоит 30к ₽, а обычно такое от пары мультов начинается
@@ -417,14 +431,26 @@ So, they didn't give me a single award.
 а ещё эти долбоёбы перепутали нейросети и нейроинтерфейс
 сказали, ой нейросетей щас много, у вас работа на популярную тему
 алло, ебанаты, это нейроинтерфейс, которых в россии в пределах 20 штук всего, один из которых собрал за 30к школьник из омска блядь еблан
--->
+      -->
+
+      <!--
+      <div class="project resume">
+        <video-preview youtube="dR8lhKYzXhE" preview="./assets/preview/bci-vr.mp4" width="320" height="180" importance="high">
+          <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAYHBAMI/8QAKhAAAQMEAQQBAgcAAAAAAAAAAQIDBAAFBhEhBxJBcTEIURMUUmGRobH/xAAXAQADAQAAAAAAAAAAAAAAAAABAgME/8QAGhEAAwEBAQEAAAAAAAAAAAAAAAERAjESQf/aAAwDAQACEQMRAD8AQGupWSzLZEKFxI8aHwhxxBWt0g+Tvn7UxY5l2b3YPN2q0Q56nldy3Go7mgda5OwBUqhoK7NbO4kIU4sf3Vtv+YXXHBCtOMqdhFhthcZhLCS1MQUAqJJBUpZWe0AccHndQlcRpXKZ77g/UXLkoTeWIUdoFJ5UgKGhoeSfissHorOivoXLjsTWz86k71++gADVEzDK05A7d8JgqVBvrkJCkrLnalTpSla2QRyDokb9116H2K+WGwyYt/QtCi93NNKdDhHzsjW9A8ce6SOXgUyJdZMMh4w3b34KVJQ/3pcHgKTojX24Jop/+pxUZjGYza3E/mVSu5tO+e0JIUfXIoquM1C61Gedrfc3BEYjOgFtlZKD5G/FXjGOttstGPRo8q2SZcphPale0pA9HRIooo6wmwLTSI5fc1kTcul31jujy3ZZlIKDyg+APWhW679WcruYUl+6yUoPylpX4af4TqiiqeU5fglYmXK6S7isKlPLcI/Uon/aKKKZAZ//2Q=="/></svg>
+        </video-preview>
+        <h4>World's first VR brain-computer interface (still for ~$500)</h4>
+        <p>
+When I went to Moscow to the main Russian scientific conference for schoolers, juri told me that they would not give me an award unless I showed a demo directly at the conference. But my brain was distracted by various noises and BCI gave wrong results: for a good result, you need a quiet room with no noises. Then I bought a cardboard, put my phone in there, and using my friend's phone as a Wi-Fi router (there was no internet in the conference room), I created the world's first VR brain-computer interface for typing symbols with the power of thought overnight on my knee.<br><br>
+
+So, they didn't give me a single award.
         </p>
 
         <time>one night in january 2017</time>
       </div>
+      -->
 
       <div class="project resume">
-        <video-preview youtube="sVLbkPasChw" preview="./assets/preview/rukami.mp4" width="320" height="180" importance="high">
+        <video-preview youtube="sVLbkPasChw" preview="./assets/preview/rukami.mp4" printing-timecode="2.3" width="320" height="180" importance="high">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAQGBwUC/8QALBAAAQMDAwEIAQUAAAAAAAAAAQIDBAAFEQYSIRMUMTJBUWFxkQcVIiOBwf/EABcBAQEBAQAAAAAAAAAAAAAAAAUEAwH/xAAoEQABAwMBBgcAAAAAAAAAAAABAAIDESExgQQTIkFhoRJRUrHB8PH/2gAMAwEAAhEDEQA/AMa/KjKYky0Q2EhMRuJub2+EqUo5I+k17tzzDX41jPyUkvxbqtMNeArpbkAqOPPHeB64q6y9Ls6a1CLHM3ydNXlCkxS8dxjvAeEHyOOQfj3qotx12vSkuLIjNSnLLed8phwcLaWjbu9gSnvHdkGpI3cO4Ny3uL/hTso3j3bW2weCKekiltBcdFAtemJ921fHstrB7VJAWrtCst+AKcKzg8Ak5zkg1ypK5VnU52N1sNOApWhtw7F9NZTuHqCQcfPFd96RKiPybtp+VIeihx1TUtrCiltxIC0PDxIITkZxz9VUpj8p91xpqP0lJWB09u5acDgY8gMn7qmN7nge33RFTRhlbKfOjOy7mzZ3nSlqIC9LcKuErIBWfgDCR8e9KnENi8OXS4vMxmJzRTMjOH+Qk+IJA9SNwPl/VKpnhe6Q0NByxjlkraBrAziAr1r8LfpcZrW+iUtsr6chSUSIj5HLbo5Qr/D7E1juuYP69ZEamjo6cmOOhc4+7AK0HbuB7jg8fGPSlKIncY3MkbmoGhyrtiaJmSxPx4S7UYPdUBm6XK2SS7DX2NxQzuaACtp58XfUSVc50pxa5Ep5alkqUSs/uJ8zSlIg2r5oZz3AllbBQ+Sc+dKUroCzX//Z"/></svg>
         </video-preview>
         <h4>
@@ -439,7 +465,7 @@ Very complex 3D, made with astonishing simplicity thanks to Krono.
       </div>
 
       <div class="project resume">
-        <video-preview youtube="fhOz5pCwav0" preview="./assets/preview/sotbi.mp4" width="320" height="180" importance="high">
+        <video-preview youtube="fhOz5pCwav0" preview="./assets/preview/sotbi.mp4" printing-timecode="7.5" width="320" height="180" importance="high">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGgABAAIDAQAAAAAAAAAAAAAAAAYIBAUHAv/EACMQAAEDBAICAwEAAAAAAAAAAAECAwQABREhBhIHYSIxUYH/xAAXAQEBAQEAAAAAAAAAAAAAAAADAgQF/8QAIREAAgICAQQDAAAAAAAAAAAAAQIAAxEhEgQxUXFhscH/2gAMAwEAAhEDEQA/AKyNJWYL2FYQnZGKm18tUKPxGJIZjtIkqQ3lfXexutJabKJ8mbAE5EdtoIcK1tkgpJAJOPoAHNdf8aeNGuZW0P8AIL1Lcssfq0W4wS0S5vCR2TnAGN+/VY7FNjAqcAbPqdCthWrBlyToe5yHjdjfubpUshMcHZAG6mZRGtjIZjpTkD7rZXxi12V56FY0OojNkpBdX3UcfpwKiUuUSSVHNZmc2t8R1UVKPM9yJJdWRSsNLyOpVndKrEMnMl3gK3wr55NbizGytiZAeG9FJAScj+AirI8y41buMcNucmwtqiIbSHSwlR6KUMDPrVKUHVuVbiPA+5KOxsAz3/ZVC7y3XX3HXVfJRJOP2o8++pajk6pStNQ1KsO5jrewNUpSnCiByM//2Q=="/></svg>
         </video-preview>
         <h4>
@@ -457,7 +483,7 @@ Sotbi's are guys who, forcing debtors to pay back multibillion-rubles debts. So,
 
 
       <div class="project resume">
-        <video-preview preview="./assets/preview/metro.mp4" width="320" height="180" importance="high">
+        <video-preview preview="./assets/preview/metro.mp4" printing-timecode="4" width="320" height="180" importance="high">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAMI/8QAGxABAAAHAAAAAAAAAAAAAAAAAAECAwQ0c7H/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A1BaYlDXLyCqVpiUNcvIKgAAld4lfXNyIXeJX1zciAWmJQ1y8gqAAAJXeJX1zciAD/9k="/></svg>
         </video-preview>
         <h4><a href="https://artlebedev.com/metro/map4/" target="_blank" rel="noopener">Moscow Metro Map 4.0</a></h4>
@@ -484,7 +510,7 @@ For Sotbi's AR announcement, I pulled the model out of Unity, wrote a web editor
       </div>
 
       <div class="project resume">
-        <video-preview youtube="leGG8FK4rec" preview="./assets/preview/ld39.mp4" width="320" height="180">
+        <video-preview youtube="leGG8FK4rec" preview="./assets/preview/ld39.mp4" printing-timecode="1.4" width="320" height="180">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAUHBgII/8QAKRAAAQMDAwMEAgMAAAAAAAAAAQIDBAAFEQYSIRMxQQciMmEUURVxgf/EABcBAAMBAAAAAAAAAAAAAAAAAAADBAL/xAAfEQACAwAABwAAAAAAAAAAAAABAgADERITISIyYoH/2gAMAwEAAhEDEQA/AGo1jEjWyTMkupU2y0pxYQeSAM4H2a60nf5tzcgfyMNiE3c2FyYaG5aX1lCcZDiRyhWFAj/fIrzxLnSZE1FpeS+z1H20LTJT0sAkfLPYdu9WK9yDpe2BKzDjT0L/AB7bMiyEPN9dPCsnGARuGUnx4pdnrL6m3zOfJT37LNU2lbPLagCDt8f13rMqtrNjIbjMx4rClFxaWkBsKV5JA8090Lc75A9PEPaluSbheXErXvJyhCSfYk4Ayf2R9DxUk1xrFx+ZIR0lI2Hbk9lcZyPqlVWMzlcm2HbxHpNBqK6RHrZPEt4OgsrAAWQMbTxiiolc7886h1OCApJHf9iirDWZHziIyPqTqC7XO/qLFvXctRFLTj5ZG5pGMbG8/EEY++KWWaS2w+EPNpdCF5w57xuHG7nzwOe/FFFArUE4JkWNglGVreQqD0tysYqe326rkrWVE4NFFFVSIdUR919jrjGZeRIJJwBzRRRTySZGJ//Z"/></svg>
         </video-preview>
         <h4>
@@ -500,7 +526,7 @@ This is my most heartbreaking game <abbr title="in the Russian army mandatory 1 
       </div>
 
       <div class="project resume">
-        <video-preview preview="./assets/preview/medcluster.mp4" width="320" height="180">
+        <video-preview preview="./assets/preview/medcluster.mp4" printing-timecode="7.8" width="320" height="180">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGgABAAIDAQAAAAAAAAAAAAAAAAQFAwYHCP/EACMQAAIBAwQBBQAAAAAAAAAAAAECAAMEBREhMVEGExQicdH/xAAaAQACAgMAAAAAAAAAAAAAAAACBAUGAQMH/8QAIREAAQMEAgMBAAAAAAAAAAAAAQACAwQREiEFMRMiQVH/2gAMAwEAAhEDEQA/APOUSRboG5ltY0qKEM6K2nAIlohpzKe7JwNuoONw97kSPb0viToGbYH67nR/DvDFsKy3N66vWHCjgSBa3FNaVO5SoFIUoV/Jt+Au1rUFYtudo8aeJg9NkKC5ueVsDhBr4f1X52XQcCJS5zM0sfQZmO/UTDYSRcqnUfA1VRH5GjRXBVcjgyZbVmbYnTuIkfG8g6XTb2U/1yUCKToJsWBytSypaE6r1ER2JxyutMjGyDFwuFh8kyTXdF2YnciIiDUPOSOMBjcW9L//2Q=="/></svg>
         </video-preview>
         <h4><a href="https://artlebedev.com/mimc/site/" target="_blank" rel="noopener">Moscow International Medical Cluster website</a></h4>
@@ -554,7 +580,12 @@ I made a raycasting engine from scratch during summer 2019 and wrote this game u
 <!--      </div>-->
 
       <div class="project">
-        <h4><a href="https://github.com/mrdoob/three.js/pull/19541" target="_blank" rel="noopener">BasisTextureLoader in three.js: support repeated loading of same texture</a></h4>
+        <video-preview preview="./assets/preview/basis.mp4" width="320" height="180">
+          <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFBgP/xAAnEAACAgICAgICAQUAAAAAAAABAgMEBRESIQATBiIxQVEUFSMyQv/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8Ag5fIUsZfqVVWjZNuFZEYzlK4YqzFUf6jSkBdnZYj8HRPiuKuwZ7EsFoVZ55pC0+NdQrBj/q/MBdnR/I/Gj/Hexmwd27jxkp/7TPikiEjWI3TaOT9VbvlzYld9a+3fffmQzta8cnBaxlSjF/lLxVwA492ipiZlOyBsMRvRK7PgOwZVZ7ccOKxGUsWIkZWiM0SSaA0So4p9dKdEbJ7OvFsDKnyLDi5dqf0ODRfXASplnLMCNKvLcjaLHZ3/J/jyjl4XuZCo+OsCJEi4++vP3EWUJIx2Cx5cQSe12m9eN42vRiw2DhSUw08b7JJcnyEfDkuuKoRoSFeJB6J2fxo6BPLUq9OazzuXZ6c6horHqatGigkBXlYgrxHZADHoDfYIPKeALZmO+lejbOLqxQu0k7+x5QzM3GJh9VJJUk75EDWgD4eAjmMZUp/J7+KoWWkgrRy25a6xhJJUjGvo2gF2WTRJ7O+Q/Z5Yz4xn/k2NTIUbEJgrMpLwy+kqpX2M5BT7Hvbr1vlpSddHh4HCC5ev1cvbqUYZosaqnIK0mmaMxkkry/6KAkkFT+O+XlbK4L43e+O2TFFk3ycfqvtEs5+6ydcS7k6A3oMO/32dnw8PA1ViulD4xjIK1U08esMhNdJyUglEYk9i/vjptaHY7/ffh4eHlH/2Q=="/></svg>
+        </video-preview>
+        <h4>
+          <a href="https://github.com/mrdoob/three.js/pull/19541" target="_blank" rel="noopener">BasisTextureLoader in three.js: support repeated loading of same texture</a>
+        </h4>
         <p>
 <!-- В пятницу, в первый день после релиза Аквариума я столкнулся с тем, что на множестве устройств не хватает видеопамяти и страница падает. Пришлось за одни выходные узнать о существовании компрессированных текстур, узнать о .basis текстурах и написать патч для загрузчика этих текстур в three.js, а также дописать загрузчик GLTF моделей так, чтобы он научился понимать .basis текстуры. -->
 
@@ -627,7 +658,7 @@ My girlfriend got stuck in another country during the COVID-19 pandemic and I re
       </div>
 
       <div class="project resume">
-        <video-preview youtube="j6BBO2k1lK0" preview="./assets/preview/angry-recruits.mp4" width="320" height="180">
+        <video-preview youtube="j6BBO2k1lK0" preview="./assets/preview/angry-recruits.mp4" printing-timecode="4" width="320" height="180">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAMBBAUH/8QALxAAAQMCBAMECwAAAAAAAAAAAQIDBAARBRIhMQcTQRQyUaEVFyIzYXOBotHS4f/EABgBAAMBAQAAAAAAAAAAAAAAAAECAwAE/8QAHhEAAwACAQUAAAAAAAAAAAAAAAECETHREkJRobH/2gAMAwEAAhEDEQA/AOjtoQWGiH091On0HxqLI2Ln2/2rkhMWPHitBCec8n2E63Nk3PlVAoOa1rVaaVaJucbGJCbaLN+gy05phaiCDSWm1lQsL1qRlIjAlxJU70HQUGxkkVMXnt4JEZExRHbF8hAGpuQdT4JFtTRSMTclS8aBjxIstQguXEjZCc420NFc1VWWVWMHOHuL+HvJhk4coLjrS5fPe9kFNttO9Up4wYcF3OD5h80/iiipqaXc/XAzWRqONEFslTeDWNre9P60v1xQFNLT6KW2taSOYHiopPjYjWiijh+WL0mceKMWVHjDEMPalvNxVtLOXlgrJBzjfonzoooqblzp/ODNs//Z"/></svg>
         </video-preview>
         <h4>
@@ -813,12 +844,26 @@ I had a Minecraft server called “HeavyCraft” in 2013 when I was 14 y.o. It h
 
     <script src="https://youtube.com/iframe_api" async></script>
     <script type="module" async>
-// для генерации резюме / печати
-document.addEventListener('beforeprint', () => {
+// I'm doing this because display: flex is buggy with printing, so I'm creating a table instead
+window.addEventListener('beforeprint', () => {
+  const projects = document.querySelectorAll('.project.resume');
 
+  projects.forEach((project, i) => {
+    if (i % 2 === 0) {
+      const row = document.createElement('tr');
+
+      project.before(row);
+
+      row.append(project);
+
+      if (projects[i + 1]) {
+        row.append(projects[i + 1]);
+      }
+    }
+  });
 });
 
-document.addEventListener('afterprint', () => {
+window.addEventListener('afterprint', () => {
   // location.reload();
 });
     </script>
