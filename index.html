@@ -290,6 +290,10 @@ h4,
   /*a[href]:after {
     content: " (" attr(href) ")";
   }*/
+
+  abbr[title] {
+    border-bottom: none;
+  }
 }
     </style>
   </head>
@@ -297,8 +301,8 @@ h4,
     <h2 class="name">Senya Pugach</h2>
 
     <p class="summary">
-<!-- <i>is Javascript developer with great 3D web expierence who likes game development and BCI</i> -->
-<!-- <br><br> -->
+<i>is software engineer greatly experienced in web 3D programming with passion in researches, science and game development</i>
+<br><br>
 <i>Moscow, Russia</i>
     </p>
 
@@ -309,6 +313,8 @@ h4,
 <a href="https://instagram.com/upisfree" target="_blank" rel="noopener">instagram</a>
 <a href="https://artlebedev.com/upisfree" target="_blank" rel="noopener">artlebedev</a>
     </p>
+
+
 
     <h3>Employments</h3>
     <ul>
@@ -327,10 +333,14 @@ h4,
       </li>
     </ul>
 
+
+
     <h3>Tech skills</h3>
     <ul>
-      <li>TypeScript, WebGL, node.js, Unity & C#</li>
+      <li>TypeScript, WebGL, node.js, Unity & C#, AR</li>
     </ul>
+
+
 
     <h3>Education</h3>
     <ul>
@@ -343,12 +353,17 @@ Omsk State University
       </li>
     </ul>
 
+
+
     <h3>Awards</h3>
-    <ul>
-      <li><a href="https://thefwa.com/cases/website-of-the-legendary-russian-rock-band-aquarium" target="_blank" rel="noopener">FWA</a></li>
-      <li><a href="https://cssdesignawards.com/sites/aquarium-rockband/37302/" target="_blank" rel="noopener">CSSDA</a></li>
-      <!-- <li><a href="" target="_blank" rel="noopener">Русский Медвежонок</a></li> -->
-    </ul>
+    <p>
+<a href="https://thefwa.com/cases/website-of-the-legendary-russian-rock-band-aquarium" target="_blank" rel="noopener">FWA</a>,
+<a href="https://cssdesignawards.com/sites/aquarium-rockband/37302/" target="_blank" rel="noopener">CSS Design Awards</a>,
+<a href="http://awards.ratingruneta.ru/" target="_blank" rel="noopener">Runet Rating</a>
+<!-- <a href="" target="_blank" rel="noopener">Русский Медвежонок</a> -->
+    </p>
+
+
 
     <h3>Featured projects</h3>
 
@@ -363,10 +378,26 @@ Omsk State University
         </h4>
         
         <p>
+Психоделический интерактивный арт-объект, расширяющий границы понятия «сайт».
+Made for Aquarium, the founders of the Russian rock stage.
+Вместо создания лишь одного такого сайта, я запрограммировал движок Кроно, конвеер для создания подобных опытов (web-expierences).
+
+В процессе создания мне пришлось глубоко изучить как работает рендеринг 3д на самом базовом уровне, научиться писать шейдеры, построить удобную и расширяемую архитектуру движка, создать инструменты для дизайнера, а также постоянно решать сложные проблемы, с которыми я никогда не сталкивался.
+
+<!-- Из маленького демо полёта камеры по скроллу, родился движок «Кроно», позволяющий создавать такие сложные сайты как Аквариум за пару недель. -->
+
+<!-- * я запрограммировал ярчайший и сложнейший трехмерный мир в вебе
+* в процессе написал кроно (я молодец, умею унифицировать, обобщать и переиспользовать решения)
+* бесконечный генеративный дизайн?
+* рассказ/истоия по скроллу?
+ -->
+
+<!--
 <i>is endlessly generated monumental psychedelic web experience for the founders of the Russian rock scene</i><br><br>
 The number of versions of the site is unlimited, scroll to the end to see the new version which no one except you see it again because all of there are unique. My magnum opus in Art. Lebedev.<br><br>
 
 To summarise my experience getting on this project I created Krono.
+-->
         </p>
 
         <time>2019–2020</time>
@@ -397,7 +428,20 @@ Krono was written by me alone during the development of the Aquarium, when I uni
         <video-preview youtube="uHFuDbXJfs0" preview="./assets/preview/bci.mp4" width="320" height="180" importance="high">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGgABAQACAwAAAAAAAAAAAAAAAAYCBQMEB//EACoQAAICAQMDAgUFAAAAAAAAAAECAwQRAAUhBhIxE1EHFCJBcRUyQpGx/8QAGAEAAwEBAAAAAAAAAAAAAAAAAQIDAAT/xAAfEQACAgIBBQAAAAAAAAAAAAAAAQIRAxJhBCEiMVH/2gAMAwEAAhEDEQA/AODrjbKF/re5HuNNLKptyTLGZGUZCrgkqc++pW7sW2t2pXg3CowjKIIbpdBhSRlWXn+9Xfxao/KXqO9bfc7bthI6cgjkR17RGx8cn8548agbS7nFugMz2O0skjMrdnZkZJAA4GDnTRxuStAbo39Se/tPTki1w4levWEXpoGP1ZLSkAHkFOxc+Mk4zrCtchqyQDfK0FnqWVXsViytE7KF7oxMVIHczKxGRkjGTyNdTfblzZukNsu7Huk1aaSaWV4kICt3YUqR98BFOPGG1BUOpJ692vaSKH1a4IiVV4j8kEZzyCxPJ0vBZdqs9e221N1XUqXYYn+YlkImSEAxNI2DjnlW8kD2B5401T/Dmv8Ao9Y35FHqXo1laBolX0W5IAI88H/dNItaDllcvH0TO6SndumqFqNaaNDKskkQgKBe5So+oEkjLAalrse923mQcekexwjZwcAYyzewA/GmmuzppPVrkhkVNM1m6bksmxJVaWJDVAHy+GJnkyR3E4wOD7/x1IRVIwSzqC5+44x+NNNIoK2wSnKkizm6r3y0vfJuluKwERBLFJ2jCjHKftJx5PB+/Ommms4R+BUmf//Z"/></svg>
         </video-preview>
-        <h4>$500 brain-computer interface: brain typing</h4>
+        <h4>$500 brain-computer interface: letters typing only with thoughts</h4>
+        <p>
+Я сделал 
+
+нейро-компьютерный интерфейс для чтения мыслей.  сделал за две недели. решил проблемы с доставкой неординарным методом. первым в мире соединил VR и BCI, сделав это на коленке.
+
+openbci, openvibe, p300 speller.
+
+When the <code>OpenBCI</code> board came, I patched <code>OpenViBE</code> drivers, train <code>P300</code> on my brain, translate speller to Russian, printed a plastic helmet in another city, made the power supply from old Nokia, fused up everything, and in three hours before my flight to Moscow to conference I typed my first words using brain only.
+
+        <time>two weeks in january 2017</time>
+      </div>
+
+      <!--
         <p>
 <i>brain-computer interface for symbols typing using brain neural activity (in simple terms, with thoughts)</i><br><br>
 
@@ -411,9 +455,7 @@ When the <code>OpenBCI</code> board came, I patched <code>OpenViBE</code> driver
         <p>
 In total I spent two weeks to done this without breaking away from school.
         </p>
-
-        <time>two weeks in january 2017</time>
-      </div>
+      -->
 
       <!--
 там бля охуенная история
@@ -518,10 +560,15 @@ For Sotbi's AR announcement, I pulled the model out of Unity, wrote a web editor
         </h4>
         
         <p>
-<i>a game about draftee who coming back to mother in a zinc lined coffin</i><br><br>
-This is my most heartbreaking game <abbr title="in the Russian army mandatory 1 year long conscription for all men">that saved me from the army.</abbr>
+My most heartbreaking game <abbr title="in the Russian army mandatory 1 year long conscription for all men">that saved me from the army.</abbr>
+Game tells us about draftee who coming back to mother in a zinc lined coffin. Made it in 2 days.
         </p>
-        
+
+<!--        a game about draftee who coming back to mother in a zinc lined coffin-->
+
+<!--        This is my most heartbreaking game that saved me from the army.-->
+
+        <a href="https://github.com/upisfree/ld39" class="link" target="_blank" rel="noopener">sources</a>
         <time>29–30 july 2017</time>
       </div>
 
@@ -531,7 +578,7 @@ This is my most heartbreaking game <abbr title="in the Russian army mandatory 1 
         </video-preview>
         <h4><a href="https://artlebedev.com/mimc/site/" target="_blank" rel="noopener">Moscow International Medical Cluster website</a></h4>
         <p>
-MIMC is an unprecedented international medical project in Russia. I was the lead developer of it's site: I guided and organized the other developers, developed the main visual element of the project's identity - a mesmerizingly lively spot, made an editor for quick spot customization, and made a terrific 3D.
+MIMC is an unprecedented international medical project in Russia. I was the lead developer of it's site: I guided and organized the other developers, developed the main visual element of the project's identity — a mesmerizingly lively spot, made an editor for quick spot customization, and made a terrific 3D.
         </p>
 
         <time>2019–2020</time>
@@ -621,6 +668,7 @@ Educational renderer from the scratch to understand how renderers actually works
 The Great Terror has affected every family in Soviet Union: my great-grandfather was shot, great-great-grandmother was imprisoned and others were dispossessed.
         </p>
 
+        <a href="https://github.com/upisfree/ld42" class="link" target="_blank" rel="noopener">sources</a>
         <time>11–12 august 2018</time>
       </div>
 
@@ -654,6 +702,7 @@ A Windows Phone application that allows residents of Omsk <a href="https://goo.g
 My girlfriend got stuck in another country during the COVID-19 pandemic and I really missed her.
         </p>
 
+        <a href="https://github.com/upisfree/ld46" class="link" target="_blank" rel="noopener">sources</a>
         <time>21 april 2020</time>
       </div>
 
@@ -662,12 +711,14 @@ My girlfriend got stuck in another country during the COVID-19 pandemic and I re
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAMBBAUH/8QALxAAAQMCBAMECwAAAAAAAAAAAQIDBAARBRIhMQcTQRQyUaEVFyIzYXOBotHS4f/EABgBAAMBAQAAAAAAAAAAAAAAAAECAwAE/8QAHhEAAwACAQUAAAAAAAAAAAAAAAECETHREkJRobH/2gAMAwEAAhEDEQA/AOjtoQWGiH091On0HxqLI2Ln2/2rkhMWPHitBCec8n2E63Nk3PlVAoOa1rVaaVaJucbGJCbaLN+gy05phaiCDSWm1lQsL1qRlIjAlxJU70HQUGxkkVMXnt4JEZExRHbF8hAGpuQdT4JFtTRSMTclS8aBjxIstQguXEjZCc420NFc1VWWVWMHOHuL+HvJhk4coLjrS5fPe9kFNttO9Up4wYcF3OD5h80/iiipqaXc/XAzWRqONEFslTeDWNre9P60v1xQFNLT6KW2taSOYHiopPjYjWiijh+WL0mceKMWVHjDEMPalvNxVtLOXlgrJBzjfonzoooqblzp/ODNs//Z"/></svg>
         </video-preview>
         <h4>
-          <a href="https://upisfr.ee/game/angry-recruits" target="_blank" rel="noopener">Game for Priziva.net cloned by Rovio</a>
+          <a href="https://upisfr.ee/game/angry-recruits" target="_blank" rel="noopener">Angry Birds for Priziva.net</a>
         </h4>
         
         <p>
-<i>in 2019, Angry Birds no longer existed in the browser; they now exist, though with Russian army colour</i><br><br>
-Destructible environment, level editor, mobile support, different shell types, incredible sounds, rating server.
+<!-- <i>in 2019, Angry Birds no longer existed in the browser; they now exist, though with Russian army colour</i><br><br>
+Destructible environment, level editor, mobile support, different shell types, incredible sounds, rating server.-->
+
+Commercial game for Priziva.net. Angry Birds type game. I programmed a game with destructible environment, level editor, mobile support, different shell types, incredible sounds and a rating server. Also I have managed all game creation process. work with money? found designers and managed their work
         </p>
 
         <a href="https://github.com/upisfree/angry-recruits" class="link" target="_blank" rel="noopener">sources</a>
@@ -865,6 +916,17 @@ window.addEventListener('beforeprint', () => {
 
 window.addEventListener('afterprint', () => {
   // location.reload();
+});
+
+// TMp
+// TMp
+// TMp
+// TMp
+// TMp
+const projects = document.querySelectorAll('.project:not(.resume)');
+
+projects.forEach((project) => {
+  project.style.display = 'none';
 });
     </script>
   </body>
