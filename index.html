@@ -257,7 +257,8 @@ h4,
   .project:not(.resume),
   video-preview .preview > svg,
   video-preview .blurred,
-  video-preview iframe {
+  video-preview iframe,
+  .hide-on-print {
     display: none;
   }
 
@@ -335,9 +336,9 @@ h4,
 
 
 
-    <h3>Tech skills</h3>
+    <h3>Professional skills</h3>
     <ul>
-      <li>TypeScript, WebGL, node.js, Unity & C#, AR</li>
+      <li>TypeScript, WebGL, node.js, Unity & C#, AR, game development</li>
     </ul>
 
 
@@ -356,60 +357,35 @@ Omsk State University
 
 
     <h3>Awards</h3>
+    <ul>
+      <li>
+<a href="https://thefwa.com/cases/website-of-the-legendary-russian-rock-band-aquarium" target="_blank" rel="noopener">FWA</a>,
+<a href="https://cssdesignawards.com/sites/aquarium-rockband/37302/" target="_blank" rel="noopener">CSS Design Awards</a>,
+<a href="http://awards.ratingruneta.ru/" target="_blank" rel="noopener">Runet Rating</a>
+      </li>
+    </ul>
+
+    <!--
     <p>
 <a href="https://thefwa.com/cases/website-of-the-legendary-russian-rock-band-aquarium" target="_blank" rel="noopener">FWA</a>,
 <a href="https://cssdesignawards.com/sites/aquarium-rockband/37302/" target="_blank" rel="noopener">CSS Design Awards</a>,
 <a href="http://awards.ratingruneta.ru/" target="_blank" rel="noopener">Runet Rating</a>
-<!-- <a href="" target="_blank" rel="noopener">Русский Медвежонок</a> -->
+!-- <a href="" target="_blank" rel="noopener">Русский Медвежонок</a> --
     </p>
+    -->
 
 
 
     <h3>Featured projects</h3>
 
     <div class="projects">
-      <!-- TODO: переписать текст, сказав что я тут всё запрограммировал? -->
-      <div class="project resume">
-        <video-preview youtube="jI8LuHr4FfA" preview="./assets/preview/aquarium.mp4" printing-timecode="0" width="320" height="180" importance="high">
-          <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAMFCAIE/8QAJhAAAQMEAQMEAwAAAAAAAAAAAQACAwQFBhESEyExIkFhcTJCUf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDLCIrrE8drcmu8VBQMcS4gPl4FzYgf2drwPlBHUWOeDGqO9GaF0FTPJAIm8uo0sDfUe2tHlod/ZVK1DT2ijbY4cOfRF1JBSnlKZG7lcfyPDfIeeoO29aWa71RC3Xaro2v6ggldGHEaJ0ddx7FB4kREBXmH5RcsSurrhaHQid0ZicJohI1zCQSNH6HhEQcNyW6jJjfzVvddXSGV0zvLiRog/Gu2v4ocgvVVfa81lcIesRomKMM39+5PyURBWIiIP//Z"/></svg>
-        </video-preview>
-        <h4>
-          <a href="https://aquarium.ru/en" target="_blank" rel="noopener">Aquarium</a>
-        </h4>
-        
-        <p>
-Психоделический интерактивный арт-объект, расширяющий границы понятия «сайт».
-Made for Aquarium, the founders of the Russian rock stage.
-Вместо создания лишь одного такого сайта, я запрограммировал движок Кроно, конвеер для создания подобных опытов (web-expierences).
-
-В процессе создания мне пришлось глубоко изучить как работает рендеринг 3д на самом базовом уровне, научиться писать шейдеры, построить удобную и расширяемую архитектуру движка, создать инструменты для дизайнера, а также постоянно решать сложные проблемы, с которыми я никогда не сталкивался.
-
-<!-- Из маленького демо полёта камеры по скроллу, родился движок «Кроно», позволяющий создавать такие сложные сайты как Аквариум за пару недель. -->
-
-<!-- * я запрограммировал ярчайший и сложнейший трехмерный мир в вебе
-* в процессе написал кроно (я молодец, умею унифицировать, обобщать и переиспользовать решения)
-* бесконечный генеративный дизайн?
-* рассказ/истоия по скроллу?
- -->
-
-<!--
-<i>is endlessly generated monumental psychedelic web experience for the founders of the Russian rock scene</i><br><br>
-The number of versions of the site is unlimited, scroll to the end to see the new version which no one except you see it again because all of there are unique. My magnum opus in Art. Lebedev.<br><br>
-
-To summarise my experience getting on this project I created Krono.
--->
-        </p>
-
-        <time>2019–2020</time>
-      </div>
-
       <div class="project resume">
         <video-preview youtube="GAA_BvrqbV4" preview="./assets/preview/krono.mp4" printing-timecode="8" width="320" height="180" importance="high">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGQABAAIDAAAAAAAAAAAAAAAAAAEDBQYI/8QAHhAAAgIDAQADAAAAAAAAAAAAAAECAwQRIUESgbH/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AOVAABfViX3VuddU5QXqXCmScZNSTTXGmbDgZKTx7I5Ua8euCUq/lprS7z3b7swmbZC3LtnUkoN8SSXPpL8KqgAEQAAAkACAAB//2Q=="/></svg>
         </video-preview>
         <h4>Krono: 3D engine & editor</h4>
         <p>
-Krono is a 3D web engine. It includes an <abbr title="animation & keyframes editor, import/export in json">effects editor</abbr>, <abbr title="low & hight pass effects, many audios from the same file, many audio formats, positional audio">audio</abbr>, <abbr title="bloom, chromatic aberrations, glitch, hue, noise, pixelation, saturation, tone mapping">postprocessing</abbr>, <abbr title="GLTF for models and Draco or Meshopt for compressing, KTX2/Basis for textures">the most modern models & textures formats and their compression decoders</abbr>, <abbr title="for example, gradual rendering quality auto deterioration at low FPS">various optimizations</abbr>.
+Krono is a 3D web engine. It includes an <abbr title="animation & keyframes editor, import/export in json">effects editor</abbr>, <abbr title="low & high pass effects, many audios from the same file, many audio formats, positional audio">audio</abbr>, <abbr title="bloom (optimized fullscreen or selective), chromatic aberrations, glitch, hue, noise, pixelation, saturation, tone mapping">postprocessing</abbr>, <abbr title="GLTF for models and Draco or Meshopt for compressing, KTX2/Basis for textures">the most modern models & textures formats and their compression decoders</abbr>, <abbr title="for example, gradual rendering quality auto deterioration at low FPS">various optimizations</abbr>.
         </p>
         
         <p>
@@ -423,20 +399,45 @@ Krono was written by me alone during the development of the Aquarium, when I uni
         <time>2019–2020</time>
       </div>
 
-      <!-- TODO: a small text about VR here!!! -->
+      <div class="project resume">
+        <video-preview youtube="jI8LuHr4FfA" preview="./assets/preview/aquarium.mp4" printing-timecode="0" width="320" height="180" importance="high">
+          <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAMFCAIE/8QAJhAAAQMEAQMEAwAAAAAAAAAAAQACAwQFBhESEyExIkFhcTJCUf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDLCIrrE8drcmu8VBQMcS4gPl4FzYgf2drwPlBHUWOeDGqO9GaF0FTPJAIm8uo0sDfUe2tHlod/ZVK1DT2ijbY4cOfRF1JBSnlKZG7lcfyPDfIeeoO29aWa71RC3Xaro2v6ggldGHEaJ0ddx7FB4kREBXmH5RcsSurrhaHQid0ZicJohI1zCQSNH6HhEQcNyW6jJjfzVvddXSGV0zvLiRog/Gu2v4ocgvVVfa81lcIesRomKMM39+5PyURBWIiIP//Z"/></svg>
+        </video-preview>
+        <h4>
+          <a href="https://aquarium.ru/en" target="_blank" rel="noopener">Aquarium</a>
+        </h4>
+        
+        <p>
+Site-immersion in the works of the legendary group Aquarium, the founders of the Russian rock stage.
+<br>
+The number of versions of the site is unlimited, scroll to the end to see the new version which no one except you see it again because all of there are unique.
+<br><br>
+While creating this complex narrative, I had to dig deep into how 3D rendering works at the most basic level, learn how to write shaders, build a convenient and extensible engine architecture, create tools for the designer, and constantly solve complex problems that I had never encountered before.
+<br><br>
+Made with Krono.
+<!--
+<i>is endlessly generated monumental psychedelic web experience for the founders of the Russian rock scene</i><br><br>
+The number of versions of the site is unlimited, scroll to the end to see the new version which no one except you see it again because all of there are unique. My magnum opus in Art. Lebedev.<br><br>
+
+To summarise my experience getting on this project I created Krono.
+-->
+        </p>
+
+        <time>2019–2020</time>
+      </div>
+
       <div class="project resume">
         <video-preview youtube="uHFuDbXJfs0" preview="./assets/preview/bci.mp4" width="320" height="180" importance="high">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGgABAQACAwAAAAAAAAAAAAAAAAYCBQMEB//EACoQAAICAQMDAgUFAAAAAAAAAAECAwQRAAUhBhIxE1EHFCJBcRUyQpGx/8QAGAEAAwEBAAAAAAAAAAAAAAAAAQIDAAT/xAAfEQACAgIBBQAAAAAAAAAAAAAAAQIRAxJhBCEiMVH/2gAMAwEAAhEDEQA/AODrjbKF/re5HuNNLKptyTLGZGUZCrgkqc++pW7sW2t2pXg3CowjKIIbpdBhSRlWXn+9Xfxao/KXqO9bfc7bthI6cgjkR17RGx8cn8548agbS7nFugMz2O0skjMrdnZkZJAA4GDnTRxuStAbo39Se/tPTki1w4levWEXpoGP1ZLSkAHkFOxc+Mk4zrCtchqyQDfK0FnqWVXsViytE7KF7oxMVIHczKxGRkjGTyNdTfblzZukNsu7Huk1aaSaWV4kICt3YUqR98BFOPGG1BUOpJ692vaSKH1a4IiVV4j8kEZzyCxPJ0vBZdqs9e221N1XUqXYYn+YlkImSEAxNI2DjnlW8kD2B5401T/Dmv8Ao9Y35FHqXo1laBolX0W5IAI88H/dNItaDllcvH0TO6SndumqFqNaaNDKskkQgKBe5So+oEkjLAalrse923mQcekexwjZwcAYyzewA/GmmuzppPVrkhkVNM1m6bksmxJVaWJDVAHy+GJnkyR3E4wOD7/x1IRVIwSzqC5+44x+NNNIoK2wSnKkizm6r3y0vfJuluKwERBLFJ2jCjHKftJx5PB+/Ommms4R+BUmf//Z"/></svg>
         </video-preview>
-        <h4>$500 brain-computer interface: letters typing only with thoughts</h4>
+        <h4><a href="https://youtu.be/uHFuDbXJfs0" target="_blank" rel="noopener">$500 brain-computer interface: letters typing only with thoughts</a></h4>
         <p>
-Я сделал 
-
-нейро-компьютерный интерфейс для чтения мыслей.  сделал за две недели. решил проблемы с доставкой неординарным методом. первым в мире соединил VR и BCI, сделав это на коленке.
-
-openbci, openvibe, p300 speller.
-
-When the <code>OpenBCI</code> board came, I patched <code>OpenViBE</code> drivers, train <code>P300</code> on my brain, translate speller to Russian, printed a plastic helmet in another city, made the power supply from old Nokia, fused up everything, and in three hours before my flight to Moscow to conference I typed my first words using brain only.
+In high school, I became interested in how the human brain works and in two weeks I built a brain-computer interface that allowed me to type letters using my brain signals only.
+<br>
+I used <code>OpenBCI</code> as EEG and <code>P300 speller</code> from <code>OpenViBE</code>. I patched <code>OpenViBE</code> drivers to make it compatible with <code>OpenBCI</code>, train <code>P300 speller</code> on my brain, translate speller to Russian, printed a plastic helmet in another city, made the power supply from old Nokia, fused up everything, and after that I typed my first words using brain only.
+<br>
+Also, experimenting, I was one of the first in the world who combined VR and BCI into one product.
+        </p>
 
         <time>two weeks in january 2017</time>
       </div>
@@ -500,7 +501,11 @@ So, they didn't give me a single award.
         </h4>
         
         <p>
-Very complex 3D, made with astonishing simplicity thanks to Krono.
+A registration page for the children's festival “Rukami”. An unusual and vivid immersion into the world of the festival.
+<br><br>
+Thanks to the use of Krono, project creation time was reduced from one year to three months, because of this the profitability of this project for the company was much higher than usual.
+<br><br>
+Made with Krono.
         </p>
 
         <time>september – november 2020</time>
@@ -515,7 +520,7 @@ Very complex 3D, made with astonishing simplicity thanks to Krono.
         </h4>
         
         <p>
-<i>the augmented reality app demonstrates the oddity of corporate workdays</i><br><br>
+An iOS augmented reality app demonstrates the oddity of corporate workdays.<br><br>
 Sotbi's are guys who, forcing debtors to pay back multibillion-rubles debts. So, in this AR game your goal is find the five hiding debtors.
         </p>
 
@@ -530,7 +535,7 @@ Sotbi's are guys who, forcing debtors to pay back multibillion-rubles debts. So,
         </video-preview>
         <h4><a href="https://artlebedev.com/metro/map4/" target="_blank" rel="noopener">Moscow Metro Map 4.0</a></h4>
         <p>
-For the Moscow metro map I created various tools to facilitate the designer's work on the map, and also developed scripts to automate the creation of the map in different formats and its translation into different languages. By the way, it is terrible to script Adobe Illustrator.
+For the Moscow metro map I created various tools to facilitate the designer's work on the map, and also developed scripts to automate the creation of the map in different formats and its translation into different languages. My work greatly reduced the time it took to create the map and saved the company money.
         </p>
 
         <time>winter – spring 2019</time>
@@ -676,9 +681,11 @@ The Great Terror has affected every family in Soviet Union: my great-grandfather
         <video-preview youtube="PHdHyfE7aJU" preview="./assets/preview/myway.mp4" width="320" height="180">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGwABAAEFAQAAAAAAAAAAAAAAAAQBAgMFBgf/xAAtEAACAQMDAgQEBwAAAAAAAAABAgMABBEFITESQRMiUWEGFCNSMnGBgpGhwf/EABYBAQEBAAAAAAAAAAAAAAAAAAQCA//EABwRAQACAwADAAAAAAAAAAAAAAEAAgMRIQQSIv/aAAwDAQACEQMRAD8A4CIeIwODjA7VHL3MktzFJdQWhifHSIy7MuMq2TtuPb1qXaqBGg4AFUv1iimg1CSMSRQ+W4T7ojyf2nf8s1GJrW57nIzMWaLR7MWr6XqOjrazn52V5R1AS/hmTuFHY7jBq60mS4tllhYlDwc109ykUdqshMAh2wzHIUe54AxxXn9/rWk6drISxvUmhnb6wVfIjfcCNvYj9abnwlTZxgvHzu9PSb0syE7ZGN8UqnX1L5WUilD5HMxxP0xIWBGwzUtG6hg4IOxHr/VKVnY2dmgzjNT+HLi6v2im1CeSziwIYSxPhr2Xc4GPYVN0/QbGxZSVjLngkFm/k/5SlTTeQ+nczaVr0JtAPDAEfA4z2pSlIks//9k="/></svg>
         </video-preview>
-        <h4>“My Way” Windows Phone app</h4>
+        <h4>
+<a href="https://github.com/upisfree/myway" target="_blank" rel="noopener">“My Way” Windows Phone app</a>
+        </h4>
         <p>
-A Windows Phone application that allows residents of Omsk <a href="https://goo.gl/maps/Jd37w11XsKsRUBH66" target="_blank" rel="noopener">(this is in Siberia)</a> to find out when a bus will arrive at their stop. It is especially useful in winter to avoid freezing to death at the bus stop. Also, there is AR in this app, in 2014.
+A Windows Phone application that allows residents of Omsk <a href="https://goo.gl/maps/Jd37w11XsKsRUBH66" class="hide-on-print" target="_blank" rel="noopener">(this is in Siberia)</a> to find out when a bus will arrive at their stop. It is especially useful in winter to avoid freezing to death at the bus stop. <b>10&nbsp;000 downloads</b>. Also, there is AR in this app, in 2014.
         </p>
 
         <span class="link">
@@ -715,10 +722,7 @@ My girlfriend got stuck in another country during the COVID-19 pandemic and I re
         </h4>
         
         <p>
-<!-- <i>in 2019, Angry Birds no longer existed in the browser; they now exist, though with Russian army colour</i><br><br>
-Destructible environment, level editor, mobile support, different shell types, incredible sounds, rating server.-->
-
-Commercial game for Priziva.net. Angry Birds type game. I programmed a game with destructible environment, level editor, mobile support, different shell types, incredible sounds and a rating server. Also I have managed all game creation process. work with money? found designers and managed their work
+Commercial game for Priziva.net, Angry Birds clone. I programmed a game with destructible environment, level editor, mobile support, different shell types, incredible sounds and a rating server. Also I coordinated work between designers.
         </p>
 
         <a href="https://github.com/upisfree/angry-recruits" class="link" target="_blank" rel="noopener">sources</a>
@@ -894,40 +898,6 @@ I had a Minecraft server called “HeavyCraft” in 2013 when I was 14 y.o. It h
     </div>
 
     <script src="https://youtube.com/iframe_api" async></script>
-    <script type="module" async>
-// I'm doing this because display: flex is buggy with printing, so I'm creating a table instead
-window.addEventListener('beforeprint', () => {
-  const projects = document.querySelectorAll('.project.resume');
-
-  projects.forEach((project, i) => {
-    if (i % 2 === 0) {
-      const row = document.createElement('tr');
-
-      project.before(row);
-
-      row.append(project);
-
-      if (projects[i + 1]) {
-        row.append(projects[i + 1]);
-      }
-    }
-  });
-});
-
-window.addEventListener('afterprint', () => {
-  // location.reload();
-});
-
-// TMp
-// TMp
-// TMp
-// TMp
-// TMp
-const projects = document.querySelectorAll('.project:not(.resume)');
-
-projects.forEach((project) => {
-  project.style.display = 'none';
-});
-    </script>
+    <script type="module" async src="./js/print.js"></script>
   </body>
 </html>
