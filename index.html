@@ -3,13 +3,13 @@
   - [ ] что я делал вообще (scripts, streams, console games, bci, windows phone apps...)
   - [x] нужна сортировка по крутости, а не по категориям. категории сделать через ↑
   - [?] поменять гифку у Аквариума
-  - [ ] переписать текст Аквариума, рассказать что в процессе я движок Кроно написал
+  - [x] переписать текст Аквариума, рассказать что в процессе я движок Кроно написал
   - [x] простое описание движка Кроно
   - [x] починить воспроизведение превьюх на маке
   - [x] починить воспроизведение превьюх на айосе
   - [x] подвинуть заголовки ближе к тексту
   - [x] сделать ютубные превью без ютуба!
-  - [ ] добавить еще техскиллов?
+  - [x] добавить еще техскиллов?
   - [x] скринкаст Руками
   - [ ] превью для АП ТВ
   - [ ] превью и скрин в гитхабе для телеграмного клиента
@@ -26,14 +26,13 @@
   - [ ] как сделать кнопку, чтобы она была видна на белом превью-видео? тень?
   - [ ] разобраться со стилями
   - [x] сделать один вид даты создания проекта
-  - [ ] написать summary я джеес девелопер с опытом в 3д вебе, увлекаюсь bci и геймдевом
-  - [ ] простая и сложная версия текстов
+  - [x] написать summary я джеес девелопер с опытом в 3д вебе, увлекаюсь bci и геймдевом
   - [x] bci: объединить два проекты про VR и BCI
-  - [ ] bci: переписать текст
-  - [ ] для некоторых проектов сделать подробный текст
+  - [x] bci: переписать текст
+  - [x] для некоторых проектов сделать подробный текст
   - [x] добавить превью видео через https://github.com/vanruesc/blur-up
   - [ ] убрать ад с фавиконками
-  - [ ] переписать текст у Руками
+  - [x] переписать текст у Руками
 -->
 
 <!DOCTYPE html>
@@ -125,6 +124,7 @@ abbr[title] {
 
 h3 {
   margin-bottom: -10px;
+  margin-block-start: 0.65em;
 }
 
 p {
@@ -148,6 +148,10 @@ h4,
 
 .summary {
   margin-top: 4px;
+}
+
+.contacts {
+  margin: 0.5em 0;
 }
 
 .projects {
@@ -302,12 +306,12 @@ h4,
     <h2 class="name">Senya Pugach</h2>
 
     <p class="summary">
-<i>is software engineer greatly experienced in web 3D programming with passion in researches, science and game development</i>
+<i>is a software developer with experience in 3D web programming and a passion for research, science, and game development</i>
 <br><br>
 <i>Moscow, Russia</i>
     </p>
 
-    <p>
+    <p class="contacts">
 <a href="mailto:upisfree@outlook.com" target="_blank" rel="noopener">mail</a>
 <a href="https://t.me/upisfree" target="_blank" rel="noopener">telegram</a>
 <a href="https://github.com/upisfree" target="_blank" rel="noopener">github</a>
@@ -384,6 +388,13 @@ Omsk State University
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGQABAAIDAAAAAAAAAAAAAAAAAAEDBQYI/8QAHhAAAgIDAQADAAAAAAAAAAAAAAECAwQRIUESgbH/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AOVAABfViX3VuddU5QXqXCmScZNSTTXGmbDgZKTx7I5Ua8euCUq/lprS7z3b7swmbZC3LtnUkoN8SSXPpL8KqgAEQAAAkACAAB//2Q=="/></svg>
         </video-preview>
         <h4>Krono: 3D engine & editor</h4>
+        
+        <p>
+I designed and developed a batteries-included 3D engine that is used to make mesmerising audio-visual  web experiences. It has brought down our development time for 3D websites from one year to two months.
+<br><br>
+Krono comes with built-in support for editing visual effects and audio, doing <abbr title="bloom (optimized fullscreen or selective), chromatic aberrations, glitch, hue, noise, pixelation, saturation, tone mapping">post-processing</abbr>, and working with modern <abbr title="GLTF">model</abbr> / <abbr title="KTX2/Basis">texture</abbr> formats and their <abbr title="draco or meshopt">compressors / decoders</abbr> / <abbr title="for example, gradual rendering quality auto deterioration at low FPS">optimisers</abbr>. The developer experience is very streamlined, with only 10 lines being required to display a model for the browser. Crucially, it can also be used by non-technical designers through a web-based editor that allows for adjusting the visual appearance of the render without touching the code.
+        </p>
+<!--
         <p>
 Krono is a 3D web engine. It includes an <abbr title="animation & keyframes editor, import/export in json">effects editor</abbr>, <abbr title="low & high pass effects, many audios from the same file, many audio formats, positional audio">audio</abbr>, <abbr title="bloom (optimized fullscreen or selective), chromatic aberrations, glitch, hue, noise, pixelation, saturation, tone mapping">postprocessing</abbr>, <abbr title="GLTF for models and Draco or Meshopt for compressing, KTX2/Basis for textures">the most modern models & textures formats and their compression decoders</abbr>, <abbr title="for example, gradual rendering quality auto deterioration at low FPS">various optimizations</abbr>.
         </p>
@@ -395,7 +406,7 @@ Programmers, having looked through the documentation and examples, with 10 lines
         <p>
 Krono was written by me alone during the development of the Aquarium, when I unified all the experience gained to create other similar sites.
         </p>
-
+-->
         <time>2019–2020</time>
       </div>
 
@@ -408,6 +419,12 @@ Krono was written by me alone during the development of the Aquarium, when I uni
         </h4>
         
         <p>
+I developed an immersive site for Aquarium, legendary founders of the Russian Rock stage. As viewers scroll through the site, they are transported through a human created and randomly generated experience that showcase’s Aquarium’s rich history and musical collection. 
+<br><br>
+While developing this narrative, I had to learn 3D rendering at the most basic level. I wrote shaders, built an extensible 3D rendering architecture (which would become Krono), created tools for designers working on the same project, and constantly solved interesting, complex problems.
+
+
+<!--
 Site-immersion in the works of the legendary group Aquarium, the founders of the Russian rock stage.
 <br>
 The number of versions of the site is unlimited, scroll to the end to see the new version which no one except you see it again because all of there are unique.
@@ -415,6 +432,8 @@ The number of versions of the site is unlimited, scroll to the end to see the ne
 While creating this complex narrative, I had to dig deep into how 3D rendering works at the most basic level, learn how to write shaders, build a convenient and extensible engine architecture, create tools for the designer, and constantly solve complex problems that I had never encountered before.
 <br><br>
 Made with Krono.
+-->
+
 <!--
 <i>is endlessly generated monumental psychedelic web experience for the founders of the Russian rock scene</i><br><br>
 The number of versions of the site is unlimited, scroll to the end to see the new version which no one except you see it again because all of there are unique. My magnum opus in Art. Lebedev.<br><br>
@@ -501,6 +520,11 @@ So, they didn't give me a single award.
         </h4>
         
         <p>
+<!--
+I developed a registration page for “Rukami”, a virtual chldren’s art festivals. The website functions as an surreal narrative that combines music and dynamic 3D graphics with a poll about registrants’ interests.
+<br><br>
+Made with Krono.
+-->
 A registration page for the children's festival “Rukami”. An unusual and vivid immersion into the world of the festival.
 <br><br>
 Thanks to the use of Krono, project creation time was reduced from one year to three months, because of this the profitability of this project for the company was much higher than usual.
@@ -565,13 +589,8 @@ For Sotbi's AR announcement, I pulled the model out of Unity, wrote a web editor
         </h4>
         
         <p>
-My most heartbreaking game <abbr title="in the Russian army mandatory 1 year long conscription for all men">that saved me from the army.</abbr>
-Game tells us about draftee who coming back to mother in a zinc lined coffin. Made it in 2 days.
+A heartbreaking game that tells the story of a draftee who comes back home to his mother. I made this in 48 hours for Ludum Dare #39. <abbr title="in the Russian army mandatory 1 year long conscription for all men. because of this game I had a chance to avoid this hell">This game saved me from the army.</abbr>
         </p>
-
-<!--        a game about draftee who coming back to mother in a zinc lined coffin-->
-
-<!--        This is my most heartbreaking game that saved me from the army.-->
 
         <a href="https://github.com/upisfree/ld39" class="link" target="_blank" rel="noopener">sources</a>
         <time>29–30 july 2017</time>
