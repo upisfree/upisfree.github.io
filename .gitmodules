@@ -16,3 +16,6 @@
 [submodule "csg"]
 	path = csg
 	url = https://github.com/upisfree/csg
+[submodule "game/ld48"]
+	path = game/ld48
+	url = https://github.com/upisfree/ld48
