@@ -19,3 +19,6 @@
 [submodule "game/ld48"]
 	path = game/ld48
 	url = https://github.com/upisfree/ld48
+[submodule "13k22"]
+	path = 13k22
+	url = https://github.com/upisfree/13k22.git
