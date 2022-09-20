@@ -19,6 +19,7 @@
     "svg": "mkdir assets/thumbnail-svg && for i in assets/thumbnail-jpg/*.jpg; do blur-up -i \"$i\" -o assets/thumbnail-svg; done"
   },
   "devDependencies": {
-    "svg-blur-up": "^1.1.6"
+    "sharp": "^0.31.0",
+    "svg-blur-up": "^2.0.1"
   }
 }
