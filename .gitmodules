@@ -22,3 +22,6 @@
 [submodule "game/13k22"]
 	path = game/13k22
 	url = https://github.com/upisfree/13k22
+[submodule "game/ld52"]
+	path = game/ld52
+	url = https://github.com/upisfree/ld52
