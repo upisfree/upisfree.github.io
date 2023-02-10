@@ -13,12 +13,14 @@
   },
   "homepage": "https://upisfr.ee",
   "scripts": {
+    "dev": "http-server -c-1",
     "thumbnails": "npm run jpg && npm run resize && npm run svg",
     "jpg": "mkdir assets/thumbnail-jpg && for i in assets/preview/*.mp4; do ffmpeg -i \"$i\" -ss 00:00:00.000 -vframes 1 \"${i%.*}.jpg\"; done && mv assets/preview/*.jpg assets/thumbnail-jpg",
     "resize": "for i in assets/thumbnail-jpg/*.jpg ; do convert -resize 320x180^ -gravity center -extent 320x180 \"$i\" \"${i%.*}.jpg\" ; done",
     "svg": "mkdir assets/thumbnail-svg && for i in assets/thumbnail-jpg/*.jpg; do blur-up -i \"$i\" -o assets/thumbnail-svg; done"
   },
   "devDependencies": {
+    "http-server": "^14.1.1",
     "sharp": "^0.31.0",
     "svg-blur-up": "^2.0.1"
   }
