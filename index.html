@@ -171,6 +171,15 @@ h4,
   margin: 0.5em 0;
 }
 
+.awards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 700px;
+  margin-top: 1em;
+  padding-left: 26px;
+  gap: 1px;
+}
+
 .projects {
   display: flex;
   flex-flow: row wrap;
@@ -229,11 +238,15 @@ h4,
 .award-if-gold-container {
   position: relative;
   padding: 3px;
-  padding-bottom: 2px;
+  padding-bottom: 1px;
   margin-right: 1px;
   color: #fff;
   background: #846000;
   border-radius: 1px;
+}
+
+.project .award-if-gold-container {
+  padding-bottom: 2px;
 }
 
 .award-if-gold-container a {
@@ -246,112 +259,89 @@ h4,
   margin-right: 1px;
 }
 
-.icon.company-artlebedev {
+.icon.icon-artlebedev {
   background-position: -10px -10px;
 }
 
-.icon.company-loyalty_plant {
+.icon.icon-loyalty_plant {
   background-position: -46px -10px;
 }
 
-.icon.company-vimeo {
+.icon.icon-vimeo {
   background-position: -10px -46px;
 }
 
-.icon.award-adcr {
+.icon.icon-adcr {
   background-position: -46px -46px;
 }
 
-.icon.award-awwwards {
+.icon.icon-awwwards {
   background-position: -82px -10px;
 }
 
-.icon.award-css_design_awards {
+.icon.icon-css_design_awards {
   background-position: -82px -46px;
 }
 
-.icon.award-event {
+.icon.icon-event {
   background-position: -10px -82px;
 }
 
-.icon.award-fwa {
+.icon.icon-fwa {
   background-position: -46px -82px;
 }
 
-.icon.award-golden_site {
+.icon.icon-golden_site {
   background-position: -82px -82px;
 }
 
-.icon.award-red_apple {
+.icon.icon-red_apple {
   background-position: -118px -10px;
 }
 
-.icon.award-red_dot {
+.icon.icon-red_dot {
   background-position: -118px -46px;
 }
 
-.icon.award-if {
+.icon.icon-if {
   background-position: -118px -82px;
 }
 
-.icon.award-if_gold {
+.icon.icon-if_gold {
   background-position: -10px -118px;
 }
 
-.icon.award-silver_archer {
+.icon.icon-silver_archer {
   background-position: -46px -118px;
 }
 
-.icon.award-runet_rating {
+.icon.icon-runet_rating {
   background-position: -82px -118px;
 }
 
-.icon.award-tagline {
+.icon.icon-tagline {
   background-position: -118px -118px;
 }
 
 /* screens where there are no longer two rows of previews, make them centered */
-@media only screen and (min-width: 330px) and (max-width: 762px) {
+@media only screen and (max-width: 762px) {
   body {
     margin: 32px calc((100vw - 320px) / 2);
+  }
+
+  .awards {
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 0;
+    gap: 2px;
+  }
+
+  .hide-on-mobile {
+    display: none;
   }
 
   .projects {
     justify-content: center;
     margin-left: 0;
-  }
-}
-
-/* screens, smaller previews - like iPhone 5 (why am I doing this in 2020) */
-/* the reduction factor is 0.8 */
-@media only screen and (max-width: 330px) {
-  body {
-    margin: 32px calc((100vw - 256px) / 2);
-  }
-
-  .project {
-    width: 256px;
-  }
-
-  video-preview {
-    height: 144px;
-    margin: 6.4px 0;
-  }
-
-  video-preview .root {
-    width: 256px !important;
-    height: 144px !important;
-    margin: 6.4px 0 !important;
-  }
-
-  video-preview iframe {
-    width: 256px !important;
-    height: 144px !important;
-  }
-
-  .project .preview {
-    width: 256px;
-    height: 144px;
   }
 }
 
@@ -439,7 +429,7 @@ h4,
     <ul>
       <li>
         <p>
-<span class="icon company-icon company-vimeo"></span> <a href="https://vimeo.com/" target="_blank" rel="noopener">Vimeo Labs</a> <i>remote</i><br>
+<span class="icon company-icon icon-vimeo"></span> <a href="https://vimeo.com/" target="_blank" rel="noopener">Vimeo Labs</a> <i>remote</i><br>
 <b>WebGL team teamlead & engineer</b> <i>april 2021 – august 2022</i><br>
 <span>Outcome: 1 product and 2 pending U.S. patents</span>
         </p>
@@ -447,7 +437,7 @@ h4,
 
       <li>
         <p>
-<span class="icon company-icon company-artlebedev"></span> <a href="https://artlebedev.com/" target="_blank" rel="noopener">Art. Lebedev Studio</a> <i>Moscow, Russia</i><br>
+<span class="icon company-icon icon-artlebedev"></span> <a href="https://artlebedev.com/" target="_blank" rel="noopener">Art. Lebedev Studio</a> <i>Moscow, Russia</i><br>
 <b>R&D software engineer</b> <i>november 2017 – present</i><br>
 <span>Outcome: 43 projects and 23 awards</span>
         </p>
@@ -455,7 +445,7 @@ h4,
 
       <li>
         <p>
-<span class="icon company-icon company-loyalty_plant"></span> <a href="https://loyaltyplant.com/" target="_blank" rel="noopener">LoyaltyPlant</a> <i>Saint Petersburg, Russia</i><br>
+<span class="icon company-icon icon-loyalty_plant"></span> <a href="https://loyaltyplant.com/" target="_blank" rel="noopener">LoyaltyPlant</a> <i>Saint Petersburg, Russia</i><br>
 <b>software engineer intern</b> <i>june – august 2016</i>
         </p>
       </li>
@@ -482,46 +472,67 @@ Omsk State University
 -->
 
     <h3>Awards</h3>
-    <ul>
-      <li>
-2 pending U.S. patents,
+    <div class="awards">
+      <div class="award">
+2 pending U.S. patents
+      </div>
 
-        <span class="award-if-gold-container"><span class="icon award-if_gold"></span> <a href="https://artlebedev.com/studio/awards/images/aquarium-award.jpg" target="_blank" rel="noopener">iF Gold Design Award</a></span>,
+      <div class="award">
+<span class="award-if-gold-container"><span class="icon icon-if_gold"></span> <a href="https://artlebedev.com/studio/awards/images/aquarium-award.jpg" target="_blank" rel="noopener">iF Gold Design<span class="hide-on-mobile"> Award</span></a></span>
+      </div>
 
-        <span class="icon award-red_dot"></span> <a href="https://artlebedev.com/studio/awards/images/rd-rukami.jpg" target="_blank" rel="noopener">Red Dot Design Award</a>,
+      <div class="award">
+<span class="icon icon-red_dot"></span> <a href="https://artlebedev.com/studio/awards/images/rd-rukami.jpg" target="_blank" rel="noopener">Red Dot Design<span class="hide-on-mobile"> Award</a>
+      </div>
 
-        <span class="icon award-fwa"></span> <a href="https://artlebedev.com/studio/awards/images/aquarium-fwa_2.png" target="_blank" rel="noopener">FWA</a>,
-<br>
-        <span class="icon award-if"></span> <a href="https://artlebedev.com/studio/awards/images/if-2022-rukami.png" target="_blank" rel="noopener">iF Design Award</a>,
+      <div class="award">
+        <span class="icon icon-if"></span> <a href="https://artlebedev.com/studio/awards/images/if-2022-rukami.png" target="_blank" rel="noopener">iF Design Award</a>
+      </div>
 
-        <span class="icon award-css_design_awards"></span> <a href="https://artlebedev.com/studio/awards/images/aquarium-site2-awards-cssda.png" target="_blank" rel="noopener">CSS Design Awards</a>,
+      <div class="award">
+        <span class="icon icon-awwwards"></span>
+        <a href="https://artlebedev.com/studio/awards/images/awwwards-aqua-mob.png" target="_blank" rel="noopener">Awwwards<span class="hide-on-mobile"> — 2 wins</span></a>
+      </div>
 
-        <span class="icon award-awwwards"></span> Awwwards —
-        <a href="https://artlebedev.com/studio/awards/images/awwwards-aqua-mob.png" target="_blank" rel="noopener">Mobile Excellence</a>, <a href="https://artlebedev.com/studio/awards/images/awwwards-aqua-hon.png" target="_blank" rel="noopener">Honors</a>,
-<br>
-        <span class="icon award-golden_site"></span><a href="https://artlebedev.com/studio/awards/images/gs-aquarium.jpg" target="_blank" rel="noopener">Golden Site Award — 3 wins</a>,
+      <div class="award">
+        <span class="icon icon-css_design_awards"></span> <a href="https://artlebedev.com/studio/awards/images/aquarium-site2-awards-cssda.png" target="_blank" rel="noopener">CSS Design Awards</a>
+      </div>
 
-        <span class="icon award-runet_rating"></span> <a href="https://artlebedev.com/studio/awards/images/aquarium-raitingruneta.jpg" target="_blank" rel="noopener">Runet Rating — 5 wins</a>,
+      <div class="award">
+        <span class="icon icon-fwa"></span> <a href="https://artlebedev.com/studio/awards/images/aquarium-fwa_2.png" target="_blank" rel="noopener">FWA</a>
+      </div>
 
-        <span class="icon award-red_apple"></span> <a href="https://artlebedev.com/studio/awards/images/ra-aqua.jpg" target="_blank" rel="noopener">Red Apple</a>,
+      <div class="award">
+        <span class="icon icon-runet_rating"></span> <a href="https://artlebedev.com/studio/awards/images/aquarium-raitingruneta.jpg" target="_blank" rel="noopener">Runet Rating<span class="hide-on-mobile"> — 5 wins</span></a>
+      </div>
 
-        <span class="icon award-silver_archer"></span> <a href="https://artlebedev.com/studio/awards/images/sl-rukami-01.jpg" target="_blank" rel="noopener">Silver Archer</a>,
-<br>
-        <span class="icon award-adcr"></span> <a href="https://artlebedev.com/studio/awards/images/adcr-aquarium2.jpg" target="_blank" rel="noopener">Art Directors Club of Russia Award</a>,
+      <div class="award">
+        <span class="icon icon-golden_site"></span><a href="https://artlebedev.com/studio/awards/images/gs-aquarium.jpg" target="_blank" rel="noopener">Golden Site Award<span class="hide-on-mobile"> — 3 wins</span></a>
+      </div>
 
-        <span class="icon award-event"></span> <a href="https://artlebedev.com/studio/awards/images/sg-rukami-01.jpg" target="_blank" rel="noopener">Event of the Year 2020</a>,
+      <div class="award">
+        <span class="icon icon-silver_archer"></span> <a href="https://artlebedev.com/studio/awards/images/sl-rukami-01.jpg" target="_blank" rel="noopener">Silver Archer</a>
+      </div>
 
-<span class="icon award-tagline"></span><a href="https://img.artlebedev.ru/r/CA0ABB7D-C272-4821-B59A-2103DCAEA5B3/tagline-flag.png" target="_blank" rel="noopener">Tagline Awards — 4 wins</a>
-      </li>
-    </ul>
+      <div class="award">
+        <span class="icon icon-tagline"></span><a href="https://img.artlebedev.ru/r/CA0ABB7D-C272-4821-B59A-2103DCAEA5B3/tagline-flag.png" target="_blank" rel="noopener">Tagline Awards<span class="hide-on-mobile"> — 4 wins</span></a>
+      </div>
+
+      <div class="award">
+        <span class="icon icon-event"></span> <a href="https://artlebedev.com/studio/awards/images/sg-rukami-01.jpg" target="_blank" rel="noopener">Event of the Year<span class="hide-on-mobile"> 2020</span></a>
+      </div>
+
+      <div class="award">
+        <span class="icon icon-red_apple"></span> <a href="https://artlebedev.com/studio/awards/images/ra-aqua.jpg" target="_blank" rel="noopener">Red Apple</a>
+      </div>
+
+      <div class="award">
+        <span class="icon icon-adcr"></span> <a href="https://artlebedev.com/studio/awards/images/adcr-aquarium2.jpg" target="_blank" rel="noopener">ADCR Award</a>
+      </div>
+    </div>
 
     <!--
-    <p>
-<a href="https://thefwa.com/cases/website-of-the-legendary-russian-rock-band-aquarium" target="_blank" rel="noopener">FWA</a>,
-<a href="https://cssdesignawards.com/sites/aquarium-rockband/37302/" target="_blank" rel="noopener">CSS Design Awards</a>,
-<a href="http://awards.ratingruneta.ru/" target="_blank" rel="noopener">Runet Rating</a>
 !-- <a href="" target="_blank" rel="noopener">Русский Медвежонок</a> --
-    </p>
     -->
 
 
@@ -577,30 +588,30 @@ While developing this narrative, I had to learn 3D rendering at the advanced lev
 <br><br>
 
           <span class="award-if-gold-container">
-<span class="icon award-if_gold"></span> <a href="https://artlebedev.com/studio/awards/images/aquarium-award.jpg" target="_blank" rel="noopener">iF Gold Design Award</a></span>,
+<span class="icon icon-if_gold"></span> <a href="https://artlebedev.com/studio/awards/images/aquarium-award.jpg" target="_blank" rel="noopener">iF Gold Design Award</a></span>,
 
-<span class="icon award-css_design_awards"></span>
+<span class="icon icon-css_design_awards"></span>
 <a href="https://artlebedev.com/studio/awards/images/aquarium-site2-awards-cssda.png" target="_blank" rel="noopener">CSS Design Awards</a>,
 
-<span class="icon award-awwwards"></span> Awwwards —
+<span class="icon icon-awwwards"></span> Awwwards —
 <a href="https://artlebedev.com/studio/awards/images/awwwards-aqua-mob.png" target="_blank" rel="noopener">Mobile Excellence</a>, <a href="https://artlebedev.com/studio/awards/images/awwwards-aqua-hon.png" target="_blank" rel="noopener">Honors</a>,
 <br>
 
-<span class="icon award-fwa"></span>
+<span class="icon icon-fwa"></span>
 <a href="https://artlebedev.com/studio/awards/images/aquarium-fwa_2.png" target="_blank" rel="noopener">FWA</a>,
 
-<span class="icon award-runet_rating"></span>
+<span class="icon icon-runet_rating"></span>
 <a href="https://artlebedev.com/studio/awards/images/aquarium-raitingruneta.jpg" target="_blank" rel="noopener">Runet Rating</a>,
 
-<span class="icon award-red_apple"></span>
+<span class="icon icon-red_apple"></span>
 <a href="https://artlebedev.com/studio/awards/images/ra-aqua.jpg" target="_blank" rel="noopener">Red Apple</a>,
 <br>
 
-<span class="icon award-adcr"></span>
+<span class="icon icon-adcr"></span>
 <a href="https://artlebedev.com/studio/awards/images/adcr-aquarium2.jpg" target="_blank" rel="noopener">Art Directors Club of Russia Award</a>,
 <br>
 
-<span class="icon award-golden_site"></span>
+<span class="icon icon-golden_site"></span>
 <a href="https://artlebedev.com/studio/awards/images/gs-aquarium.jpg" target="_blank" rel="noopener">Golden Site</a>
 
 
@@ -644,17 +655,17 @@ A registration page for the children's festival “Rukami”. An unusual and viv
 Thanks to the use of Krono, project creation time was reduced from one year to three months, because of this the profitability of this project for the company was much higher than usual.
 <br><br>
 
-<span class="icon award-if"></span> <a href="https://artlebedev.com/studio/awards/images/if-2022-rukami.png" target="_blank" rel="noopener">iF Design Award</a>,
+<span class="icon icon-if"></span> <a href="https://artlebedev.com/studio/awards/images/if-2022-rukami.png" target="_blank" rel="noopener">iF Design Award</a>,
 
-<span class="icon award-red_dot"></span> <a href="https://artlebedev.com/studio/awards/images/rd-rukami.jpg" target="_blank" rel="noopener">Red Dot Design Award</a>,
+<span class="icon icon-red_dot"></span> <a href="https://artlebedev.com/studio/awards/images/rd-rukami.jpg" target="_blank" rel="noopener">Red Dot Design Award</a>,
 <br>
-<span class="icon award-runet_rating"></span> <a href="https://artlebedev.com/studio/awards/images/rukami-rr.jpg" target="_blank" rel="noopener">Runet Rating</a>,
+<span class="icon icon-runet_rating"></span> <a href="https://artlebedev.com/studio/awards/images/rukami-rr.jpg" target="_blank" rel="noopener">Runet Rating</a>,
 
-<span class="icon award-silver_archer"></span> <a href="https://artlebedev.com/studio/awards/images/sl-rukami-01.jpg" target="_blank" rel="noopener">Silver Archer</a>,
+<span class="icon icon-silver_archer"></span> <a href="https://artlebedev.com/studio/awards/images/sl-rukami-01.jpg" target="_blank" rel="noopener">Silver Archer</a>,
 
-<span class="icon award-golden_site"></span> <a href="https://artlebedev.com/studio/awards/images/gs-rukami.jpg" target="_blank" rel="noopener">Golden Site</a>,
+<span class="icon icon-golden_site"></span> <a href="https://artlebedev.com/studio/awards/images/gs-rukami.jpg" target="_blank" rel="noopener">Golden Site</a>,
 
-<span class="icon award-event"></span> <a href="https://artlebedev.com/studio/awards/images/sg-rukami-01.jpg" target="_blank" rel="noopener">Event of the Year 2020</a>
+<span class="icon icon-event"></span> <a href="https://artlebedev.com/studio/awards/images/sg-rukami-01.jpg" target="_blank" rel="noopener">Event of the Year 2020</a>
         </p>
 
         <time>september – november 2020</time>
@@ -675,7 +686,7 @@ The Russian flag has changed dozens of time. At one point, its role was even pla
 Thanks to Krono, the site was created in a month, which is an unbelievable time for a site of this complexity.
           <br><br>
 
-<span class="icon award-tagline"></span> Tagline Awards — <a href="https://img.artlebedev.ru/r/D3962C7B-6AA5-45DC-BAE1-A9729CD61B52/tagline-flag3.png" target="_blank" rel="noopener">Best educational website</a>,
+<span class="icon icon-tagline"></span> Tagline Awards — <a href="https://img.artlebedev.ru/r/D3962C7B-6AA5-45DC-BAE1-A9729CD61B52/tagline-flag3.png" target="_blank" rel="noopener">Best educational website</a>,
 <a href="https://img.artlebedev.ru/r/CA0ABB7D-C272-4821-B59A-2103DCAEA5B3/tagline-flag.png" target="_blank" rel="noopener">Best interactive solution / animation</a>,
 <a href="https://img.artlebedev.ru/r/2C9CA75C-9D4C-4513-B323-DEBCCF390E96/tagline-flag2.png" target="_blank" rel="noopener">Perfect craft</a>
         </p>
@@ -696,8 +707,8 @@ Sozvezdie is a range of digital radios for civilian communication. The functiona
 <br><br>
 The advantages of the radios are presented with powerful interactive visualizations powered by the Krono engine.
 <br><br>
-<span class="icon award-runet_rating"></span> Runet Rating — <a href="https://img.artlebedev.ru/r/2E954547-C3F2-4E09-8C89-5A715228F07B/rr22-sozvezdie-01.jpg" target="_blank" rel="noopener">Industry and Equipment</a>, <a href="https://img.artlebedev.ru/r/98743F32-F005-4459-987B-98F0AC64EC75/rr22-sozvezdie-02.jpg" target="_blank" rel="noopener">Promo</a>,
-<span class="icon award-tagline"></span> <a href="https://img.artlebedev.ru/r/F8EE2837-29C4-4E5C-B2C2-C30E045C728B/tagline-sozvezdie.png" target="_blank" rel="noopener">Tagline Awards</a>
+<span class="icon icon-runet_rating"></span> Runet Rating — <a href="https://img.artlebedev.ru/r/2E954547-C3F2-4E09-8C89-5A715228F07B/rr22-sozvezdie-01.jpg" target="_blank" rel="noopener">Industry and Equipment</a>, <a href="https://img.artlebedev.ru/r/98743F32-F005-4459-987B-98F0AC64EC75/rr22-sozvezdie-02.jpg" target="_blank" rel="noopener">Promo</a>,
+<span class="icon icon-tagline"></span> <a href="https://img.artlebedev.ru/r/F8EE2837-29C4-4E5C-B2C2-C30E045C728B/tagline-sozvezdie.png" target="_blank" rel="noopener">Tagline Awards</a>
         </p>
         <time>2021–2022</time>
       </div>
@@ -772,9 +783,9 @@ A heartbreaking game that tells the story of a draftee who comes back home to hi
 MIMC is an unprecedented international medical project in Russia. I was the lead developer of it's site: I guided and organized the other developers, developed the main visual element of the project's identity — a mesmerizingly lively spot, made an editor for quick spot customization, and made a terrific 3D.
 <br><br>
 
-<span class="icon award-golden_site"></span> <a href="https://img.artlebedev.ru/r/056C4BFF-B558-4D40-AC56-12C6C795548F/gs-mimc.jpg" target="_blank" rel="noopener">Golden Site</a>,
+<span class="icon icon-golden_site"></span> <a href="https://img.artlebedev.ru/r/056C4BFF-B558-4D40-AC56-12C6C795548F/gs-mimc.jpg" target="_blank" rel="noopener">Golden Site</a>,
 
-<span class="icon award-runet_rating"></span> <a href="https://img.artlebedev.ru/r/8496E82B-42D6-49C7-A6FC-664AF0FC70FD/mimc-rr.jpg" target="_blank" rel="noopener">Runet Rating</a>
+<span class="icon icon-runet_rating"></span> <a href="https://img.artlebedev.ru/r/8496E82B-42D6-49C7-A6FC-664AF0FC70FD/mimc-rr.jpg" target="_blank" rel="noopener">Runet Rating</a>
         </p>
 
         <time>2019–2020</time>
