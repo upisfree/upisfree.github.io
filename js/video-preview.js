@@ -16,9 +16,9 @@ function htmlToElement(html) {
 class VideoPreview extends HTMLElement {
   constructor() {
     super();
-  
+
     this.isRendered = false;
-    
+
     this.width = (this.getAttribute('width') !== undefined) ? this.getAttribute('width') : 480;
     this.height = (this.getAttribute('height') !== undefined) ? this.getAttribute('height') : 270;
 
@@ -28,12 +28,6 @@ class VideoPreview extends HTMLElement {
 
     if (this.getAttribute('importance')) {
       this.importance = this.getAttribute('importance');
-    }
-    
-    if (this.getAttribute('printing-timecode')) {
-      this.printingTimecode = this.getAttribute('printing-timecode');
-    } else {
-      this.printingTimecode = 0;
     }
 
     if (window.onYouTubeIframeAPIReady === undefined) {
@@ -47,12 +41,10 @@ class VideoPreview extends HTMLElement {
     window.VideoPreviewList.push(this);
 
     if (this.getAttribute('youtube')) {
-      this.divId = `youtube-${ this.getAttribute('youtube') }`;      
+      this.divId = `youtube-${ this.getAttribute('youtube') }`;
     } else {
       this.divId = `youtube-${ window.VideoPreviewList.length }`;
     }
-  
-    window.addEventListener('beforeprint', this.onBeforePrint.bind(this));
   }
 
   connectedCallback() {
@@ -101,23 +93,15 @@ class VideoPreview extends HTMLElement {
       }
     });
 
-    // hiding “YouTube video player” title on hover and right after click
+    // hiding "YouTube video player" title on hover and right after click
     this.player.getIframe().removeAttribute('title');
-  }
-  
-  // for CV generating or printing
-  onBeforePrint() {
-    this.preview.classList.remove('hidden');
-  
-    this.previewVideo.pause();
-    this.previewVideo.currentTime = this.printingTimecode;
   }
 
   render() {
     if (this.isRendered) {
       return;
     }
-    
+
     this.root = document.createElement('div');
 
     this.root.appendChild(this.getStyleTag());
@@ -151,7 +135,7 @@ class VideoPreview extends HTMLElement {
     }
 
     this.preview.appendChild(this.previewVideo);
-  
+
     this.isRendered = true;
   }
 

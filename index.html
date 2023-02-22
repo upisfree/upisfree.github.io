@@ -173,11 +173,28 @@ h4,
   margin: 0.5em 0;
 }
 
+.skills {
+  margin-top: 1em;
+  padding-left: 26px;
+  line-height: 1.35;
+}
+
+.skill {
+  color: blue;
+  border-bottom: 1px dashed blue;
+  cursor: pointer;
+}
+
+.skill.active {
+  color: red;
+  border-bottom-color: red;
+}
+
 .awards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   max-width: 700px;
-  margin-top: 1em;
+  margin: 1em 0;
   padding-left: 26px;
   gap: 1px;
 }
@@ -188,15 +205,23 @@ h4,
   justify-content: left;
   margin-left: -14px;
   margin-bottom: 16px;
-  /*margin-top: -16px;*/
 }
 
 .project {
   width: 320px;
   height: auto;
-  /*height: 220px;*/
   margin: 4px;
   padding: 10px;
+}
+
+.project.visible {
+  display: block;
+
+  animation: 400ms ease-in-out show-project;
+}
+
+.project.hidden {
+  display: none;
 }
 
 .project h4 {
@@ -341,9 +366,23 @@ h4,
     display: none;
   }
 
+  .skills {
+    padding-left: 0;
+  }
+
   .projects {
     justify-content: center;
     margin-left: 0;
+  }
+}
+
+@keyframes show-project {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
     </style>
@@ -394,13 +433,6 @@ h4,
       </li>
     </ul>
 
-
-    <h3>Professional skills</h3>
-    <ul>
-      <li>TypeScript, WebGL, React, Vue, node.js, Unity & C#, Godot, AR, game development</li>
-    </ul>
-
-
 <!--
     <h3>Education</h3>
     <ul>
@@ -450,7 +482,7 @@ Omsk State University
       </div>
 
       <div class="award">
-        <span class="icon icon-golden_site"></span><a href="https://artlebedev.com/studio/awards/images/gs-aquarium.jpg" target="_blank" rel="noopener">Golden Site Award<span class="hide-on-mobile"> — 3 wins</span></a>
+        <span class="icon icon-golden_site"></span> <a href="https://artlebedev.com/studio/awards/images/gs-aquarium.jpg" target="_blank" rel="noopener">Golden Site Award<span class="hide-on-mobile"> — 3 wins</span></a>
       </div>
 
       <div class="award">
@@ -458,7 +490,7 @@ Omsk State University
       </div>
 
       <div class="award">
-        <span class="icon icon-tagline"></span><a href="https://img.artlebedev.ru/r/CA0ABB7D-C272-4821-B59A-2103DCAEA5B3/tagline-flag.png" target="_blank" rel="noopener">Tagline Awards<span class="hide-on-mobile"> — 4 wins</span></a>
+        <span class="icon icon-tagline"></span> <a href="https://img.artlebedev.ru/r/CA0ABB7D-C272-4821-B59A-2103DCAEA5B3/tagline-flag.png" target="_blank" rel="noopener">Tagline Awards<span class="hide-on-mobile"> — 4 wins</span></a>
       </div>
 
       <div class="award">
@@ -472,18 +504,34 @@ Omsk State University
       <div class="award">
         <span class="icon icon-adcr"></span> <a href="https://artlebedev.com/studio/awards/images/adcr-aquarium2.jpg" target="_blank" rel="noopener">ADCR Award</a>
       </div>
+
+<!--      <div class="award">-->
+<!--        <span class="icon icon-"></span> <a href="" target="_blank" rel="noopener">Русский Медвежонок</a>-->
+<!--      </div>-->
     </div>
 
-    <!--
-!-- <a href="" target="_blank" rel="noopener">Русский Медвежонок</a> --
-    -->
+    <h3 class="skills-header">Professional skills</h3>
+    <div class="skills">
+      <span class="skill active">all</span>,
+      <span class="skill">JavaScript</span>,
+      <span class="skill">TypeScript</span>,
+      <span class="skill">WebGL</span>,
+      <span class="skill">React</span>,
+      <span class="skill">Vue.js</span>,
+      <span class="skill">node.js</span>,
+      <span class="skill">Unity</span>,
+      <span class="skill">Godot</span>,
+      <span class="skill">AR</span>,
+      <span class="skill">games</span>,
+      <span class="skill">mobile</span>
+    </div>
 
 
 
     <h3>Featured projects</h3>
 
     <div class="projects">
-      <div class="project resume">
+      <div class="project" skills="all, TypeScript, WebGL">
         <video-preview youtube="GAA_BvrqbV4" preview="./assets/preview/krono.mp4" width="320" height="180" importance="high">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGQABAAIDAAAAAAAAAAAAAAAAAAEDBQYI/8QAHhAAAgIDAQADAAAAAAAAAAAAAAECAwQRIUESgbH/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AOVAABfViX3VuddU5QXqXCmScZNSTTXGmbDgZKTx7I5Ua8euCUq/lprS7z3b7swmbZC3LtnUkoN8SSXPpL8KqgAEQAAAkACAAB//2Q=="/></svg>
         </video-preview>
@@ -512,7 +560,7 @@ Krono was written by me alone during the development of the Aquarium, when I uni
         <time>2019 – present</time>
       </div>
 
-      <div class="project resume">
+      <div class="project" skills="all, TypeScript, WebGL">
         <video-preview youtube="jI8LuHr4FfA" preview="./assets/preview/aquarium.mp4" width="320" height="180" importance="high">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAMFCAIE/8QAJhAAAQMEAQMEAwAAAAAAAAAAAQACAwQFBhESEyExIkFhcTJCUf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDLCIrrE8drcmu8VBQMcS4gPl4FzYgf2drwPlBHUWOeDGqO9GaF0FTPJAIm8uo0sDfUe2tHlod/ZVK1DT2ijbY4cOfRF1JBSnlKZG7lcfyPDfIeeoO29aWa71RC3Xaro2v6ggldGHEaJ0ddx7FB4kREBXmH5RcsSurrhaHQid0ZicJohI1zCQSNH6HhEQcNyW6jJjfzVvddXSGV0zvLiRog/Gu2v4ocgvVVfa81lcIesRomKMM39+5PyURBWIiIP//Z"/></svg>
         </video-preview>
@@ -579,7 +627,7 @@ To summarise my experience getting on this project I created Krono.
         <time>2019–2020</time>
       </div>
 
-      <div class="project resume">
+      <div class="project" skills="all, TypeScript, WebGL">
         <video-preview youtube="sVLbkPasChw" preview="./assets/preview/rukami.mp4" width="320" height="180" importance="high">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAQGBwUC/8QALBAAAQMDAwEIAQUAAAAAAAAAAQIDBAAFEQYSIRMUMTJBUWFxkQcVIiOBwf/EABcBAQEBAQAAAAAAAAAAAAAAAAUEAwH/xAAoEQABAwMBBgcAAAAAAAAAAAABAAIDESExgQQTIkFhoRJRUrHB8PH/2gAMAwEAAhEDEQA/AMa/KjKYky0Q2EhMRuJub2+EqUo5I+k17tzzDX41jPyUkvxbqtMNeArpbkAqOPPHeB64q6y9Ls6a1CLHM3ydNXlCkxS8dxjvAeEHyOOQfj3qotx12vSkuLIjNSnLLed8phwcLaWjbu9gSnvHdkGpI3cO4Ny3uL/hTso3j3bW2weCKekiltBcdFAtemJ921fHstrB7VJAWrtCst+AKcKzg8Ak5zkg1ypK5VnU52N1sNOApWhtw7F9NZTuHqCQcfPFd96RKiPybtp+VIeihx1TUtrCiltxIC0PDxIITkZxz9VUpj8p91xpqP0lJWB09u5acDgY8gMn7qmN7nge33RFTRhlbKfOjOy7mzZ3nSlqIC9LcKuErIBWfgDCR8e9KnENi8OXS4vMxmJzRTMjOH+Qk+IJA9SNwPl/VKpnhe6Q0NByxjlkraBrAziAr1r8LfpcZrW+iUtsr6chSUSIj5HLbo5Qr/D7E1juuYP69ZEamjo6cmOOhc4+7AK0HbuB7jg8fGPSlKIncY3MkbmoGhyrtiaJmSxPx4S7UYPdUBm6XK2SS7DX2NxQzuaACtp58XfUSVc50pxa5Ep5alkqUSs/uJ8zSlIg2r5oZz3AllbBQ+Sc+dKUroCzX//Z"/></svg>
         </video-preview>
@@ -614,8 +662,7 @@ Thanks to the use of Krono, project creation time was reduced from one year to t
         <time>september – november 2020</time>
       </div>
 
-<!--  окончательный порядок проектов еще не решен  -->
-      <div class="project resume">
+      <div class="project" skills="all, TypeScript, WebGL">
         <video-preview youtube="OlaX_Sx6XRw" preview="./assets/preview/oflage.mp4" width="320" height="180" importance="high">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAQGBwUC/8QALBAAAQMDAwEIAQUAAAAAAAAAAQIDBAAFEQYSIRMUMTJBUWFxkQcVIiOBwf/EABcBAQEBAQAAAAAAAAAAAAAAAAUEAwH/xAAoEQABAwMBBgcAAAAAAAAAAAABAAIDESExgQQTIkFhoRJRUrHB8PH/2gAMAwEAAhEDEQA/AMa/KjKYky0Q2EhMRuJub2+EqUo5I+k17tzzDX41jPyUkvxbqtMNeArpbkAqOPPHeB64q6y9Ls6a1CLHM3ydNXlCkxS8dxjvAeEHyOOQfj3qotx12vSkuLIjNSnLLed8phwcLaWjbu9gSnvHdkGpI3cO4Ny3uL/hTso3j3bW2weCKekiltBcdFAtemJ921fHstrB7VJAWrtCst+AKcKzg8Ak5zkg1ypK5VnU52N1sNOApWhtw7F9NZTuHqCQcfPFd96RKiPybtp+VIeihx1TUtrCiltxIC0PDxIITkZxz9VUpj8p91xpqP0lJWB09u5acDgY8gMn7qmN7nge33RFTRhlbKfOjOy7mzZ3nSlqIC9LcKuErIBWfgDCR8e9KnENi8OXS4vMxmJzRTMjOH+Qk+IJA9SNwPl/VKpnhe6Q0NByxjlkraBrAziAr1r8LfpcZrW+iUtsr6chSUSIj5HLbo5Qr/D7E1juuYP69ZEamjo6cmOOhc4+7AK0HbuB7jg8fGPSlKIncY3MkbmoGhyrtiaJmSxPx4S7UYPdUBm6XK2SS7DX2NxQzuaACtp58XfUSVc50pxa5Ep5alkqUSs/uJ8zSlIg2r5oZz3AllbBQ+Sc+dKUroCzX//Z"/></svg>
         </video-preview>
@@ -637,7 +684,7 @@ Thanks to Krono, the site was created in a month, which is an unbelievable time 
         <time>august – september 2022</time>
       </div>
 
-      <div class="project resume">
+      <div class="project" skills="all, TypeScript, WebGL, Vue.js">
         <video-preview youtube="U6wJsygN1Y8" preview="./assets/preview/sozvezdie.mp4" width="320" height="180" importance="high">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAQGBwUC/8QALBAAAQMDAwEIAQUAAAAAAAAAAQIDBAAFEQYSIRMUMTJBUWFxkQcVIiOBwf/EABcBAQEBAQAAAAAAAAAAAAAAAAUEAwH/xAAoEQABAwMBBgcAAAAAAAAAAAABAAIDESExgQQTIkFhoRJRUrHB8PH/2gAMAwEAAhEDEQA/AMa/KjKYky0Q2EhMRuJub2+EqUo5I+k17tzzDX41jPyUkvxbqtMNeArpbkAqOPPHeB64q6y9Ls6a1CLHM3ydNXlCkxS8dxjvAeEHyOOQfj3qotx12vSkuLIjNSnLLed8phwcLaWjbu9gSnvHdkGpI3cO4Ny3uL/hTso3j3bW2weCKekiltBcdFAtemJ921fHstrB7VJAWrtCst+AKcKzg8Ak5zkg1ypK5VnU52N1sNOApWhtw7F9NZTuHqCQcfPFd96RKiPybtp+VIeihx1TUtrCiltxIC0PDxIITkZxz9VUpj8p91xpqP0lJWB09u5acDgY8gMn7qmN7nge33RFTRhlbKfOjOy7mzZ3nSlqIC9LcKuErIBWfgDCR8e9KnENi8OXS4vMxmJzRTMjOH+Qk+IJA9SNwPl/VKpnhe6Q0NByxjlkraBrAziAr1r8LfpcZrW+iUtsr6chSUSIj5HLbo5Qr/D7E1juuYP69ZEamjo6cmOOhc4+7AK0HbuB7jg8fGPSlKIncY3MkbmoGhyrtiaJmSxPx4S7UYPdUBm6XK2SS7DX2NxQzuaACtp58XfUSVc50pxa5Ep5alkqUSs/uJ8zSlIg2r5oZz3AllbBQ+Sc+dKUroCzX//Z"/></svg>
         </video-preview>
@@ -656,7 +703,7 @@ The advantages of the radios are presented with powerful interactive visualizati
         <time>2021–2022</time>
       </div>
 
-      <div class="project resume">
+      <div class="project" skills="all, Unity, AR, mobile, games">
         <video-preview youtube="fhOz5pCwav0" preview="./assets/preview/sotbi.mp4" width="320" height="180" importance="high">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGgABAAIDAQAAAAAAAAAAAAAAAAYIBAUHAv/EACMQAAEDBAICAwEAAAAAAAAAAAECAwQABREhBhIHYSIxUYH/xAAXAQEBAQEAAAAAAAAAAAAAAAADAgQF/8QAIREAAgICAQQDAAAAAAAAAAAAAQIAAxEhEgQxUXFhscH/2gAMAwEAAhEDEQA/AKyNJWYL2FYQnZGKm18tUKPxGJIZjtIkqQ3lfXexutJabKJ8mbAE5EdtoIcK1tkgpJAJOPoAHNdf8aeNGuZW0P8AIL1Lcssfq0W4wS0S5vCR2TnAGN+/VY7FNjAqcAbPqdCthWrBlyToe5yHjdjfubpUshMcHZAG6mZRGtjIZjpTkD7rZXxi12V56FY0OojNkpBdX3UcfpwKiUuUSSVHNZmc2t8R1UVKPM9yJJdWRSsNLyOpVndKrEMnMl3gK3wr55NbizGytiZAeG9FJAScj+AirI8y41buMcNucmwtqiIbSHSwlR6KUMDPrVKUHVuVbiPA+5KOxsAz3/ZVC7y3XX3HXVfJRJOP2o8++pajk6pStNQ1KsO5jrewNUpSnCiByM//2Q=="/></svg>
         </video-preview>
@@ -674,7 +721,7 @@ Sotbi's are guys who, forcing debtors to pay back multibillion-rubles debts. So,
       </div>
 
 
-      <div class="project resume">
+      <div class="project" skills="all, JavaScript">
         <video-preview preview="./assets/preview/metro.mp4" width="320" height="180" importance="high">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAMI/8QAGxABAAAHAAAAAAAAAAAAAAAAAAECAwQ0c7H/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A1BaYlDXLyCqVpiUNcvIKgAAld4lfXNyIXeJX1zciAWmJQ1y8gqAAAJXeJX1zciAD/9k="/></svg>
         </video-preview>
@@ -686,7 +733,7 @@ For the Moscow metro map I created various tools to facilitate the designer's wo
         <time>winter – spring 2019</time>
       </div>
 
-      <div class="project">
+      <div class="project" skills="all, JavaScript, WebGL">
         <video-preview youtube="-N-sBoB2dmg" preview="./assets/preview/sotbi-announcement.mp4" width="320" height="180" importance="high">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAHAABAAIBBQAAAAAAAAAAAAAAAAUGBAECAwcI/8QAKxAAAQMCBAQFBQAAAAAAAAAAAQIDEQAEBRIhIhMxQVEUMmFxgSORodHx/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAMEAv/EAB8RAAIBBAIDAAAAAAAAAAAAAAABAgMSITERoQQyQf/aAAwDAQACEQMRAD8A89HE3bxp1DziYdBCswJ6aGBUA24GUvtqzyoZZSuBz6iNfxWfb8NFgt/i5HW1AFsnRU8orjwZti6xMC9O1Wscsxn+1ROo69qbzoJO2JcMPw68YwG6euC2pxZbyHMCQI2fJgwenpVHWtTryyv6hM6rVGp612OHHLS3ubRpNq5bP7UpMQkDWYPI/qoHGsPtE2zDiUtN3A8wR5ST07E0T8dwi2/nZiFSMreHl9EJYIxPC1M3NqlCVuDOglCHJAkTCgfWlbHbjgNlKgpJjamdx9VdvalSJyZQ1BbIxaysyfgdq0Scqge1KVsUWFh17wycjronUb5H2NYuIKbLq4uXA8keVQJB9j0pSrKnCp6Fx9sEQZOppSlRjD//2Q=="/></svg>
         </video-preview>
@@ -701,7 +748,7 @@ For Sotbi's AR announcement, I pulled the model out of Unity, wrote a web editor
         <time>january 2019</time>
       </div>
 
-      <div class="project resume">
+      <div class="project" skills="all, Unity, games">
         <video-preview youtube="leGG8FK4rec" preview="./assets/preview/ld39.mp4" width="320" height="180">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAUHBgII/8QAKRAAAQMDAwMEAgMAAAAAAAAAAQIDBAAFEQYSIRMxQQciMmEUURVxgf/EABcBAAMBAAAAAAAAAAAAAAAAAAADBAL/xAAfEQACAwAABwAAAAAAAAAAAAABAgADERITISIyYoH/2gAMAwEAAhEDEQA/AGo1jEjWyTMkupU2y0pxYQeSAM4H2a60nf5tzcgfyMNiE3c2FyYaG5aX1lCcZDiRyhWFAj/fIrzxLnSZE1FpeS+z1H20LTJT0sAkfLPYdu9WK9yDpe2BKzDjT0L/AB7bMiyEPN9dPCsnGARuGUnx4pdnrL6m3zOfJT37LNU2lbPLagCDt8f13rMqtrNjIbjMx4rClFxaWkBsKV5JA8090Lc75A9PEPaluSbheXErXvJyhCSfYk4Ayf2R9DxUk1xrFx+ZIR0lI2Hbk9lcZyPqlVWMzlcm2HbxHpNBqK6RHrZPEt4OgsrAAWQMbTxiiolc7886h1OCApJHf9iirDWZHziIyPqTqC7XO/qLFvXctRFLTj5ZG5pGMbG8/EEY++KWWaS2w+EPNpdCF5w57xuHG7nzwOe/FFFArUE4JkWNglGVreQqD0tysYqe326rkrWVE4NFFFVSIdUR919jrjGZeRIJJwBzRRRTySZGJ//Z"/></svg>
         </video-preview>
@@ -717,7 +764,7 @@ A heartbreaking game that tells the story of a draftee who comes back home to hi
         <time>29–30 july 2017</time>
       </div>
 
-      <div class="project resume">
+      <div class="project" skills="all, JavaScript, WebGL, Vue.js">
         <video-preview preview="./assets/preview/medcluster.mp4" width="320" height="180">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGgABAAIDAQAAAAAAAAAAAAAAAAQFAwYHCP/EACMQAAIBAwQBBQAAAAAAAAAAAAECAAMEBREhMVEGExQicdH/xAAaAQACAgMAAAAAAAAAAAAAAAACBAUGAQMH/8QAIREAAQMEAgMBAAAAAAAAAAAAAQACAwQREiEFMRMiQVH/2gAMAwEAAhEDEQA/APOUSRboG5ltY0qKEM6K2nAIlohpzKe7JwNuoONw97kSPb0viToGbYH67nR/DvDFsKy3N66vWHCjgSBa3FNaVO5SoFIUoV/Jt+Au1rUFYtudo8aeJg9NkKC5ueVsDhBr4f1X52XQcCJS5zM0sfQZmO/UTDYSRcqnUfA1VRH5GjRXBVcjgyZbVmbYnTuIkfG8g6XTb2U/1yUCKToJsWBytSypaE6r1ER2JxyutMjGyDFwuFh8kyTXdF2YnciIiDUPOSOMBjcW9L//2Q=="/></svg>
         </video-preview>
@@ -734,7 +781,7 @@ MIMC is an unprecedented international medical project in Russia. I was the lead
         <time>2019–2020</time>
       </div>
 
-      <div class="project">
+      <div class="project" skills="all, JavaScript, games">
         <video-preview youtube="FrYP45gaH_g" preview="./assets/preview/13k22.mp4" width="320" height="180">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGQABAQADAQAAAAAAAAAAAAAAAAcDBQYE/8QAKBAAAgICAAQEBwAAAAAAAAAAAQIAAwQRBQYhMQcTcYESUXJzssHR/8QAFgEBAQEAAAAAAAAAAAAAAAAAAQAC/8QAGxEAAgIDAQAAAAAAAAAAAAAAAAECERIhMVH/2gAMAwEAAhEDEQA/ALnNTxDLp4UMjJzs449Njgqb7lVEGtaXY6bJ7fObYdTIz4080VHhNdFKeWVsKs9hBGwynt7GKjk0jcNvH0r2DkUZWLXdi5CZFLDa2owYN6Ed56JKvDHnGheVMQPQ9h11ddL8RAA3+vadcvOGPddTTVi2K1jBSWYdCSB/YNUZkqdHTxB7xIAO49ZB/EHhdOfXdVkVpYvnO2m+qIiuiumXl3ETH4PTXUioijQCjXQTbcOTXE8T7yfkIiT6TK6e59YiIAf/2Q=="/></svg>
         </video-preview>
@@ -749,7 +796,7 @@ I wrote a simple shooter with realtime raytracing that fits in only <b>7 kilobyt
         <time>august – september 2022</time>
       </div>
 
-      <div class="project">
+      <div class="project" skills="all, JavaScript, games">
         <video-preview youtube="dNtrsi6e4YA" preview="./assets/preview/ld45.mp4" width="320" height="180">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAcIBQYE/8QAKxAAAgEDAwIFAwUAAAAAAAAAAQIDBAURAAYhEjEHCBMUQSJCYRUWI3GB/8QAFwEBAQEBAAAAAAAAAAAAAAAAAwIBAP/EAB0RAAMBAAIDAQAAAAAAAAAAAAABAhESIQNBYcH/2gAMAwEAAhEDEQA/AN62b4v2wt9iq3/NTe03QkdTJR00+f0p+EVmB+wqB1MD8fjl43O7QR2T3sQ9emmiDI+PoKsPpJz8HI1MO0L+9x3xT7c3XSpc6yurxBVNTMGEZRywXkEBQyhiEIGM574123mOW8WfbcAtz1a2ijhhjWOFj0yqDgq+OB09KnqPfIUY5zFPZePBFPGkqE75kNm0tBvOKt27QzRLcIlqKinwxYTSSP8AUAftbsAOBjtzpNVdLPR1UtNVQvDPExR43GCpBwQdVd4yNcafwg2LNf3ZLiagSyCpYqYW9FiFJ75X4yc5xk6Q1oSLckdRRrUyVF36GnpzIuWmJPU8ZY89XyD8njWLknj7LcxU6ujg9GtqzSWmG5A3SF3pwjAr0knqxxkZHY6NIAUz4C29aDxMdpB7ta+lqa2mnlUIyfzvG7hASB1Ff7A07PE3Zv782xJYprpU26kmdWnNOgLSBTkKc/GcH/Bo0aiOtQ3m9P5+snLzY7gqra23NmOy1SUVLFWPVyJ0vK2HjGQDjsMnjvqd7fXS0NygrYMerDIJFz2yDo0asJvT2bnupvl0e5SBFqJwDKiIFVWHHGPxo0aNcYz/2Q=="/></svg>
         </video-preview>
@@ -765,7 +812,7 @@ I made a raycasting engine from scratch during summer 2019 and wrote this game u
         <time>6–8 october 2019</time>
       </div>
 
-      <div class="project">
+      <div class="project" skills="all, JavaScript, WebGL">
         <video-preview preview="./assets/preview/basis.mp4" width="320" height="180">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAgHBQb/xAApEAABAwQABQQCAwAAAAAAAAABAgMEAAUGEQcIEyExIkFxkRKxkrLR/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/8QAGxEAAgIDAQAAAAAAAAAAAAAAAAECERIhQUL/2gAMAwEAAhEDEQA/AJdgzpMGYxKivLbfZWHG1pPdKgdg1eeNcTcNmY9brhLvkGO9IjocdYKiVNrI9SSAPY7FQIPNVhyrY9jWS4lcIt6tMeXOhyApLjhVstrHYa3rsQr7rMr8i1ezSrnxu4f2tBKru7II9o8RxX7AFeMvnNBjTbCxbcdu09s+ncgIZbV/b9VqcjhJgcgaexiAofCv9rlz+BXDuY0G14+ltCfAakvI19KosuldcJYyTitCyK5Jeh4Pi9rfbV1hK6KlupKe/lJQCfkGlUHP5Y8CkhXQN3iE+OlLCgP5JNKkoKW2Qh1I2oVa3Kthc6y2JnIX5UdcS7QwpDKN/mj19t+x7A/dKVsjVs33dN0pQopSlAf/2Q=="/></svg>
         </video-preview>
@@ -779,7 +826,7 @@ On Friday, the first day after the release of the Aquarium, I encountered a lack
         </p>
       </div>
 
-      <div class="project">
+      <div class="project" skills="all, Godot, games">
         <video-preview youtube="DEpq10m4Reg" preview="./assets/preview/ld52.mp4" width="320" height="180">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="a" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1"/></feComponentTransfer></filter><image filter="url(#a)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGgABAAIDAQAAAAAAAAAAAAAAAAQFAgYIAf/EACwQAAIBAwQBAgQHAQAAAAAAAAECAwAEEQUGEiFBEzEIMlFhFCMkcYGhouL/xAAYAQADAQEAAAAAAAAAAAAAAAABAgQAA//EAB8RAAICAgIDAQAAAAAAAAAAAAABAhEDMRIhIlFh8f/aAAwDAQACEQMRAD8A5rbR+MvpvKQwOCOHYrYNF2Xa3mtW2nXmpSQNclFR0g58Wb2BHIeSPapdhf2stt6JZbiWRwzzMuHGBgDvx9ql3N1DDe3M7vG7FwyTJ8oHgDyD1S45XNKWvw6Tj0+Jt8fw/QyLyj3OrrkjK2oIyOiOnrIfD2hzjcmcdH9J/wB1r2i7vudM/LsdSuLSyLNIyRvjk3XfeeyKlaHvWPSr0zJqN6HmcSSNwLc85zkZ7H3PdVyWJOibjk9ls3w+KCANxFs++LQdf7pV9FuDWd23pttLvFhilLIGDBAF9+x8x6P80rKEJaQjc49SZzi2oSYwkcaDAA4gjGPNWUG5p4oWjFpaMrA55IST/filKlpFXJnkm5rp42QW9moOOJEQyv1x+9Y3O4ZJbz147KzhUMD6aKSvQ9uyTilKPwFu7Jenb01LT7v8VarBHOsnqxsq49M+AB9B9DSlKKbWgPy2f//Z"/></svg>
         </video-preview>
@@ -795,7 +842,7 @@ There is time to live and time to regret about ended live. In the end, we all mu
         <time>7–9 january 2023</time>
       </div>
 
-      <div class="project resume">
+      <div class="project" skills="all, JavaScript, WebGL">
         <video-preview preview="./assets/preview/generative-design-tool.mp4" width="320" height="180">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFBgP/xAAnEAACAgICAgICAQUAAAAAAAABAgMEBRESIQATBiIxQVEUFSMyQv/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8Ag5fIUsZfqVVWjZNuFZEYzlK4YqzFUf6jSkBdnZYj8HRPiuKuwZ7EsFoVZ55pC0+NdQrBj/q/MBdnR/I/Gj/Hexmwd27jxkp/7TPikiEjWI3TaOT9VbvlzYld9a+3fffmQzta8cnBaxlSjF/lLxVwA492ipiZlOyBsMRvRK7PgOwZVZ7ccOKxGUsWIkZWiM0SSaA0So4p9dKdEbJ7OvFsDKnyLDi5dqf0ODRfXASplnLMCNKvLcjaLHZ3/J/jyjl4XuZCo+OsCJEi4++vP3EWUJIx2Cx5cQSe12m9eN42vRiw2DhSUw08b7JJcnyEfDkuuKoRoSFeJB6J2fxo6BPLUq9OazzuXZ6c6horHqatGigkBXlYgrxHZADHoDfYIPKeALZmO+lejbOLqxQu0k7+x5QzM3GJh9VJJUk75EDWgD4eAjmMZUp/J7+KoWWkgrRy25a6xhJJUjGvo2gF2WTRJ7O+Q/Z5Yz4xn/k2NTIUbEJgrMpLwy+kqpX2M5BT7Hvbr1vlpSddHh4HCC5ev1cvbqUYZosaqnIK0mmaMxkkry/6KAkkFT+O+XlbK4L43e+O2TFFk3ycfqvtEs5+6ydcS7k6A3oMO/32dnw8PA1ViulD4xjIK1U08esMhNdJyUglEYk9i/vjptaHY7/ffh4eHlH/2Q=="/></svg>
         </video-preview>
@@ -809,7 +856,7 @@ There is time to live and time to regret about ended live. In the end, we all mu
 <!--        <p></p>-->
 <!--      </div>-->
 
-      <div class="project">
+      <div class="project" skills="all, JavaScript, WebGL, games">
         <video-preview youtube="ICXsHcwVLAQ" preview="./assets/preview/2d-edtior.mp4" width="320" height="180">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGgABAAMAAwAAAAAAAAAAAAAAAAUGCAIEB//EACkQAAEDAwQABQUBAAAAAAAAAAECAwQFESEABhIxBxMiQWEUFiNRkTL/xAAaAQACAgMAAAAAAAAAAAAAAAAEBQAGAQID/8QAJhEAAgEEAQMDBQAAAAAAAAAAAQIDAAQRITEFElETQYEjMkJxcv/aAAwDAQACEQMRAD8Ar+694OLeY5KQgICmwEoCOQFvWLdpJJsTnB1MbPcp246UhtdSfgVRyQppt5xHKKcDilZvdJJNr9ZGo7ZGz1veGtReqFBW9VqiFOQFON/kdTwHAov16rn5/moXw5XLi/RRK5R6giiOTHmHpkKMtb7TgCQpKwAocU4JSUg2JIJ60wknxGyodqcZ81ztreP1Abj7WB49qsO6ETNvxx9UpHmhQRyaWFIcPIpuk+4uDqRpkCpfbTtXkQZD/kurakRMtPNJTb8iP330Qcda4+I7bdLFKaDUqoNNPIDbTuHVDzl8R6QSSMECx/RB17bHguxWWRJQUBSbpSrBsPj20PcSXBgU25AbOd8Ee48jPkcUVcwRs/eT+I+ed7/VVMbGqUtxxMiQzOi+UFtP2LMpJx6VWBSce5B69tNXXb/iRtDcdYVR6RVWpdRDfJTHlLQopHduQHL94vjPWmsi7kFCNCrbNVREHckLaNOcqFep8asBppptCIPJlBVZCBjP+rDq1v7rOVZ3runa3idV3qNUVRpr8pJkNNW8h52wvdBwQTf5z3ppre2IPcSBUkyAK0nt+rx6dSZVeq0aPGkRIzaHvpElQLilKJDfK/EFSrZONd2lbq+6mET2ojkNDCiwW3HAvmbJVfHtZQ+dNNUvql7OnS3mRsNrY/rFNYIEezErbYtj4xmsmza8IO7W5FegFmdDd5MS4DpacbSnCOj6gkBIF82BGb6aaavMcCSIHI2RS2b6cjIOAa//2Q=="/></svg>
         </video-preview>
@@ -821,7 +868,7 @@ There is time to live and time to regret about ended live. In the end, we all mu
         <time>16–18 december 2017</time>
       </div>
 
-      <div class="project">
+      <div class="project" skills="all, JavaScript, games">
         <video-preview preview="./assets/preview/education-renderer.mp4" width="320" height="180">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAQDBQj/xAApEAACAQQBAgMJAAAAAAAAAAABEQACAwQSEzFxBRRBFSEiMlFhkaHw/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/APVMg8RzKMYusVqkMqknqV6S+RZtqoZNu8Kilov24E/tWxx7u4jXprqW2v49Jt4dmUZJdO43GwFVJHuHecbzFb5uDN03WqD6ppvX17Tt4Vsm/cvGoojRff6wLYiICZXBuguziIE/BT8u1abTlFr4GPzEQNYiIH//2Q=="/></svg>
         </video-preview>
@@ -836,7 +883,7 @@ Educational renderer from the scratch to understand how renderers actually works
         <time>november 2018</time>
       </div>
 
-      <div class="project">
+      <div class="project" skills="all">
         <video-preview youtube="uHFuDbXJfs0" preview="./assets/preview/bci.mp4" width="320" height="180" importance="high">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGgABAQACAwAAAAAAAAAAAAAAAAYCBQMEB//EACoQAAICAQMDAgUFAAAAAAAAAAECAwQRAAUhBhIxE1EHFCJBcRUyQpGx/8QAGAEAAwEBAAAAAAAAAAAAAAAAAQIDAAT/xAAfEQACAgIBBQAAAAAAAAAAAAAAAQIRAxJhBCEiMVH/2gAMAwEAAhEDEQA/AODrjbKF/re5HuNNLKptyTLGZGUZCrgkqc++pW7sW2t2pXg3CowjKIIbpdBhSRlWXn+9Xfxao/KXqO9bfc7bthI6cgjkR17RGx8cn8548agbS7nFugMz2O0skjMrdnZkZJAA4GDnTRxuStAbo39Se/tPTki1w4levWEXpoGP1ZLSkAHkFOxc+Mk4zrCtchqyQDfK0FnqWVXsViytE7KF7oxMVIHczKxGRkjGTyNdTfblzZukNsu7Huk1aaSaWV4kICt3YUqR98BFOPGG1BUOpJ692vaSKH1a4IiVV4j8kEZzyCxPJ0vBZdqs9e221N1XUqXYYn+YlkImSEAxNI2DjnlW8kD2B5401T/Dmv8Ao9Y35FHqXo1laBolX0W5IAI88H/dNItaDllcvH0TO6SndumqFqNaaNDKskkQgKBe5So+oEkjLAalrse923mQcekexwjZwcAYyzewA/GmmuzppPVrkhkVNM1m6bksmxJVaWJDVAHy+GJnkyR3E4wOD7/x1IRVIwSzqC5+44x+NNNIoK2wSnKkizm6r3y0vfJuluKwERBLFJ2jCjHKftJx5PB+/Ommms4R+BUmf//Z"/></svg>
         </video-preview>
@@ -887,7 +934,7 @@ In total I spent two weeks to done this without breaking away from school.
       -->
 
       <!--
-      <div class="project resume">
+      <div class="project">
         <video-preview youtube="dR8lhKYzXhE" preview="./assets/preview/bci-vr.mp4" width="320" height="180" importance="high">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAYHBAMI/8QAKhAAAQMEAQQBAgcAAAAAAAAAAQIDBAAFBhEhBxJBcTEIURMUUmGRobH/xAAXAQADAQAAAAAAAAAAAAAAAAABAgME/8QAGhEAAwEBAQEAAAAAAAAAAAAAAAERAjESQf/aAAwDAQACEQMRAD8AQGupWSzLZEKFxI8aHwhxxBWt0g+Tvn7UxY5l2b3YPN2q0Q56nldy3Go7mgda5OwBUqhoK7NbO4kIU4sf3Vtv+YXXHBCtOMqdhFhthcZhLCS1MQUAqJJBUpZWe0AccHndQlcRpXKZ77g/UXLkoTeWIUdoFJ5UgKGhoeSfissHorOivoXLjsTWz86k71++gADVEzDK05A7d8JgqVBvrkJCkrLnalTpSla2QRyDokb9116H2K+WGwyYt/QtCi93NNKdDhHzsjW9A8ce6SOXgUyJdZMMh4w3b34KVJQ/3pcHgKTojX24Jop/+pxUZjGYza3E/mVSu5tO+e0JIUfXIoquM1C61Gedrfc3BEYjOgFtlZKD5G/FXjGOttstGPRo8q2SZcphPale0pA9HRIooo6wmwLTSI5fc1kTcul31jujy3ZZlIKDyg+APWhW679WcruYUl+6yUoPylpX4af4TqiiqeU5fglYmXK6S7isKlPLcI/Uon/aKKKZAZ//2Q=="/></svg>
         </video-preview>
@@ -902,7 +949,7 @@ So, they didn't give me a single award.
       </div>
       -->
 
-      <div class="project">
+      <div class="project" skills="all, Unity, games">
         <video-preview youtube="bcma5q7-PiU" preview="./assets/preview/ld42.mp4" width="320" height="180">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGQABAQADAQAAAAAAAAAAAAAAAAUBBgcD/8QAIRAAAQQCAgIDAAAAAAAAAAAAAQACAwQFESFxEjEGQlH/xAAXAQEBAQEAAAAAAAAAAAAAAAADAgQF/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAECEQP/2gAMAwEAAhEDEQA/AOLVhw3pW6FcyaCjVfr0tt+PhhlZ5etrmW8RvhaewxMpj8vA66UfIVzHsEcrt9jI4SjhGQNigsTGItMjeCHfp2uP56RjpXlvraLnboSkjUrQ0HdIs2/TukWyQGZrnQb0rNGw5gGkRFRUlJ2QkczRcVKuTF+9lEUyki2yNZ5DkRE0hUf/2Q=="/></svg>
         </video-preview>
@@ -919,7 +966,7 @@ The Great Terror has affected every family in Soviet Union: my great-grandfather
         <time>11–12 august 2018</time>
       </div>
 
-      <div class="project resume">
+      <div class="project" skills="all, AR, mobile">
         <video-preview youtube="PHdHyfE7aJU" preview="./assets/preview/myway.mp4" width="320" height="180">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGwABAAEFAQAAAAAAAAAAAAAAAAQBAgMFBgf/xAAtEAACAQMDAgQEBwAAAAAAAAABAgMABBEFITESQRMiUWEGFCNSMnGBgpGhwf/EABYBAQEBAAAAAAAAAAAAAAAAAAQCA//EABwRAQACAwADAAAAAAAAAAAAAAEAAgMRIQQSIv/aAAwDAQACEQMRAD8A4CIeIwODjA7VHL3MktzFJdQWhifHSIy7MuMq2TtuPb1qXaqBGg4AFUv1iimg1CSMSRQ+W4T7ojyf2nf8s1GJrW57nIzMWaLR7MWr6XqOjrazn52V5R1AS/hmTuFHY7jBq60mS4tllhYlDwc109ykUdqshMAh2wzHIUe54AxxXn9/rWk6drISxvUmhnb6wVfIjfcCNvYj9abnwlTZxgvHzu9PSb0syE7ZGN8UqnX1L5WUilD5HMxxP0xIWBGwzUtG6hg4IOxHr/VKVnY2dmgzjNT+HLi6v2im1CeSziwIYSxPhr2Xc4GPYVN0/QbGxZSVjLngkFm/k/5SlTTeQ+nczaVr0JtAPDAEfA4z2pSlIks//9k="/></svg>
         </video-preview>
@@ -938,7 +985,7 @@ A Windows Phone application that allows residents of Omsk <a href="https://goo.g
         <time>2014</time>
       </div>
 
-      <div class="project">
+      <div class="project" skills="all, Unity, games">
         <video-preview youtube="W4i9O5KYExo" preview="./assets/preview/ld46.mp4" width="320" height="180">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAMHBQYE/8QALhAAAQMDAwEDDQAAAAAAAAAAAQACAwQFERIhMQZRYXETFiIyM0FTgZGToaLh/8QAGQEAAgMBAAAAAAAAAAAAAAAABAUCAwYH/8QAJREAAQQBAgUFAAAAAAAAAAAAAQACAxEhBBIFExQVYTEyQVHw/9oADAMBAAIRAxEAPwBgnbkZd+qx71l2xHqkPOO4rzmumx7Vn3P4kPr3VAipqZjpKqQhoAGTj39+Vz+OEtNrdPma4UkT6K2iLomzBrSWOd5MloPI3SZ7ZKIC17SHA423HirRZm2imp7baoWyNjIOsvhIEjyDkHO4KwbR0e1ou8kzngU02mFmeQTucdmMIePiIsgjbWRfzmlSWB3ux+pSdtmcdzq+iFYvN6P4TShXd0Uuhj+1CjUSu5P5K6Dom0VlbXNq4JZIhHJoErHDId8/FCE+kaNjh4SeJxDwfKr/AE7VXV11ZbrqYqulIPpyMbqBxkbhdQWYL9UYDWnSCOxCFndboYmW5uMIsTuLgK9Uk0vOA1CEJHaK5jl//9k="/></svg>
         </video-preview>
@@ -955,7 +1002,7 @@ My girlfriend got stuck in another country during the COVID-19 pandemic and I re
         <time>21 april 2020</time>
       </div>
 
-      <div class="project resume">
+      <div class="project" skills="all, TypeScript, WebGL, node.js, games">
         <video-preview youtube="j6BBO2k1lK0" preview="./assets/preview/angry-recruits.mp4" width="320" height="180">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAMBBAUH/8QALxAAAQMCBAMECwAAAAAAAAAAAQIDBAARBRIhMQcTQRQyUaEVFyIzYXOBotHS4f/EABgBAAMBAQAAAAAAAAAAAAAAAAECAwAE/8QAHhEAAwACAQUAAAAAAAAAAAAAAAECETHREkJRobH/2gAMAwEAAhEDEQA/AOjtoQWGiH091On0HxqLI2Ln2/2rkhMWPHitBCec8n2E63Nk3PlVAoOa1rVaaVaJucbGJCbaLN+gy05phaiCDSWm1lQsL1qRlIjAlxJU70HQUGxkkVMXnt4JEZExRHbF8hAGpuQdT4JFtTRSMTclS8aBjxIstQguXEjZCc420NFc1VWWVWMHOHuL+HvJhk4coLjrS5fPe9kFNttO9Up4wYcF3OD5h80/iiipqaXc/XAzWRqONEFslTeDWNre9P60v1xQFNLT6KW2taSOYHiopPjYjWiijh+WL0mceKMWVHjDEMPalvNxVtLOXlgrJBzjfonzoooqblzp/ODNs//Z"/></svg>
         </video-preview>
@@ -971,7 +1018,7 @@ Commercial game for Priziva.net, Angry Birds clone. I programmed a game with des
         <time>february – march 2019</time>
       </div>
 
-      <div class="project">
+      <div class="project" skills="all, JavaScript">
         <h4>
           <video-preview youtube="WdM2LYloI4A" preview="./assets/preview/emoji-translator.mp4" width="320" height="180">
             <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAMEBQII/8QALBAAAQMCAwYFBQAAAAAAAAAAAQACAwURBBIhBhMUIjFRIyVBYZFSU3GSof/EABcBAQEBAQAAAAAAAAAAAAAAAAEAAgP/xAAbEQACAgMBAAAAAAAAAAAAAAAAAQIDESEyMf/aAAwDAQACEQMRAD8A9I0qGIUrBHc38CPW3XlCujCxfZZr3CpbOy5qHT2h7XPbhYcw6kXYOq0g53cfCvBe3kqQYaZrzveHLLnlZHl09Nbn2Vncs+hvwu8xumYqApVVkcVMxchjbyRPdoOwKJXHeS4/MLjh5L/qUWlOMemKqnZwjJoLSaXTsscbm8LCXWuHHw263vb+LabK9rQBC6wHq8IipemUSRyFxs5jmn8gqREWRM3aWQxbOVWQAEswkzgD7MJREXWuuM+kDunXqDwf/9k="/></svg>
@@ -987,7 +1034,7 @@ Test task to Art. Lebedev. Translate from 8 languages to emojies. Very fast, mul
         <time>two weeks in november 2017</time>
       </div>
 
-      <div class="project">
+      <div class="project" skills="all, Unity, games">
         <video-preview youtube="K7av4gNsnXc" preview="./assets/preview/ld37.mp4" width="320" height="180">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAgGBwX/xAAwEAABAwMCBAMGBwAAAAAAAAABAgMEAAURBiEHEjFBExQiCCMyUZHRN0NhcXWzwf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCetEwTcZ0xgKAPllKAPRR5k4Tntvj6VvbFw9ny46/E5YrpOUh70pVvjGfnXlcBFAawlpKAsmEvAONiFoIO+22O9VXo23wnk+WfU05IynB5grJxQTgmxXjSM9EqXBTIaGcpzzII/UprE3FmTMmLfdT6ifhHRI+1W/e9DMXW3KajuNeE6BykAAY+YI614ln4KWSMS5MUt179/T9O9BD1/hOQpTSXMe8aDicfIk/aldW9q6zMWPiHb40X4FWxtzpj81wf5Sg5Vp2bIt9wL8SS9GeCCA4yspO/Ubdq02nb27bXZDUV5bKnkpHjJKuYAZ2G+2c9sUpQd74R631NpzXEHhncm4DjUNzy5UlJKkI5ef0rBAPXuKpcdKUoIw9s/wDFC2fxDf8Aa7SlKD//2Q=="/></svg>
         </video-preview>
@@ -1003,7 +1050,7 @@ First Unity experience.
         <time>20 december 2016</time>
       </div>
 
-      <div class="project">
+      <div class="project" skills="all, TypeScript, WebGL, node.js, games">
         <video-preview youtube="vou9AGDyMCw" preview="./assets/preview/mario.mp4" width="320" height="180">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAIDBAEF/8QAJhAAAgEDAwMEAwAAAAAAAAAAAQIAAxESBCFREyIxBRSRoXGB0f/EABkBAAIDAQAAAAAAAAAAAAAAAAIEAQUGA//EACgRAAEDAgMHBQAAAAAAAAAAAAEAAgMREwQSIRQiMUFRUpEycaGxsv/aAAwDAQACEQMRAD8A9TqVOl0s26ZOWN9r82kZpGp0A9ONE6Cn7vIsNUKzZXPnt8WsPEyZLyPmb6KbMDnAB9wVmntAO6aqyrVeq+VV2drWuxubSAPB+5yjrFYPTpVVODdw2uDL31VUoA79p3F1Av8AUJsrSKtIohdG5po7ilMPq9TTR6yhnIXOtUso/JPgRItq3ZCjVFK8WH8iA5xPpeB8ohQcRVV4jgRiOBETrZj7R4UXH9ShUcCZ3KN69r7UiL0qBTvuFFm23/XxESuxcLNpg05u/JTmHkfZl15D7C0YjgRESwtR9o8JO4/qV//Z"/></svg>
         </video-preview>
@@ -1051,19 +1098,19 @@ My own personal infinite TV network.
         </p>
       </div> -->
 
-      <div class="project">
+      <div class="project" skills="all, JavaScript, node.js">
         <video-preview youtube="fnYYdxBFJQI" preview="./assets/preview/coub.mp4" width="320" height="180">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAUHBgj/xAA0EAABAQUFBAYLAAAAAAAAAAABAgADBAURBgcSEyEIFEFRFRcikbGyJDEyNFJhcXPS4fH/xAAaAQEAAQUAAAAAAAAAAAAAAAAEAwABAgUG/8QAIREAAgEEAgMBAQAAAAAAAAAAAQMCAAQRMQUSFCFRodH/2gAMAwEAAhEDEQA/AM/uKkkBN5JHmPhkvlO4pIQVcimpbXHNhZA9UkCWO1E6ADiWzfZtp0LNOe9J8jb3IgM9Rp2wglP1a/LOFpxoZCI7SOM41uoG9mOWkHGf7XMdVcgw+4u8dK4M1VfFpr+76zqCUmXlJGhq8Voe9rKIiO6Yr2q19rji/vBr89AEUaCiikFQ+baDi7pyb1UGy7ieBje6fzPG+CuLFzPzdeaL9ZFASWXyzcIfKU8fLCziJrQCnixq20mPQpR9555QxuovICDpRiPVH7dgJfQKgXOWyldlpVGu5mYjE+iAtGU7xCgTQ8W06Hvnsw4eJWhceFA6Hd/2xjGfPyEeMwZj+1UkxaRI7HyqHXpY7FmiGjM/493Hr72nRF81mH7wrWuPKiak7uPyYxhWtgmyaHrGSNZ91LcQNzgNkTisvvkthLLUy+AEsL/E5fKUvNd4dCnSmp5MYxnsbJsjOWzWEq//2Q=="/></svg>
         </video-preview>
         <h4><a href="https://github.com/upisfree/coub" target="_blank" rel="noopener">coub.com terminal player</a></h4>
         <p>
-Watch coubs in your terminal.
+Watch coubs (it's like gifs, but with sound) in your terminal.
         </p>
 
         <time>autumn 2015</time>
       </div>
 
-      <div class="project">
+      <div class="project" skills="all, JavaScript">
         <video-preview preview="./assets/preview/dj.mp4" width="320" height="180">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGgABAAIDAQAAAAAAAAAAAAAAAAIFAwQGCP/EACgQAAICAgEDAwMFAAAAAAAAAAECAxEABBIFITEGEzJBYaEUIlFxkf/EABcBAQEBAQAAAAAAAAAAAAAAAAADBAH/xAAeEQACAgICAwAAAAAAAAAAAAAAAwECERIEMRMhQf/aAAwDAQACEQMRAD8A8uakMcpf3ZGjodqTlf5zIem7QZAYmBcgLf1s0M3/AE4OnmPdHUGkEnFfa4fU2bv8ZbyxKy6myG4xcISzEGvlxs/5j7B2PeSi2+gdR00132IAonUvHUisSAaNgHt3Hg1mkNSU+Fzpywd+Vg2fIzc9N6glg3BLorPFNCyrIxIMT8v2up/n7HyLzYrjea+q4kzMdCq7Xk4eWNoyA4q8ZfestT9Jua47W8dmhX1rGRemyGSu3cFFNq2kXr1JSa+zLrhxC/EOKbsDYyCSujqyMQVNj7YxkShKfYlnkMkrlnPk+Lybbuw2ukDSt7SfFb8YxjIMLMzfIk/2cYxgH//Z"/></svg>
         </video-preview>
@@ -1075,7 +1122,7 @@ Art. Lebedev's own mini Soundcloud. I patched <code>hls.js</code>, setup <code>n
         <time>2018</time>
       </div>
 
-      <div class="project">
+      <div class="project" skills="all, JavaScript, node.js">
         <video-preview youtube="wliIR0sH3d4" preview="./assets/preview/medik.mp4" width="320" height="180">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGgABAAIDAQAAAAAAAAAAAAAAAAQGAgMFB//EACwQAAEEAgECBQIHAQAAAAAAAAECAwQFABEGEiETFDFBYSJCFiUyUVRxgdH/xAAXAQEAAwAAAAAAAAAAAAAAAAAAAgME/8QAHhEBAAIBBAMAAAAAAAAAAAAAAQCREwMRMkFCUmL/2gAMAwEAAhEDEQA/APZ3OLXK+kvReHkJGhusUe37dz6Zr/C9n/E4V/tWf+5c7mRDiQvM28iNFitKCi6894SEn22rYGGreG/FEmNLiPslSUhbK/EGz6fp3mjO+pRM+D6bZTnuLWrTC1LhcNDaQVH8rUda+N5Cq6SXasuO17PB3223FMrKatX0rHqk7PYjeXa2vq6ugKkWk6HHiqUWip1ZTs71ob7n1zg0N1xWpgePCvI/lXpflupyUpaVSFDq6B1fcQoHXzjO7cSiMBvybZGHFbhvuIXDQn7umsUDr398ZfFFxTah9PoR74yLrL0USRoh5NyFyGmr+QVa6+3hx5sJwgrZkI6kq0djt8HIVZxaqp4So1JCj17S1pcWIyfD6ikaG9e2u39YxlMumF7xWDeQmo1iuStDa1L+mQpB2flOjrNNDwmjoqt2vroTflXnjIcQ+S7tZSEkgq9OyQO2MYidahpoFBVpgVTAYioKlBHWpfcnZ7qJJ7/OMYxE/9k="/></svg>
         </video-preview>
@@ -1087,7 +1134,7 @@ Test task for a internship in <a href="https://loyaltyplant.com/" target="_blank
         <time>winter – spring 2016</time>
       </div>
 
-      <div class="project">
+      <div class="project" skills="all, JavaScript, node.js">
         <video-preview preview="./assets/preview/medical-bots.mp4" width="320" height="180">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAgH/8QAKxAAAAQEAwYHAAAAAAAAAAAAAAECEQMEBQgHEjETFyQ0Y3MhIkNhkbPR/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oADAMBAAIRAxEAPwCVBc9qyHwZpZ5DVxEzofUMQwLotWbctSnbmZnXuGLBra4aImVK4MQ8unmGQXTS6YeDVVUlCk8RLM5v6hDX/D2+D/Rkl1LblqqzczLfYQu0yIXAAGQFzWsQlRMF6VlIjaZmdT6hgAQaqUI9qaGLMMqumhqh4LVXORE8zLadwgAUQyAAIP/Z"/></svg>
         </video-preview>
@@ -1117,7 +1164,7 @@ A small terminal game written in <code>C</code> where you can go to the ocean in
         <time>autumn 2015</time>
       </div> -->
 
-      <div class="project">
+      <div class="project" skills="all, games">
         <video-preview youtube="doLrTHVO5qI" preview="./assets/preview/heavycraft.mp4" width="320" height="180">
           <svg class="blurred" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="180" viewBox="0 0 320 184" preserveAspectRatio="none"><filter id="blur" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="20 20" edgeMode="duplicate"/><feComponentTransfer><feFuncA type="discrete" tableValues="1 1" /></feComponentTransfer></filter><image filter="url(#blur)" x="0" y="0" height="100%" width="100%" xlink:href="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAXACgDASIAAhEBAxEB/8QAGgABAAMBAQEAAAAAAAAAAAAAAAECAwUECP/EACIQAAICAgEEAwEAAAAAAAAAAAECABEDEiEEMUFREyJCgf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwD5WA4llW79+JC9pt07qj2wFe6uoEIPjRmYcHtNCdsXHgeptlGNgrFlZL5C8EfwxjUfmgDZGxrtA8ORGVeRUTpdcnTp0hC7NlOpBvgexUQOfjXZRLshT7HwYiBGVzlys5ABPNCWBbUAMQIiBTJtobYkREQP/9k="/></svg>
         </video-preview>
@@ -1140,5 +1187,6 @@ I had a Minecraft server called “HeavyCraft” in 2013 when I was 14 y.o. It h
     </div>
 
     <script src="https://youtube.com/iframe_api" async></script>
+    <script type="module" async src="js/skills.js"></script>
   </body>
 </html>
