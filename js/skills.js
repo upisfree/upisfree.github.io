@@ -15,7 +15,7 @@ function onSkillClick() {
   currentSkill = this;
 
   projects.forEach(project => {
-    const clickedSkill = this.textContent;
+    const clickedSkill = this.textContent.replace(/\u00a0/g, ' '); // меняем &nbsp; на обычный пробел
     const projectSkills = project.getAttribute('skills').split(', ');
 
     project.classList.remove('visible', 'hidden');
