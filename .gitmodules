@@ -4,18 +4,12 @@
 [submodule "game/ld45"]
 	path = game/ld45
 	url = https://github.com/upisfree/ld45
-[submodule "game/angry-recruits"]
-	path = game/angry-recruits
-	url = https://github.com/upisfree/angry-recruits
 [submodule "emoji-translator"]
 	path = emoji-translator
 	url = https://github.com/upisfree/emoji-translator
 [submodule "tv"]
 	path = tv
 	url = https://github.com/upisfree/tv
-[submodule "csg"]
-	path = csg
-	url = https://github.com/upisfree/csg
 [submodule "game/ld48"]
 	path = game/ld48
 	url = https://github.com/upisfree/ld48
