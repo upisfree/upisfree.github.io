@@ -1,0 +1,173 @@
+.likes {
+	border: none !important;
+	margin: 0 !important;;
+	padding: 0 !important;;
+}
+
+.sh-main-wrapper {
+	text-align: center;
+}
+.sh-main-item {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	border-radius: 25px;
+	border: none !important;
+	margin: 10px;
+	position: relative;
+	transform: scale(1);
+	transition: all 0.33s !important;
+	vertical-align: top;
+}
+.sh-ico {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: url(icons_v8.png) 0 0 no-repeat;
+	background-size: 1500% 100%;
+	transition: all 0.2s;
+}
+.sh-ico-facebook {background-position: 7.1% 0}
+.sh-ico-vkontakte {background-position: 14.3% 0}
+.sh-ico-twitter {
+	background: url(x.svg) 0 0 no-repeat;
+	background-size: 100% 100%;
+}
+.sh-ico-odnoklassniki {background-position: 64.3% 0}
+.sh-ico-googleplus {background-position: 35.5% 0}
+.sh-ico-share {background-position: 71.3% 0;top: -7px}
+.sh-ico-livejournal {background-position: 43% 0}
+.sh-ico-pinterest {background-position: 28.5% 0}
+.sh-ico-linkedin {background-position: 78.5% 0}
+.sh-ico-instagram {background-position: 85.7% 0}
+.sh-ico-dribbble {background-position: 92.8% 0}
+
+.sh-main-item:hover {
+	transform: scale(1.1);
+}
+.sh-main-item.telegram {
+	background: linear-gradient(180deg, rgba(42,171,238,1) 0%, rgba(34,158,217,1) 100%);
+	background: #229ED9;
+}
+.sh-main-item.facebook {background: #1877F2}
+.sh-main-item.vkontakte {background: #2787F5}
+.sh-main-item.twitter {background: #1dade8}
+.sh-main-item.linkedin {background: #0074b3}
+.sh-main-item.dribbble {background: #e84c88}
+.sh-main-item.instagram {background: url(ig-bg2.png) center center no-repeat;background-size: 100%}
+.sh-main-item-share {width: auto}
+.sh-main-item-share {
+	cursor: pointer;
+	transform: none !important;
+	border: 1px solid #ddd !important;
+	padding: 0 30px 0 7px;
+}
+.sh-main-item-share:hover {
+	border-color: black !important;
+}
+.sh-main-item-share .sh-ico-container {
+	width: 50px;
+	height: 50px;
+	position: relative;
+	display: inline-block;
+}
+.sh-main-item-share .sh-text {
+	display: inline-block;
+	font-size: 18px;
+	position: relative;
+	margin-left: 5px;
+	top: -20px;
+}
+
+.sh-popup {
+	position: absolute;
+	left: -10px;
+	right: -10px;
+	bottom: 100%;
+	padding-bottom: 10px;
+	transform: translate3d(0, -20px, 0);
+	transition: all 0.3s;
+	visibility: hidden;
+	opacity: 0;
+}
+.sh-main-item-share:hover .sh-popup {
+	visibility: visible;
+	opacity: 1;
+	transform: translate3d(0, 0, 0);
+}
+.sh-popup-inner {
+	border-radius: 10px;
+	overflow: hidden;
+	position: relative;
+	-webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+}
+
+.sh-item {
+	display: block;
+	position: relative;
+	text-align: center;
+	background: black;
+}
+.sh-item a {
+	display: block;
+	border: none !important;
+	padding: 10px 5px;
+	color: white !important;
+	font-size: 14px;
+}
+
+.sh-item .sh-ico-placeholder {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 2;
+}
+.sh-item .sh-name {
+	position: relative;
+	z-index: 2;
+}
+.sh-item .sh-cnt {
+	opacity: 0.7;
+	font-size: 0.8em;
+	position: absolute;
+	left: 100%;
+	margin: 3px 0 0 7px;
+}
+
+.sh-item:before {content: '';display: block;position: absolute;left: 0;top: 0;width: 100%;height: 100%;transition: opacity 0.33s;pointer-events: none}
+.sh-item:hover:before {opacity: 0.9}
+.sh-item-telegram:before {background: #2ea5e1}
+.sh-item-facebook:before {background: #3b5997}
+.sh-item-vkontakte:before {background: #4d7198}
+.sh-item-twitter:before {background: #1dade8}
+.sh-item-googleplus:before {background: #cb2125}
+.sh-item-odnoklassniki:before {background: #f2720c}
+.sh-item-livejournal:before {background: #246a99}
+.sh-item-pinterest:before {background: #cb2125}
+
+.sh-main-wrapper .sharer {
+	display: inline-block;
+}
+.sh-main-wrapper .share-circle-hidden {
+	margin-top: -23px;
+}
+.sh-main-wrapper .sharer-wrapper {
+	display:inline-block;
+}
+@media (max-width: 550px) {
+	.sh-main-wrapper .sharer-wrapper {
+		display: block;
+		text-align: center;
+		margin: -10px 0 20px -50px;
+	}
+}
+
+.sh-main-wrapper-title {
+	display: block;
+	text-align: center;
+	padding: 1.5em 0 0.5em 0;
+}
