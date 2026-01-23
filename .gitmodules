@@ -2,7 +2,7 @@
 	path = game/ld45
 	url = https://github.com/upisfree/ld45
 [submodule "emoji-translator"]
-	path = emoji-translator
+	path = artlebedev/emoji-translator
 	url = https://github.com/upisfree/emoji-translator
 [submodule "tv"]
 	path = tv
