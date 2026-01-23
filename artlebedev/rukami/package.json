@@ -1,0 +1,41 @@
+{
+  "name": "rukami",
+  "version": "1.0.0",
+  "description": "Страница «Погружение» на фестивале Rukami",
+  "license": "UNLICENSED",
+  "main": "index.html",
+  "scripts": {
+    "build": "rollup -c && tsc",
+    "dev": "rollup -c -w && tsc & http-server -c-1 -s",
+    "compress-models": "find assets/gltf/ -maxdepth 10 -type f -exec gltfpack -i {} -o {} -cc -mm -kn -km \\;"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artlebedev/rukami.git"
+  },
+  "author": {
+    "name": "Senya Pugach",
+    "email": "upisfree@outlook.com"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-node-resolve": "^10.0.0",
+    "@types/node": "^14.14.9",
+    "http-server": "^0.12.3",
+    "rollup": "^2.33.3",
+    "rollup-plugin-modify": "^3.0.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.29.0",
+    "tslib": "^2.0.3",
+    "typescript": "^4.1.2"
+  },
+  "dependencies": {
+    "@juggle/resize-observer": "^3.2.0",
+    "body-scroll-lock": "^3.1.5",
+    "dat.gui": "^0.7.7",
+    "postprocessing": "^6.18.0",
+    "spatial-controls": "^3.0.3",
+    "three": "^0.122.0",
+    "unmute-ios-audio": "^3.3.0"
+  }
+}

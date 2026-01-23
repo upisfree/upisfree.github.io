@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <title>rukami</title>
+
+    <style>
+@font-face {
+  font-family: ALSDelsaBold;
+  src: url('./assets/fonts/ALS_Delsa_Bold_0.7.otf') format('opentype');
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 4800vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background: #000;
+  font-family: 'ALSDelsaBold', sans-serif;
+}
+
+.transparent {
+  opacity: 0 !important;
+}
+
+.opaque {
+  opacity: 1 !important;
+}
+
+#canvas-container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  transition: opacity 500ms ease-out;
+}
+
+#preloader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0 0;
+  transform: translate3d(-50%, -50%, 0);
+  opacity: 1;
+  transition: opacity 500ms ease-out;
+  pointer-events: none;
+}
+
+#preloader #percentage {
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  color: #fff;
+  text-align: center;
+}
+
+#curtain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  transition: opacity 500ms ease-out;
+  background: rgba(0, 0, 0, 0.65);
+  cursor: pointer;
+}
+
+#start-button {
+  position: fixed;
+  width: 120px;
+  height: 120px;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0 0;
+  transform: translate3d(-50%, -50%, 0);
+  background: radial-gradient(55.64% 73.86% at 69.32% 26.14%, #FFE600 0%, #FC9A07 100%);
+  color: #000;
+  border-radius: 100%;
+  cursor: pointer;
+  transition: opacity 200ms ease-out;
+  transition-property: opacity, background, color, background;
+}
+
+#start-button span {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0 0;
+  transform: translate3d(-50%, -50%, 0);
+  font-size: 22px;
+}
+
+#start-button:hover {
+  color: #fff;
+  background: linear-gradient(134.1deg, #2804EF -27.03%, #D804C3 98.68%);
+}
+
+#sound-button,
+#exit-button {
+  position: fixed;
+  top: 20px;
+  width: 70px;
+  cursor: pointer;
+  transition: opacity 500ms ease-out;
+}
+
+#sound-button:hover,
+#exit-button:hover {
+  filter: invert(1);
+}
+
+#sound-button {
+  right: 20px;
+}
+
+#exit-button {
+  left: 20px;
+  display: none;
+}
+
+#scroll-message {
+  position: fixed;
+  left: 50%;
+  bottom: -20px;
+  opacity: 1;
+  transform: translate3d(-50%, 0, 0);
+  transition: all 600ms ease-in-out;
+  transition-property: opacity, transform;
+  text-align: center;
+}
+
+#scroll-message.hidden {
+  opacity: 0;
+  transform: translate3d(-50%, 3rem, 0);
+}
+
+#scroll-message img {
+  width: 35px;
+}
+
+#scroll-message p {
+  margin: 8px 0 20px 0;
+  font-size: 15px;
+  color: #000;
+}
+
+#scroll-message-image {
+  width: 100px;
+  height: 148px;
+  background-image : url('./assets/mouse.png');
+  animation: scroll-message-animation 0.9s steps(19) infinite;
+  transform: scale(0.4);
+}
+
+@keyframes scroll-message-animation {
+  from { background-position-x: -2px; }
+  to   { background-position-x: -1978px; }
+}
+    </style>
+  </head>
+  <body>
+    <div id="canvas-container" class="transparent"></div>
+
+    <img src="./assets/icons/exit.svg" id="exit-button" class="transparent">
+    <img src="./assets/icons/sound-off.svg" id="sound-button" class="transparent">
+
+    <div id="scroll-message" class="transparent">
+      <div id="scroll-message-image"></div>
+      <!-- <p>листай вниз</p> -->
+    </div>
+
+    <div id="curtain"></div>
+
+    <div id="preloader">
+      <img src="./assets/preloader.gif">
+      <span id="percentage">0%</span>
+    </div>
+
+    <div id="start-button" class="transparent">
+      <span>СТАРТ</span>
+    </div>
+
+    <script src="./build/rukami.min.js"></script>
+    <script>
+function onSoundButtonClick() {
+  if (isSoundPlaying) {
+    isSoundPlaying = false;
+    rukami.suspendAudioContext();
+    soundButton.src = soundButton.src.replace('sound-on', 'sound-off'); // потому что я хз какой будет урл
+  } else {
+    isSoundPlaying = true;
+    rukami.resumeAudioContext();
+    soundButton.src = soundButton.src.replace('sound-off', 'sound-on');      
+  }
+}
+
+function onExitButtonClick() {
+  // alert('exit button clicked');
+}
+
+function onStartButtonClick() {
+  // чтобы во время анимации пропадания не дать кликнуть на кнопку или штору
+  if (isStartClicked || !isSceneReady) {
+    return;
+  }
+
+  isStartClicked = true;
+
+  onSoundButtonClick();
+
+  startButton.classList.add('transparent');
+  curtainElement.classList.add('transparent');
+
+  setTimeout(() => {
+    startButton.style.display = 'none';
+    curtainElement.style.display = 'none';
+    document.body.style.position = 'initial';
+    document.body.style.overflowY = 'auto';
+  }, 500); // 250 * 2 — время анимации два раза на всякий случай
+}
+
+const canvasContainer = document.querySelector('#canvas-container');
+const preloaderContainer = document.querySelector('#preloader');
+const percentageTextElement = document.querySelector('#preloader #percentage');
+const soundButton = document.querySelector('#sound-button');
+soundButton.addEventListener('pointerup', onSoundButtonClick);
+const exitButton = document.querySelector('#exit-button');
+exitButton.addEventListener('pointerup', onExitButtonClick);
+const scrollMessageElement = document.querySelector('#scroll-message');
+const curtainElement = document.querySelector('#curtain');
+const startButton = document.querySelector('#start-button');
+startButton.addEventListener('pointerup', onStartButtonClick);
+curtainElement.addEventListener('pointerup', onStartButtonClick);
+
+let isSoundPlaying = false;
+let isStartClicked = false;
+let isSceneReady = false;
+document.body.style.position = 'fixed';
+
+const rukami = new Rukami({
+  assetsPath: './assets/',
+  
+  canvasContainer: canvasContainer,
+  scrollContainer: window,
+  scrollMessageElement: scrollMessageElement,
+  
+  /**
+   * Вызывается в процессе загрузки
+   *
+   * @param {number} percentage — процент загрузки и распаковки всех ассетов сцены (моделей и аудио), от 0 до 1.
+   */
+  onProgress: (percentage) => {
+    percentageTextElement.textContent = Math.round(percentage * 100) + '%';
+  },
+  
+  /**
+   * Вызывается в конце скролла.
+   */
+  onScrollEnd: () => {
+    console.log('onScrollEnd');
+    location.reload();
+  },
+
+  /**
+   * Вызывается после ответа на вопрос.
+   *
+   * @param {number} questionIndex - номер вопроса, начинается с 0
+   * @param {string} question - вопрос
+   * @param {string} answer - ответ на вопрос
+   */
+  onAnswer: (questionIndex, question, answer) => {
+    console.log(questionIndex, question, answer);
+  },
+
+  /**
+   * Вызывается в начале инициализации класса Руками, до начала загрузки моделей и инициализации всего.
+   */
+  afterInitStart: () => {
+    console.log('afterInitStart');
+  },
+
+  /**
+   * Вызывается после загрузки всех ассетов и инициализации всех систем.
+   */  
+  afterSceneLoaded: () => {
+    preloaderContainer.classList.add('transparent');
+    canvasContainer.classList.add('opaque');
+    soundButton.classList.add('opaque');
+    exitButton.classList.add('opaque');
+    scrollMessageElement.classList.remove('transparent');
+    startButton.classList.remove('transparent');
+
+    isSceneReady = true;
+
+    setTimeout(() => {
+      preloaderContainer.classList.add('hidden');
+    }, 500); // 250 * 2 — время анимации два раза на всякий случай
+  }
+});
+
+rukami.load();
+    </script>
+  </body>
+</html>
