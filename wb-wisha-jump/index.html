@@ -93,6 +93,52 @@ body {
 		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
 <link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
 
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#fbe4fd">
+<style>
+/* Safari на iOS 26 не смотрит на theme-color: панели красит по фону
+   страницы и элементов у краёв экрана (холст игры). Поэтому их фон — как
+   фон видео (холст игра всё равно полностью закрашивает). */
+html, body, #canvas { background-color: #fbe4fd; }
+#status { background-color: #fbe4fd !important; }
+#status-splash { display: none !important; }
+#loading-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+#status-progress { z-index: 1; }
+</style>
+<script>
+// Экран загрузки: вместо картинки — видео на весь экран, по кругу.
+// Пока грузится — фон страницы и панели Safari розовые, как фон видео.
+// Когда игра загрузилась (Godot удаляет #status), видео останавливается,
+// а фон и панели становятся голубыми, как небо в игре.
+function setPageColor(c) {
+	document.documentElement.style.backgroundColor = c;
+	document.body.style.backgroundColor = c;
+	var canvas = document.getElementById("canvas");
+	if (canvas) canvas.style.backgroundColor = c;
+	document.querySelector('meta[name="theme-color"]').setAttribute("content", c);
+}
+document.addEventListener("DOMContentLoaded", function () {
+	var status = document.getElementById("status");
+	if (!status) return;
+	var v = document.createElement("video");
+	v.id = "loading-video";
+	v.src = "loading.mp4";
+	v.autoplay = true; v.muted = true; v.loop = true; v.playsInline = true;
+	v.setAttribute("playsinline", ""); v.setAttribute("muted", "");
+	status.insertBefore(v, status.firstChild);
+	v.play().catch(function () {});
+	// Godot удаляет #status со страницы, когда игра загрузилась.
+	var obs = new MutationObserver(function () {
+		if (!document.body.contains(status)) {
+			v.pause();
+			setPageColor("#b7deff");
+			obs.disconnect();
+		}
+	});
+	obs.observe(document.body, { childList: true, subtree: true });
+});
+</script>
+
 	</head>
 	<body>
 		<canvas id="canvas">
